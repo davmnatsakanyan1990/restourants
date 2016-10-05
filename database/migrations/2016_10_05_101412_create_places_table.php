@@ -18,6 +18,8 @@ class CreatePlacesTable extends Migration
             $table->string('name');
             $table->string('intro');
             $table->string('address');
+            $table->string('lat');
+            $table->string('lon');
             $table->string('site');
             $table->integer('price_from');
             $table->integer('price_to');

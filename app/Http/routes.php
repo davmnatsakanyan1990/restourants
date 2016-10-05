@@ -21,6 +21,4 @@ Route::get('/current', function () {
 
 Route::auth();
 
-Route::get('test', function(){
-    eval ('echo "dsfddsfdfsdfdsf \n fdsdf";');
-});
+Route::get('home/index', 'HomeController@index');

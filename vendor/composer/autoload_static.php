@@ -267,6 +267,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
     public static $classMap = array (
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_101412_create_places_table.php',
+        'CreateServicesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_125448_create_services_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -772,6 +773,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'SebastianBergmann\\RecursionContext\\Exception' => __DIR__ . '/..' . '/sebastian/recursion-context/src/Exception.php',
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'ServiceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ServiceTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
     );
