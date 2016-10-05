@@ -1,0 +1,373 @@
+@mainColor:#3d3f52;
+@secondColor:white;
+
+.ban {
+  width: 100%;
+  height: 148px;
+  position: absolute;
+  background: rebeccapurple;
+  top: -148px;
+  visibility: hidden;
+}
+
+button{
+  &:focus{
+    outline: none;
+  }
+}
+.starColor{
+  color:#ffc200;
+}
+.starGrey{
+  color: #d9dadf;
+}
+.margin15{
+  margin-top: 15px;
+}
+.font16{
+  font-size: 16px;
+}
+.with100{
+  width: 100%;
+}
+.marginR10{
+  margin-right: 10px;
+}
+.writeComment{
+  background-color: @mainColor;
+  color: white;
+  font-size: 16px;
+  border: 1px solid @mainColor;
+  font-weight: 400;
+  padding: 5px;
+  min-width: 80px;
+}
+.doubleButtons{
+  button{
+    font-size: 14px;
+    &:first-child{
+      margin-right: 10px;
+      background-color: white;
+      color: @mainColor;
+      transition: all 0.3s;
+      &:hover{
+        background-color: @mainColor;
+        color: white;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+.sharesPopup{
+  p{
+    &::first-letter {
+      font-size: 200%;
+      color: @mainColor;
+    }
+  }
+  img{
+    width: 100%;
+    height: auto;
+  }
+  i{
+    font-size:  20px;
+    margin-right: 10px;
+  }
+}
+
+.navbar-default {
+  .navbar-nav {
+    > .active {
+      > a {
+        color: white !important;
+        background: rgba(52, 54, 74, 0.95) !important;
+      }
+    }
+    a{
+      color: white !important;
+    }
+  }
+}
+.restPageContainer{
+  width: 100%;
+  height: 150px;
+  position: relative;
+  .pageContainer{
+    margin: 30px;
+    position: absolute;
+    top: -177px;
+    .containerTop{
+      padding: 30px;
+      border-bottom: 1px solid #efefef;
+      background-color: white;
+      &:after{
+        content: '';
+        display: table;
+        clear: both;
+      }
+      .titlePart{
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+      .positioningCall{
+        position: relative;
+        width: 200px;
+        float: left;
+        .numberInputPart{
+          background-color: white;
+          padding: 7px;
+          text-align: center;
+          color: @mainColor;
+          border: 1px solid;
+          cursor: pointer;
+          &:hover{
+            background-color: @mainColor;
+            color: white;
+
+          }
+        }
+        .dropMenu{
+          margin-top: 2px;
+          input{
+            width: 100%;
+            background-color: white;
+            color: @mainColor;
+            border: 1px solid @mainColor;
+            outline: 0;
+          }
+        }
+      }
+
+      .textToday{
+        float: left;
+        margin-left: 20px;
+        line-height: 35px;
+        font-size: 14px;
+      }
+      .hours{
+        float: left;
+        height: 36px;
+        margin-left: 20px;
+        outline: none;
+      }
+      .rating{
+        float: left;
+        line-height: 35px;
+        margin-left: 20px;
+        .lead{
+          margin: 0;
+          line-height: 35px;
+        }
+      }
+
+    }
+    .containerContent{
+      position: relative;
+      .containerPart{
+        padding: 30px;
+        &:first-child{
+          width: 35%;
+        }
+        &:last-child{
+          width: 65%;
+          padding-left: 0;
+          padding-right: 0;
+          border-left: 1px solid #efefef;
+        }
+        .moreInfo{
+          margin-top: 20px;
+          .introTitle{
+            font-weight: 700;
+          }
+        }
+
+        .mapPartTitle{
+          padding:0 0 20px 20px;
+          border-bottom: 1px solid #efefef;
+        }
+        .mapPartMap{
+          padding: 20px 20px 0 20px;
+          .map{
+            border: 1px solid #efefef;
+          }
+        }
+        .mapPartContent{
+          padding: 20px;
+          .moreInfoAddress{
+            margin-bottom: 15px;
+            .introTitle{
+              font-weight: 700;
+              margin-right: 20px;
+            }
+            .introContent{
+            }
+          }
+        }
+      }
+      .container1{
+        background-color: white;
+      }
+      .container3{
+        .fillRestMenu{
+          width: 100%;
+          height: auto;
+          background-color: #efefef;
+          margin-top: 10px;
+          border: 1px solid #efefef;
+          padding: 20px;
+          .testyFood{
+            width: 250px;
+            height: 250px;
+            overflow: auto;
+            border: 1px solid #797979;
+            margin-right: 20px;
+            padding: 20px;
+            background-color: white;
+            cursor: pointer;
+            .foodTitle{
+              font-size: 16px;
+              font-weight: 700;
+              margin-bottom: 10px;
+              color: #3d3f52;
+            }
+            .foodDescription{
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+            .foodPrice{
+              color: #383547;
+              font-weight: 800;
+              font-size: 18px;
+            }
+          }
+        }
+        .chooseRestMenu{
+          border: 1px solid #797979;
+          min-width: 80px;
+          text-align: center;
+          font-size: 14px;
+          height: 32px;
+          background-color: white;
+          transition: 0.3s;
+          outline: none;
+          &:hover{
+            background-color: @mainColor;
+            color: @secondColor;
+            border: 1px solid @mainColor;
+            transition: 0.3s;
+          }
+          &:focus{
+            outline: none;
+          }
+        }
+
+      }
+      .container4{
+        .specAllInfo{
+          margin: 0 15px 15px 0;
+          img{
+            width: 200px;
+            height: auto;
+          }
+          .SpecInfo{
+            div{
+              margin-bottom: 5px;
+            }
+            margin-left: 10px;
+
+            .specialistName{
+              font-weight: 700;
+              margin-bottom: 5px;
+              font-size: 16px;
+              color: @mainColor;
+            }
+            .specialistProf{
+              font-size: 14px;
+              font-weight: 600;
+              color: #3d3f52;
+            }
+            .specialistInfo{}
+          }
+        }
+      }
+      .container5{
+        .writeContent{
+          height: 160px;
+          overflow: hidden;
+          transition: 0.3s;
+          &.hideWriteContent{
+            height: 0;
+            transition: 0.3s;
+          }
+          textarea{
+            min-width: 400px;
+            height: 100px;
+            resize: none;
+            padding: 10px;
+            &:focus{
+              outline: none;
+            }
+          }
+          button{
+
+          }
+        }
+        .commentContent{
+          border-top: 1px solid #efefef;
+          padding: 25px 0;
+          .commentTopPart{
+            margin-bottom: 5px;
+            .name{
+              font-size: 16px;
+              font-weight: 700;
+            }
+            .rate{}
+            .comment{}
+          }
+        }
+        .bottomPart{
+          border-top: 1px solid #efefef;
+          padding: 10px 0 0 0;
+          button{
+            font-size: 14px;
+            padding: 5px;
+            width: 200px;
+          }
+        }
+      }
+      .pages{
+        background-color: white;
+        margin-top: 10px;
+        padding: 20px;
+        &:after{
+          content: '';
+          display: table;
+          clear: both;
+        }
+        .containerTitle{
+          font-size: 18px;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+        .containerContent{
+          display: table;
+          float: left;
+          margin: 10px 15px 0 0;
+          &:last-child{
+            margin-right: 0;
+          }
+          .shareItem{
+            width: 250px;
+            height: 100px;
+            text-align: center;
+            border: 2px dashed #797979;
+            display: table-cell;
+            vertical-align: middle;
+            cursor: pointer;
+          }
+        }
+
+      }
+    }
+  }
+}
