@@ -14,6 +14,13 @@
 Route::get('/home', function () {
     return view('home');
 });
+
 Route::get('/current', function () {
     return view('current');
+});
+
+Route::auth();
+
+Route::get('test', function(){
+    eval ('echo "dsfddsfdfsdfdsf \n fdsdf";');
 });
