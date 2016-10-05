@@ -22,6 +22,7 @@
     <script src="../ng/directive/scroll.js"></script>
     <script src="../lib/star/star.js"></script>
     <script src="../js/animateMenu.js"></script>
+    <script src="../js/slider2.js"></script>
 
 </head>
 <body ng-app="myApp" ng-controller="rootController">
@@ -356,11 +357,65 @@
                 </div>
                 <div class="container6 pages parallax">
                     <div class="containerTitle capitalize">visitor photos</div>
-                    <div class="containerContent">
-                        
+                    <div class="containerContent with100">
+                        <div class=""><!--slider-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="Carousel" class="carus2 carousel slide">
+                                        <!-- Carousel items -->
+                                        <div class="carousel-inner">
+
+                                            <div class="item active">
+                                                <div class="row">
+                                                    <div class="col-md-2" ng-repeat="image in currentRestaurant.images[0] track by $index">
+                                                        <a class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                                    </div>
+                                                </div><!--.row-->
+                                            </div><!--.item-->
+                                            <div class="item" ng-repeat="img in currentRestaurant.images track by $index">
+                                                <div class="row">
+                                                    <div class="col-md-2" ng-repeat="image in img track by $index">
+                                                        <a  class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                                    </div>
+
+                                                </div><!--.row-->
+                                            </div><!--.item-->
+                                        </div><!--.carousel-inner-->
+                                        <a data-slide="prev" href="#Carousel" class="carousel-control left cont" style="left: -12px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px; margin-top: 90px;">‹</a>
+                                        <a data-slide="next" href="#Carousel" class="carousel-control right cont" style="right: -12px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px; margin-top: 90px;">›</a>
+                                    </div><!--.Carousel-->
+                                </div>
+                            </div>
+                        </div><!--.container-->
                     </div>
                 </div>
             </div>
+            <footer>
+                <div class="footerText">
+                    <div class="footerSec">
+                        <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location</div>
+                        <div class="footerText" data-toggle="modal" data-target="#myModalMaster">add master</div>
+                        <div class="footerText">for organization</div>
+                    </div>
+                    <div class="footerSec">
+                        <div class="footerText">contacts</div>
+                        <div class="footerText">about project</div>
+                        <div class="footerText">Noticed a Mistake - let us</div>
+                    </div>
+                </div>
+                <div class="socialIco">
+                    <div class="fb">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </div>
+                    <div class="twit">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </div>
+                    <div class="google">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+            </footer>
         </div>
     </div>
 

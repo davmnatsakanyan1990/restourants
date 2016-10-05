@@ -75,7 +75,7 @@ button:focus {
   position: relative;
 }
 .restPageContainer .pageContainer {
-  margin: 30px;
+  margin: 30px 30px 0 30px;
   position: absolute;
   top: -177px;
 }
@@ -299,6 +299,10 @@ button:focus {
   padding: 5px;
   width: 200px;
 }
+.restPageContainer .pageContainer .containerContent .container6 img {
+  width: 200px;
+  height: 200px;
+}
 .restPageContainer .pageContainer .containerContent .pages {
   background-color: white;
   margin-top: 10px;
@@ -330,4 +334,74 @@ button:focus {
   display: table-cell;
   vertical-align: middle;
   cursor: pointer;
+}
+footer {
+  height: auto;
+  width: 100%;
+  background-color: #3d3f52;
+  position: relative;
+  margin-top: 20px;
+  color: #d2d1d1;
+  padding: 20px;
+}
+footer .footerText:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+footer .footerText .footerSec {
+  float: left;
+  margin-right: 20px;
+}
+footer .footerText .footerSec .footerText {
+  padding-bottom: 5px;
+  text-transform: capitalize;
+}
+footer .footerText .footerSec .footerText:hover {
+  color: white;
+  cursor: pointer;
+}
+footer .socialIco {
+  margin: 10px auto 0 auto;
+  width: 110px;
+}
+footer .socialIco:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+footer .socialIco div {
+  float: left;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 100%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+footer .socialIco div.fb {
+  background-color: #3b5998;
+}
+footer .socialIco div.fb:hover {
+  background-color: white;
+  color: #3b5998;
+}
+footer .socialIco div.google {
+  background-color: #db4437;
+}
+footer .socialIco div.google:hover {
+  background-color: white;
+  color: #db4437;
+}
+footer .socialIco div.twit {
+  background-color: #00aced;
+}
+footer .socialIco div.twit:hover {
+  background-color: white;
+  color: #00aced;
+}
+footer .socialIco div:last-child {
+  margin: 0;
 }

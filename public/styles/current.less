@@ -93,7 +93,7 @@ button{
   height: 150px;
   position: relative;
   .pageContainer{
-    margin: 30px;
+    margin: 30px 30px 0 30px;
     position: absolute;
     top: -177px;
     .containerTop{
@@ -335,6 +335,13 @@ button{
           }
         }
       }
+
+      .container6{
+        img{
+          width: 200px;
+          height: 200px;
+        }
+      }
       .pages{
         background-color: white;
         margin-top: 10px;
@@ -370,4 +377,79 @@ button{
       }
     }
   }
+}
+
+footer{
+  height: auto;
+  width: 100%;
+  background-color: @mainColor;
+  position: relative;
+  margin-top: 20px;
+  color: #d2d1d1;
+  padding: 20px;
+
+  .footerText{
+    &:after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .footerSec{
+      float: left;
+      margin-right: 20px;
+      .footerText{
+        padding-bottom: 5px;
+        text-transform: capitalize;
+        &:hover{
+          color: @secondColor;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .socialIco{
+    margin: 10px auto 0 auto;
+    width: 110px;
+    &:after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+    div{
+      float: left;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 100%;
+      margin-right: 10px;
+      cursor: pointer;
+      &.fb{
+        background-color: #3b5998;
+        &:hover{
+          background-color: @secondColor;
+          color: #3b5998;
+        }
+      }
+      &.google{
+        background-color: #db4437;
+        &:hover{
+          background-color: @secondColor;
+          color: #db4437;
+        }
+      }
+      &.twit{
+        background-color: #00aced;
+        &:hover{
+          background-color: @secondColor;
+          color: #00aced;
+        }
+      }
+      &:last-child{
+        margin: 0;
+      }
+    }
+  }
+
 }

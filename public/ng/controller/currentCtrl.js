@@ -116,6 +116,40 @@ app.controller("currentController", function($scope, $http, $document, $window, 
                 comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid amet consectetur cumque deleniti in maiores nesciunt praesentium rerum voluptas.',
                 date: '22/05/2016'
             }
+        ],
+        images: [
+            [
+                '../images/restaurantImages/rest1.jpg',
+                '../images/restaurantImages/rest2.jpg',
+                '../images/restaurantImages/rest3.jpg',
+                '../images/restaurantImages/rest4.jpg',
+                '../images/restaurantImages/rest5.jpg',
+                '../images/restaurantImages/rest1.jpg'
+            ],
+            [
+                '../images/restaurantImages/rest2.jpg',
+                '../images/restaurantImages/rest3.jpg',
+                '../images/restaurantImages/rest4.jpg',
+                '../images/restaurantImages/rest5.jpg',
+                '../images/restaurantImages/rest1.jpg',
+                '../images/restaurantImages/rest2.jpg'
+            ],
+            [
+                '../images/restaurantImages/rest3.jpg',
+                '../images/restaurantImages/rest4.jpg',
+                '../images/restaurantImages/rest5.jpg',
+                '../images/restaurantImages/rest1.jpg',
+                '../images/restaurantImages/rest2.jpg',
+                '../images/restaurantImages/rest3.jpg'
+            ],
+            [
+                '../images/restaurantImages/rest4.jpg',
+                '../images/restaurantImages/rest5.jpg',
+                '../images/restaurantImages/rest5.jpg',
+                '../images/restaurantImages/rest1.jpg',
+                '../images/restaurantImages/rest2.jpg',
+                '../images/restaurantImages/rest3.jpg'
+            ]
         ]
         
     };
