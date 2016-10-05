@@ -15,6 +15,10 @@
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/lib/angular.min.js"></script>
     <script src="/ng/app.js"></script>
+
+    {{--services--}}
+    <script src="../ng/service/services.js"></script>
+
     <script src="/ng/controller/RootCtrl.js"></script>
     <script src="/ng/directive/scroll.js"></script>
 

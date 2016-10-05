@@ -13,13 +13,24 @@
     <link rel="stylesheet" type="text/css" href="../styles/customChackbox.css">
     <link rel="stylesheet" type="text/css" href="../lib/star/star.css">
 
+    {{--libraries--}}
     <script src="../lib/jquery-3.1.0.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../lib/angular.min.js"></script>
+
     <script src="../ng/app.js"></script>
+
+    {{--services--}}
+    <script src="../ng/service/services.js"></script>
+
+    {{--controllers--}}
     <script src="../ng/controller/RootCtrl.js"></script>
     <script src="../ng/controller/currentCtrl.js"></script>
+
+    {{--directives--}}
     <script src="../ng/directive/scroll.js"></script>
+
+    {{--other js files--}}
     <script src="../lib/star/star.js"></script>
     <script src="../js/animateMenu.js"></script>
     <script src="../js/slider2.js"></script>
