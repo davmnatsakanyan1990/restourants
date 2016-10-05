@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/styles/ui.css" type="text/css" />
     <link rel="stylesheet" href="/styles/styleL.css" type="text/css" />
     <link rel="stylesheet" href="/styles/slider.css" type="text/css" />
-    <link rel="stylesheet" type="/text/css" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/icons/font-awesome-4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/c/ss" href="/styles/customChackbox.css">
 
@@ -21,7 +21,7 @@
 </head>
 <body ng-app="myApp" ng-controller="rootController">
 
-<div class="navig/ation" ng-class="{'close': !animateTopMenuVar && !search}">
+<div class="navigation" ng-class="{'close': !animateTopMenuVar && !search}">
     <div class="navIco">
         <img src="/images/logo.png">
     </div>
