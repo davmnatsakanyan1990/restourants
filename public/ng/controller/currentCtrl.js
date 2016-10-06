@@ -17,6 +17,8 @@ app.controller("currentController", function($scope, $http, $document, $window, 
 
     });
 
+
+
     RestaurantService.getRestaurantData()
         .then(function (response) {
             $scope.myWelcome = response;
