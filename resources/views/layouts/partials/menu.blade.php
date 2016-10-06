@@ -8,7 +8,7 @@
         <span></span>
     </div>
     <div class="menuLeft">
-        <div class="nav capitalize pointer" ng-click="toggleMenu('home')"><a class="pointer" href="#home">Home <i class="fa fa-angle-down" aria-hidden="true"></i> </a></div>
+        <div class="nav capitalize pointer"><a class="pointer" href="#home">Home {{--<i class="fa fa-angle-down" aria-hidden="true"></i>--}} </a></div>
         <div class="nav capitalize pointer" ng-click="toggleMenu('place')"><a class="pointer">Place <i class="fa fa-angle-down" aria-hidden="true"></i></a></div>
         <div class="nav capitalize">
             <div class="searchIcon">
