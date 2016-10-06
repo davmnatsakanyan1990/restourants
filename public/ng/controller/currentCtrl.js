@@ -1,4 +1,4 @@
-app.controller("currentController", function($scope, $http, $document, $window, $timeout) {
+app.controller("currentController", function($scope, $http, $document, $window, $timeout, RestaurantService) {
 
     $scope.openPhoneInput = false;
     $scope.CurrentMenu = '';
@@ -16,6 +16,12 @@ app.controller("currentController", function($scope, $http, $document, $window, 
         }
 
     });
+
+    RestaurantService.getRestaurantData()
+        .then(function (response) {
+            $scope.myWelcome = response;
+            console.log($scope.myWelcome);
+        });
 
     $scope.currentRestaurant = {
         mobileNumber: '+(222) 1212145454',

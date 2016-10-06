@@ -1,5 +1,5 @@
 
-app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout) {
+app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout, RestaurantService) {
 
 
     $scope.custom = false;
@@ -8,6 +8,13 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout)
     $scope.animateSecondMenuVar = false;
     $scope.activePage = 'page1';
     $scope.FixedRestMenu = false;
+
+
+    RestaurantService.getRestaurantsList()
+        .then(function (response) {
+         $scope.myWelcome = response;
+         console.log($scope.myWelcome);
+         });
 
 
     // add more restaurant in list

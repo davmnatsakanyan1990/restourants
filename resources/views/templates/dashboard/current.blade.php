@@ -1,92 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="UTF-8">
-    <title>Project</title>
-    <link rel="stylesheet" href="../styles/ui.css" type="text/css" />
-    <link rel="stylesheet" href="../styles/current.css" type="text/css" />
-    <link rel="stylesheet" href="../styles/styleL.css" type="text/css" />
-    <link rel="stylesheet" href="../styles/slider.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../lib/icons/font-awesome-4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../styles/customChackbox.css">
-    <link rel="stylesheet" type="text/css" href="../lib/star/star.css">
 
-    <script src="../lib/jquery-3.1.0.min.js"></script>
-    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../lib/angular.min.js"></script>
-    <script src="../ng/app.js"></script>
-    <script src="../ng/controller/RootCtrl.js"></script>
-    <script src="../ng/controller/currentCtrl.js"></script>
-    <script src="../ng/directive/scroll.js"></script>
-    <script src="../lib/star/star.js"></script>
-    <script src="../js/animateMenu.js"></script>
-    <script src="../js/slider2.js"></script>
+    <div ng-controller="currentController">
 
-</head>
-<body ng-app="myApp" ng-controller="rootController">
-
-<div ng-controller="currentController">
-    <div class="navigation" ng-class="{'close': !animateTopMenuVar && !search}">
-        <div class="navIco">
-            <img src="../images/logo.png">
-        </div>
-        <div class="mobile-menu-icon" ng-click="toggleTopMenu()" ng-class="{'animate': animateTopMenuVar}">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <div class="menuLeft">
-            <div class="nav capitalize" ng-click="toggleMenu('home')"><a href="#">Home <i class="fa fa-angle-down" aria-hidden="true"></i> </a></div>
-            <div class="nav capitalize" ng-click="toggleMenu('place')"><a href="#">Place <i class="fa fa-angle-down" aria-hidden="true"></i></a></div>
-            <!--<div class="nav capitalize" ng-click="showSearch()" ng-if="search"><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a></div>-->
-            <div class="nav capitalize" ng-click="">
-                <div class="searchIcon">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <input class="capitalize" type="text" placeholder="search"/>
-                </div>
-            </div>
-        </div>
-
-        <div class="nav capitalize menuRight" data-toggle="modal" data-target="#myModalLogin"><a href="#">Log In</a></div>
-
-        <div class="dropdownMenu" ng-show="custom" ng-class="{'secondPart': !first}">
-            <div class="dropdownInner" ng-class="first ? 'first' : 'second'">
-                <div class="dropdownInnerText" ng-if="first" ng-repeat="category in categories">
-                    <div class="dropdownTitle" ng-bind="category.title"></div>
-                    <div class="dropdownText" ng-bind="category.text"></div>
-                </div>
-                <div class="topButtons" ng-if="!first">
-                    <button class="filterButtons mergedButtons">Country1</button>
-                    <button class="filterButtons mergedButtons">Country1</button>
-                    <button class="filterButtons mergedButtons">Country1</button>
-                    <button class="filterButtons mergedButtons">Country1</button>
-
-                </div>
-                <div class="dropdownInnerText2" ng-if="!first">
-                    <div class="dropdownText" ng-if="places.length>0">
-                        <div  ng-repeat="place in places[0] track by $index" ng-bind="place">
-                        </div>
-                    </div>
-                    <div class="dropdownText" ng-if="places.length>1">
-                        <div ng-repeat="place in places[1] track by $index" ng-bind="place"></div>
-                    </div>
-                    <div class="dropdownText" ng-if="places.length>2">
-                        <div ng-repeat="place in places[2] track by $index" ng-bind="place"></div>
-                    </div>
-                    <div class="dropdownText" ng-if="places.length>3">
-                        <div ng-repeat="place in places[3] track by $index" ng-bind="place"></div>
-                    </div>
-                    <div class="dropdownText" ng-if="places.length>4">
-                        <div ng-repeat="place in places[4] track by $index" ng-bind="place"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
@@ -198,7 +112,7 @@
                         <div class="mapPartMap" >
                             <div class="map" id="map" style="width:100%;height:250px"></div>
                         </div>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkB3G-qzliKWCg-x_LYj_BlP5wNRvg2BA&libraries=places" async defer></script>
+
                         <div class="mapPartContent">
                             <div class="moreInfoAddress clearElement">
                                 <div class="introTitle capitalize elementLeft">address:</div>
@@ -419,9 +333,6 @@
         </div>
     </div>
 
-
-
-
     <!--show shares popup-->
     <div class="modal fade" id="myModalPop" role="dialog">
         <div class="modal-dialog">
@@ -470,15 +381,4 @@
     </div>
     <!---->
 
-
 </div>
-
-
-
-
-
-
-
-
-</body>
-</html>

@@ -14,6 +14,18 @@ html body a {
   text-decoration: none;
   color: #a3a4ae;
 }
+html body a:hover {
+  text-decoration: none;
+  color: #a3a4ae;
+}
+html body a:active {
+  text-decoration: none;
+  color: #a3a4ae;
+}
+html body a:focus {
+  text-decoration: none;
+  color: #a3a4ae;
+}
 html body button {
   display: block;
 }
@@ -45,6 +57,9 @@ html body .elementRight {
 html body .mobileNumberPart {
   line-height: 45px;
   color: white;
+}
+html body .pointer {
+  cursor: pointer;
 }
 html body .greyButton {
   color: white;

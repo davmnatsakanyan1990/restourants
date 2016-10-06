@@ -14,7 +14,9 @@ class HomeController extends Controller
     }
     
     public function index(){
+        dd('dd');
         $places = Place::all();
         return $places->toArray();
     }
+
 }
