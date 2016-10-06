@@ -77,6 +77,8 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         array (
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\' => 16,
         ),
         'C' => 
         array (
@@ -208,6 +210,14 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+        ),
         'ClassPreloader\\' => 
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
@@ -250,9 +260,25 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         ),
         'D' => 
         array (
+            'Doctrine\\DBAL\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/dbal/lib',
+            ),
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
             'Doctrine\\Common\\Inflector\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
+            ),
+            'Doctrine\\Common\\Collections\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+            'Doctrine\\Common\\Annotations\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
             ),
         ),
         'C' => 
@@ -265,8 +291,13 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
     );
 
     public static $classMap = array (
+        'CommentTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentTableSeeder.php',
+        'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_073445_create_comments_table.php',
+        'CreateImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_144400_create_images_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreatePlaceServicesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_133003_create_place_services_table.php',
         'CreatePlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_101412_create_places_table.php',
+        'CreateRatesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_102606_create_rates_table.php',
         'CreateServicesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_125448_create_services_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
@@ -342,6 +373,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+        'ImageTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ImageTableSeeder.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
         'PHPUnit_Extensions_PhptTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
@@ -737,6 +769,9 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PlaceServiceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/PlaceServiceTableSeeder.php',
+        'PlaceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/PlaceTableSeeder.php',
+        'RateTableSeeder' => __DIR__ . '/../..' . '/database/seeds/RateTableSeeder.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
         'SebastianBergmann\\Comparator\\Comparator' => __DIR__ . '/..' . '/sebastian/comparator/src/Comparator.php',
         'SebastianBergmann\\Comparator\\ComparisonFailure' => __DIR__ . '/..' . '/sebastian/comparator/src/ComparisonFailure.php',
@@ -776,6 +811,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'ServiceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ServiceTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'UserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

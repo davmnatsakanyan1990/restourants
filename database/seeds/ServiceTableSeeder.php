@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Service;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ServiceTableSeeder extends Seeder
 {
@@ -12,7 +12,7 @@ class ServiceTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table()->insert([
+        DB::table('services')->insert([
             ['name' => 'service 1'],
             ['name' => 'service 2'],
             ['name' => 'service 3'],

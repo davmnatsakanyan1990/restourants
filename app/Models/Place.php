@@ -20,4 +20,19 @@ class Place extends Model
         'wrk_hrs_to',
         
     ];
+    
+    public function services(){
+        return $this->belongsToMany(Service::class, 'place_services');
+    }
+
+    public function images(){
+        return $this->morphMany('App\Models\Image', 'imageable');
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function rates(){
+        return $this->hasMany(Rate::class);
+    }
 }
