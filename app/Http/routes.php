@@ -11,12 +11,23 @@
 |
 */
 
-Route::get('/home', function () {
+/*Route::get('/home', function () {
     return view('home');
 });
 
 Route::get('/current', function () {
     return view('current');
+});
+*/
+Route::get('/', function () {
+    return view('layouts.main');
+});
+
+// Templates
+Route::group(['prefix' => 'templates'], function () {
+    Route::get('{folder}/{page}', function ($folder, $page) {
+        return view('templates.' . $folder . '.' . $page)->render();
+    });
 });
 
 Route::auth();

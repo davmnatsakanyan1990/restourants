@@ -7,6 +7,7 @@
     clear: both;
   }
 }
+
 html{
   height: 100vh;
   body{
@@ -15,6 +16,18 @@ html{
     a{
       text-decoration: none;
       color: #a3a4ae;
+      &:hover{
+        text-decoration: none;
+        color: #a3a4ae;
+      }
+      &:active{
+        text-decoration: none;
+        color: #a3a4ae;
+      }
+      &:focus{
+        text-decoration: none;
+        color: #a3a4ae;
+      }
     }
     button{
       display: block;
@@ -48,6 +61,9 @@ html{
     .mobileNumberPart{
       line-height: 45px;
       color: white;
+    }
+    .pointer{
+      cursor: pointer;
     }
     .greyButton{
       color: @secondColor;

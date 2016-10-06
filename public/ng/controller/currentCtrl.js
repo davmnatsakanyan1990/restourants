@@ -18,10 +18,10 @@ app.controller("currentController", function($scope, $http, $document, $window, 
     });
 
     RestaurantService.getRestaurantData()
-        /*.then(function (response) {
+        .then(function (response) {
             $scope.myWelcome = response;
             console.log($scope.myWelcome);
-        });*/
+        });
 
     $scope.currentRestaurant = {
         mobileNumber: '+(222) 1212145454',
