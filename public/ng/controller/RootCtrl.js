@@ -40,7 +40,7 @@ app.controller("rootController", function($scope, $http, $document, $window, $ti
         $scope.search = false
     };
 
-    if(window.innerWidth <=770)
+    if(window.innerWidth <=767)
     {
         $scope.search = false
     };

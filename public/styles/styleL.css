@@ -893,7 +893,7 @@ html body .capitalize {
 html body .uppercase {
   text-transform: uppercase;
 }
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 767px) {
   html body .searchMenuPart {
     width: 100% !important;
   }

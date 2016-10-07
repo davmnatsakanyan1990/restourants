@@ -2,7 +2,7 @@
     <div ng-controller="currentController">
 
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
-        <div class="container-fluid animateSecond" ng-class="{'close': !animateSecMenuVar}">
+        <div class="container-fluid animateSecond"  ng-if="search || animateSecMenuVar">
             <ul class="nav navbar-nav">
                 <li ng-class="{'active': activePage=='page1'}" ng-click="activePage='page1'"><a class="pointer">Description</a></li>
                 <li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a class="pointer">Shares</a></li>
@@ -13,7 +13,7 @@
             </ul>
             <div class="elementRight mobileNumberPart" ng-bind="currentRestaurant.mobileNumber">+454 5454 5454 5454 54</div>
         </div>
-        <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}">
+        <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}" ng-if="!search">
             <span></span>
             <span></span>
             <span></span>
