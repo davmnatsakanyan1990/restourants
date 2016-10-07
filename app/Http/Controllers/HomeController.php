@@ -14,6 +14,11 @@ class HomeController extends Controller
     }
     
     public function index(){
+
+//        format intro, create explane and add to array
+//        $explane = implode(' ', array_slice(explode(' ', $place->intro), 0, 10));
+//        $collection->prepend($explane, 'explane');
+        
         dd('dd');
         $places = Place::all();
         return $places->toArray();

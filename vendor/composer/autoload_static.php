@@ -291,6 +291,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
     );
 
     public static $classMap = array (
+        'AddRoleColumnToImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
         'CommentTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentTableSeeder.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_073445_create_comments_table.php',
         'CreateImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_144400_create_images_table.php',
@@ -299,6 +300,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'CreatePlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_101412_create_places_table.php',
         'CreateRatesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_102606_create_rates_table.php',
         'CreateServicesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_125448_create_services_table.php',
+        'CreateSharesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_102457_create_shares_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -809,6 +811,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'ServiceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ServiceTableSeeder.php',
+        'ShareTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ShareTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserTableSeeder.php',

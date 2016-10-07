@@ -33,4 +33,4 @@ Route::group(['prefix' => 'templates'], function () {
 Route::auth();
 
 Route::get('home/index', 'HomeController@index');
-Route::get('test', 'PlaceController@test');
+Route::get('test', 'PlaceController@show');

@@ -18,6 +18,7 @@ class ImageTableSeeder extends Seeder
             ['name' => 'image3.jpg', 'imageable_id' => '3', 'imageable_type' => 'App\Models\Place'],
             ['name' => 'image4.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
             ['name' => 'image5.jpg', 'imageable_id' => '2', 'imageable_type' => 'App\Models\Place'],
+            ['name' => 'image6.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Share'],
         ]);
     }
 }
