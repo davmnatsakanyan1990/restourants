@@ -12,7 +12,7 @@
         <div class="nav capitalize pointer" ng-click="toggleMenu('place')"><a class="pointer">Place <i class="fa fa-angle-down" aria-hidden="true"></i></a></div>
 
     </div>
-    <div class="capitalize elementLeft">
+    <div class="capitalize elementLeft searchMenuPart" style="width: calc(100% - 412px);">
         <div class="searchIcon">
             <i class="fa fa-search" aria-hidden="true"></i>
             <input class="capitalize" type="text" placeholder="search"/>
@@ -55,3 +55,4 @@
     </div>
 
 </div>
+
