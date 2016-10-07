@@ -952,8 +952,6 @@ html{
     }
 
 
-
-
     .displayBlock{
       display: block;
     }
@@ -981,6 +979,15 @@ html{
         width: 100% !important;
         input{
           width: 100%;
+        }
+      }
+      .animateSecond{
+        height: 260px;
+        //transition: 0.3s;
+        &.close{
+          height: 0;
+          //transition: 0.3s;
+          overflow: hidden;
         }
       }
       .navigation{
