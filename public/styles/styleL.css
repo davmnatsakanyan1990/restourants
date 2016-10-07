@@ -43,6 +43,124 @@ html body .lightInput {
   height: inherit;
   width: 100%;
 }
+html body .blockElement {
+  display: block;
+}
+html body .registerPopup .loginRegister {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #3d3f52;
+}
+html body .registerPopup .loginPart {
+  width: 48%;
+}
+html body .registerPopup .loginPart .loginUsing {
+  color: #3d3f52;
+  background-color: white;
+  border: 1px solid #3d3f52;
+  padding: 5px;
+  min-width: 120px;
+  margin-bottom: 10px;
+  height: 38px;
+  width: 100%;
+}
+html body .registerPopup .loginPart .loginUsing:last-child {
+  margin-bottom: 0;
+}
+html body .registerPopup .loginPart .loginUsing div {
+  width: 30px;
+}
+html body .registerPopup .loginPart .loginUsing div:first-child {
+  padding-right: 10px;
+  border-right: 1px solid;
+}
+html body .registerPopup .loginPart .loginUsing div:last-child {
+  padding-left: 10px;
+}
+html body .registerPopup .loginPart .loginUsing.facebook {
+  background-color: #3b5998;
+  color: white;
+  border: 1px solid #3b5998;
+}
+html body .registerPopup .loginPart .loginUsing.facebook:hover {
+  background-color: #3b5998;
+  color: white;
+  border: 1px solid #3b5998;
+}
+html body .registerPopup .loginPart .loginUsing.googlePlus {
+  background-color: #db4437;
+  color: white;
+  border: 1px solid #db4437;
+}
+html body .registerPopup .loginPart .loginUsing.googlePlus:hover {
+  background-color: #db4437;
+  color: white;
+  border: 1px solid #db4437;
+}
+html body .registerPopup .loginPart .loginUsing.twitter {
+  background-color: #00aced;
+  color: white;
+  border: 1px solid #00aced;
+}
+html body .registerPopup .loginPart .moreSoc {
+  text-align: left;
+  font-size: 28px;
+  height: 38px;
+}
+html body .registerPopup .loginPart .moreSoc .fa-twitter-square {
+  background-color: white;
+  color: #00aced;
+}
+html body .registerPopup .loginPart .moreSoc .fa-twitter-square:hover {
+  background-color: white;
+  color: #00aced;
+}
+html body .registerPopup .loginPart .moreSoc .fa-vk {
+  color: #507299;
+}
+html body .registerPopup .loginPart .moreSoc .fa-vk:hover {
+  color: #507299;
+}
+html body .registerPopup .loginPart .moreSoc .fa-pinterest-square {
+  color: #bd081c;
+}
+html body .registerPopup .loginPart .moreSoc .fa-pinterest-square:hover {
+  color: #bd081c;
+}
+html body .registerPopup .loginPart .moreSoc .fa-google-plus-square {
+  color: #db4437;
+}
+html body .registerPopup .loginPart .moreSoc .fa-google-plus-square:hover {
+  color: #db4437;
+}
+html body .registerPopup .loginPart .loginusingSistem {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 700;
+}
+html body .registerPopup .registerPart {
+  width: 48%;
+}
+html body .registerPopup .registerPart input {
+  margin: 0 0 10px 0;
+}
+html body .registerPopup .registerPart input:last-child {
+  margin: 0;
+}
+html body .registerPopup .registerPart .loginUsing {
+  height: 38px;
+  width: 100%;
+  background-color: #00897b;
+  color: white;
+  font-size: 14px;
+  border: none;
+  text-transform: uppercase;
+}
 html body .clear {
   content: '';
   display: block;

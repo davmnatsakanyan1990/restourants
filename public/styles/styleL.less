@@ -46,6 +46,132 @@ html{
       height: inherit;
       width: 100%;
     }
+    .blockElement{
+      display: block;
+    }
+    .registerPopup{
+      .loginRegister{
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 700;
+        color: @mainColor;
+
+      }
+      .loginPart{
+        width: 48%;
+        .loginUsing{
+          color: @mainColor;
+          background-color: @secondColor;
+          border: 1px solid @mainColor;
+          padding: 5px;
+          min-width: 120px;
+          margin-bottom: 10px;
+          height: 38px;
+          width: 100%;
+          &:last-child{
+            margin-bottom: 0;
+          }
+          div{
+            width: 30px;
+            &:first-child{
+              padding-right: 10px;
+              border-right: 1px solid;
+            }
+            &:last-child{
+              padding-left: 10px;
+            }
+          }
+          &.facebook{
+            background-color: #3b5998;
+            color: @secondColor;
+            border: 1px solid #3b5998;
+            &:hover{
+              background-color: #3b5998;
+              color: @secondColor;
+              border: 1px solid #3b5998;
+            }
+          }
+          &.googlePlus{
+            background-color: #db4437;
+            color: @secondColor;
+            border: 1px solid #db4437;
+            &:hover{
+              background-color: #db4437;
+              color: @secondColor;
+              border: 1px solid #db4437;
+            }
+          }
+          &.twitter{
+            background-color: #00aced;
+            color: @secondColor;
+            border: 1px solid #00aced;
+          }
+        }
+        .moreSoc{
+          text-align: left;
+          font-size: 28px;
+          height: 38px;
+          .fa-twitter-square{
+            background-color: @secondColor;
+            color: #00aced;
+            &:hover{
+              background-color: @secondColor;
+              color: #00aced;
+
+            }
+          }
+          .fa-vk{
+            color: #507299;
+            &:hover{
+              color: #507299;
+            }
+          }
+          .fa-pinterest-square{
+            color: #bd081c;
+            &:hover{
+              color: #bd081c;
+            }
+          }
+          .fa-google-plus-square{
+            color: #db4437;
+            &:hover{
+              color: #db4437;
+            }
+          }
+        }
+        .loginusingSistem{
+          text-align: left;
+          margin-top: 10px;
+          margin-bottom: 5px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+      .registerPart{
+        width: 48%;
+        input{
+          margin:0 0 10px 0;
+          &:last-child{
+            margin:0;
+          }
+        }
+        .loginUsing{
+          height: 38px;
+          width: 100%;
+          background-color: #00897b;
+          color: @secondColor;
+          font-size: 14px;
+          border: none;
+          text-transform: uppercase;
+        }
+      }
+
+
+
+
+    }
 
     .clear{
       content:'';
