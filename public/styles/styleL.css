@@ -894,6 +894,12 @@ html body .uppercase {
   text-transform: uppercase;
 }
 @media screen and (max-width: 770px) {
+  html body .searchMenuPart {
+    width: 100% !important;
+  }
+  html body .searchMenuPart input {
+    width: 100%;
+  }
   html body .navigation {
     width: 100%;
     height: 250px;
