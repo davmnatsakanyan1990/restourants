@@ -267,21 +267,21 @@
                     <div class="containerContent with100">
                         <div class=""><!--slider-->
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div id="Carousel" class="carus2 carousel slide">
                                         <!-- Carousel items -->
                                         <div class="carousel-inner">
 
                                             <div class="item active">
                                                 <div class="row">
-                                                    <div class="col-md-2" ng-repeat="image in currentRestaurant.images[0] track by $index">
+                                                    <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
                                                         <a class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
                                                     </div>
                                                 </div><!--.row-->
                                             </div><!--.item-->
-                                            <div class="item" ng-repeat="img in currentRestaurant.images track by $index">
+                                            <div class="item" ng-repeat="img in myNewArr track by $index">
                                                 <div class="row">
-                                                    <div class="col-md-2" ng-repeat="image in img track by $index">
+                                                    <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
                                                         <a  class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
                                                     </div>
 
