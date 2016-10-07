@@ -2,35 +2,28 @@
     <div ng-controller="currentController">
 
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
-        <div class="container-fluid">
+        <div class="container-fluid animateSecond"  ng-if="search || animateSecMenuVar">
             <ul class="nav navbar-nav">
-                <li ng-class="{'active': activePage=='page1'}" ng-click="activePage='page1'"><a href="#">Description</a></li>
-                <li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a href="#">Shares</a></li>
-                <li ng-class="{'active': activePage=='page3'}" ng-click="activePage='page3'"><a href="#">Menu</a></li>
-                <li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a href="#">Specialists</a></li>
-                <li ng-class="{'active': activePage=='page2'}" ng-click="activePage='page2'"><a href="#">Reviews</a></li>
+                <li ng-class="{'active': activePage=='page1'}" ng-click="activePage='page1'"><a class="pointer">Description</a></li>
+                <li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a class="pointer">Shares</a></li>
+                <li ng-class="{'active': activePage=='page3'}" ng-click="activePage='page3'"><a class="pointer">Menu</a></li>
+                <li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Specialists</a></li>
+                <li ng-class="{'active': activePage=='page2'}" ng-click="activePage='page2'"><a class="pointer">Reviews</a></li>
                 <!--<li ng-class="{'active': activePage=='page6'}" ng-click="activePage='page6'"><a href="#3dTour">3D-tour</a></li>-->
             </ul>
             <div class="elementRight mobileNumberPart" ng-bind="currentRestaurant.mobileNumber">+454 5454 5454 5454 54</div>
         </div>
+        <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}" ng-if="!search">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
-    <div id="carousel-id" class="carousel slide" data-ride="carousel">
-        <!--<ol class="carousel-indicators">
-            <li data-target="#carousel-id" data-slide-to="0" class=""></li>
-            <li data-target="#carousel-id" data-slide-to="1" class=""></li>
-            <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
-        </ol>-->
+    <div id="carousel-id" class="carousel slide carus1" data-ride="carousel">
         <div class="carousel-inner">
             <div class="item">
                 <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="../images/restaurantSlider/sliderImg1.jpg">
-                <!--<div class="container">
-                    <div class="carousel-caption">
-                        <h1>Example headline.</h1>
-                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                    </div>
-                </div>-->
             </div>
             <div class="item">
                 <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="../images/restaurantSlider/sliderImg2.jpg">
@@ -39,12 +32,12 @@
                 <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="../images/restaurantSlider/sliderImg3.jpg">
             </div>
         </div>
-        <a class="left carousel-control" href="#carousel-id" data-slide="prev">
+        <a class="left carousel-control" href=".carus1" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left">
 
         </span>
         </a>
-        <a class="right carousel-control" href="#carousel-id" data-slide="next">
+        <a class="right carousel-control" href=".carus1" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right">
 
         </span>
@@ -295,8 +288,8 @@
                                                 </div><!--.row-->
                                             </div><!--.item-->
                                         </div><!--.carousel-inner-->
-                                        <a data-slide="prev" href="#Carousel" class="carousel-control left cont" style="left: -12px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px; margin-top: 90px;">‹</a>
-                                        <a data-slide="next" href="#Carousel" class="carousel-control right cont" style="right: -12px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px; margin-top: 90px;">›</a>
+                                        <a data-slide="prev" href=".carus2" class="carousel-control left cont" style="left: -12px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px; margin-top: 90px;">‹</a>
+                                        <a data-slide="next" href=".carus2" class="carousel-control right cont" style="right: -12px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px; margin-top: 90px;">›</a>
                                     </div><!--.Carousel-->
                                 </div>
                             </div>
@@ -379,6 +372,7 @@
             </div>
         </div>
     </div>
+    <!---->
     <!---->
 
 </div>

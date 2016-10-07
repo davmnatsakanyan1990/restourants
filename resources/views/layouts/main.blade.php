@@ -9,7 +9,7 @@
     <ng-view></ng-view>
 
     <!--logIn popup-->
-    <div class="modal fade" id="myModal" role="dialog">
+    {{--<div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header popupHeader">
@@ -27,7 +27,75 @@
                 </div>
             </div>
         </div>
+    </div>--}}
+
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header popupHeader">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title capitalize">log in or register</h4>
+                </div>
+                <div class="modal-body popupBody registerPopup littleInputs">
+                    <div class="clearElement">
+                        <div class="loginPart elementLeft">
+                            <div class="loginRegister capitalize">
+                                log in
+                            </div>
+                            <button class="loginUsing facebook">
+                                <div class="elementLeft"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                <div class="elementLeft">facebook</div>
+                            </button>
+                            <button class="loginUsing twitter">
+                                <div class="elementLeft"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                <div class="elementLeft">twitter</div>
+                            </button>
+                            <div class="moreSoc">
+                                <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                                <i class="fa fa-vk" aria-hidden="true"></i>
+                                <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="loginusingSistem">
+                                login using our system
+                            </div>
+                            <div class="restLogin">
+                                <input class="capitalize lightInput blockElement" type="text" placeholder="E-mail"/>
+                                <input class="capitalize lightInput blockElement" type="password" placeholder="password"/>
+                            </div>
+                        </div>
+                        <div class="registerPart elementRight">
+                            <div class="loginRegister capitalize">
+                                registration
+                            </div>
+                            <input class="capitalize lightInput blockElement" type="text" placeholder="name"/>
+                            <input class="capitalize lightInput blockElement" type="text" placeholder="E-mail"/>
+                            <input class="capitalize lightInput blockElement" type="password" placeholder="password"/>
+                            <button class="loginUsing googlePlus">register</button>
+                        </div>
+                    </div>
+                </div>
+                {{--<div class="modal-footer popupFooter">
+                    <div class="leftButtonsArea">
+                        <button type="button" class="capitalize greyButton" data-dismiss="modal">cancel</button>
+                        <button type="button" class="capitalize greyButton">ok</button>
+                    </div>
+                </div>--}}
+            </div>
+
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
     <!---->
 
     <!--add location popup-->

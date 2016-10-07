@@ -69,6 +69,68 @@ button:focus {
 .navbar-default .navbar-nav a {
   color: white !important;
 }
+.mobile-menu-icon {
+  position: absolute;
+  top: 13px;
+  right: 42px;
+  width: 30px;
+  height: 23px;
+  z-index: 300;
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+}
+.mobile-menu-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: white;
+  position: absolute;
+}
+.mobile-menu-icon span:nth-of-type(1) {
+  top: 0;
+  -webkit-transition-property: top, -webkit-transform;
+  transition-property: top, transform;
+  -webkit-transition-delay: 0.3s, 0s;
+  transition-delay: 0.3s, 0s;
+  -webkit-transition-duration: 0.3s, 0.3s;
+  transition-duration: 0.3s, 0.3s;
+}
+.mobile-menu-icon span:nth-of-type(2) {
+  top: 10px;
+  -webkit-transition-property: -webkit-transform, -webkit-transform;
+  transition-property: transform, transform;
+  -webkit-transition-delay: 0s, 0.3s;
+  transition-delay: 0s, 0.3s;
+  transition-duration: 0.3s, 0.3s;
+  -webkit-transition-duration: 0.3s, 0.3s;
+}
+.mobile-menu-icon span:nth-of-type(3) {
+  bottom: 0;
+  -webkit-transition-property: bottom, -webkit-transform;
+  transition-property: bottom, transform;
+  -webkit-transition-delay: 0.3s, 0s;
+  transition-delay: 0.3s, 0s;
+  -webkit-transition-duration: 0.3s, 0.3s;
+  transition-duration: 0.3s, 0.3s;
+}
+.mobile-menu-icon.animate > span:nth-of-type(1) {
+  top: 10px;
+  transform: rotate(45deg);
+  -webkit-transition-delay: 0s, 0.3s;
+  transition-delay: 0s, 0.3s;
+}
+.mobile-menu-icon.animate > span:nth-of-type(2) {
+  transform: translateX(-100px);
+  -webkit-transition-delay: 0.3s, 0s;
+  transition-delay: 0.3s, 0s;
+}
+.mobile-menu-icon.animate > span:nth-of-type(3) {
+  bottom: 10px;
+  transform: rotate(-45deg);
+  -webkit-transition-delay: 0s, 0.3s;
+  transition-delay: 0s, 0.3s;
+}
 .restPageContainer {
   width: 100%;
   height: 150px;

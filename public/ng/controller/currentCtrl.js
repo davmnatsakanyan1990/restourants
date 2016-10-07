@@ -3,6 +3,7 @@ app.controller("currentController", function($scope, $http, $document, $window, 
     $scope.openPhoneInput = false;
     $scope.CurrentMenu = '';
     $scope.writeComment = true;
+    $scope.animateSecMenuVar = false;
     
     $scope.$watch(function () {
         return $window.scrollY;
@@ -16,6 +17,8 @@ app.controller("currentController", function($scope, $http, $document, $window, 
         }
 
     });
+
+
 
     RestaurantService.getRestaurantData()
         .then(function (response) {
@@ -171,6 +174,9 @@ app.controller("currentController", function($scope, $http, $document, $window, 
     };
     $scope.ClearInner = function (data) {
         $scope.comment = '';
+    };
+    $scope.toggleSecondMenu = function () {
+        $scope.animateSecMenuVar = $scope.animateSecMenuVar === false ? true: false;
     };
     $scope.chooseCurrentMenu = function (data) {
         //there will be call backend

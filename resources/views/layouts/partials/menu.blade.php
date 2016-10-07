@@ -8,13 +8,14 @@
         <span></span>
     </div>
     <div class="menuLeft">
-        <div class="nav capitalize pointer" ng-click="toggleMenu('home')"><a class="pointer" href="#home">Home <i class="fa fa-angle-down" aria-hidden="true"></i> </a></div>
+        <div class="nav capitalize pointer"><a class="pointer" href="#home">Home {{--<i class="fa fa-angle-down" aria-hidden="true"></i>--}} </a></div>
         <div class="nav capitalize pointer" ng-click="toggleMenu('place')"><a class="pointer">Place <i class="fa fa-angle-down" aria-hidden="true"></i></a></div>
-        <div class="nav capitalize">
-            <div class="searchIcon">
-                <i class="fa fa-search" aria-hidden="true"></i>
-                <input class="capitalize" type="text" placeholder="search"/>
-            </div>
+
+    </div>
+    <div class="capitalize elementLeft searchMenuPart" style="width: calc(100% - 412px);">
+        <div class="searchIcon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input class="capitalize" type="text" placeholder="search"/>
         </div>
     </div>
     <div class="nav capitalize menuRight" data-toggle="modal" data-target="#myModal"><a class="pointer">Log In</a></div>
@@ -54,3 +55,4 @@
     </div>
 
 </div>
+
