@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddRoleColumnToImagesTable' => $baseDir . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
     'CommentTableSeeder' => $baseDir . '/database/seeds/CommentTableSeeder.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2016_10_06_073445_create_comments_table.php',
     'CreateImagesTable' => $baseDir . '/database/migrations/2016_10_05_144400_create_images_table.php',
@@ -14,6 +15,7 @@ return array(
     'CreatePlacesTable' => $baseDir . '/database/migrations/2016_10_05_101412_create_places_table.php',
     'CreateRatesTable' => $baseDir . '/database/migrations/2016_10_06_102606_create_rates_table.php',
     'CreateServicesTable' => $baseDir . '/database/migrations/2016_10_05_125448_create_services_table.php',
+    'CreateSharesTable' => $baseDir . '/database/migrations/2016_10_07_102457_create_shares_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -524,6 +526,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'ServiceTableSeeder' => $baseDir . '/database/seeds/ServiceTableSeeder.php',
+    'ShareTableSeeder' => $baseDir . '/database/seeds/ShareTableSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UserTableSeeder' => $baseDir . '/database/seeds/UserTableSeeder.php',

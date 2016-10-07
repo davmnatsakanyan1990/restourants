@@ -35,4 +35,8 @@ class Place extends Model
     public function rates(){
         return $this->hasMany(Rate::class);
     }
+    
+    public function shares(){
+        return $this->hasMany(Share::class);
+    }
 }
