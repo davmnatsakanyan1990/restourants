@@ -239,25 +239,6 @@ html body .navigation .nav i {
 html body .navigation .nav:last-child {
   float: right;
 }
-html body .navigation .nav .searchIcon {
-  position: relative;
-}
-html body .navigation .nav .searchIcon input {
-  padding: 0 35px;
-  border: none;
-}
-html body .navigation .nav .searchIcon input:active {
-  border: 1px solid #9e9e9e;
-  outline: 0;
-}
-html body .navigation .nav .searchIcon input:focus {
-  border: 1px solid #9e9e9e;
-  outline: 0;
-}
-html body .navigation .nav .searchIcon i {
-  position: absolute;
-  top: 16px;
-}
 html body .navigation .nav a:hover {
   color: #d2d3d8;
   text-decoration: none;
@@ -266,6 +247,28 @@ html body .navigation .nav a:active,
 html body .navigation .nav a:focus {
   color: #d2d3d8;
   text-decoration: none;
+}
+html body .navigation .searchIcon {
+  position: relative;
+}
+html body .navigation .searchIcon input {
+  padding: 0 35px;
+  border: none;
+}
+html body .navigation .searchIcon input:active {
+  /* border: 1px solid #9e9e9e;*/
+  background-color: white;
+  outline: 0;
+}
+html body .navigation .searchIcon input:focus {
+  background-color: white;
+  /*border: 1px solid #9e9e9e;*/
+  outline: 0;
+}
+html body .navigation .searchIcon i {
+  position: absolute;
+  top: 16px;
+  left: 10px;
 }
 html body .navigation .dropdownMenu {
   position: absolute;
