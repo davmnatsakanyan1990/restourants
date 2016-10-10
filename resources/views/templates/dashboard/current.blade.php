@@ -128,7 +128,7 @@
                 </div>
                 <div class="container2 pages parallax" >
                     <div class="containerTitle capitalize">shares</div>
-                    <div class="containerContent" ng-repeat="shareItem in currentRestaurant.shareItems">
+                    <div class="containerContent" ng-repeat="shareItem in currentRestaurant.shares">
                         <div class="shareItem" ng-bind="shareItem.title" data-toggle="modal" data-target="#myModalPop" ng-click="getSharesData(shareItem)"></div>
                     </div>
                     <div class="shareItem" ng-if="!currentRestaurant.shareItems || currentRestaurant.shareItems.length<1">

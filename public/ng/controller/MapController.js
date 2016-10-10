@@ -10,11 +10,11 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.FixedRestMenu = false;
 
 
-    RestaurantService.getRestaurantsList()
+    /*RestaurantService.getRestaurantsList()
         .then(function (response) {
          $scope.myWelcome = response;
          console.log($scope.myWelcome);
-         });
+         });*/
 
 
     // add more restaurant in list
