@@ -6,34 +6,61 @@
                 <span class="titleFirstPart">Choose your favorite</span>
                 <span class="titleSecondPart">- all in same place</span>
             </h1>
-            <p class="headBody">
-                We have found for you more than 1,000 restaurants in your city. All restaurants with user reviews, ratings and photos.
+            <p class="headBody uppercase">
+                Best of new york city
             </p>
             <div class="slider">
-                <!-- Start cssSlider.com -->
-                <div class='csslider1 autoplay '>
-                    <input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide' >
-                    <input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
-                    <input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' >
-                    <input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
-                    <input name="cs_anchor1" id='cs_pause1' type="radio" class='cs_anchor' >
-                    <ul>
-                        <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
-                            <img src="http://cssslider.com/sliders/pen/images/buns.jpg" style="width: 100%;">
-                        </div>
-                        <li class='num0 img'>
-                            <a target=""><img src='/images/sliderImages/slider1.jpg' alt='Buns' title='Buns' /> </a>
-                        </li>
-                        <li class='num1 img'>
-                            <a target=""><img src='/images/sliderImages/slider2.jpg' alt='Croissant' title='Croissant' /> </a>
-                        </li>
-                        <li class='num2 img'>
-                            <a  target=""><img src='/images/sliderImages/slider3.jpg' alt='Lemon pie' title='Lemon pie' /> </a>
-                        </li>
 
-                    </ul>
-                </div>
-                <!-- End cssSlider.com -->
+                <div class=""><!--slider-->
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="Carousel" class="carus2 carousel slide carouselTop">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+
+                                    <div class="item active">
+                                        <div class="row">
+                                            <div class="col-md-1> col-xs-1 col-sm-1" ng-repeat="image in myNewArr[0] track by $index">
+                                                <a class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                            </div>
+                                        </div><!--.row-->
+                                    </div><!--.item-->
+                                    <div class="item" ng-repeat="img in myNewArr track by $index">
+                                        <div class="row">
+                                            <div class="col-md-1> col-xs-1 col-sm-1" ng-repeat="image in img track by $index">
+                                                <a class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                            </div>
+
+                                        </div><!--.row-->
+                                    </div><!--.item-->
+                                </div><!--.carousel-inner-->
+                                <a data-slide="prev" href=".carus2" class="carousel-control left cont" style="left: -50px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px;">‹</a>
+                                <a data-slide="next" href=".carus2" class="carousel-control right cont" style="right: -50px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px;">›</a>
+                            </div><!--.Carousel-->
+                        </div>
+                    </div>
+                </div><!--.container-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
             <div class="secondNav" id="secondNav" scroll ng-class="{'closeSecondNav': !animateSecondMenuVar && visibleLittleMenu, 'fixedNavigation': visibleLittleMenu}">
                 <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecondMenuVar}" ng-if="visibleLittleMenu">
