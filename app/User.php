@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Rate;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -26,5 +27,9 @@ class User extends Authenticatable
 
     public function images(){
         return $this->morphMany('App\Models\Image', 'imageable');
+    }
+
+    public function rates(){
+        return $this->hasMany(Rate::class);
     }
 }
