@@ -23,7 +23,7 @@
                                             <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
                                                 <a class="thumbnail" style="width: 60px; height: 70px; margin: 0 auto; border: none;">
                                                     <img src="<%image%>" style="max-width:100%;">
-                                                    <div class="text" style="font-size: 11px; color: #3c3e51;">someText</div>
+                                                    <div class="text" style="font-size: 11px; color: #3c3e51; margin-top: 5px;">someText</div>
                                                 </a>
                                             </div>
                                         </div><!--.row-->
@@ -33,7 +33,7 @@
                                             <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
                                                 <a class="thumbnail" style="width: 60px; height: 70px; margin: 0 auto;  border: none;">
                                                     <img src="<%image%>" style="max-width:100%;">
-                                                    <div class="text" style="font-size: 11px; color: #3c3e51;">someText</div>
+                                                    <div class="text" style="font-size: 11px; color: #3c3e51; margin-top: 5px;">someText</div>
                                                 </a>
                                             </div>
 
