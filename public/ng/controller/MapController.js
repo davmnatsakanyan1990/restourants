@@ -336,14 +336,15 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2]]);
             }
         }
-    }else if(window.innerWidth > 995 && window.innerWidth <=1420) {
+    }else if(window.innerWidth > 995 && window.innerWidth <=1150) {
         $scope.cal = 3;
         for(var i =0; i<$scope.images.length; i++){
-            if (i % 4 == 0 && i!=0){
-                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
+            if (i % 9 == 0 && i!=0){
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3], $scope.images[i-4], $scope.images[i-5], $scope.images[i-4],
+                    $scope.images[i-5], $scope.images[i-6], $scope.images[i-7], $scope.images[i-8],  $scope.images[i-9]]);
             }
         }
-    }else if(window.innerWidth >1420){
+    }else if(window.innerWidth >1150){
         $scope.cal = 2;
         for(var i =0; i<$scope.images.length; i++){
             if (i % 11 == 0 && i!=0){
