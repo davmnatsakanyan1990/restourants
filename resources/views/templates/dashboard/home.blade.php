@@ -6,8 +6,8 @@
                 <span class="titleFirstPart">Choose your favorite</span>
                 <span class="titleSecondPart">- all in same place</span>
             </h1>
-            <p class="headBody">
-                We have found for you more than 1,000 restaurants in your city. All restaurants with user reviews, ratings and photos.
+            <p class="headBody uppercase">
+                Best of new york city
             </p>
             <div class="slider">
 

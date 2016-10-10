@@ -529,6 +529,8 @@ html body .content .sliderSection .headBody {
   margin: 20px 0 40px 0;
   padding: 0;
   top: 0;
+  font-weight: 600;
+  color: #3d3f52;
 }
 html body .content .sliderSection .slider {
   height: 100px;
