@@ -60,20 +60,26 @@ class PlaceController extends Controller
 
         // format shares, comments
         $array = $collection->all();
+
+        $data = array();
+
         foreach ($array as $key=>$value){
 
             // share format
             if($key == 'shares'){
                 foreach ($array[$key] as $k=>$v){
 
-                    $array[$key][$k]['photo'] =  $v['image']['name'];
+                    $data[$key][$k]['photo'] =  $v['image']['name'];
 
                     $from = date_create($v['wrk_hrs_from']);
                     $formatted_from = date_format($from, "H:i");
 
                     $to = date_create($v['wrk_hrs_to']);
                     $formatted_to = date_format($to, "H:i");
-                    $array[$key][$k]['workingHours'] =  'Working hours: '.$formatted_from.'- '.$formatted_to;
+                    $data[$key][$k]['workingHours'] =  'Working hours: '.$formatted_from.'- '.$formatted_to;
+                    $data[$key][$k]['title'] = $v['title'];
+                    $data[$key][$k]['content'] = $v['content'];
+                    $data[$key][$k]['location'] = $v['location'];
                 }
             }
 
@@ -81,11 +87,15 @@ class PlaceController extends Controller
             if($key == 'comments'){
                 foreach ($array[$key] as $k=>$v){
                     if(count(($v['user']['rates'])) > 0) {
-                        $array[$key][$k]['rate'] = $v['user']['rates'][0]['mark'];
+                        $data[$key][$k]['rate'] = $v['user']['rates'][0]['mark'];
+                    }
+                    else{
+                        $data[$key][$k]['rate'] = 0;
                     }
 
-                    $array[$key][$k]['name'] = $v['user']['name'];
-                    $array[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
+                    $data[$key][$k]['name'] = $v['user']['name'];
+                    $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
+                    $data[$key][$k]['comment'] = $v['text'];
                 }
             }
 
@@ -95,10 +105,21 @@ class PlaceController extends Controller
                 foreach ($array[$key] as $k => $v){
                     array_push($images, '../images/restaurantImages/'.$v['name']);
                 }
-                $array['images'] = $images;
+                $data['images'] = $images;
             }
         }
 
-        return response()->json($array);
+        $data['mobileNumber'] = $array['mobile'];
+        $data['name'] = $array['name'];
+        $data['rating'] = (int)$array['rating'];
+        $data['comment'] = $array['comment'];
+        $data['intro'] = $array['intro'];
+        $data['address'] = $array['address'];
+        $data['site'] = $array['site'];
+        $data['price'] = $array['price'];
+        $data['workingHours'] = $array['workingHours'];
+        $data['shareItems'] = $data['shares'];
+        
+        return response()->json($data);
     }
 }
