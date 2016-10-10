@@ -19,15 +19,16 @@ app.controller("currentController", function($scope, $http, $document, $window, 
     });
 
 
-    $scope.id = 1
+   /* $scope.id = 1
 
     RestaurantService.getRestaurantData($scope.id)
         .then(function (response) {
-            $scope.currentRestaurant = response.data;
+            $scope.currentRestaurant = response.da
+            ta;
             console.log($scope.myWelcome);
-        });
+        });*/
 
-    /*$scope.currentRestaurant = {
+    $scope.currentRestaurant = {
         mobileNumber: '+(222) 1212145454',
         name: 'The best restaurant in the world',
         rating: '3',
@@ -152,10 +153,10 @@ app.controller("currentController", function($scope, $http, $document, $window, 
             '../images/restaurantImages/rest1.jpg'
         ]
         
-    };*/
+    };
 
     //restaurants images part
-   /* var arr = $scope.currentRestaurant.images;
+    var arr = $scope.currentRestaurant.images;
     $scope.myNewArr = [];
 
     if(window.innerWidth < 570){
@@ -194,7 +195,7 @@ app.controller("currentController", function($scope, $http, $document, $window, 
             }
         }
     };
-*/
+
     //
     $scope.togglePhoneNumber = function(){
         $scope.openPhoneInput = $scope.openPhoneInput === false ? true: false;
