@@ -21,44 +21,31 @@
                                     <div class="item active">
                                         <div class="row">
                                             <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
-                                                <a class="thumbnail" style="width: 60px; height: 60px; margin: 0 auto;"><img src="<%image%>" style="max-width:100%;"></a>
+                                                <a class="thumbnail" style="width: 60px; height: 70px; margin: 0 auto; border: none;">
+                                                    <img src="<%image%>" style="max-width:100%;">
+                                                    <div class="text" style="font-size: 11px; color: #3c3e51; margin-top: 5px;">someText</div>
+                                                </a>
                                             </div>
                                         </div><!--.row-->
                                     </div><!--.item-->
                                     <div class="item" ng-repeat="img in myNewArr track by $index">
                                         <div class="row">
                                             <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
-                                                <a class="thumbnail" style="width: 60px; height: 60px; margin: 0 auto;"><img src="<%image%>" style="max-width:100%;"></a>
+                                                <a class="thumbnail" style="width: 60px; height: 70px; margin: 0 auto;  border: none;">
+                                                    <img src="<%image%>" style="max-width:100%;">
+                                                    <div class="text" style="font-size: 11px; color: #3c3e51; margin-top: 5px;">someText</div>
+                                                </a>
                                             </div>
 
                                         </div><!--.row-->
                                     </div><!--.item-->
                                 </div><!--.carousel-inner-->
-                                <a data-slide="prev" href=".carus2" class="carousel-control left cont" style="left: -42px; top: -51px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">‹</a>
-                                <a data-slide="next" href=".carus2" class="carousel-control right cont" style="right: -42px; top: -51px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">›</a>
+                                <a data-slide="prev" href=".carus2" class="carousel-control left cont" style="left: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">‹</a>
+                                <a data-slide="next" href=".carus2" class="carousel-control right cont" style="right: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">›</a>
                             </div><!--.Carousel-->
                         </div>
                     </div>
                 </div><!--.container-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </div>
