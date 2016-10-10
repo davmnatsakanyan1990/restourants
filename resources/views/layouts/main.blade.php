@@ -87,15 +87,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
-
-
-
     <!---->
 
     <!--add location popup-->

@@ -1,4 +1,4 @@
-
+<script src="{{asset('lib/star/star.js')}}"></script>
     <div ng-controller="currentController">
 
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
@@ -73,7 +73,7 @@
                 </select>
                 <div class='rating'>
                     <div class="lead">
-                        <div id="hearts-existing" class="starrr" data-rating='<% currentRestaurant.rating %>'></div>
+                        <div id="hearts-existing" class="starrr" data-rating='2'></div>
                     </div>
                 </div>
                 <div class="rating">

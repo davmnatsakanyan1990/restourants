@@ -13,12 +13,12 @@ class ImageTableSeeder extends Seeder
     public function run()
     {
         DB::table('images')->insert([
-            ['name' => 'image1.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
-            ['name' => 'image2.jpg', 'imageable_id' => '2', 'imageable_type' => 'App\Models\Place'],
-            ['name' => 'image3.jpg', 'imageable_id' => '3', 'imageable_type' => 'App\Models\Place'],
-            ['name' => 'image4.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
-            ['name' => 'image5.jpg', 'imageable_id' => '2', 'imageable_type' => 'App\Models\Place'],
-            ['name' => 'image6.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Share'],
+            ['name' => 'rest1.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
+            ['name' => 'rest2.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
+            ['name' => 'rest3.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
+            ['name' => 'rest4.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
+            ['name' => 'rest5.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Place'],
+            ['name' => 'rest6.jpg', 'imageable_id' => '1', 'imageable_type' => 'App\Models\Share'],
         ]);
     }
 }
