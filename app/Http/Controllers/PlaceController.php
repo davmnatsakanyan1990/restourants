@@ -26,7 +26,7 @@ class PlaceController extends Controller
                 }]);
             }
             ])
-            ->findOrFail(1);
+            ->findOrFail($request->place_id);
 
         // get avg rate for current place and push to array
         $collection = collect($place->toArray());
@@ -99,21 +99,6 @@ class PlaceController extends Controller
             }
         }
 
-        dd($array);
-
-//         $collection->each(function($item, $key){
-//            if($key == 'shares'){
-//                collect($item)->each(function($item, $key){
-//
-//                    $share = collect($item);
-//
-//                    $share->prepend($share['image']['name'], 'image_name');
-//
-//
-//                });
-//            }
-//        });
-
-        dd($collection->all());
+        return response()->json($array);
     }
 }
