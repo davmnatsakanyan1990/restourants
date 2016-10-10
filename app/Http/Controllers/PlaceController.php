@@ -9,7 +9,7 @@ use App\Http\Requests;
 
 class PlaceController extends Controller
 {
-    public function show(Request $request){
+    public function show($id){
 
         $place = Place::with([
             'services',
@@ -26,7 +26,7 @@ class PlaceController extends Controller
                 }]);
             }
             ])
-            ->findOrFail($request->place_id);
+            ->findOrFail($id);
 
         // get avg rate for current place and push to array
         $collection = collect($place->toArray());

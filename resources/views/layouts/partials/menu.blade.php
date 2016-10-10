@@ -1,6 +1,6 @@
 <div class="navigation" ng-class="{'close': !animateTopMenuVar && !search}">
     <div class="navIco">
-        <img src="/images/logo.png">
+        <img src="../images/logo.png">
     </div>
     <div class="mobile-menu-icon" ng-click="toggleTopMenu()" ng-class="{'animate': animateTopMenuVar}">
         <span></span>
