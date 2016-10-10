@@ -18,7 +18,10 @@
 <script src="{{asset('ng/directive/scroll.js')}}"></script>
 
 {{--other js files--}}
+<<<<<<< HEAD
 {{--<script src="{{asset('lib/star/star.js')}}"></script>--}}
+=======
+>>>>>>> bff8ccd0a6f98627ea019e28159885f41d9befe1
 <script src="{{asset('js/animateMenu.js')}}"></script>
 <script src="{{asset('js/slider2.js')}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkB3G-qzliKWCg-x_LYj_BlP5wNRvg2BA&libraries=places" async defer></script>

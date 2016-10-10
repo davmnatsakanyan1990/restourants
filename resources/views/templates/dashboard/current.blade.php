@@ -1,6 +1,6 @@
 <script src="{{asset('lib/star/star.js')}}"></script>
     <div ng-controller="currentController">
-
+        <script src="{{asset('lib/star/star.js')}}"></script>
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
         <div class="container-fluid animateSecond"  ng-if="search || animateSecMenuVar">
             <ul class="nav navbar-nav">
