@@ -34,8 +34,8 @@
                                         </div><!--.row-->
                                     </div><!--.item-->
                                 </div><!--.carousel-inner-->
-                                <a data-slide="prev" href=".carus2" class="carousel-control left cont" style="left: -50px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px;">‹</a>
-                                <a data-slide="next" href=".carus2" class="carousel-control right cont" style="right: -50px;  height: 40px;  width: 40px; background: none repeat scroll 0 0 #222222; border: 4px solid #FFFFFF;  border-radius: 23px 23px 23px 23px;">›</a>
+                                <a data-slide="prev" href=".carus2" class="carousel-control left cont" style="left: -50px; top: -51px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">‹</a>
+                                <a data-slide="next" href=".carus2" class="carousel-control right cont" style="right: -50px; top: -51px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">›</a>
                             </div><!--.Carousel-->
                         </div>
                     </div>
