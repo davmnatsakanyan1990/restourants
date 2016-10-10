@@ -19,7 +19,11 @@ class PlaceController extends Controller
                 return $share->with('image');
             },
             'comments' => function($comment){
-                return $comment->with('user');
+                return $comment->with(['user' => function($user){
+                    return $user->with(['rates' => function($rate){
+                       return $rate->where('place_id', 1);
+                    }]);
+                }]);
             }
             ])
             ->findOrFail(1);
@@ -53,6 +57,63 @@ class PlaceController extends Controller
         $formated_to = date_format($to,"H:i");
 
         $collection->prepend($formated_from.'-'.$formated_to, 'workingHours');
-        dd($collection);
+
+        // format shares, comments
+        $array = $collection->all();
+        foreach ($array as $key=>$value){
+
+            // share format
+            if($key == 'shares'){
+                foreach ($array[$key] as $k=>$v){
+
+                    $array[$key][$k]['photo'] =  $v['image']['name'];
+
+                    $from = date_create($v['wrk_hrs_from']);
+                    $formatted_from = date_format($from, "H:i");
+
+                    $to = date_create($v['wrk_hrs_to']);
+                    $formatted_to = date_format($to, "H:i");
+                    $array[$key][$k]['workingHours'] =  'Working hours: '.$formatted_from.'- '.$formatted_to;
+                }
+            }
+
+            //comments format
+            if($key == 'comments'){
+                foreach ($array[$key] as $k=>$v){
+                    if(count(($v['user']['rates'])) > 0) {
+                        $array[$key][$k]['rate'] = $v['user']['rates'][0]['mark'];
+                    }
+
+                    $array[$key][$k]['name'] = $v['user']['name'];
+                    $array[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
+                }
+            }
+
+            // images format
+            if($key == 'images'){
+                $images = array();
+                foreach ($array[$key] as $k => $v){
+                    array_push($images, '../images/restaurantImages/'.$v['name']);
+                }
+                $array['images'] = $images;
+            }
+        }
+
+        dd($array);
+
+//         $collection->each(function($item, $key){
+//            if($key == 'shares'){
+//                collect($item)->each(function($item, $key){
+//
+//                    $share = collect($item);
+//
+//                    $share->prepend($share['image']['name'], 'image_name');
+//
+//
+//                });
+//            }
+//        });
+
+        dd($collection->all());
     }
 }
