@@ -57,95 +57,100 @@
                 </div>
                 <ul class="NavButtons clear ">
                     <li class="navSecond capitalize" ng-click="displayElement('f1')">mode
-                        <div id="f1" class="filters displayNone">
+                        <div class="forBefore displayNone" id="f1">
+                        <div  class="filters ">
                             <span class="triangle"></span>
                             <p>
                                 <input type="checkbox" id="test1" />
-                                <label for="test1">Day and night</label>
+                                <label for="test1">Dine-In</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test2"  />
-                                <label for="test2">Now open</label>
+                                <label for="test2">Delivery</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test3" />
-                                <label for="test3">Will be open yet 2 hours</label>
+                                <label for="test3">Drinks & Nightlife</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test3" />
+                                <label for="test3">Take Out</label>
                             </p>
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
+                        </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f2')">cost
-                        <div id="f2" class="filters displayNone">
+                        <div class="forBefore displayNone" id="f2">
+                        <div  class="filters">
                             <span class="triangle"></span>
                             <p>
                                 <input type="checkbox" id="test12" />
-                                <label for="test12">Up to 1000</label>
+                                <label for="test12">$</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test22"  />
-                                <label for="test22">1000 - 1500</label>
+                                <label for="test22">$$</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test32" />
-                                <label for="test32">1500-2000</label>
+                                <label for="test32">$$$</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test42" />
-                                <label for="test42">more then 2000</label>
+                                <label for="test42">$$$$</label>
                             </p>
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
                         </div>
+                        </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f3')">rating
-                        <div id="f3" class="filters displayNone">
+                    <li class="navSecond capitalize" ng-click="displayElement('f3')">Sort by
+                        <div class="forBefore displayNone" id="f3">
+                        <div  class="filters">
                             <span class="triangle"></span>
                             <p>
                                 <input type="checkbox" id="test13" />
-                                <label for="test13">Red</label>
+                                <label for="test13">Popularity - high to low</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test23"  />
-                                <label for="test23">Yellow</label>
+                                <label for="test23">Rating - high to low</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test33" />
-                                <label for="test33">Green</label>
+                                <label for="test33">Cost - high to low</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test43" />
-                                <label for="test43">Brown</label>
+                                <label for="test43">Cost - low to high</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test43" />
+                                <label for="test43">Recently added</label>
                             </p>
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
+                        </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f4')">cuisine
-                        <div id="f4" class="filters displayNone">
-                            <span class="triangle"></span>
-                            <p>
-                                <input type="checkbox" id="test14" />
-                                <label for="test14">Red</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test24"  />
-                                <label for="test24">Yellow</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test34" />
-                                <label for="test34">Green</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test44" />
-                                <label for="test44">Brown</label>
-                            </p>
-                            <button class=" filterButtons capitalize">cancel</button>
-                            <button class="filterButtons capitalize">ok</button>
+                        <div class="forBefore displayNone" id="f4">
+                            <div  class="filters">
+                                <span class="triangle"></span>
+                                <p ng-repeat="cuisin in cuisins track by $index">
+                                    <input type="checkbox" id="test14" />
+                                    <label for="test14" ng-bind="cuisin">American</label>
+                                </p>
+                                <button class=" filterButtons capitalize">cancel</button>
+                                <button class="filterButtons capitalize">ok</button>
+                            </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f5')">type of restaurants
-                        <div id="f5" class="filters displayNone">
+                        <div class="forBefore displayNone" id="f5">
+                        <div class="filters">
                             <span class="triangle"></span>
                             <p>
                                 <input type="checkbox" id="test15" />
@@ -166,9 +171,11 @@
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
                         </div>
+                        </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f6')">services
-                        <div id="f6" class="filters displayNone">
+                        <div class="forBefore displayNone" id="f6">
+                        <div class="filters">
                             <span class="triangle"></span>
                             <p>
                                 <input type="checkbox" id="test16" />
@@ -188,6 +195,7 @@
                             </p>
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
+                        </div>
                         </div>
                     </li>
 
