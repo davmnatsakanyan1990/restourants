@@ -175,6 +175,10 @@ html body .elementRight {
 html body .mobileNumberPart {
   line-height: 45px;
   color: white;
+  margin-right: 20px;
+}
+html body .mobileNumberPart span i {
+  margin-right: 10px;
 }
 html body .pointer {
   cursor: pointer;
