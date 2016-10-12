@@ -50,7 +50,7 @@
             <div class="containerTop" id="description">
                 <div class="titlePart" ng-bind="currentRestaurant.name"></div>
 
-                <div class="positioningCall">
+                {{--<div class="positioningCall">
                     <div class="numberInputPart" ng-click="togglePhoneNumber()">call me</div>
                     <div class="dropMenu" ng-if="openPhoneInput">
                         <input type="text" placeholder="write phone number">
@@ -71,16 +71,16 @@
                     <option value="t14">22:00</option>
                     <option value="t15">23:00</option>
                     <option value="t16">24:00</option>
-                </select>
-                <div class='rating'>
+                </select>--}}
+                <div class='rating' style="margin-left: 0; ">
                     <div class="lead">
                         <div id="hearts-existing" class="starrr" data-rating='<% currentRestaurant.rating %>'></div>
                     </div>
                 </div>
-                <div class="rating">
+               {{-- <div class="rating">
                     <span  ng-bind="currentRestaurant.comment"></span>
                     <span>comments</span>
-                </div>
+                </div>--}}
             </div>
 
             <div class="containerContent">
