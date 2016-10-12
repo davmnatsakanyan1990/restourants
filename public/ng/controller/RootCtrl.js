@@ -1,4 +1,4 @@
-app.controller("rootController", function($scope, $http, $document, $window, $timeout) {
+app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout) {
     
     $scope.search = true;
     $scope.custom = false;
@@ -89,5 +89,9 @@ app.controller("rootController", function($scope, $http, $document, $window, $ti
         ['Abanda',  'Abbeville', 'Abbotsford', 'Abbott', 'Abbottstown', 'Abbyville', 'Abercrombie', 'Aberdeen', 'Aberdeen', 'Gardens'],
         ['Abanda',  'Abbeville', 'Abbotsford', 'Abbott', 'Abbottstown', 'Abbyville', 'Abercrombie', 'Aberdeen', 'Aberdeen', 'Gardens'],
     ];
+
+    $scope.currentRest = function(id){
+        $rootScope.currentId = id
+    }
     
 });

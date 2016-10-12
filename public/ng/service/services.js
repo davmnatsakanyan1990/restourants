@@ -3,7 +3,7 @@ app.factory('RestaurantService', function($http) {
         getRestaurantData: function(data) {
             return $http({
                 method : "GET",
-                url : "show/1"
+                url : "show/" + data
             })
         },
         getRestaurantsList: function(data) {

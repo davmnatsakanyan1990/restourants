@@ -3,7 +3,7 @@ var __slice = [].slice;
 
 (function($, window) {
     var Starrr;
-
+debugger;
     Starrr = (function() {
         Starrr.prototype.defaults = {
             rating: void 0,

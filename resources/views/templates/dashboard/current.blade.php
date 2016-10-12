@@ -73,7 +73,7 @@
                 </select>
                 <div class='rating'>
                     <div class="lead">
-                        <div id="hearts-existing" class="starrr" data-rating='2'></div>
+                        <div id="hearts-existing" class="starrr" data-rating='<% currentRestaurant.rating %>'></div>
                     </div>
                 </div>
                 <div class="rating">
@@ -338,7 +338,7 @@
                 </div>
                 <div class="modal-body popupBody leftContent sharesPopup">
                     <p ng-bind="SharesPopupData.content"></p>
-                    <img src="<% SharesPopupData.photo %>">
+                    <img src="../images/sharesImages/<% SharesPopupData.photo %>">
                     <div class="clearElement margin15 font16">
                         <i class="fa fa-map-marker elementLeft" aria-hidden="true"></i><% SharesPopupData.location %>
                     </div>

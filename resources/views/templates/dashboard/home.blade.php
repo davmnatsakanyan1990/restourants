@@ -222,7 +222,7 @@
             </div>
             <div class="cont" >
                 <div class="infoContent">
-                    <div class="info" ng-repeat="info in markers" ng-class="{'active': clichedElementId == info.id}" >
+                    <div class="info" ng-repeat="info in markers" ng-class="{'active': clichedElementId == info.id}" ng-click="currentRest(info.id)" >
                         <a href="#current">
                         <div class="imageSection">
                             <img src="<% info.image %>">

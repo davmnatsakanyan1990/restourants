@@ -1,4 +1,4 @@
-app.controller("currentController", function($scope, $http, $document, $window, $timeout, RestaurantService) {
+app.controller("currentController", function($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
 
     $scope.openPhoneInput = false;
     $scope.CurrentMenu = '';
@@ -18,17 +18,56 @@ app.controller("currentController", function($scope, $http, $document, $window, 
 
     });
 
-
-   /* $scope.id = 1
-
-    RestaurantService.getRestaurantData($scope.id)
+    RestaurantService.getRestaurantData($rootScope.currentId)
         .then(function (response) {
-            $scope.currentRestaurant = response.da
-            ta;
+            $scope.currentRestaurant = response.data;
             console.log($scope.myWelcome);
-        });*/
 
-    $scope.currentRestaurant = {
+            //restaurants images part
+            var arr = $scope.currentRestaurant.images;
+            $scope.myNewArr = [];
+
+            if(window.innerWidth < 570){
+                $scope.cal = 12;
+                for(var i =0; i<arr.length; i++){
+                    if (i % 1 == 0 && i!=0){
+                        $scope.myNewArr.push([arr[i]]);
+                    }
+                }
+            } else if(window.innerWidth < 776 && window.innerWidth > 570){
+                $scope.cal = 6;
+                for(var i =0; i<arr.length; i++){
+                    if (i % 2 == 0 && i!=0){
+                        $scope.myNewArr.push([arr[i], arr[i-1]]);
+                    }
+                }
+            } else if(window.innerWidth <= 995 && window.innerWidth >= 776){
+                $scope.cal = 4;
+                for(var i =0; i<arr.length; i++){
+                    if (i % 3 == 0 && i!=0){
+                        $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2]]);
+                    }
+                }
+            }else if(window.innerWidth > 995 && window.innerWidth <=1420) {
+                $scope.cal = 3;
+                for(var i =0; i<arr.length; i++){
+                    if (i % 4 == 0 && i!=0){
+                        $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3]]);
+                    }
+                }
+            }else if(window.innerWidth >1420){
+                $scope.cal = 2;
+                for(var i =0; i<arr.length; i++){
+                    if (i % 6 == 0 && i!=0){
+                        $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3], arr[i-4], arr[i-5]]);
+                    }
+                }
+            };
+
+
+        });
+
+   /* $scope.currentRestaurant = {
         mobileNumber: '+(222) 1212145454',
         name: 'The best restaurant in the world',
         rating: '3',
@@ -153,48 +192,9 @@ app.controller("currentController", function($scope, $http, $document, $window, 
             '../images/restaurantImages/rest1.jpg'
         ]
         
-    };
+    };*/
 
-    //restaurants images part
-    var arr = $scope.currentRestaurant.images;
-    $scope.myNewArr = [];
 
-    if(window.innerWidth < 570){
-        $scope.cal = 12;
-        for(var i =0; i<arr.length; i++){
-            if (i % 1 == 0 && i!=0){
-                $scope.myNewArr.push([arr[i]]);
-            }
-        }
-    } else if(window.innerWidth < 776 && window.innerWidth > 570){
-        $scope.cal = 6;
-        for(var i =0; i<arr.length; i++){
-            if (i % 2 == 0 && i!=0){
-                $scope.myNewArr.push([arr[i], arr[i-1]]);
-            }
-        }
-    } else if(window.innerWidth <= 995 && window.innerWidth >= 776){
-        $scope.cal = 4;
-        for(var i =0; i<arr.length; i++){
-            if (i % 3 == 0 && i!=0){
-                $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2]]);
-            }
-        }
-    }else if(window.innerWidth > 995 && window.innerWidth <=1420) {
-        $scope.cal = 3;
-        for(var i =0; i<arr.length; i++){
-            if (i % 4 == 0 && i!=0){
-                $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3]]);
-            }
-        }
-    }else if(window.innerWidth >1420){
-        $scope.cal = 2;
-        for(var i =0; i<arr.length; i++){
-            if (i % 6 == 0 && i!=0){
-                $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3], arr[i-4], arr[i-5]]);
-            }
-        }
-    };
 
     //
     $scope.togglePhoneNumber = function(){
