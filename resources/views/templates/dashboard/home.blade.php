@@ -73,8 +73,8 @@
                                 <label for="test3">Drinks & Nightlife</label>
                             </p>
                             <p>
-                                <input type="checkbox" id="test3" />
-                                <label for="test3">Take Out</label>
+                                <input type="checkbox" id="test4" />
+                                <label for="test4">Take Out</label>
                             </p>
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
@@ -127,8 +127,8 @@
                                 <label for="test43">Cost - low to high</label>
                             </p>
                             <p>
-                                <input type="checkbox" id="test43" />
-                                <label for="test43">Recently added</label>
+                                <input type="checkbox" id="test53" />
+                                <label for="test53">Recently added</label>
                             </p>
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
@@ -154,26 +154,50 @@
                             <span class="triangle"></span>
                             <p>
                                 <input type="checkbox" id="test15" />
-                                <label for="test15">Red</label>
+                                <label for="test15">Casual Dining</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test25"  />
-                                <label for="test25">Yellow</label>
+                                <label for="test25">Cafés</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test35" />
-                                <label for="test35">Green</label>
+                                <label for="test35">Quick Bites</label>
                             </p>
                             <p>
                                 <input type="checkbox" id="test45" />
-                                <label for="test45">Brown</label>
+                                <label for="test45">Bars</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test55" />
+                                <label for="test55">Food Trucks</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test65"  />
+                                <label for="test65">Bakeries</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test75" />
+                                <label for="test75">Pubs</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test85" />
+                                <label for="test85">Fast Food</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test95" />
+                                <label for="test95">Fast Casual</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="test05" />
+                                <label for="test05">Dessert Shop</label>
                             </p>
                             <button class=" filterButtons capitalize">cancel</button>
                             <button class="filterButtons capitalize">ok</button>
                         </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f6')">services
+                    <li class="navSecond capitalize" ng-click="displayElement('f6')">Location
                         <div class="forBefore displayNone" id="f6">
                         <div class="filters">
                             <span class="triangle"></span>
@@ -211,7 +235,7 @@
             <!--end fixed nav-->
         </div>
         <div class="pageSection">
-            <div class="headSection">
+           {{-- <div class="headSection">
                 <ul>
                     <li class="capitalize" data-toggle="modal" data-target="#myModal2">area</li>
                     <li class="capitalize" data-toggle="modal" data-target="#myModal3">metro</li>
@@ -227,7 +251,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div>--}}
             <div class="cont" >
                 <div class="infoContent">
                     <div class="info" ng-repeat="info in markers" ng-class="{'active': clichedElementId == info.id}" ng-click="currentRest(info.id)" >

@@ -731,34 +731,39 @@ html body .content .pageSection .cont {
   width: 100%;
   background-color: white;
   box-shadow: 0 0 10px #888888;
-  border-top: 1px solid;
 }
 html body .content .pageSection .cont .infoContent {
   padding: 0 20px;
 }
 html body .content .pageSection .cont .infoContent .info {
+  padding-left: 7px;
   margin-top: 20px;
-  transition: 0.3s;
 }
 html body .content .pageSection .cont .infoContent .info:hover {
-  background-color: #3c3e51;
-  color: white;
+  border-left: 3px solid #3d3f52;
+  padding-left: 4px;
+  color: #3d3f52;
   cursor: pointer;
-  transition: 0.3s;
 }
-html body .content .pageSection .cont .infoContent .info:hover .textSection .text {
-  color: white;
-  transition: 0.3s;
+html body .content .pageSection .cont .infoContent .info:hover .textSection {
+  /*.text{
+                    color: @mainColor;
+                    transition: 0.3s;
+                  }*/
+}
+html body .content .pageSection .cont .infoContent .info:hover .textSection .title {
+  color: #3d3f52;
+  transition: 0.1s;
 }
 html body .content .pageSection .cont .infoContent .info.active {
-  background-color: #3c3e51;
-  color: white;
+  border-left: 3px solid #3d3f52;
+  padding-left: 4px;
+  color: #3d3f52;
   cursor: pointer;
-  transition: 0.3s;
 }
-html body .content .pageSection .cont .infoContent .info.active .textSection .text {
-  color: white;
-  transition: 0.3s;
+html body .content .pageSection .cont .infoContent .info.active .textSection .title {
+  color: #3d3f52;
+  transition: 0.1s;
 }
 html body .content .pageSection .cont .infoContent .info .imageSection {
   width: 160px;

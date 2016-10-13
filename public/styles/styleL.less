@@ -792,35 +792,41 @@ html{
           width: 100%;
           background-color: @secondColor;
           box-shadow: 0 0 10px #888888;
-          border-top: 1px solid;
+          //border-top: 1px solid;
           .infoContent{
             padding: 0 20px;
             .info{
+              padding-left: 7px;
               margin-top: 20px;
-              transition: 0.3s;
+              //transition: 0.1s;
               &:hover{
-                background-color: #3c3e51;
-                color: @secondColor;
+                border-left: 3px solid @mainColor;
+                padding-left: 4px;
+                color: @mainColor;
                 cursor: pointer;
                 .textSection{
-                  .text{
-                    color: @secondColor;
-                    transition: 0.3s;
+                  .title{
+                    color: @mainColor;
+                    transition: 0.1s;
                   }
+                  /*.text{
+                    color: @mainColor;
+                    transition: 0.3s;
+                  }*/
                 }
-                transition: 0.3s;
+                //transition: 0.3s;
               }
               &.active{
-                background-color: #3c3e51;
-                color: @secondColor;
+                border-left: 3px solid @mainColor;
+                padding-left: 4px;
+                color: @mainColor;
                 cursor: pointer;
                 .textSection{
-                  .text{
-                    color: @secondColor;
-                    transition: 0.3s;
+                  .title{
+                    color: @mainColor;
+                    transition: 0.1s;
                   }
                 }
-                transition: 0.3s;
               }
               .imageSection{
                 width: 160px;
