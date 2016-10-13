@@ -311,7 +311,7 @@
                         <div class="footerText">Noticed a Mistake - let us</div>
                     </div>
                 </div>
-                <div class="socialIco">
+                {{--<div class="socialIco">
                     <div class="fb">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                     </div>
@@ -322,7 +322,7 @@
                         <i class="fa fa-google-plus" aria-hidden="true"></i>
                     </div>
 
-                </div>
+                </div>--}}
             </footer>
         </div>
     </div>

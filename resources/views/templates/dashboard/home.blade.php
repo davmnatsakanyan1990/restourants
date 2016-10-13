@@ -293,7 +293,7 @@
 
                     </div>
                     <button class="showMoreButton" ng-click="addMorePoints()" id="active">show more</button>
-                    <div class="additionalInfo">
+                    {{--<div class="additionalInfo">
                         <div class="additionalTitle">Restaurants in nearby towns</div>
                         <div class="imageAndInfo" ng-repeat="adInfo in additionalInfo">
                             <img src="<% adInfo.image %>"/>
@@ -302,7 +302,7 @@
                                 <div class="moreInfo" ng-bind="adInfo.more"></div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
                 <footer>
                     <div class="footerText">
@@ -317,7 +317,7 @@
                             <div class="footerText">Noticed a Mistake - let us</div>
                         </div>
                     </div>
-                    <div class="socialIco">
+                    {{--<div class="socialIco">
                         <div class="fb">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </div>
@@ -327,8 +327,7 @@
                         <div class="google">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                         </div>
-
-                    </div>
+                    </div>--}}
                 </footer>
             </div>
 
