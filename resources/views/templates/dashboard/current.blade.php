@@ -1,4 +1,4 @@
-<script src="{{asset('lib/star/star.js')}}"></script>
+
     <div ng-controller="currentController">
         <script src="{{asset('lib/star/star.js')}}"></script>
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
@@ -276,14 +276,14 @@
                                             <div class="item active">
                                                 <div class="row">
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
-                                                        <a class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                                        <a class="thumbnail fancybox" rel="group" href= "<%image%>"><img src="<%image%>" style="max-width:100%;" alt="" ></a>
                                                     </div>
                                                 </div><!--.row-->
                                             </div><!--.item-->
                                             <div class="item" ng-repeat="img in myNewArr track by $index">
                                                 <div class="row">
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
-                                                        <a  class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                                        <a  class="thumbnail fancybox" rel="group" href= "<%image%>"><img src="<%image%>" style="max-width:100%;" alt=""></a>
                                                     </div>
 
                                                 </div><!--.row-->
@@ -296,6 +296,7 @@
                             </div>
                         </div><!--.container-->
                     </div>
+
                 </div>
             </div>
             <footer>

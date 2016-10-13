@@ -314,7 +314,5 @@ app.controller("currentController", function($scope, $rootScope, $http, $documen
         createMarker($scope.restaurants[i]);
     };
 
-
-
 });
 
