@@ -48,7 +48,7 @@
     </div>
 
     <div class="restPageContainer">
-        <div class="pageContainer">
+        <div class="pageContainer" style=" width: calc(100% - 60px);">
             <div class="containerTop" id="description">
                 <div class="titlePart" ng-bind="currentRestaurant.name"></div>
 
