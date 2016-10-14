@@ -164,7 +164,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     var el = element[i];
                     var pos = el.offsetTop
                 };
-                window.scrollTo(0, pos);
+               /* window.scrollTo(0, pos);*/
 
 
             });
