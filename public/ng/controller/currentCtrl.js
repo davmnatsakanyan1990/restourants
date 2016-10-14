@@ -298,6 +298,8 @@ app.controller("currentController", function($scope, $rootScope, $http, $documen
         mapTypeId: google.maps.MapTypeId.TERRAIN
     };
 
+    
+
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     $scope.markers = [];
