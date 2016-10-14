@@ -18,54 +18,65 @@ app.controller("currentController", function($scope, $rootScope, $http, $documen
 
     });
 
-    RestaurantService.getRestaurantData($rootScope.currentId)
-        .then(function (response) {
-            $scope.currentRestaurant = response.data;
-            console.log($scope.myWelcome);
+    $scope.rating = 2;
 
-            //restaurants images part
-            var arr = $scope.currentRestaurant.images;
-            $scope.myNewArr = [];
+        RestaurantService.getRestaurantData($rootScope.currentId)
+            .then(function (response) {
+                $scope.currentRestaurant = response.data;
 
-            if(window.innerWidth < 570){
-                $scope.cal = 12;
-                for(var i =0; i<arr.length; i++){
-                    if (i % 1 == 0 && i!=0){
-                        $scope.myNewArr.push([arr[i]]);
-                    }
-                }
-            } else if(window.innerWidth < 776 && window.innerWidth > 570){
-                $scope.cal = 6;
-                for(var i =0; i<arr.length; i++){
-                    if (i % 2 == 0 && i!=0){
-                        $scope.myNewArr.push([arr[i], arr[i-1]]);
-                    }
-                }
-            } else if(window.innerWidth <= 995 && window.innerWidth >= 776){
-                $scope.cal = 4;
-                for(var i =0; i<arr.length; i++){
-                    if (i % 3 == 0 && i!=0){
-                        $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2]]);
-                    }
-                }
-            }else if(window.innerWidth > 995 && window.innerWidth <=1420) {
-                $scope.cal = 3;
-                for(var i =0; i<arr.length; i++){
-                    if (i % 4 == 0 && i!=0){
-                        $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3]]);
-                    }
-                }
-            }else if(window.innerWidth >1420){
-                $scope.cal = 2;
-                for(var i =0; i<arr.length; i++){
-                    if (i % 6 == 0 && i!=0){
-                        $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3], arr[i-4], arr[i-5]]);
-                    }
-                }
-            };
+                //rating part
+                $scope.rating1 = $scope.currentRestaurant.rating;
 
+                console.log($scope.rating1 );
+                $scope.isReadonly = true;
+                $scope.rateFunction = function(rating) {
+                    console.log('Rating selected: ' + rating);
+                };
+                //
 
-        });
+                //restaurants images part
+                var arr = $scope.currentRestaurant.images;
+                $scope.myNewArr = [];
+
+                if(window.innerWidth < 570){
+                    $scope.cal = 12;
+                    for(var i =0; i<arr.length; i++){
+                        if (i % 1 == 0 && i!=0){
+                            $scope.myNewArr.push([arr[i]]);
+                        }
+                    }
+                } else if(window.innerWidth < 776 && window.innerWidth > 570){
+                    $scope.cal = 6;
+                    for(var i =0; i<arr.length; i++){
+                        if (i % 2 == 0 && i!=0){
+                            $scope.myNewArr.push([arr[i], arr[i-1]]);
+                        }
+                    }
+                } else if(window.innerWidth <= 995 && window.innerWidth >= 776){
+                    $scope.cal = 4;
+                    for(var i =0; i<arr.length; i++){
+                        if (i % 3 == 0 && i!=0){
+                            $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2]]);
+                        }
+                    }
+                }else if(window.innerWidth > 995 && window.innerWidth <=1420) {
+                    $scope.cal = 3;
+                    for(var i =0; i<arr.length; i++){
+                        if (i % 4 == 0 && i!=0){
+                            $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3]]);
+                        }
+                    }
+                }else if(window.innerWidth >1420){
+                    $scope.cal = 2;
+                    for(var i =0; i<arr.length; i++){
+                        if (i % 6 == 0 && i!=0){
+                            $scope.myNewArr.push([arr[i], arr[i-1], arr[i-2], arr[i-3], arr[i-4], arr[i-5]]);
+                        }
+                    }
+                };
+
+            }.bind($scope));
+
 
    /* $scope.currentRestaurant = {
         mobileNumber: '+(222) 1212145454',
@@ -259,6 +270,11 @@ app.controller("currentController", function($scope, $rootScope, $http, $documen
             }
         ]
     };
+
+
+
+
+
 
 
     //map section
