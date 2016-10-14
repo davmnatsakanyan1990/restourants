@@ -10,7 +10,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     $scope.$watch(function () {
         return $window.scrollY;
     }, function (scrollY) {
-        //console.log(scrollY);
         if (scrollY >= 45) {
             $scope.FixedRestMenu = true;
 
@@ -27,10 +26,9 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
             //rating part
             $scope.rating1 = $scope.currentRestaurant.rating;
 
-            console.log($scope.rating1);
             $scope.isReadonly = true;
             $scope.rateFunction = function (rating) {
-                console.log(rating);
+                var rateData = rating
                 $scope.editedRating = true;
             };
             //
