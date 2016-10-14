@@ -213,7 +213,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.$watch(function () {
         return $window.scrollY;
     }, function (scrollY) {
-        if(scrollY >= 460){
+        if(scrollY >= 330){
             $scope.visibleLittleMenu = true;
 
         }else{
@@ -269,7 +269,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
     //in feature it will be call
-    $scope.additionalInfo = {
+   /* $scope.additionalInfo = {
         restaurant1:{
             image: 'images/restaurantImages/rest1.jpg',
             title: 'Title1',
@@ -285,7 +285,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             title: 'Title3',
             more: '420 places'
         }
-    };
+    };*/
 
     //top sider
 
