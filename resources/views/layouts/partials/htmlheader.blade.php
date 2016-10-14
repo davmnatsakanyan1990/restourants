@@ -9,3 +9,20 @@
 <link rel="stylesheet" href="{{asset('lib/icons/font-awesome-4.6.3/css/font-awesome.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/customChackbox.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('lib/star/star.css')}}">
+
+
+
+
+
+
+
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="{{asset('lib/fancybox/source/jquery.fancybox.css')}}" type="text/css" media="screen" />
+
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="{{asset('lib/fancybox/source/helpers/jquery.fancybox-buttons.css')}}" type="text/css" media="screen" />
+
+
+<link rel="stylesheet" href="{{asset('lib/fancybox/source/helpers/jquery.fancybox-thumbs.css')}}" type="text/css" media="screen" />

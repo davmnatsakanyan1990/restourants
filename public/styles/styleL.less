@@ -8,9 +8,31 @@
   }
 }
 
+
+.forBefore{
+  position: absolute;
+  top: 60px;
+  left: -30px;
+  z-index: 3;
+  &:before{
+    content:"\A";
+    border-style: solid;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #9e9e9e  transparent transparent;
+    position: absolute;
+    left: 60px;
+    top: -15px;
+    transform: rotate(90deg);
+  }
+}
+
+
+
 html{
   height: 100vh;
   body{
+
+
     height: 100vh;
     background-color: #efefef;
     a{
@@ -187,6 +209,10 @@ html{
     .mobileNumberPart{
       line-height: 45px;
       color: white;
+      margin-right: 20px;
+      span i{
+        margin-right: 10px;
+      }
     }
     .pointer{
       cursor: pointer;
@@ -631,17 +657,19 @@ html{
                 display: inline-block;
                 margin-right: 10px;
                 .filters{
-                  position: absolute;
+                  //position: absolute;
                   background-color: @secondColor;
                   border-radius: 3px;
-                  width: 150px;
+                  width: 170px;
                   z-index: 3;
-                  top: 60px;
-                  left: -30px;
+                  /*top: 60px;
+                  left: -30px;*/
                   color: #9e9e9e;
                   text-align: left;
                   padding: 10px;
                   border: 1px solid;
+                  overflow: auto;
+                  max-height: 250px;
                   .test1{
                     &:hover{
 
@@ -764,35 +792,41 @@ html{
           width: 100%;
           background-color: @secondColor;
           box-shadow: 0 0 10px #888888;
-          border-top: 1px solid;
+          //border-top: 1px solid;
           .infoContent{
             padding: 0 20px;
             .info{
+              padding-left: 7px;
               margin-top: 20px;
-              transition: 0.3s;
+              //transition: 0.1s;
               &:hover{
-                background-color: #3c3e51;
-                color: @secondColor;
+                border-left: 3px solid @mainColor;
+                padding-left: 4px;
+                color: @mainColor;
                 cursor: pointer;
                 .textSection{
-                  .text{
-                    color: @secondColor;
-                    transition: 0.3s;
+                  .title{
+                    color: @mainColor;
+                    transition: 0.1s;
                   }
+                  /*.text{
+                    color: @mainColor;
+                    transition: 0.3s;
+                  }*/
                 }
-                transition: 0.3s;
+                //transition: 0.3s;
               }
               &.active{
-                background-color: #3c3e51;
-                color: @secondColor;
+                border-left: 3px solid @mainColor;
+                padding-left: 4px;
+                color: @mainColor;
                 cursor: pointer;
                 .textSection{
-                  .text{
-                    color: @secondColor;
-                    transition: 0.3s;
+                  .title{
+                    color: @mainColor;
+                    transition: 0.1s;
                   }
                 }
-                transition: 0.3s;
               }
               .imageSection{
                 width: 160px;
@@ -1291,8 +1325,9 @@ html{
                 &.navSecond{
                   display: block;
                   margin-right: 0;
+
                   .filters{
-                    position: absolute;
+                    /*position: absolute;*/
                     background-color: @secondColor;
                     border-radius: 3px;
                     width: 150px;
@@ -1308,7 +1343,7 @@ html{
 
                       }
                     }
-                    &:before{
+                    /*&:before{
                       content:"\A";
                       border-style: solid;
                       border-width: 10px 15px 10px 0;
@@ -1317,7 +1352,7 @@ html{
                       left: 60px;
                       top: -15px;
                       transform: rotate(90deg);
-                    }
+                    }*/
                     .filterButtons{
                       width: 60px;
                       color: @secondColor;

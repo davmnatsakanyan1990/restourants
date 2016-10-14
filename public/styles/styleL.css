@@ -3,6 +3,22 @@
   display: table;
   clear: both;
 }
+.forBefore {
+  position: absolute;
+  top: 60px;
+  left: -30px;
+  z-index: 3;
+}
+.forBefore:before {
+  content: "\A";
+  border-style: solid;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #9e9e9e  transparent transparent;
+  position: absolute;
+  left: 60px;
+  top: -15px;
+  transform: rotate(90deg);
+}
 html {
   height: 100vh;
 }
@@ -175,6 +191,10 @@ html body .elementRight {
 html body .mobileNumberPart {
   line-height: 45px;
   color: white;
+  margin-right: 20px;
+}
+html body .mobileNumberPart span i {
+  margin-right: 10px;
 }
 html body .pointer {
   cursor: pointer;
@@ -589,17 +609,18 @@ html body .content .sliderSection .secondNav ul li.navSecond {
   margin-right: 10px;
 }
 html body .content .sliderSection .secondNav ul li.navSecond .filters {
-  position: absolute;
   background-color: white;
   border-radius: 3px;
-  width: 150px;
+  width: 170px;
   z-index: 3;
-  top: 60px;
-  left: -30px;
+  /*top: 60px;
+                  left: -30px;*/
   color: #9e9e9e;
   text-align: left;
   padding: 10px;
   border: 1px solid;
+  overflow: auto;
+  max-height: 250px;
 }
 html body .content .sliderSection .secondNav ul li.navSecond .filters:before {
   content: "\A";
@@ -710,34 +731,39 @@ html body .content .pageSection .cont {
   width: 100%;
   background-color: white;
   box-shadow: 0 0 10px #888888;
-  border-top: 1px solid;
 }
 html body .content .pageSection .cont .infoContent {
   padding: 0 20px;
 }
 html body .content .pageSection .cont .infoContent .info {
+  padding-left: 7px;
   margin-top: 20px;
-  transition: 0.3s;
 }
 html body .content .pageSection .cont .infoContent .info:hover {
-  background-color: #3c3e51;
-  color: white;
+  border-left: 3px solid #3d3f52;
+  padding-left: 4px;
+  color: #3d3f52;
   cursor: pointer;
-  transition: 0.3s;
 }
-html body .content .pageSection .cont .infoContent .info:hover .textSection .text {
-  color: white;
-  transition: 0.3s;
+html body .content .pageSection .cont .infoContent .info:hover .textSection {
+  /*.text{
+                    color: @mainColor;
+                    transition: 0.3s;
+                  }*/
+}
+html body .content .pageSection .cont .infoContent .info:hover .textSection .title {
+  color: #3d3f52;
+  transition: 0.1s;
 }
 html body .content .pageSection .cont .infoContent .info.active {
-  background-color: #3c3e51;
-  color: white;
+  border-left: 3px solid #3d3f52;
+  padding-left: 4px;
+  color: #3d3f52;
   cursor: pointer;
-  transition: 0.3s;
 }
-html body .content .pageSection .cont .infoContent .info.active .textSection .text {
-  color: white;
-  transition: 0.3s;
+html body .content .pageSection .cont .infoContent .info.active .textSection .title {
+  color: #3d3f52;
+  transition: 0.1s;
 }
 html body .content .pageSection .cont .infoContent .info .imageSection {
   width: 160px;
@@ -1180,7 +1206,7 @@ html body .uppercase {
     margin-right: 0;
   }
   html body .content .sliderSection .secondNav ul li.navSecond .filters {
-    position: absolute;
+    /*position: absolute;*/
     background-color: white;
     border-radius: 3px;
     width: 150px;
@@ -1191,16 +1217,16 @@ html body .uppercase {
     text-align: left;
     padding: 10px;
     border: 1px solid;
-  }
-  html body .content .sliderSection .secondNav ul li.navSecond .filters:before {
-    content: "\A";
-    border-style: solid;
-    border-width: 10px 15px 10px 0;
-    border-color: transparent #9e9e9e  transparent transparent;
-    position: absolute;
-    left: 60px;
-    top: -15px;
-    transform: rotate(90deg);
+    /*&:before{
+                      content:"\A";
+                      border-style: solid;
+                      border-width: 10px 15px 10px 0;
+                      border-color: transparent #9e9e9e  transparent transparent;
+                      position: absolute;
+                      left: 60px;
+                      top: -15px;
+                      transform: rotate(90deg);
+                    }*/
   }
   html body .content .sliderSection .secondNav ul li.navSecond .filters .filterButtons {
     width: 60px;

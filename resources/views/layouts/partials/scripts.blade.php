@@ -1,5 +1,18 @@
 {{--libraries--}}
+
 <script src="{{asset('lib/jquery-3.1.0.min.js')}}"></script>
+{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--}}
+<!-- Add mousewheel plugin (this is optional) -->
+<script type="text/javascript" src="{{asset('lib/fancybox/lib/jquery.mousewheel-3.0.6.pack.js')}}"></script>
+<script type="text/javascript" src="{{asset('lib/fancybox/source/jquery.fancybox.pack.js')}}"></script>
+
+
+
+
+<!-- jQuery library -->
+
+{{--<script type='text/javascript' src='http://yerevancar.am/wp-content/themes/yerevancar/incl/fancybox/source/jquery.fancybox.pack.js?ver=4.5.4'></script>--}}
+
 <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('lib/angular/angular.min.js')}}"></script>
 <script src="{{asset('lib/angular-route/angular-route.js')}}"></script>
@@ -18,10 +31,9 @@
 <script src="{{asset('ng/directive/scroll.js')}}"></script>
 
 {{--other js files--}}
-<<<<<<< HEAD
+
 {{--<script src="{{asset('lib/star/star.js')}}"></script>--}}
-=======
->>>>>>> bff8ccd0a6f98627ea019e28159885f41d9befe1
+
 <script src="{{asset('js/animateMenu.js')}}"></script>
 <script src="{{asset('js/slider2.js')}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkB3G-qzliKWCg-x_LYj_BlP5wNRvg2BA&libraries=places" async defer></script>

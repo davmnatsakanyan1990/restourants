@@ -1,17 +1,18 @@
-<script src="{{asset('lib/star/star.js')}}"></script>
+
     <div ng-controller="currentController">
         <script src="{{asset('lib/star/star.js')}}"></script>
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
         <div class="container-fluid animateSecond"  ng-if="search || animateSecMenuVar">
             <ul class="nav navbar-nav">
                 <li ng-class="{'active': activePage=='page1'}" ng-click="activePage='page1'"><a class="pointer">Description</a></li>
-                <li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a class="pointer">Shares</a></li>
+                {{--<li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a class="pointer">Shares</a></li>--}}
                 <li ng-class="{'active': activePage=='page3'}" ng-click="activePage='page3'"><a class="pointer">Menu</a></li>
-                <li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Specialists</a></li>
+                {{--<li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Specialists</a></li>--}}
                 <li ng-class="{'active': activePage=='page2'}" ng-click="activePage='page2'"><a class="pointer">Reviews</a></li>
                 <!--<li ng-class="{'active': activePage=='page6'}" ng-click="activePage='page6'"><a href="#3dTour">3D-tour</a></li>-->
+                <li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Photos</a></li>
             </ul>
-            <div class="elementRight mobileNumberPart" ng-bind="currentRestaurant.mobileNumber">+454 5454 5454 5454 54</div>
+            <div class="elementRight mobileNumberPart"><span><i class="fa fa-phone" aria-hidden="true"></i></span><span ng-bind="currentRestaurant.mobileNumber"></span></div>
         </div>
         <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}" ng-if="!search">
             <span></span>
@@ -49,7 +50,7 @@
             <div class="containerTop" id="description">
                 <div class="titlePart" ng-bind="currentRestaurant.name"></div>
 
-                <div class="positioningCall">
+                {{--<div class="positioningCall">
                     <div class="numberInputPart" ng-click="togglePhoneNumber()">call me</div>
                     <div class="dropMenu" ng-if="openPhoneInput">
                         <input type="text" placeholder="write phone number">
@@ -70,16 +71,16 @@
                     <option value="t14">22:00</option>
                     <option value="t15">23:00</option>
                     <option value="t16">24:00</option>
-                </select>
-                <div class='rating'>
+                </select>--}}
+                <div class='rating' style="margin-left: 0; ">
                     <div class="lead">
-                        <div id="hearts-existing" class="starrr" data-rating='2'></div>
+                        <div id="hearts-existing" class="starrr" data-rating='<% currentRestaurant.rating %>'></div>
                     </div>
                 </div>
-                <div class="rating">
+               {{-- <div class="rating">
                     <span  ng-bind="currentRestaurant.comment"></span>
                     <span>comments</span>
-                </div>
+                </div>--}}
             </div>
 
             <div class="containerContent">
@@ -126,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container2 pages parallax" >
+                {{--<div class="container2 pages parallax" >
                     <div class="containerTitle capitalize">shares</div>
                     <div class="containerContent" ng-repeat="shareItem in currentRestaurant.shares">
                         <div class="shareItem" ng-bind="shareItem.title" data-toggle="modal" data-target="#myModalPop" ng-click="getSharesData(shareItem)"></div>
@@ -134,7 +135,7 @@
                     <div class="shareItem" ng-if="!currentRestaurant.shareItems || currentRestaurant.shareItems.length<1">
                         No Items found
                     </div>
-                </div>
+                </div>--}}
                 <div class="container3 pages parallax" >
                     <div class="containerTitle capitalize">menu</div>
                     <div class="clearElement">
@@ -150,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container4 pages parallax" id="specialist">
+                {{--<div class="container4 pages parallax" id="specialist">
                     <div class="containerTitle capitalize">specialists</div>
                     <div class="containerContent clearElement">
                         <div class="elementLeft specAllInfo" ng-repeat="spec in currentRestaurant.specialists">
@@ -199,7 +200,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <div class="container5 pages parallax" id="review">
                     <div class="containerTitle capitalize clearElement">
                         <div class="revText elementLeft">reviews</div>
@@ -262,7 +263,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container6 pages parallax">
+                <div class="container6 pages parallax" id="photos">
                     <div class="containerTitle capitalize">visitor photos</div>
                     <div class="containerContent with100">
                         <div class=""><!--slider-->
@@ -275,14 +276,14 @@
                                             <div class="item active">
                                                 <div class="row">
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
-                                                        <a class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                                        <a class="thumbnail fancybox" rel="group" href= "<%image%>"><img src="<%image%>" style="max-width:100%;" alt="" ></a>
                                                     </div>
                                                 </div><!--.row-->
                                             </div><!--.item-->
                                             <div class="item" ng-repeat="img in myNewArr track by $index">
                                                 <div class="row">
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
-                                                        <a  class="thumbnail"><img src="<%image%>" style="max-width:100%;"></a>
+                                                        <a  class="thumbnail fancybox" rel="group" href= "<%image%>"><img src="<%image%>" style="max-width:100%;" alt=""></a>
                                                     </div>
 
                                                 </div><!--.row-->
@@ -295,6 +296,7 @@
                             </div>
                         </div><!--.container-->
                     </div>
+
                 </div>
             </div>
             <footer>
@@ -310,7 +312,7 @@
                         <div class="footerText">Noticed a Mistake - let us</div>
                     </div>
                 </div>
-                <div class="socialIco">
+                {{--<div class="socialIco">
                     <div class="fb">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                     </div>
@@ -321,7 +323,7 @@
                         <i class="fa fa-google-plus" aria-hidden="true"></i>
                     </div>
 
-                </div>
+                </div>--}}
             </footer>
         </div>
     </div>
@@ -338,7 +340,7 @@
                 </div>
                 <div class="modal-body popupBody leftContent sharesPopup">
                     <p ng-bind="SharesPopupData.content"></p>
-                    <img src="<% SharesPopupData.photo %>">
+                    <img src="../images/sharesImages/<% SharesPopupData.photo %>">
                     <div class="clearElement margin15 font16">
                         <i class="fa fa-map-marker elementLeft" aria-hidden="true"></i><% SharesPopupData.location %>
                     </div>
