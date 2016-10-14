@@ -34,3 +34,5 @@ Route::auth();
 
 Route::get('home/index', 'HomeController@index');
 Route::get('show/{id}', 'PlaceController@show');
+Route::get('fill/places', 'PlaceController@fillplaces');
+Route::get('fill/cuisines', 'PlaceController@fillCuisines');

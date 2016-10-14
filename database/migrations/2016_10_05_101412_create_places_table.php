@@ -18,14 +18,14 @@ class CreatePlacesTable extends Migration
             $table->string('name');
             $table->string('intro');
             $table->string('address');
+            $table->integer('location_id')->unsigned();
             $table->string('lat');
             $table->string('lon');
             $table->string('site');
-            $table->integer('price_from');
-            $table->integer('price_to');
-            $table->time('wrk_hrs_from');
-            $table->time('wrk_hrs_to');
+            $table->enum('cost', [0,1,2,3,4]);
             $table->timestamps();
+
+            $table->foreign('location_id')->references('id')->on('locations');
         });
     }
 

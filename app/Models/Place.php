@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+
+use App\Cuisin;
 use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
@@ -38,5 +40,29 @@ class Place extends Model
     
     public function shares(){
         return $this->hasMany(Share::class);
+    }
+    
+    public function menus(){
+        return $this->hasMany(Menu::class);
+    }
+    
+    public function highlights(){
+        return $this->belongsToMany(Highlight::class);
+    }
+    
+    public function cuisins(){
+        return $this->belongsToMany(Cuisin::class);
+    }
+
+    public function workinghour(){
+        return $this->hasOne(WorkingHour::class);
+    }
+    
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
+    
+    public function location(){
+        return $this->belongsTo(Location::class);
     }
 }
