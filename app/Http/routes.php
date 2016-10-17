@@ -36,3 +36,6 @@ Route::get('home/index', 'HomeController@index');
 Route::get('show/{id}', 'PlaceController@show');
 Route::get('fill/places', 'PlaceController@fillplaces');
 Route::get('fill/cuisines', 'PlaceController@fillCuisines');
+Route::get('fill/locations', 'PlaceController@fillLocations');
+Route::get('assign/category', 'PlaceController@assignCategory');
+Route::get('assign/type', 'PlaceController@assignType');

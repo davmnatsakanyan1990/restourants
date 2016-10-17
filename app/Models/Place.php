@@ -65,4 +65,8 @@ class Place extends Model
     public function location(){
         return $this->belongsTo(Location::class);
     }
+    
+    public function types(){
+        return $this->belongsToMany(Type::class);
+    }
 }

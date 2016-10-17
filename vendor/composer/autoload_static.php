@@ -307,11 +307,13 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'CreatePlaceCuisinsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_111521_create_place_cuisins_table.php',
         'CreatePlaceHighlightsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_101225_create_place_highlights_table.php',
         'CreatePlaceServicesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_133003_create_place_services_table.php',
+        'CreatePlaceTypesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_14_114324_create_place_types_table.php',
         'CreatePlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_101412_create_places_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_10_110154_create_products_table.php',
         'CreateRatesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_102606_create_rates_table.php',
         'CreateServicesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_125448_create_services_table.php',
         'CreateSharesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_102457_create_shares_table.php',
+        'CreateTypesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_14_114156_create_types_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateWorkingHoursTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_065032_create_working_hours_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
@@ -829,6 +831,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'ShareTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ShareTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'TypeTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TypeTableSeeder.php',
         'UserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserTableSeeder.php',
     );
 

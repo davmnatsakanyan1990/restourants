@@ -15,10 +15,10 @@ class CategoryTableSeeder extends Seeder
         DB::table('categories')->insert([
             ['name' => 'breakfast'],
             ['name' => 'lunch'],
-            ['name' => 'dinner'],
+            ['name' => 'dine out'],
             ['name' => 'delivery'],
             ['name' => 'drinks and nightlife'],
-            ['name' => 'take out'],
+            ['name' => 'take away'],
         ]);
     }
 }
