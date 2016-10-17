@@ -1,6 +1,5 @@
-
 <div ng-controller="MapCtrl">
-    <div class="content" >
+    <div class="content">
         <div class="sliderSection">
             <h1 class="headTitle">
                 <span class="titleFirstPart">Choose your favorite</span>
@@ -20,28 +19,40 @@
 
                                     <div class="item active">
                                         <div class="row">
-                                            <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
-                                                <a class="thumbnail" style="width: 60px; height: 70px; margin: 0 auto; border: none;">
+                                            <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>"
+                                                 ng-repeat="image in myNewArr[0] track by $index">
+                                                <a class="thumbnail"
+                                                   style="width: 60px; height: 70px; margin: 0 auto; border: none;">
                                                     <img src="<%image%>" style="max-width:100%;">
-                                                    <div class="text" style="font-size: 11px; color: #3c3e51; margin-top: 5px;">someText</div>
+                                                    <div class="text"
+                                                         style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
+                                                        someText
+                                                    </div>
                                                 </a>
                                             </div>
                                         </div><!--.row-->
                                     </div><!--.item-->
                                     <div class="item" ng-repeat="img in myNewArr track by $index">
                                         <div class="row">
-                                            <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
-                                                <a class="thumbnail" style="width: 60px; height: 70px; margin: 0 auto;  border: none;">
+                                            <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>"
+                                                 ng-repeat="image in img track by $index">
+                                                <a class="thumbnail"
+                                                   style="width: 60px; height: 70px; margin: 0 auto;  border: none;">
                                                     <img src="<%image%>" style="max-width:100%;">
-                                                    <div class="text" style="font-size: 11px; color: #3c3e51; margin-top: 5px;">someText</div>
+                                                    <div class="text"
+                                                         style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
+                                                        someText
+                                                    </div>
                                                 </a>
                                             </div>
 
                                         </div><!--.row-->
                                     </div><!--.item-->
                                 </div><!--.carousel-inner-->
-                                <a data-slide="prev" href=".carus2" class="carousel-control left cont" style="left: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">‹</a>
-                                <a data-slide="next" href=".carus2" class="carousel-control right cont" style="right: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">›</a>
+                                <a data-slide="prev" href=".carus2" class="carousel-control left cont"
+                                   style="left: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">‹</a>
+                                <a data-slide="next" href=".carus2" class="carousel-control right cont"
+                                   style="right: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">›</a>
                             </div><!--.Carousel-->
                         </div>
                     </div>
@@ -49,8 +60,10 @@
 
 
             </div>
-            <div class="secondNav" id="secondNav" scroll ng-class="{'closeSecondNav': !animateSecondMenuVar && visibleLittleMenu, 'fixedNavigation': visibleLittleMenu}">
-                <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecondMenuVar}" ng-if="visibleLittleMenu">
+            <div class="secondNav" id="secondNav" scroll
+                 ng-class="{'closeSecondNav': !animateSecondMenuVar && visibleLittleMenu, 'fixedNavigation': visibleLittleMenu}">
+                <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecondMenuVar}"
+                     ng-if="visibleLittleMenu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -58,237 +71,256 @@
                 <ul class="NavButtons clear ">
                     <li class="navSecond capitalize" ng-click="displayElement('f1')">mode
                         <div class="forBefore displayNone" id="f1">
-                        <div  class="filters ">
-                            <span class="triangle"></span>
-                            <p>
-                                <input type="checkbox" id="test1" />
-                                <label for="test1">Dine-In</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test2"  />
-                                <label for="test2">Delivery</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test3" />
-                                <label for="test3">Drinks & Nightlife</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test4" />
-                                <label for="test4">Take Out</label>
-                            </p>
-                            <button class=" filterButtons capitalize">cancel</button>
-                            <button class="filterButtons capitalize">ok</button>
-                        </div>
+                            <div class="filters ">
+                                <span class="triangle"></span>
+                                <p>
+                                    <input type="checkbox" id="test1" ng-model="checkboxModel.checkboxModelF1[0]"/>
+                                    <label for="test1">Dine-In</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test2" ng-model="checkboxModel.checkboxModelF1[1]"/>
+                                    <label for="test2">Delivery</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test3" ng-model="checkboxModel.checkboxModelF1[2]"/>
+                                    <label for="test3">Drinks & Nightlife</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test4" ng-model="checkboxModel.checkboxModelF1[3]"/>
+                                    <label for="test4">Take Out</label>
+                                </p>
+                                <button class=" filterButtons capitalize">cancel</button>
+                                <button class="filterButtons capitalize"
+                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF1, ['Dine-In', 'Delivery', 'Drinks & Nightlife', 'Take Out'])">
+                                    ok
+                                </button>
+                            </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f2')">cost
                         <div class="forBefore displayNone" id="f2">
-                        <div  class="filters">
-                            <span class="triangle"></span>
-                            <p>
-                                <input type="checkbox" id="test12" />
-                                <label for="test12">$</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test22"  />
-                                <label for="test22">$$</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test32" />
-                                <label for="test32">$$$</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test42" />
-                                <label for="test42">$$$$</label>
-                            </p>
-                            <button class=" filterButtons capitalize">cancel</button>
-                            <button class="filterButtons capitalize">ok</button>
-                        </div>
+                            <div class="filters">
+                                <span class="triangle"></span>
+                                <p>
+                                    <input type="checkbox" id="test12" ng-model="checkboxModel.checkboxModelF2[0]"/>
+                                    <label for="test12">$</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test22" ng-model="checkboxModel.checkboxModelF2[1]"/>
+                                    <label for="test22">$$</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test32" ng-model="checkboxModel.checkboxModelF2[2]"/>
+                                    <label for="test32">$$$</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test42" ng-model="checkboxModel.checkboxModelF2[3]"/>
+                                    <label for="test42">$$$$</label>
+                                </p>
+                                <button class=" filterButtons capitalize">cancel</button>
+                                <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF2, ['$', '$$', '$$$', '$$$$'])">ok</button>
+                            </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f3')">Sort by
                         <div class="forBefore displayNone" id="f3">
-                        <div  class="filters">
-                            <span class="triangle"></span>
-                            <p>
-                                <input type="checkbox" id="test13" />
-                                <label for="test13">Popularity - high to low</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test23"  />
-                                <label for="test23">Rating - high to low</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test33" />
-                                <label for="test33">Cost - high to low</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test43" />
-                                <label for="test43">Cost - low to high</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test53" />
-                                <label for="test53">Recently added</label>
-                            </p>
-                            <button class=" filterButtons capitalize">cancel</button>
-                            <button class="filterButtons capitalize">ok</button>
-                        </div>
+                            <div class="filters">
+                                <span class="triangle"></span>
+                                <p>
+                                    <input type="checkbox" id="test13" ng-model="checkboxModel.checkboxModelF3[0]"/>
+                                    <label for="test13">Popularity - high to low</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test23" ng-model="checkboxModel.checkboxModelF3[1]"/>
+                                    <label for="test23">Rating - high to low</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test33" ng-model="checkboxModel.checkboxModelF3[2]"/>
+                                    <label for="test33">Cost - high to low</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test43" ng-model="checkboxModel.checkboxModelF3[3]"/>
+                                    <label for="test43">Cost - low to high</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test53" ng-model="checkboxModel.checkboxModelF3[4]"/>
+                                    <label for="test53">Recently added</label>
+                                </p>
+                                <button class=" filterButtons capitalize">cancel</button>
+                                <button class="filterButtons capitalize"
+                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF3, ['Popularity - high to low', 'Rating - high to low', 'ost - high to low', 'Cost - low to high', 'Recently added'])">
+                                    ok
+                                </button>
+                            </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f4')">cuisine
                         <div class="forBefore displayNone" id="f4">
-                            <div  class="filters">
+                            <div class="filters">
                                 <span class="triangle"></span>
                                 <p ng-repeat="cuisin in cuisins track by $index">
-                                    <input type="checkbox" id="test14" />
-                                    <label for="test14" ng-bind="cuisin">American</label>
+                                    <input type="checkbox" id="test<% $index %>4" ng-model="checkboxModel.checkboxModelF4['<%$index %>']"/>
+                                    <label for="test<% $index %>4" ng-bind="cuisin">American</label>
                                 </p>
                                 <button class=" filterButtons capitalize">cancel</button>
-                                <button class="filterButtons capitalize">ok</button>
+                                <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF4, 'f4')">ok</button>
                             </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f5')">type of restaurants
                         <div class="forBefore displayNone" id="f5">
-                        <div class="filters">
-                            <span class="triangle"></span>
-                            <p>
-                                <input type="checkbox" id="test15" />
-                                <label for="test15">Casual Dining</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test25"  />
-                                <label for="test25">Cafés</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test35" />
-                                <label for="test35">Quick Bites</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test45" />
-                                <label for="test45">Bars</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test55" />
-                                <label for="test55">Food Trucks</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test65"  />
-                                <label for="test65">Bakeries</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test75" />
-                                <label for="test75">Pubs</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test85" />
-                                <label for="test85">Fast Food</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test95" />
-                                <label for="test95">Fast Casual</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test05" />
-                                <label for="test05">Dessert Shop</label>
-                            </p>
-                            <button class=" filterButtons capitalize">cancel</button>
-                            <button class="filterButtons capitalize">ok</button>
-                        </div>
+                            <div class="filters">
+                                <span class="triangle"></span>
+                                <p>
+                                    <input type="checkbox" id="test15" ng-model="checkboxModel.checkboxModelF5[0]"/>
+                                    <label for="test15">Casual Dining</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test25" ng-model="checkboxModel.checkboxModelF5[1]"/>
+                                    <label for="test25">Cafés</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test35" ng-model="checkboxModel.checkboxModelF5[2]"/>
+                                    <label for="test35">Quick Bites</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test45" ng-model="checkboxModel.checkboxModelF5[3]"/>
+                                    <label for="test45">Bars</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test55" ng-model="checkboxModel.checkboxModelF5[4]"/>
+                                    <label for="test55">Food Trucks</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test65" ng-model="checkboxModel.checkboxModelF5[5]"/>
+                                    <label for="test65">Bakeries</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test75" ng-model="checkboxModel.checkboxModelF5[6]"/>
+                                    <label for="test75">Pubs</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test85" ng-model="checkboxModel.checkboxModelF5[7]"/>
+                                    <label for="test85">Fast Food</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test95" ng-model="checkboxModel.checkboxModelF5[8]"/>
+                                    <label for="test95">Fast Casual</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test05" ng-model="checkboxModel.checkboxModelF5[9]"/>
+                                    <label for="test05">Dessert Shop</label>
+                                </p>
+                                <button class=" filterButtons capitalize">cancel</button>
+                                <button class="filterButtons capitalize"
+                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF5, ['Casual Dining', 'Cafés', 'Quick Bites', 'Bars', 'Food Trucks', 'Bakeries', 'Pubs', 'Fast Food', 'Fast Casual', 'Dessert Shop'])">
+                                    ok
+                                </button>
+                            </div>
                         </div>
                     </li>
                     <li class="navSecond capitalize" ng-click="displayElement('f6')">Location
                         <div class="forBefore displayNone" id="f6">
-                        <div class="filters">
-                            <span class="triangle"></span>
-                            <p>
-                                <input type="checkbox" id="test16" />
-                                <label for="test16">Red</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test26"  />
-                                <label for="test26">Yellow</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test36" />
-                                <label for="test36">Green</label>
-                            </p>
-                            <p>
-                                <input type="checkbox" id="test46" />
-                                <label for="test46">Brown</label>
-                            </p>
-                            <button class=" filterButtons capitalize">cancel</button>
-                            <button class="filterButtons capitalize">ok</button>
-                        </div>
+                            <div class="filters">
+                                <span class="triangle"></span>
+                                <p>
+                                    <input type="checkbox" id="test16" ng-model="checkboxModel.checkboxModelF6[0]"/>
+                                    <label for="test16">Red</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test26" ng-model="checkboxModel.checkboxModelF6[1]"/>
+                                    <label for="test26">Yellow</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test36" ng-model="checkboxModel.checkboxModelF6[2]"/>
+                                    <label for="test36">Green</label>
+                                </p>
+                                <p>
+                                    <input type="checkbox" id="test46" ng-model="checkboxModel.checkboxModelF6[3]"/>
+                                    <label for="test46">Brown</label>
+                                </p>
+                                <button class=" filterButtons capitalize">cancel</button>
+                                <button class="filterButtons capitalize"
+                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF6, ['', '', '', ''])">
+                                    ok
+                                </button>
+                            </div>
                         </div>
                     </li>
 
-                    <div class="toTop" ng-if="visibleLittleMenu" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+                    <div class="toTop" ng-if="visibleLittleMenu"
+                         onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
                         <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                     </div>
 
                 </ul>
             </div>
-
+            <div class="filterSection clearElement">
+                <div  class="currentFilter" ng-repeat="filter in filters" >
+                    <div ng-bind="filter"></div>
+                    <i class="fa fa-times" aria-hidden="true" ng-click="deleteElementFromFilter(filter)"></i>
+                </div>
+            </div>
             <!--second nav fixed-->
 
             <!--end fixed nav-->
         </div>
         <div class="pageSection">
-           {{-- <div class="headSection">
-                <ul>
-                    <li class="capitalize" data-toggle="modal" data-target="#myModal2">area</li>
-                    <li class="capitalize" data-toggle="modal" data-target="#myModal3">metro</li>
-                    <li class="capitalize" data-toggle="modal" data-target="#myModal4" ng-click="openDrop()">sorting
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        <div class="dropdown2" ng-if="openDropMenu">
-                            <div class="options"><i class="fa fa-check" aria-hidden="true"></i>
-                                for default
-                            </div>
-                            <div class="options"><i class="fa fa-check" aria-hidden="true"></i>
-                                for rating
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>--}}
-            <div class="cont" >
+            {{-- <div class="headSection">
+                 <ul>
+                     <li class="capitalize" data-toggle="modal" data-target="#myModal2">area</li>
+                     <li class="capitalize" data-toggle="modal" data-target="#myModal3">metro</li>
+                     <li class="capitalize" data-toggle="modal" data-target="#myModal4" ng-click="openDrop()">sorting
+                         <i class="fa fa-angle-down" aria-hidden="true"></i>
+                         <div class="dropdown2" ng-if="openDropMenu">
+                             <div class="options"><i class="fa fa-check" aria-hidden="true"></i>
+                                 for default
+                             </div>
+                             <div class="options"><i class="fa fa-check" aria-hidden="true"></i>
+                                 for rating
+                             </div>
+                         </div>
+                     </li>
+                 </ul>
+             </div>--}}
+            <div class="cont">
                 <div class="infoContent">
-                    <div class="info" ng-repeat="info in markers" ng-class="{'active': clichedElementId == info.id}" ng-click="currentRest(info.id)" ng-mouseenter="openInfoWindow($event, info)" >
+                    <div class="info" ng-repeat="info in markers" ng-class="{'active': clichedElementId == info.id}"
+                         ng-click="currentRest(info.id)" ng-mouseenter="openInfoWindow($event, info)">
                         <a href="#current">
-                        <div class="imageSection">
-                            <img src="<% info.image %>">
-                        </div>
-                        <div class="textSection">
-                            <div class="title" ng-bind="info.title"></div>
-                            <div class="text" ng-bind="info.service"></div>
-                            <div class="rate" ng-if="info.rating ==1">
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                            <div class="imageSection">
+                                <img src="<% info.image %>">
                             </div>
-                            <div class="rate" ng-if="info.rating ==2">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                            <div class="textSection">
+                                <div class="title" ng-bind="info.title"></div>
+                                <div class="text" ng-bind="info.service"></div>
+                                <div class="rate" ng-if="info.rating ==1">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="rate" ng-if="info.rating ==2">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="rate" ng-if="info.rating ==3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="rate" ng-if="info.rating ==4">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="rate" ng-if="info.rating ==5">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="explanation" ng-bind="info.explane"></div>
                             </div>
-                            <div class="rate" ng-if="info.rating ==3">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="rate" ng-if="info.rating ==4">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="rate" ng-if="info.rating ==5">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <div class="explanation" ng-bind="info.explane"></div>
-                        </div>
                         </a>
 
                     </div>
@@ -307,7 +339,8 @@
                 <footer>
                     <div class="footerText">
                         <div class="footerSec">
-                            <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location</div>
+                            <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location
+                            </div>
                             <div class="footerText" data-toggle="modal" data-target="#myModalMaster">add master</div>
                             <div class="footerText">for organization</div>
                         </div>
@@ -386,7 +419,7 @@
     </div>
     <!---->
 
-    <div class="maps" >
+    <div class="maps">
         <div id="map" style="width:100%;height:100%"></div>
     </div>
 

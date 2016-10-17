@@ -661,6 +661,24 @@ html body .content .sliderSection .secondNav ul li a:hover {
   color: #d2d3d8;
   text-decoration: none;
 }
+html body .content .sliderSection .filterSection {
+  margin-top: 20px;
+}
+html body .content .sliderSection .filterSection .currentFilter {
+  float: left;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #80CBC4;
+  border-radius: 10px;
+  color: white;
+  margin-top: 5px;
+}
+html body .content .sliderSection .filterSection .currentFilter div {
+  display: inline;
+}
+html body .content .sliderSection .filterSection .currentFilter i {
+  cursor: pointer;
+}
 html body .content .pageSection {
   background-color: white;
   width: 650px;
