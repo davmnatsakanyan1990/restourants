@@ -2,6 +2,8 @@
 
 <script src="{{asset('lib/jquery-3.1.0.min.js')}}"></script>
 {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--}}
+<script src="{{asset('lib/fancybox/lib/jquery-1.10.1.min.js')}}"></script>
+
 <!-- Add mousewheel plugin (this is optional) -->
 <script type="text/javascript" src="{{asset('lib/fancybox/lib/jquery.mousewheel-3.0.6.pack.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib/fancybox/source/jquery.fancybox.pack.js')}}"></script>
@@ -29,6 +31,7 @@
 
 {{--directives--}}
 <script src="{{asset('ng/directive/scroll.js')}}"></script>
+<script src="{{asset('ng/directive/starRating.js')}}"></script>
 
 {{--other js files--}}
 

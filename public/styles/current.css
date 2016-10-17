@@ -140,6 +140,7 @@ button:focus {
   margin: 30px 30px 0 30px;
   position: absolute;
   top: -177px;
+  width: calc(40%);
 }
 .restPageContainer .pageContainer .containerTop {
   padding: 30px;
@@ -217,6 +218,9 @@ button:focus {
   padding-left: 0;
   padding-right: 0;
   border-left: 1px solid #efefef;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .intro {
+  width: 100%;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .moreInfo {
   margin-top: 20px;

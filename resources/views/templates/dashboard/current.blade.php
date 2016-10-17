@@ -1,6 +1,8 @@
 
-    <div ng-controller="currentController">
+    <div ng-controller="currentController" >
+
         <script src="{{asset('lib/star/star.js')}}"></script>
+
     <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
         <div class="container-fluid animateSecond"  ng-if="search || animateSecMenuVar">
             <ul class="nav navbar-nav">
@@ -46,7 +48,7 @@
     </div>
 
     <div class="restPageContainer">
-        <div class="pageContainer">
+        <div class="pageContainer" style=" width: calc(100% - 60px);">
             <div class="containerTop" id="description">
                 <div class="titlePart" ng-bind="currentRestaurant.name"></div>
 
@@ -72,9 +74,13 @@
                     <option value="t15">23:00</option>
                     <option value="t16">24:00</option>
                 </select>--}}
-                <div class='rating' style="margin-left: 0; ">
+
+                <div class='rating' style="margin-left: 0; " ng-if="haveData">
+
                     <div class="lead">
-                        <div id="hearts-existing" class="starrr" data-rating='<% currentRestaurant.rating %>'></div>
+                        {{--<div class="starrr" ></div>--}}
+                        <div id="some" star-rating ng-model="rating1" max="5" on-rating-select="rateFunction(rating)" readonly="editedRating"></div>
+
                     </div>
                 </div>
                {{-- <div class="rating">
