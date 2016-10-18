@@ -158,12 +158,12 @@
                         <div class="forBefore displayNone" id="f4">
                             <div class="filters">
                                 <span class="triangle"></span>
-                                <p ng-repeat="cuisin in cuisins track by $index">
-                                    <input type="checkbox" id="test<% $index %>4" ng-model="checkboxModel.checkboxModelF4['<%$index %>']"/>
-                                    <label for="test<% $index %>4" ng-bind="cuisin">American</label>
+                                <p ng-repeat="cuisin in drowCuisine track by $index">
+                                    <input type="checkbox" id="test<% $index %>4" ng-model="checkboxModel.checkboxModelF4[cuisin.pass]"/>
+                                    <label for="test<% $index %>4" ng-bind="cuisin.display">American</label>
                                 </p>
                                 <button class=" filterButtons capitalize">cancel</button>
-                                <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF4, 'f4')">ok</button>
+                                <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF4)">ok</button>
                             </div>
                         </div>
                     </li>

@@ -12,7 +12,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF1: [],
         checkboxModelF2: [],
         checkboxModelF3: [],
-        checkboxModelF4: [],
+        checkboxModelF4: {},
         checkboxModelF5: [],
         checkboxModelF6: []
     };
@@ -421,11 +421,22 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         'Eastern',
         'European',
         'Ethiopian',
-        'European', 'Filipino', 'French', 'Frozen', 'Yogurt', 'Fusion', 'German', 'Greek', 'Hawaiian', 'Healthy', 'Food', 'Ice Cream', 'Indian', 'International', 'Irish', 'Italian',
+        'European', 'Filipino', 'French', 'Frozen', 'Yogurt', 'Fusion', 'German', 'Greek', 'Hawaiian', 'Healthy',
+        'Food', 'Ice Cream', 'Indian', 'International', 'Irish', 'Italian',
         'Japanese', 'Kebab', 'Korean', 'Latin', 'American', 'Mediterranean', 'Mexican',
         'Middle', 'Eastern', 'Mongolian', 'Moroccan', 'Nepalese', 'New', 'American', 'New', 'Mexican', 'Pacific',
         'Pakistani', 'Persian', 'Peruvian', 'Pizza', 'Ramen', 'Russian', 'Salad', 'Salvadorean', 'Sandwich', 'Seafood', 'Somali', 'Soul',
-        'Food', 'South', 'American', 'Southern', 'Southwestern', 'Spanish', 'Steak', 'Sushi', 'Taco', 'Taiwanese', 'Tapas', 'Tea', 'Teriyaki', 'Tex-Mex', 'Thai', 'Tibetan', 'Turkish', 'Vegetarian', 'Vietnamese'];
+        'Food', 'South', 'American', 'Southern', 'Southwestern', 'Spanish', 'Steak', 'Sushi',
+        'Taco', 'Taiwanese', 'Tapas', 'Tea', 'Teriyaki', 'Tex-Mex',
+        'Thai', 'Tibetan', 'Turkish', 'Vegetarian', 'Vietnamese'
+    ];
+
+    $scope.drowCuisine = [];
+    for(var p = 0; p < $scope.cuisins.length; p++){
+        $scope.drowCuisine.push({"display": $scope.cuisins[p], "pass" : $scope.cuisins[p]})
+    }
+
+
 
     //filters section
     $scope.filters = [];
@@ -433,34 +444,57 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     
     //whent add a filter from second menu
     $scope.pushElementInFilter = function (index, data) {
-        console.log(data, index);
-        for(var i=0; i<index.length; i++){
-            if(index[i]){
-                if($scope.filters.length ==0){
-                    $scope.filters.push(data[i]);
-                }else{
-                    for(var j=0; j<$scope.filters.length; j++){
-                        if( data[i]==$scope.filters[j]){
-                            elementAlreadyExist = true;
-                            break;
-                        }else{
-                            elementAlreadyExist = false;
+        console.log(index);
+        if(Object.prototype.toString.call( data ) === '[object Array]' ){
+            for(var i=0; i<index.length; i++){
+                if(index[i]){
+                    if($scope.filters.length ==0){
+                        $scope.filters.push(data[i]);
+                    }else{
+                        for(var j=0; j<$scope.filters.length; j++){
+                            if( data[i]==$scope.filters[j]){
+                                elementAlreadyExist = true;
+                                break;
+                            }else{
+                                elementAlreadyExist = false;
+                            }
+                        }
+                        if(!elementAlreadyExist){
+                            $scope.filters.push(data[i]);
                         }
                     }
-                    if(!elementAlreadyExist){
-                        $scope.filters.push(data[i]);
+                }
+                else if(!index[i]){
+                    for(var k=0; k<$scope.filters.length; k++){
+                        if(data[i] == $scope.filters[k]){
+                            $scope.filters.splice(k, 1)
+                        }
                     }
                 }
             }
-            else if(!index[i]){
-                for(var k=0; k<$scope.filters.length; k++){
-                    if(data[i] == $scope.filters[k]){
-                        $scope.filters.splice(k, 1)
-                    }
-                }
-            }
+        }else if(typeof index == 'object'){
+            for(var key in index){
+                if(key){
 
+                    if($scope.filters.length ==0){
+                        $scope.filters.push(key);
+                    }else{
+                        for(var t=0; t<$scope.filters.length; t++){
+                            if( key==$scope.filters[t]){
+                                elementAlreadyExist = true;
+                                break;
+                            }else{
+                                elementAlreadyExist = false;
+                            }
+                        }
+                        if(!elementAlreadyExist){
+                            $scope.filters.push(key);
+                        }
+                    }
+                }
+            }
         }
+
 
     };
     
