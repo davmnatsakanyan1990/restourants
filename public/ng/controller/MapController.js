@@ -8,6 +8,14 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.animateSecondMenuVar = false;
     $scope.activePage = 'page1';
     $scope.FixedRestMenu = false;
+    $scope.checkboxModel = {
+        checkboxModelF1: [],
+        checkboxModelF2: [],
+        checkboxModelF3: [],
+        checkboxModelF4: {},
+        checkboxModelF5: [],
+        checkboxModelF6: []
+    };
 
 
     /*RestaurantService.getRestaurantsList()
@@ -125,8 +133,13 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             long : -115.2522
         }
     ];
+
+
+
+
+
     var mapOptions = {
-            zoom: 5,
+            zoom: 15,
             center: new google.maps.LatLng(40.0000, -98.0000),
             mapTypeId: google.maps.MapTypeId.TERRAIN
     };
@@ -196,6 +209,25 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     for (i = 0; i < $scope.restaurants.length; i++){
         createMarker($scope.restaurants[i]);
     }
+
+
+
+
+
+
+
+
+    var bounds = new google.maps.LatLngBounds();
+    for (var i in $scope.markers) // your marker list here
+        bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
+
+    $scope.map.fitBounds(bounds); // map should be your map class
+
+
+
+
+
+
 
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
@@ -389,11 +421,88 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         'Eastern',
         'European',
         'Ethiopian',
-        'European', 'Filipino', 'French', 'Frozen', 'Yogurt', 'Fusion', 'German', 'Greek', 'Hawaiian', 'Healthy', 'Food', 'Ice Cream', 'Indian', 'International', 'Irish', 'Italian',
+        'European', 'Filipino', 'French', 'Frozen', 'Yogurt', 'Fusion', 'German', 'Greek', 'Hawaiian', 'Healthy',
+        'Food', 'Ice Cream', 'Indian', 'International', 'Irish', 'Italian',
         'Japanese', 'Kebab', 'Korean', 'Latin', 'American', 'Mediterranean', 'Mexican',
         'Middle', 'Eastern', 'Mongolian', 'Moroccan', 'Nepalese', 'New', 'American', 'New', 'Mexican', 'Pacific',
         'Pakistani', 'Persian', 'Peruvian', 'Pizza', 'Ramen', 'Russian', 'Salad', 'Salvadorean', 'Sandwich', 'Seafood', 'Somali', 'Soul',
-        'Food', 'South', 'American', 'Southern', 'Southwestern', 'Spanish', 'Steak', 'Sushi', 'Taco', 'Taiwanese', 'Tapas', 'Tea', 'Teriyaki', 'Tex-Mex', 'Thai', 'Tibetan', 'Turkish', 'Vegetarian', 'Vietnamese']
+        'Food', 'South', 'American', 'Southern', 'Southwestern', 'Spanish', 'Steak', 'Sushi',
+        'Taco', 'Taiwanese', 'Tapas', 'Tea', 'Teriyaki', 'Tex-Mex',
+        'Thai', 'Tibetan', 'Turkish', 'Vegetarian', 'Vietnamese'
+    ];
 
+    $scope.drowCuisine = [];
+    for(var p = 0; p < $scope.cuisins.length; p++){
+        $scope.drowCuisine.push({"display": $scope.cuisins[p], "pass" : $scope.cuisins[p]})
+    }
+
+
+
+    //filters section
+    $scope.filters = [];
+    var elementAlreadyExist = false;
+    
+    //whent add a filter from second menu
+    $scope.pushElementInFilter = function (index, data) {
+        console.log(index);
+        if(Object.prototype.toString.call( data ) === '[object Array]' ){
+            for(var i=0; i<index.length; i++){
+                if(index[i]){
+                    if($scope.filters.length ==0){
+                        $scope.filters.push(data[i]);
+                    }else{
+                        for(var j=0; j<$scope.filters.length; j++){
+                            if( data[i]==$scope.filters[j]){
+                                elementAlreadyExist = true;
+                                break;
+                            }else{
+                                elementAlreadyExist = false;
+                            }
+                        }
+                        if(!elementAlreadyExist){
+                            $scope.filters.push(data[i]);
+                        }
+                    }
+                }
+                else if(!index[i]){
+                    for(var k=0; k<$scope.filters.length; k++){
+                        if(data[i] == $scope.filters[k]){
+                            $scope.filters.splice(k, 1)
+                        }
+                    }
+                }
+            }
+        }else if(typeof index == 'object'){
+            for(var key in index){
+                if(key){
+
+                    if($scope.filters.length ==0){
+                        $scope.filters.push(key);
+                    }else{
+                        for(var t=0; t<$scope.filters.length; t++){
+                            if( key==$scope.filters[t]){
+                                elementAlreadyExist = true;
+                                break;
+                            }else{
+                                elementAlreadyExist = false;
+                            }
+                        }
+                        if(!elementAlreadyExist){
+                            $scope.filters.push(key);
+                        }
+                    }
+                }
+            }
+        }
+    };
+    
+    //when delete a filter after click in it
+    $scope.deleteElementFromFilter = function (data) {
+        for(var m=0; m < $scope.filters.length; m++){
+            if(data == $scope.filters[m]){
+                $scope.filters.splice(m, 1);
+            }
+        }
+    }
 
 });
