@@ -494,8 +494,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 }
             }
         }
-
-
     };
     
     //when delete a filter after click in it
