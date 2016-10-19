@@ -31,25 +31,48 @@
                     <li data-target="#carousel" data-slide-to="2"></li>
                     <li data-target="#carousel" data-slide-to="3"></li>
                     <li data-target="#carousel" data-slide-to="4"></li>
-                    <li data-target="#carousel" data-slide-to="5"></li>
                 </ol>
                 <!-- Carousel items -->
                 <div class="carousel-inner innerCustom">
                     <div class="active item myCustomItems">
-                        <div class="deliveryItem">Delivery Service customers №1</div>
+                        <div class="deliveryItem">Customers Delivery </br>Service №1</div>
                         <img class="ItemLogo" src="../images/logoBig.png">
-
                     </div>
-                    <div class="item myCustomItems">yes  i know this</div>
-                    <div class="item myCustomItems">3</div>
-                    <div class="item myCustomItems">4</div>
-                    <div class="item myCustomItems">5</div>
-                    <div class="item myCustomItems">6</div>
+                    <div class="item myCustomItems">
+                        <div class="deliveryItem">Customers Delivery </br>Service №1</div>
+                        <div class="customText">Lorem ipsum dolor sit amet, consectetur.</div>
+                        <img class="ItemLogo" src="../images/find.png">
+                        <div class="customTextSmall">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit. Omnis, quam?</div>
+                    </div>
+                    <div class="item myCustomItems">
+                        <div class="deliveryItem noBold">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit. Omnis, quam? </br> <span class="bold">40004500</span></div>
+                        </br>
+                        <div class="deliveryItem noBold">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit. Omnis, quam? </br> <span class="bold">1000000</span></div>
+                        </br>
+                        <div class="transparentText">Lorem ipsum dolor sit <span class="markText">amet</span>, consectetur</br> adipisicing <span class="markText">elit</span></div>
+                    </div>
+                    <div class="item myCustomItems">
+                        <div class="deliveryItem">Your page here</div>
+                        </br></br>
+                        <div class="clearElement contentWithImage">
+                            <div class="customTextSmall elementLeft textLeft">Lorem ipsum dolor </br>sit amet, consectetur. </br></br>adipisicing elit. Nisi, recusandae.</div>
+                            <img class="" src="../images/yourPage.png">
+                        </div>
+                    </div>
+                    <div class="item myCustomItems">
+                        <img class="ItemLogo" src="../images/graf.png">
+                        </br></br>
+                        <div class="deliveryItem noBold">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit.</div>
+                    </div>
+
                 </div>
                 <!-- Carousel nav -->
                 <a class="carousel-control left customLeft carouselControlCustom" href=".carousel" data-slide="prev" style="background: transparent">&lsaquo;</a>
                 <a class="carousel-control right carouselControlCustom" href=".carousel" data-slide="next" style="background: transparent">&rsaquo;</a>
             </div>
+    </div>
+    <div class="videoAbout">
+
     </div>
 </div>
 
