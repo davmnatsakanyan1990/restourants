@@ -10,8 +10,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('styles/customChackbox.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('lib/star/star.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/starRating.css')}}">
-
-
+<link rel="stylesheet" type="text/css" href="{{asset('styles/activation.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('styles/opacitySlider.css')}}">
 
 
 

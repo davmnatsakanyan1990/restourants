@@ -1,0 +1,55 @@
+.carousel-fade .carousel-inner .item {
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+  height: 100%;
+}
+.carousel.myCustomItems,
+.carousel-inner.myCustomItems,
+.carousel-inner .item.myCustomItems {
+  height: 600px;
+  padding: 50px 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.carousel.myCustomItems .deliveryItem,
+.carousel-inner.myCustomItems .deliveryItem,
+.carousel-inner .item.myCustomItems .deliveryItem {
+  font-size: 24px;
+  font-weight: 600;
+  color: #3a3c52;
+}
+.carousel.myCustomItems .ItemLogo,
+.carousel-inner.myCustomItems .ItemLogo,
+.carousel-inner .item.myCustomItems .ItemLogo {
+  margin: 0 auto;
+}
+.innerCustom {
+  text-align: center;
+}
+.carouselControlCustom {
+  top: 50%;
+  background: transparent;
+}
