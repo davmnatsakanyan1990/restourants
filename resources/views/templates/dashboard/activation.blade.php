@@ -72,9 +72,45 @@
             </div>
     </div>
     <div class="videoAbout">
+        <div class="videoM">
+            <div class="videoPart">
+                <video width="100%" height="100%" controls>
+                    <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
 
     </div>
+    <footer style="margin-top: 0">
+        <div class="footerText">
+            <div class="footerSec">
+                <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location</div>
+                <div class="footerText" data-toggle="modal" data-target="#myModalMaster">add master</div>
+                <div class="footerText">for organization</div>
+            </div>
+            <div class="footerSec">
+                <div class="footerText">contacts</div>
+                <div class="footerText">about project</div>
+                <div class="footerText">Noticed a Mistake - let us</div>
+            </div>
+        </div>
+        {{--<div class="socialIco">
+            <div class="fb">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div>
+            <div class="twit">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </div>
+            <div class="google">
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+            </div>
+
+        </div>--}}
+    </footer>
 </div>
+
 
 
 
