@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
-use App\WorkingHour;
 use App\Http\Requests;
 
 class PlaceController extends Controller
@@ -11,9 +10,10 @@ class PlaceController extends Controller
     public function show($id){
 
         $place = Place::with([
-            'services',
+            'highlights',
             'images',
             'rates',
+            'workinghour',
             'shares' => function($share){
                 return $share->with('image');
             },
@@ -49,16 +49,38 @@ class PlaceController extends Controller
         $collection->prepend(count($collection['comments']), 'comment');
 
         // format price and add to array
-        $collection->prepend('$'.$place->price_from.'-$'.$place->price_to, 'price');
+        switch ($place->cost){
+            case 0:
+                $collection->prepend('', 'price');
+                break;
+            case 1:
+                $collection->prepend('$', 'price');
+                break;
+            case 2:
+                $collection->prepend('$$', 'price');
+                break;
+            case 3:
+                $collection->prepend('$$$', 'price');
+                break;
+            case 4:
+                $collection->prepend('$$$$', 'price');
+                break;
+        }
 
-        // format working hours and add to array
-        $from = date_create($place->wrk_hrs_from);
-        $formated_from = date_format($from,"H:i");
+        $wrk_hs_array = $place->workinghour->toArray();
 
-        $to = date_create($place->wrk_hrs_to);
-        $formated_to = date_format($to,"H:i");
+        $workinghours = array();
 
-        $collection->prepend($formated_from.'-'.$formated_to, 'workingHours');
+        $workinghours['mon'] = $wrk_hs_array['mon'];
+        $workinghours['tue'] = $wrk_hs_array['tue'];
+        $workinghours['wed'] = $wrk_hs_array['wed'];
+        $workinghours['thu'] = $wrk_hs_array['thu'];
+        $workinghours['fri'] = $wrk_hs_array['fri'];
+        $workinghours['sat'] = $wrk_hs_array['sat'];
+        $workinghours['sun'] = $wrk_hs_array['sun'];
+
+
+        $collection->prepend($workinghours, 'workingHours');
 
         // format shares, comments
         $array = $collection->all();
@@ -67,23 +89,23 @@ class PlaceController extends Controller
 
         foreach ($array as $key=>$value){
 
-            // share format
-            if($key == 'shares'){
-                foreach ($array[$key] as $k=>$v){
-
-                    $data[$key][$k]['photo'] =  $v['image']['name'];
-
-                    $from = date_create($v['wrk_hrs_from']);
-                    $formatted_from = date_format($from, "H:i");
-
-                    $to = date_create($v['wrk_hrs_to']);
-                    $formatted_to = date_format($to, "H:i");
-                    $data[$key][$k]['workingHours'] =  'Working hours: '.$formatted_from.'- '.$formatted_to;
-                    $data[$key][$k]['title'] = $v['title'];
-                    $data[$key][$k]['content'] = $v['content'];
-                    $data[$key][$k]['location'] = $v['location'];
-                }
-            }
+//            // share format
+//            if($key == 'shares'){
+//                foreach ($array[$key] as $k=>$v){
+//
+//                    $data[$key][$k]['photo'] =  $v['image']['name'];
+//
+//                    $from = date_create($v['wrk_hrs_from']);
+//                    $formatted_from = date_format($from, "H:i");
+//
+//                    $to = date_create($v['wrk_hrs_to']);
+//                    $formatted_to = date_format($to, "H:i");
+//                    $data[$key][$k]['workingHours'] =  'Working hours: '.$formatted_from.'- '.$formatted_to;
+//                    $data[$key][$k]['title'] = $v['title'];
+//                    $data[$key][$k]['content'] = $v['content'];
+//                    $data[$key][$k]['location'] = $v['location'];
+//                }
+//            }
 
             //comments format
             if($key == 'comments'){
@@ -109,6 +131,13 @@ class PlaceController extends Controller
                 }
                 $data['images'] = $images;
             }
+
+            // menus format
+            if($key == 'menus'){
+                foreach ($array[$key] as $k=>$v){
+                    $data['menuItems'][$k] = $v['name'];
+                }
+            }
         }
 
         $data['mobileNumber'] = $array['mobile'];
@@ -120,8 +149,9 @@ class PlaceController extends Controller
         $data['site'] = $array['site'];
         $data['price'] = $array['price'];
         $data['workingHours'] = $array['workingHours'];
-        $data['shareItems'] = $data['shares'];
-        
+
+       // $data['shareItems'] = $data['shares'];
+        dd($data);
         return response()->json($data);
     }
     

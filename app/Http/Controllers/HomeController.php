@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 
@@ -13,13 +11,14 @@ class HomeController extends Controller
     public function __construct(){
         
     }
-    
+
+    /**
+     * Data for home page
+     *
+     * @return array
+     */
     public function index(){
 
-//        format intro, create explane and add to array
-//        $explane = implode(' ', array_slice(explode(' ', $place->intro), 0, 10));
-//        $collection->prepend($explane, 'explane');
-        
         $places = array();
 
         $data = Place::with('thumb_image', 'highlights')->get();
@@ -48,6 +47,12 @@ class HomeController extends Controller
 
     }
 
+    /**
+     * Get average rate for current place
+     *
+     * @param $place_id
+     * @return float|int
+     */
     public function avg_rate($place_id){
         $rates = DB::table('rates')->where('place_id', $place_id)->select('mark')->get();
         $sum = 0;
