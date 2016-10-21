@@ -285,7 +285,7 @@
              </div>--}}
             <div class="cont">
                 <div class="infoContent">
-                    <div class="info" ng-repeat="info in markers" ng-class="{'active': clichedElementId == info.id}"
+                    <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                          ng-click="currentRest(info.id)" ng-mouseenter="openInfoWindow($event, info)">
                         <a href="#current">
                             <div class="imageSection">
