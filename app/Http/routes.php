@@ -36,8 +36,11 @@ Route::get('home/index', 'HomeController@index');
 Route::get('show/{id}', 'PlaceController@show');
 
 
+/**
+ * Routes for API call
+ */
 Route::get('move/images', 'ApiController@movePlaceImages');
-Route::post('fill/places', 'ApiController@fillplaces');
+Route::post('fill/places', 'ApiController@fillPlace');
 Route::get('fill/cuisines', 'ApiController@fillCuisines');
 Route::get('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-
-use App\Cuisin;
 use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
@@ -20,16 +18,16 @@ class Place extends Model
         'price_to',
         'wrk_hrs_from',
         'wrk_hrs_to',
-        
     ];
     
-    public function services(){
-        return $this->belongsToMany(Service::class, 'place_services');
-    }
-
     public function images(){
         return $this->morphMany('App\Models\Image', 'imageable');
     }
+
+    public function thumb_image(){
+        return $this->morphMany('App\Models\Image', 'imageable')->where('role', 1);
+    }
+
     public function comments(){
         return $this->hasMany(Comment::class);
     }
@@ -47,7 +45,7 @@ class Place extends Model
     }
     
     public function highlights(){
-        return $this->belongsToMany(Highlight::class);
+        return $this->belongsToMany(Highlight::class, 'place_highlights');
     }
     
     public function cuisins(){
