@@ -143,7 +143,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
 
 
-
     var mapOptions = {
             zoom: 15,
             center: new google.maps.LatLng(40.0000, -98.0000),
