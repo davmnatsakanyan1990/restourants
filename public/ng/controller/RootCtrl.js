@@ -92,6 +92,14 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
     $scope.currentRest = function(id){
         $rootScope.currentId = id
-    }
+    };
+	
+	//login and reister part
+	$scope.loginUser = function(user){
+		console.log(user);
+	};
+	$scope.register = function(user){
+		console.log(user);
+	};
     
 });
