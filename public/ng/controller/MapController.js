@@ -1,4 +1,3 @@
-
 app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout, RestaurantService) {
 
 
@@ -40,8 +39,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             explane: 'in this bar  you can finde many testy foods and',
             rating: '5',
             lat : 43.7000,
-            long : -79.4000,
-            address: "878 S. 900 East, Salt Lake City UT  84102"
+            long : -79.4000
         },
         {
             id:2,
@@ -51,8 +49,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             explane: 'in this bar  you can finde many testy foods and',
             rating: '3',
             lat : 40.6700,
-            long : -73.9400,
-            address: "147 W Broadway, Salt Lake City, UT 84101"
+            long : -73.9400
         },
         {
             id:3,
@@ -62,8 +59,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             explane: 'in this bar  you can finde many testy foods and',
             rating: '4',
             lat : 41.8819,
-            long : -87.6278,
-            address: "18 W Market St, Salt Lake City, UT 84101"
+            long : -87.6278
         },
         {
             id:4,
@@ -73,9 +69,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             explane: 'in this bar  you can finde many testy foods and',
             rating: '5',
             lat : 34.0500,
-            long : -118.2500,
-            address: "18 W Market St, Salt Lake City, UT 84101"
-
+            long : -118.2500
         },
         {
             id:5,
@@ -85,8 +79,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             explane: 'in this bar  you can finde many testy foods and',
             rating: '1',
             lat : 36.0800,
-            long : -115.1522,
-            address: "18 W Market St, Salt Lake City, UT 84101"
+            long : -115.1522
         },
         {
             id:6,
@@ -143,6 +136,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
 
 
+
     var mapOptions = {
             zoom: 15,
             center: new google.maps.LatLng(40.0000, -98.0000),
@@ -154,60 +148,12 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.markers = [];
 
     var infoWindow = new google.maps.InfoWindow();
-    var geocoder = new google.maps.Geocoder();
 
-
-
-
-
-
-    function geocodeAddress(info, next) {
-        geocoder.geocode({address:info.address}, function (results,status)
-            {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var p = results[0].geometry.location;
-                    var lat=p.lat();
-                    var lng=p.lng();
-                    createMarker(info,lat,lng);
-                }
-                else {
-                    if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-                        //nextAddress--;
-                        //delay++;
-                    } else {
-                    }
-                }
-                //next();
-            }
-        );
-    }
-
-   /* function createMarker(add,lat,lng) {
-        var contentString = add;
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat,lng),
-            map: map,
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(contentString);
-            infowindow.open(map,marker);
-        });
-
-        bounds.extend(marker.position);
-
-    }*/
-
-
-
-
-
-
-    var createMarker = function (info, lat, lng){
+    var createMarker = function (info){
 
         var marker = new google.maps.Marker({
             map: $scope.map,
-            position: new google.maps.LatLng(lat, lng),
+            position: new google.maps.LatLng(info.lat, info.long),
             icon: 'images/ball.png',
             title: info.title,
             id: info.id,
@@ -223,7 +169,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             infoWindow.open($scope.map, marker);
             $scope.clichedElementId = marker.id;
 
-
+            
             $scope.$watch('clichedElementId', function() {
                 var element = document.getElementsByClassName('active');
                 for (var i = 0; i < element.length; i++) {
@@ -231,6 +177,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     var pos = el.offsetTop
                 };
                /* window.scrollTo(0, pos);*/
+
 
             });
 
@@ -251,6 +198,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             );
 
 
+
             /*$scope.$apply();*/
         });
 
@@ -258,8 +206,15 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
     for (i = 0; i < $scope.restaurants.length; i++){
-        geocodeAddress($scope.restaurants[i]);
+        createMarker($scope.restaurants[i]);
     }
+
+
+
+
+
+
+
 
     var bounds = new google.maps.LatLngBounds();
     for (var i in $scope.markers) // your marker list here
@@ -267,15 +222,18 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     $scope.map.fitBounds(bounds); // map should be your map class
 
+
+
+
+
+
+
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
         google.maps.event.trigger(selectedMarker, 'click');
     };
 
     //end processes for map
-
-
-
 
     // open top dropdown menu section
     $scope.openDrop = function(){
@@ -535,6 +493,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 }
             }
         }
+
+
     };
     
     //when delete a filter after click in it
