@@ -15,12 +15,12 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF5: [],
         checkboxModelF6: []
     };
-	$scope.cityName = 'salt-lake-city';
+	$scope.cityName = 'Salt%20Lake%20City';
 	var showsCount = 0;
 
-    RestaurantService.getRestaurantsList()
+    RestaurantService.getRestaurantsList($scope.cityName)
         .then(function (response) {
-        $scope.restaurants = response.data;
+        $scope.restaurants = response.data.restaurants;
          console.log($scope.restaurants);
 		 for (i = 0; i < $scope.restaurants.length; i++){
 			createMarker($scope.restaurants[i]);
