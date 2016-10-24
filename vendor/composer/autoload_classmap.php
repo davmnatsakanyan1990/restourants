@@ -6,9 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddRememberTokenColumnAdminsTable' => $baseDir . '/database/migrations/2016_10_24_132041_add_remember_token_column_admins_table.php',
     'AddRoleColumnToImagesTable' => $baseDir . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
+    'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'CategoryTableSeeder' => $baseDir . '/database/seeds/CategoryTableSeeder.php',
     'CommentTableSeeder' => $baseDir . '/database/seeds/CommentTableSeeder.php',
+    'CreateAdminsTable' => $baseDir . '/database/migrations/2016_10_24_113702_create_admins_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2016_10_12_150131_create_categories_table.php',
     'CreateCitiesTable' => $baseDir . '/database/migrations/2016_10_13_142951_create_cities_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2016_10_06_073445_create_comments_table.php',

@@ -32,7 +32,21 @@ Route::group(['prefix' => 'templates'], function () {
 
 Route::auth();
 
-Route::get('home/index', 'HomeController@index');
+/**
+ * Admin route part
+ */
+
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin\Auth',
+    ],
+    function(){
+        Route::get('login', 'AuthController@showLoginForm');
+        Route::post('login', 'AuthController@login');
+        Route::get('logout', 'AuthController@logout');
+});
+
+Route::get('restourants/{city}', 'PlaceController@index');
 Route::get('show/{id}', 'PlaceController@show');
 
 

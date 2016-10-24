@@ -11,6 +11,7 @@ class Place extends Model
         'name',
         'intro',
         'address',
+        'city',
         'lat',
         'lon',
         'site',
