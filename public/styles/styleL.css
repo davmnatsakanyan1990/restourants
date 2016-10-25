@@ -62,6 +62,9 @@ html body .lightInput {
 html body .blockElement {
   display: block;
 }
+html body .marginTop10 {
+  margin-top: 10px;
+}
 html body .registerPopup .loginRegister {
   text-align: left;
   margin-top: 10px;
@@ -72,6 +75,16 @@ html body .registerPopup .loginRegister {
 }
 html body .registerPopup .loginPart {
   width: 48%;
+}
+html body .registerPopup .loginPart .loginUsingBut {
+  margin-top: 10px;
+  height: 38px;
+  width: 100%;
+  background-color: #00897b;
+  color: white;
+  font-size: 14px;
+  border: none;
+  text-transform: uppercase;
 }
 html body .registerPopup .loginPart .loginUsing {
   color: #3d3f52;
@@ -247,6 +260,7 @@ html body .popupButton:last-child {
 html body .popupBody {
   text-align: center;
   padding: 15px 40px;
+  padding-bottom: 30px;
 }
 html body .popupBody.leftContent {
   text-align: left;
@@ -752,6 +766,8 @@ html body .content .pageSection .cont {
 }
 html body .content .pageSection .cont .infoContent {
   padding: 0 20px;
+  max-height: 2000px;
+  overflow: auto;
 }
 html body .content .pageSection .cont .infoContent .info {
   padding-left: 7px;
@@ -785,7 +801,7 @@ html body .content .pageSection .cont .infoContent .info.active .textSection .ti
 }
 html body .content .pageSection .cont .infoContent .info .imageSection {
   width: 160px;
-  max-height: 160px;
+  height: 160px;
   float: left;
 }
 html body .content .pageSection .cont .infoContent .info .imageSection img {
