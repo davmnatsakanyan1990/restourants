@@ -9,9 +9,23 @@ app.factory('RestaurantService', function($http) {
         getRestaurantsList: function(data) {
            return $http({
                 method : "GET",
-                url : "restourants?city=" + data.city+"&paga="+ data.page
+                url : "restaurants?city=" + data.city+"&paga="+ data.page
             })
-        }
+        },
+        userLogin: function(data) {
+            return $http({
+                method : "POST",
+                url : "user/login",
+                data: data
+            })
+        },
+        userRegistration: function(data) {
+            return $http({
+                method : "POST",
+                url : "user/register",
+                data: data
+            })
+        },
 
     };
 });

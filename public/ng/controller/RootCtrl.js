@@ -1,4 +1,4 @@
-app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout) {
+app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
     
     $scope.search = true;
     $scope.custom = false;
@@ -96,10 +96,18 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 	
 	//login and reister part
 	$scope.loginUser = function(user){
-		console.log(user);
+        RestaurantService.userLogin(user)
+            .then(function (response) {
+                console.log(response.data);
+            });
+
 	};
 	$scope.register = function(user){
-		console.log(user);
+        RestaurantService.userRegistration(user)
+            .then(function (response) {
+                console.log(response.data);
+            });
+
 	};
     
 });

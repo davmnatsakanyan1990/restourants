@@ -19,6 +19,10 @@
   top: -15px;
   transform: rotate(90deg);
 }
+.tooltips {
+  position: absolute;
+  width: 100px;
+}
 html {
   height: 100vh;
 }
@@ -64,6 +68,9 @@ html body .blockElement {
 }
 html body .marginTop10 {
   margin-top: 10px;
+}
+html body .relativeElement {
+  position: relative;
 }
 html body .registerPopup .loginRegister {
   text-align: left;
