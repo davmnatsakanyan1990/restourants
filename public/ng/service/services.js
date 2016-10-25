@@ -9,7 +9,7 @@ app.factory('RestaurantService', function($http) {
         getRestaurantsList: function(data) {
            return $http({
                 method : "GET",
-                url : "restourants/" + data
+                url : "restourants?city=" + data.city+"&paga="+ data.page
             })
         }
 
