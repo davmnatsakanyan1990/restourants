@@ -43,30 +43,38 @@
                     <div class="clearElement">
                         <div class="loginPart elementLeft">
 							<form name="loginForm" class="css-form" novalidate>
-								<div class="loginRegister capitalize">
-									log in
+
+								<div class="loginRegister">
+                                    log in
 								</div>
-								<button class="loginUsing facebook">
-									<div class="elementLeft"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-									<div class="elementLeft">facebook</div>
-								</button>
-								<button class="loginUsing twitter">
-									<div class="elementLeft"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-									<div class="elementLeft">twitter</div>
-								</button>
-								<div class="moreSoc">
-									<i class="fa fa-google-plus-square" aria-hidden="true"></i>
-									<i class="fa fa-vk" aria-hidden="true"></i>
-									<i class="fa fa-pinterest-square" aria-hidden="true"></i>
-								</div>
-								<div class="loginusingSistem">
-									login using our system
-								</div>
+                                <button class="loginUsing facebook">
+                                    <div class="elementLeft"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                    <div class="elementLeft">facebook</div>
+                                </button>
+                                <button class="loginUsing googlePlus">
+                                    <div class="elementLeft"><i class="fa fa-google" aria-hidden="true"></i></div>
+                                    <div class="elementLeft">google</div>
+                                </button>
 								<div class="restLogin">
 									<input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" ng-model="user.email" required/>
 									<input class="capitalize lightInput blockElement" type="password" placeholder="password" ng-model="user.pass" required/>
 								</div>
-								<button class="loginUsing googlePlus" ng-click="loginUser(user)">log in</button>
+
+								<button class="loginUsingBut" ng-click="loginUser(user)">log in</button>
+
+                                {{--<div class="loginusingSistem capitalize">
+                                    log in
+                                </div>--}}
+
+                                {{--<button class="loginUsing twitter">
+                                    <div class="elementLeft"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                    <div class="elementLeft">twitter</div>
+                                </button>--}}
+                                {{--<div class="moreSoc">
+                                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                                    <i class="fa fa-vk" aria-hidden="true"></i>
+                                    <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                                </div>--}}
 							</form>
                         </div>
                         <div class="registerPart elementRight">
@@ -77,6 +85,7 @@
 								<input class="capitalize lightInput blockElement" type="text" placeholder="name" ng-model = "currentUser.name"/>
 								<input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" ng-model = "currentUser.email"/>
 								<input class="capitalize lightInput blockElement" type="password" placeholder="password" ng-model = "currentUser.password"/>
+                                <input class="capitalize lightInput blockElement" type="password" placeholder="confirm password" ng-model = "currentUser.confirmPassword"/>
 								<button class="loginUsing googlePlus" ng-click = "register(currentUser)">register</button>
 							</form>
                            

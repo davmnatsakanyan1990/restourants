@@ -62,6 +62,9 @@ html body .lightInput {
 html body .blockElement {
   display: block;
 }
+html body .marginTop10 {
+  margin-top: 10px;
+}
 html body .registerPopup .loginRegister {
   text-align: left;
   margin-top: 10px;
@@ -72,6 +75,16 @@ html body .registerPopup .loginRegister {
 }
 html body .registerPopup .loginPart {
   width: 48%;
+}
+html body .registerPopup .loginPart .loginUsingBut {
+  margin-top: 10px;
+  height: 38px;
+  width: 100%;
+  background-color: #00897b;
+  color: white;
+  font-size: 14px;
+  border: none;
+  text-transform: uppercase;
 }
 html body .registerPopup .loginPart .loginUsing {
   color: #3d3f52;
@@ -247,6 +260,7 @@ html body .popupButton:last-child {
 html body .popupBody {
   text-align: center;
   padding: 15px 40px;
+  padding-bottom: 30px;
 }
 html body .popupBody.leftContent {
   text-align: left;

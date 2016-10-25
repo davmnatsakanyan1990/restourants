@@ -27,7 +27,6 @@
 }
 
 
-
 html{
   height: 100vh;
   body{
@@ -71,6 +70,9 @@ html{
     .blockElement{
       display: block;
     }
+    .marginTop10{
+      margin-top: 10px;
+    }
     .registerPopup{
       .loginRegister{
         text-align: left;
@@ -83,6 +85,16 @@ html{
       }
       .loginPart{
         width: 48%;
+        .loginUsingBut{
+          margin-top: 10px;
+          height: 38px;
+          width: 100%;
+          background-color: #00897b;
+          color: @secondColor;
+          font-size: 14px;
+          border: none;
+          text-transform: uppercase;
+        }
         .loginUsing{
           color: @mainColor;
           background-color: @secondColor;
@@ -267,6 +279,7 @@ html{
     .popupBody{
       text-align: center;
       padding: 15px 40px;
+      padding-bottom: 30px;
       &.leftContent{
         text-align: left;
       }
