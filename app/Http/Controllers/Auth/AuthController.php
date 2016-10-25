@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -28,6 +30,7 @@ class AuthController extends Controller
      *
      * @var string
      */
+    protected $guard = 'user';
     protected $redirectTo = '/';
 
     /**
@@ -68,5 +71,23 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    
+    public function login(Request $request){
+
+        $credentials = $this->getCredentials($request);
+
+        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+            return response()->json(['status' =>'ok']);
+        }
+        else{
+            return response()->json(['status' =>'error']);
+        }
+    }
+
+    public function register(Request $request){
+        Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+        return response()->json(['status' =>'ok']);
     }
 }

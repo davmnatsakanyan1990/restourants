@@ -30,7 +30,21 @@ Route::group(['prefix' => 'templates'], function () {
     });
 });
 
-Route::auth();
+/**
+ * User route part
+ */
+Route::group([
+    'prefix' => 'user',
+    'namespace' => 'Auth'
+    ],
+    function(){
+        Route::post('login', 'AuthController@login');
+        Route::post('register', 'AuthController@register');
+        Route::get('login', 'AuthController@showLoginForm');
+        Route::get('register', 'AuthController@showRegistrationForm');
+    });
+
+//Route::auth();
 
 /**
  * Admin route part
@@ -59,9 +73,6 @@ Route::get('fill/cuisines', 'ApiController@fillCuisines');
 Route::get('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
-
-Route::get('getcoordinates', 'ApiController@getCoordinates');
-
 
 
 Route::get('test', function(){

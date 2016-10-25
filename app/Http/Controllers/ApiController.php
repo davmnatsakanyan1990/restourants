@@ -19,34 +19,6 @@ use Illuminate\Support\Facades\File;
 
 class ApiController extends Controller
 {
-    
-    public function getCoordinates(){
-        $places = Place::all();
-        foreach($places as $place){
-           $formatted_address = str_replace(' ', '+', $place->address);
-
-            // Get cURL resource
-            $curl = curl_init();
-            // Set some options - we are passing in a useragent too here
-            curl_setopt_array($curl, array(
-                CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='.$formatted_address.'&key='.env('GOOGLE_API_KEY'),
-                CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-            ));
-            if(!curl_exec($curl)){
-                die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
-            }
-            // Send the request & save response to $resp
-            $resp = curl_exec($curl);
-
-            $response = json_decode($resp);
-            // Close request to clear up some resources
-            curl_close($curl);
-            if(count($response->results) > 0) {
-                DB::table('places')->where('id', $place->id)->update(['lat' => $response->results[0]->geometry->location->lat, 'lon' => $response->results[0]->geometry->location->lng]);
-            }
-        }
-    }
 
     /**
      * Move downloaded images to the project
@@ -77,14 +49,41 @@ class ApiController extends Controller
         //get location id
         $location_id = Location::where('name', $d['location'])->first()->id;
 
+        // get geo coordinates
+        $formatted_address = str_replace(' ', '+', $d['address']);
+        // Get cURL resource
+        $curl = curl_init();
+        // Set some options - we are passing in a useragent too here
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='.$formatted_address.'&key='.env('GOOGLE_API_KEY'),
+            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        ));
+        if(!curl_exec($curl)){
+            die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
+        }
+        // Send the request & save response to $resp
+        $resp = curl_exec($curl);
+
+        $response = json_decode($resp);
+        // Close request to clear up some resources
+        curl_close($curl);
+        if(count($response->results) > 0) {
+            $data['lat'] = $response->results[0]->geometry->location->lat;
+            $data['lon'] = $response->results[0]->geometry->location->lng;
+        }
+        else{
+            $data['lat'] = 0;
+            $data['lon'] = 0;
+        }
+        
         $cost = count($d['cost']);
         $data['mobile'] = $d['mobile'];
         $data['name'] = $d['name'];
         $data['intro'] = ' dfdf';
         $data['address'] = $d['address'];
         $data['location_id'] = $location_id;
-        $data['lat'] = '41.8819';
-        $data['lon'] = '-87.6278';
+        
         $data['site'] = 'site1.com';
         $data['cost'] = $cost;
 
