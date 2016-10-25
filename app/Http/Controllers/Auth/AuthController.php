@@ -40,7 +40,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest:user', ['except' => 'logout']);
     }
 
     /**
@@ -72,12 +72,18 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-    
+
+    /**
+     * Handle a login request to the application.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request){
 
         $credentials = $this->getCredentials($request);
 
-        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+        if (Auth::guard('user')->attempt($credentials, $request->has('remember'))) {
             return response()->json(['status' =>'ok']);
         }
         else{
@@ -85,8 +91,36 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(Request $request){
-        Auth::guard($this->getGuard())->login($this->create($request->all()));
+
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            return response()->json(['status' =>'error']);
+//            $this->throwValidationException(
+//                $request, $validator
+//            );
+        }
+
+        Auth::guard('user')->login($this->create($request->all()));
+
+        return response()->json(['status' =>'ok']);
+    }
+
+    /**
+     * Log the user out of the application.
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout(){
+        
+        Auth::guard('user')->logout();
 
         return response()->json(['status' =>'ok']);
     }

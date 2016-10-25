@@ -79,4 +79,26 @@
         </div>
     </div>
 </div>
+    {{--<script>--}}
+        {{--$('#register').on('click', function(){--}}
+
+            {{--var name = $('input[name = "name"]').val();--}}
+            {{--var email = $('input[name = "email"]').val();--}}
+            {{--var password = $('input[name = "password"]').val();--}}
+
+            {{--$.ajax({--}}
+                {{--url: 'http://restaurants.dev/user/register',--}}
+                {{--data : {--}}
+                    {{--name: name,--}}
+                    {{--email: email,--}}
+                    {{--password: password--}}
+                {{--},--}}
+                {{--type: 'post',--}}
+
+                {{--success: function(response){--}}
+                    {{--console.log(response);--}}
+                {{--}--}}
+            {{--});--}}
+        {{--})--}}
+    {{--</script>--}}
 @endsection
