@@ -34,6 +34,8 @@ class PlaceController extends Controller
             $place['title'] = $item['name'];
             $place['explane'] = $item['intro'];
             $place['address'] = $item['address'];
+            $place['lat'] = $item['lat'];
+            $place['long'] = $item['lon'];
             $place['image'] = $item['thumb_image'][0]['name'];
 
             $hs = array();

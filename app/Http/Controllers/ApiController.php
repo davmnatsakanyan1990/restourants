@@ -31,13 +31,20 @@ class ApiController extends Controller
             curl_setopt_array($curl, array(
                 CURLOPT_RETURNTRANSFER => 1,
                 CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='.$formatted_address.'&key='.env('GOOGLE_API_KEY'),
+                CURLOPT_USERAGENT => 'Codular Sample cURL Request'
             ));
+            if(!curl_exec($curl)){
+                die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
+            }
             // Send the request & save response to $resp
             $resp = curl_exec($curl);
+
+            $response = json_decode($resp);
             // Close request to clear up some resources
             curl_close($curl);
-
-            dd($resp);
+            if(count($response->results) > 0) {
+                DB::table('places')->where('id', $place->id)->update(['lat' => $response->results[0]->geometry->location->lat, 'lon' => $response->results[0]->geometry->location->lng]);
+            }
         }
     }
 

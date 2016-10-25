@@ -46,7 +46,7 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
 });
 
-Route::get('restourants', 'PlaceController@index');
+Route::get('restaurants', 'PlaceController@index');
 Route::get('show/{id}', 'PlaceController@show');
 
 
