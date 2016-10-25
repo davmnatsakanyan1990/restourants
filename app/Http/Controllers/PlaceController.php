@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Place;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PlaceController extends Controller
 {
 
-    public function index($city){
-
+    public function index(){
+        $city = request('city');
         $places = array();
 
         $result = array();
