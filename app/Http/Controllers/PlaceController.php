@@ -10,8 +10,14 @@ use Illuminate\Support\Facades\DB;
 class PlaceController extends Controller
 {
 
+    /**
+     * Get all restaurants for given city
+     *
+     * @return array
+     */
     public function index(){
         $city = request('city');
+        $page = request('page');
         $places = array();
 
         $result = array();
@@ -19,14 +25,14 @@ class PlaceController extends Controller
             $location->with(['city' => function($query) use ($city){
                 return $query->where('name', $city);
             }]);
-        }])->limit(10)->get();
+        }])->get();
 
         $data = $d->filter(function ($value, $key) {
             return $value->location->city != null;
-        })->values()->all();
+        })->values()->chunk(10)->toArray();
 
 
-        foreach ($data as $item){
+        foreach ($data[$page-1] as $item){
             $place = array();
             $rate = $this->avg_rate($item['id']);
             $place['rating'] = $rate;
@@ -49,6 +55,9 @@ class PlaceController extends Controller
 
         $result['restaurants'] = $places;
         $result['city'] = $city;
+        if($page == count($data)){
+            $result['status'] = 'ended';
+        }
 
         return $result;
     }
@@ -71,6 +80,12 @@ class PlaceController extends Controller
             return 0;
     }
 
+    /**
+     * Show current restaurants
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($id){
 
         $place = Place::with([
@@ -215,7 +230,7 @@ class PlaceController extends Controller
         $data['workingHours'] = $array['workingHours'];
 
        // $data['shareItems'] = $data['shares'];
-        dd($data);
+       
         return response()->json($data);
     }
     
