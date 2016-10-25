@@ -752,6 +752,8 @@ html body .content .pageSection .cont {
 }
 html body .content .pageSection .cont .infoContent {
   padding: 0 20px;
+  max-height: 2000px;
+  overflow: auto;
 }
 html body .content .pageSection .cont .infoContent .info {
   padding-left: 7px;
@@ -785,7 +787,7 @@ html body .content .pageSection .cont .infoContent .info.active .textSection .ti
 }
 html body .content .pageSection .cont .infoContent .info .imageSection {
   width: 160px;
-  max-height: 160px;
+  height: 160px;
   float: left;
 }
 html body .content .pageSection .cont .infoContent .info .imageSection img {
