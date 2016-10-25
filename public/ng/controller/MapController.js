@@ -16,6 +16,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF6: []
     };
 
+    
     $scope.callData = {
         page: 1,
         city: 'Salt%20Lake%20City'
