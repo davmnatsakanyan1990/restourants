@@ -56,8 +56,17 @@
                                     <div class="elementLeft">google</div>
                                 </button>
 								<div class="restLogin">
-									<input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" ng-model="user.email" required/>
-									<input class="capitalize lightInput blockElement" type="password" placeholder="password" ng-model="user.pass" required/>
+                                    <div class="">
+                                        <input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" ng-model="user.email" required/>
+                                        <div class="tooltips">
+
+                                        </div>
+                                    </div>
+									<div>
+                                        <input class="capitalize lightInput blockElement" type="password" placeholder="password" ng-model="user.password" required/>
+                                        <div></div>
+                                    </div>
+
 								</div>
 
 								<button class="loginUsingBut" ng-click="loginUser(user)">log in</button>
