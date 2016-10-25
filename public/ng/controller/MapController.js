@@ -15,10 +15,12 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF5: [],
         checkboxModelF6: []
     };
-	$scope.cityName = 'Salt%20Lake%20City';
-	var showsCount = 0;
 
-    RestaurantService.getRestaurantsList($scope.cityName)
+    $scope.callData = {
+        page: 1,
+        city: 'Salt%20Lake%20City'
+    };
+    RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
@@ -30,9 +32,16 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     // add more restaurant in list
     $scope.addMorePoints = function(){
-		showsCount++;
-		console.log(showsCount);
-		
+        $scope.callData.page++;
+		console.log($scope.callData.page);
+        RestaurantService.getRestaurantsList($scope.callData)
+            .then(function (response) {
+                $scope.restaurants = response.data.restaurants;
+                $scope.city = response.data.city;
+                for (i = 0; i < $scope.restaurants.length; i++){
+                    createMarker($scope.restaurants[i]);
+                }
+            });
 		
     };
 
