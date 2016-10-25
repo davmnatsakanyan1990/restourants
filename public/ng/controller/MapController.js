@@ -15,123 +15,130 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF5: [],
         checkboxModelF6: []
     };
+	$scope.cityName = 'Salt%20Lake%20City';
+	var showsCount = 0;
 
-
-    /*RestaurantService.getRestaurantsList()
+    RestaurantService.getRestaurantsList($scope.cityName)
         .then(function (response) {
-         $scope.myWelcome = response;
-         console.log($scope.myWelcome);
-         });*/
+            $scope.restaurants = response.data.restaurants;
+            $scope.city = response.data.city;
+            for (i = 0; i < $scope.restaurants.length; i++){
+                createMarker($scope.restaurants[i]);
+            }
+         });
 
 
     // add more restaurant in list
     $scope.addMorePoints = function(){
-
+		showsCount++;
+		console.log(showsCount);
+		
+		
     };
 
     // in feature it will be call
-    $scope.restaurants = [
-        {
-            id:1,
-            image: 'images/restaurantImages/rest1.jpg',
-            title : 'Title1',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '5',
-            lat : 43.7000,
-            long : -79.4000
-        },
-        {
-            id:2,
-            image: 'images/restaurantImages/rest2.jpg',
-            title : 'Title2',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '3',
-            lat : 40.6700,
-            long : -73.9400
-        },
-        {
-            id:3,
-            image: 'images/restaurantImages/rest3.jpg',
-            title : 'Title3',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '4',
-            lat : 41.8819,
-            long : -87.6278
-        },
-        {
-            id:4,
-            image: 'images/restaurantImages/rest3.jpg',
-            title : 'Title4',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '5',
-            lat : 34.0500,
-            long : -118.2500
-        },
-        {
-            id:5,
-            image: 'images/restaurantImages/rest4.jpg',
-            title : 'Title5',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '1',
-            lat : 36.0800,
-            long : -115.1522
-        },
-        {
-            id:6,
-            image: 'images/restaurantImages/rest4.jpg',
-            title : 'Title6',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '2',
-            lat : 37.1800,
-            long : -115.6522
-        },
-        {
-            id:7,
-            image: 'images/restaurantImages/rest1.jpg',
-            title : 'Title7',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '3',
-            lat : 38.2800,
-            long : -115.5522
-        },
-        {
-            id:8,
-            image: 'images/restaurantImages/rest2.jpg',
-            title : 'Title8',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '5',
-            lat : 39.3800,
-            long : -115.4522
-        },
-        {
-            id:9,
-            image: 'images/restaurantImages/rest3.jpg',
-            title : 'Title9',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '5',
-            lat : 39.4800,
-            long : -115.3522
-        },
-        {
-            id:10,
-            image: 'images/restaurantImages/rest4.jpg',
-            title : 'Title10',
-            service : 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '3',
-            lat : 36.9800,
-            long : -115.2522
-        }
-    ];
+    // $scope.restaurants = [
+        // {
+            // id:1,
+            // image: 'images/restaurantImages/rest1.jpg',
+            // title : 'Title1',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '5',
+            // lat : 43.7000,
+            // long : -79.4000
+        // },
+        // {
+            // id:2,
+            // image: 'images/restaurantImages/rest2.jpg',
+            // title : 'Title2',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '3',
+            // lat : 40.6700,
+            // long : -73.9400
+        // },
+        // {
+            // id:3,
+            // image: 'images/restaurantImages/rest3.jpg',
+            // title : 'Title3',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '4',
+            // lat : 41.8819,
+            // long : -87.6278
+        // },
+        // {
+            // id:4,
+            // image: 'images/restaurantImages/rest3.jpg',
+            // title : 'Title4',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '5',
+            // lat : 34.0500,
+            // long : -118.2500
+        // },
+        // {
+            // id:5,
+            // image: 'images/restaurantImages/rest4.jpg',
+            // title : 'Title5',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '1',
+            // lat : 36.0800,
+            // long : -115.1522
+        // },
+        // {
+            // id:6,
+            // image: 'images/restaurantImages/rest4.jpg',
+            // title : 'Title6',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '2',
+            // lat : 37.1800,
+            // long : -115.6522
+        // },
+        // {
+            // id:7,
+            // image: 'images/restaurantImages/rest1.jpg',
+            // title : 'Title7',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '3',
+            // lat : 38.2800,
+            // long : -115.5522
+        // },
+        // {
+            // id:8,
+            // image: 'images/restaurantImages/rest2.jpg',
+            // title : 'Title8',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '5',
+            // lat : 39.3800,
+            // long : -115.4522
+        // },
+        // {
+            // id:9,
+            // image: 'images/restaurantImages/rest3.jpg',
+            // title : 'Title9',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '5',
+            // lat : 39.4800,
+            // long : -115.3522
+        // },
+        // {
+            // id:10,
+            // image: 'images/restaurantImages/rest4.jpg',
+            // title : 'Title10',
+            // service : 'banket, restaurant',
+            // explane: 'in this bar  you can finde many testy foods and',
+            // rating: '3',
+            // lat : 36.9800,
+            // long : -115.2522
+        // }
+    // ];
 
 
 
@@ -205,9 +212,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         $scope.markers.push(marker);
     };
 
-    for (i = 0; i < $scope.restaurants.length; i++){
-        createMarker($scope.restaurants[i]);
-    }
+    // for (i = 0; i < $scope.restaurants.length; i++){
+        // createMarker($scope.restaurants[i]);
+    // }
 
 
 

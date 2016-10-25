@@ -6,7 +6,7 @@
                 <span class="titleSecondPart">- all in same place</span>
             </h1>
             <p class="headBody uppercase">
-                Best of new york city
+                Best of <span ng-bind="city"></span>
             </p>
             <div class="slider">
 
@@ -289,7 +289,7 @@
                          ng-click="currentRest(info.id)" ng-mouseenter="openInfoWindow($event, info)">
                         <a href="#current">
                             <div class="imageSection">
-                                <img src="<% info.image %>">
+                                <img src="images/restaurantImages/<% info.image %>">
                             </div>
                             <div class="textSection">
                                 <div class="title" ng-bind="info.title"></div>
