@@ -20,11 +20,11 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     RestaurantService.getRestaurantsList($scope.cityName)
         .then(function (response) {
-        $scope.restaurants = response.data.restaurants;
-         console.log($scope.restaurants);
-		 for (i = 0; i < $scope.restaurants.length; i++){
-			createMarker($scope.restaurants[i]);
-		}
+            $scope.restaurants = response.data.restaurants;
+            $scope.city = response.data.city;
+            for (i = 0; i < $scope.restaurants.length; i++){
+                createMarker($scope.restaurants[i]);
+            }
          });
 
 

@@ -785,8 +785,11 @@ html body .content .pageSection .cont .infoContent .info.active .textSection .ti
 }
 html body .content .pageSection .cont .infoContent .info .imageSection {
   width: 160px;
-  height: 160px;
+  max-height: 160px;
   float: left;
+}
+html body .content .pageSection .cont .infoContent .info .imageSection img {
+  width: 160px;
 }
 html body .content .pageSection .cont .infoContent .info .textSection {
   float: left;
