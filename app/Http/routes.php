@@ -60,6 +60,10 @@ Route::get('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
 
+Route::get('getcoordinates', 'ApiController@getCoordinates');
+
+
+
 Route::get('test', function(){
     return view('admin/dashboard');
 });

@@ -19,6 +19,27 @@ use Illuminate\Support\Facades\File;
 
 class ApiController extends Controller
 {
+    
+    public function getCoordinates(){
+        $places = Place::all();
+        foreach($places as $place){
+           $formatted_address = str_replace(' ', '+', $place->address);
+
+            // Get cURL resource
+            $curl = curl_init();
+            // Set some options - we are passing in a useragent too here
+            curl_setopt_array($curl, array(
+                CURLOPT_RETURNTRANSFER => 1,
+                CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='.$formatted_address.'&key='.env('GOOGLE_API_KEY'),
+            ));
+            // Send the request & save response to $resp
+            $resp = curl_exec($curl);
+            // Close request to clear up some resources
+            curl_close($curl);
+
+            dd($resp);
+        }
+    }
 
     /**
      * Move downloaded images to the project
