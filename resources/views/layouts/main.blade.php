@@ -62,7 +62,7 @@
 
                                         </div>
                                     </div>
-									<div>
+									<div class="marginTop10">
                                         <input class="capitalize lightInput blockElement" type="password" placeholder="password" ng-model="user.password" required/>
                                         <div></div>
                                     </div>
