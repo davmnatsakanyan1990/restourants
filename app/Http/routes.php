@@ -45,6 +45,14 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
     });
 
+Route::get('user/is_auth', function(){
+    if(Auth::guard('user')->check()){
+        return response()->json(['status' => 1]);
+    }
+    else{
+        return response()->json(['status' => 0]);
+    }
+});
 //Route::auth();
 
 /**
@@ -69,15 +77,9 @@ Route::group([
     ],
     function(){
         Route::get('add', 'CommentController@create');
-        Route::get('has_permission', function(){
-            if(Auth::guard('user')->check()){
-                return response()->json(['status' => 1]);
-            }
-            else{
-                return response()->json(['status' => 0]);
-            }
-        });
     });
+
+
 
 Route::get('restaurants', 'PlaceController@index');
 Route::get('show/{id}', 'PlaceController@show');
