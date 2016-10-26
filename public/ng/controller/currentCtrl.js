@@ -6,7 +6,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     $scope.animateSecMenuVar = false;
     $scope.haveData = false;
     $scope.editedRating = false;
-
+	$scope.logedUser = false;
     $scope.$watch(function () {
         return $window.scrollY;
     }, function (scrollY) {
@@ -21,10 +21,9 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 	RestaurantService.getLogedUser()
 		.then(function (response) {
-			if(response.status){
-				
+			if(response.status == 1){
+				$scope.logedUser = true;
 			}
-            console.log(response);
          });
 	
     RestaurantService.getRestaurantData($rootScope.currentId)

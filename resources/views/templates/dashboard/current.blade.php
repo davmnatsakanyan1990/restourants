@@ -214,7 +214,7 @@
                 <div class="container5 pages parallax" id="review">
                     <div class="containerTitle capitalize clearElement">
                         <div class="revText elementLeft">reviews</div>
-                        <button class="writeComment elementRight" ng-click="hideWrite()">Write</button>
+                        <button class="writeComment elementRight" ng-if = "logedUser" ng-click="hideWrite()">Write</button>
                     </div>
                     <div class="containerContent with100">
                         <div class="writeContent" ng-class="{'hideWriteContent': writeComment}">
