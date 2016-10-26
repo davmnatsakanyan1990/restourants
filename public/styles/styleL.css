@@ -19,9 +19,78 @@
   top: -15px;
   transform: rotate(90deg);
 }
+.css-form input.ng-invalid.ng-touched {
+  border-color: #FA787E;
+}
 .tooltips {
   position: absolute;
-  width: 100px;
+  top: 0;
+  width: 200px;
+  height: 50px;
+  line-height: 36px;
+  left: -210px;
+  background-color: white;
+  border: 1px solid #545667;
+  text-align: center;
+  padding: 5px;
+}
+.tooltips:after,
+.tooltips:before {
+  left: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.tooltips:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-left-color: white;
+  border-width: 8px;
+  margin-top: -8px;
+}
+.tooltips:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-left-color: #545667;
+  border-width: 10px;
+  margin-top: -10px;
+}
+.rightTooltips {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 50px;
+  line-height: 36px;
+  right: -210px;
+  background-color: white;
+  border: 1px solid #545667;
+  text-align: center;
+  padding: 5px;
+}
+.rightTooltips:after,
+.rightTooltips:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.rightTooltips:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-right-color: white;
+  border-width: 8px;
+  margin-top: -8px;
+}
+.rightTooltips:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-right-color: #545667;
+  border-width: 10px;
+  margin-top: -10px;
 }
 html {
   height: 100vh;

@@ -96,15 +96,15 @@
                         <div class="intro" ng-bind="currentRestaurant.intro"></div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize">cuisine</div>
-                            <div class="introContent" ng-bind="currentRestaurant.cuisins">European, Italian</div>
+                            <div class="introContent" ng-bind="currentRestaurant.cuisins"></div>
                         </div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize">Type of place</div>
-                            <div class="introContent" ng-bind="currentRestaurant.typePlace">bars, banquet hall, terrace, rooftop restaurant, karaoke bar</div>
+                            <div class="introContent" ng-bind="currentRestaurant.type"></div>
                         </div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize">services</div>
-                            <div class="introContent" ng-bind="currentRestaurant.services">Wi-Fi, a business lunch, parking, hookah, karaoke, board games</div>
+                            <div class="introContent" ng-bind="currentRestaurant.services"></div>
                         </div>
                     </div>
                     <div class="containerPart elementLeft">
