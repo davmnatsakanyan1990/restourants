@@ -24,7 +24,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
             $scope.currentRestaurant = response.data;
             //make map point
             $scope.initMap({
-                zoom: 10,
+                zoom: 16,
                 center: new google.maps.LatLng($scope.currentRestaurant.lat, $scope.currentRestaurant.long),
                 scrollwheel: false,
                 mapTypeId: google.maps.MapTypeId.TERRAIN
@@ -37,7 +37,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
             $scope.isReadonly = true;
             $scope.rateFunction = function (rating) {
-                var rateData = rating
+                var rateData = rating;
                 $scope.editedRating = true;
             };
             //
@@ -166,7 +166,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     };
     $scope.initMap = function(mapOptions){
         var mapOptions = mapOptions || {
-                zoom: 10,
+                zoom: 14,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             };
