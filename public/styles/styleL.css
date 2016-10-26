@@ -813,6 +813,7 @@ html body .content .pageSection .cont .infoContent .info .imageSection {
 }
 html body .content .pageSection .cont .infoContent .info .imageSection img {
   width: 160px;
+  height: 160px;
 }
 html body .content .pageSection .cont .infoContent .info .textSection {
   float: left;
