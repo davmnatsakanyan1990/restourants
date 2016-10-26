@@ -28,6 +28,10 @@ class User extends Authenticatable
     public function images(){
         return $this->morphMany('App\Models\Image', 'imageable');
     }
+    
+    public function comments(){
+        $this->morphMany('App\Models\Comment', 'commentable');
+    }
 
     public function rates(){
         return $this->hasMany(Rate::class);

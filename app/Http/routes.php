@@ -75,5 +75,8 @@ Route::get('assign/type', 'ApiController@assignType');
 
 
 Route::get('test', function(){
-    return view('admin/dashboard');
+//    $c = \App\Models\Place::with(['comments' => ])->get();
+//    dd($c->toArray());
 });
+
+
