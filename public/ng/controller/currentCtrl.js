@@ -19,6 +19,14 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
     });
 
+	RestaurantService.getLogedUser()
+		.then(function (response) {
+			if(response.status){
+				
+			}
+            console.log(response);
+         });
+	
     RestaurantService.getRestaurantData($rootScope.currentId)
         .then(function (response) {
             $scope.currentRestaurant = response.data;
