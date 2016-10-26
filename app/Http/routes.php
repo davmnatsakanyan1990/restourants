@@ -19,6 +19,8 @@ Route::get('/current', function () {
     return view('current');
 });
 */
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('layouts.main');
 });
@@ -57,7 +59,25 @@ Route::group([
         Route::get('login', 'AuthController@showLoginForm');
         Route::post('login', 'AuthController@login');
         Route::get('logout', 'AuthController@logout');
-});
+    });
+
+/**
+ * Comments route
+ */
+Route::group([
+    'prefix' => 'comment',
+    ],
+    function(){
+        Route::get('add', 'CommentController@create');
+        Route::get('has_permission', function(){
+            if(Auth::guard('user')->check()){
+                return response()->json(['status' => 1]);
+            }
+            else{
+                return response()->json(['status' => 0]);
+            }
+        });
+    });
 
 Route::get('restaurants', 'PlaceController@index');
 Route::get('show/{id}', 'PlaceController@show');
