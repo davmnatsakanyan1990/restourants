@@ -113,6 +113,15 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     };
     $scope.chooseCurrentMenu = function (data) {
         //there will be call backend
+		var dataCall = {
+			id: $scope.currentRestaurant.id,
+			menu: data
+		}
+		RestaurantService.getMenu(dataCall)
+			.then(function (response) {
+				$scope.CurrentMenu = response.data
+         });
+		
         $scope.CurrentMenu = [
             {
                 title: 'Lorem ipsum dolor',
