@@ -23,8 +23,14 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
         .then(function (response) {
             $scope.currentRestaurant = response.data;
             //make map point
-
+            $scope.initMap({
+                zoom: 10,
+                center: new google.maps.LatLng($scope.currentRestaurant.lat, $scope.currentRestaurant.long),
+                scrollwheel: false,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            });
             createMarker(response.data.lat, response.data.long);
+
 
             //rating part
             $scope.rating1 = $scope.currentRestaurant.rating;
@@ -79,9 +85,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
             ;
 
         }.bind($scope));
-
-
-
 
 
     //
@@ -150,15 +153,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 
     //map section
-    var mapOptions = {
-        zoom: 5,
-        center: new google.maps.LatLng(40.0000, -98.0000),
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-    };
-
-
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
     var infoWindow = new google.maps.InfoWindow();
 
     var createMarker = function (lat, long) {
@@ -170,29 +164,16 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
         });
     };
-
-
-
-   /* $scope.initMap = function(mapOptions){
+    $scope.initMap = function(mapOptions){
         var mapOptions = mapOptions || {
                 zoom: 10,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             };
-
         $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-
-
-        var bounds = new google.maps.LatLngBounds();
-        for (var i in $scope.markers) // your marker list here
-            bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
-
-        $scope.map.fitBounds(bounds); // map should be your map class
-        $scope.map.setCenter(mapOptions.center); //set after fitBounds
-    };*/
-
-
+    };
+    //end of map section
 
 });
 
