@@ -22,6 +22,9 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     RestaurantService.getRestaurantData($rootScope.currentId)
         .then(function (response) {
             $scope.currentRestaurant = response.data;
+            //make map point
+
+            createMarker(response.data.lat, response.data.long);
 
             //rating part
             $scope.rating1 = $scope.currentRestaurant.rating;
@@ -147,20 +150,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 
     //map section
-
-    $scope.restaurants = [
-
-        {
-            id: 6,
-            image: 'images/restaurantImages/rest4.jpg',
-            title: 'Title6',
-            service: 'banket, restaurant',
-            explane: 'in this bar  you can finde many testy foods and',
-            rating: '2',
-            lat: 37.1800,
-            long: -115.6522
-        }
-    ];
     var mapOptions = {
         zoom: 5,
         center: new google.maps.LatLng(40.0000, -98.0000),
@@ -170,36 +159,40 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    $scope.markers = [];
-
     var infoWindow = new google.maps.InfoWindow();
 
-    var createMarker = function (info) {
+    var createMarker = function (lat, long) {
 
         var marker = new google.maps.Marker({
             map: $scope.map,
-            position: new google.maps.LatLng(info.lat, info.long),
+            position: new google.maps.LatLng(lat, long),
             icon: '../images/ball.png',
-            title: info.title,
-            id: info.id,
-            image: info.image,
-            service: info.service,
-            explane: info.explane,
-            rating: info.rating
-        });
-        marker.content = '<div class="infoWindowContent">' + info.explane + '</div>';
 
-        google.maps.event.addListener(marker, 'click', function () {
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-            infoWindow.open($scope.map, marker);
         });
-
-        $scope.markers.push(marker);
     };
-    for (i = 0; i < $scope.restaurants.length; i++) {
-        createMarker($scope.restaurants[i]);
-    }
-    ;
+
+
+
+   /* $scope.initMap = function(mapOptions){
+        var mapOptions = mapOptions || {
+                zoom: 10,
+                center: new google.maps.LatLng(40.0000, -98.0000),
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
+
+        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+
+
+        var bounds = new google.maps.LatLngBounds();
+        for (var i in $scope.markers) // your marker list here
+            bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
+
+        $scope.map.fitBounds(bounds); // map should be your map class
+        $scope.map.setCenter(mapOptions.center); //set after fitBounds
+    };*/
+
+
 
 });
 
