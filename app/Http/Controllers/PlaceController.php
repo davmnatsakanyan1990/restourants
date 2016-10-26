@@ -118,7 +118,10 @@ class PlaceController extends Controller
                 foreach ($item as $rate){
                     $total_rate += $rate['mark'];
                 }
-                $m_rate = round($total_rate/$count);
+                if($count != 0 )
+                    $m_rate = round($total_rate/$count);
+                else
+                    $m_rate = 0;
 
                 $collection->prepend($m_rate, 'rating');
             }
