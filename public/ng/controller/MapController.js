@@ -16,6 +16,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF6: []
     };
 
+
     $scope.callData = {
         page: 1,
         city: 'Salt%20Lake%20City'
@@ -24,6 +25,14 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         .then(function (response) {
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
+
+            $scope.initMap({
+                zoom: 1,
+                center: new google.maps.LatLng($scope.restaurants[0].lat*1+1, $scope.restaurants[0].long*1-2),
+                scrollwheel: false,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            });
+
             for (i = 0; i < $scope.restaurants.length; i++){
                 createMarker($scope.restaurants[i]);
             }
@@ -36,23 +45,40 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 		console.log($scope.callData.page);
         RestaurantService.getRestaurantsList($scope.callData)
             .then(function (response) {
-                $scope.restaurants.push(response.data.restaurants);
                 $scope.city = response.data.city;
-                for (i = 0; i < $scope.restaurants.length; i++){
-                    createMarker($scope.restaurants[i]);
+                for (i = 0; i < response.data.restaurants.length; i++){
+                    createMarker(response.data.restaurants[i]);
+                    $scope.restaurants.push(response.data.restaurants[i]);
                 }
             });
     };
 
-    var mapOptions = {
+    $scope.initMap = function(mapOptions){
+        var mapOptions = mapOptions || {
             zoom: 10,
             center: new google.maps.LatLng(40.0000, -98.0000),
             mapTypeId: google.maps.MapTypeId.TERRAIN
+        };
+
+        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        $scope.markers = [];
+
+        var bounds = new google.maps.LatLngBounds();
+        for (var i in $scope.markers) // your marker list here
+            bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
+
+        $scope.map.fitBounds(bounds); // map should be your map class
+        $scope.map.setCenter(mapOptions.center); //set after fitBounds
     };
 
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    $scope.markers = [];
     var infoWindow = new google.maps.InfoWindow();
+
+    $scope.openInfoWindow = function(e, selectedMarker){
+        e.preventDefault()
+        google.maps.event.trigger(selectedMarker, 'click');
+    };
+
     var createMarker = function (info){
 
         var marker = new google.maps.Marker({
@@ -79,7 +105,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     var el = element[i];
                     var pos = el.offsetTop
                 };
-               /* window.scrollTo(0, pos);*/
+                /* window.scrollTo(0, pos);*/
 
             });
             $scope.safeApply = function(fn) {
@@ -98,16 +124,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         });
 
         $scope.markers.push(marker);
-    };
-
-    var bounds = new google.maps.LatLngBounds();
-    for (var i in $scope.markers) // your marker list here
-        bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
-
-    $scope.map.fitBounds(bounds); // map should be your map class
-    $scope.openInfoWindow = function(e, selectedMarker){
-        e.preventDefault();
-        google.maps.event.trigger(selectedMarker, 'click');
     };
 
     //end processes for map
