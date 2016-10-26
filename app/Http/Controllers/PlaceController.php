@@ -228,6 +228,8 @@ class PlaceController extends Controller
 //        $data['comment'] = $array['comment'];
         $data['intro'] = $array['intro'];
         $data['address'] = $array['address'];
+        $data['lat'] = $array['lat'];
+        $data['long'] = $array['lon'];
         $data['site'] = $array['site'];
         $data['price'] = $array['price'];
         $data['workingHours'] = $array['workingHours'];
