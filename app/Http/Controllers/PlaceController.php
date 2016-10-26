@@ -96,13 +96,7 @@ class PlaceController extends Controller
             'shares' => function($share){
                 return $share->with('image');
             },
-//            'comments' => function($comment){
-//                return $comment->with(['user' => function($user){
-//                    return $user->with(['rates' => function($rate){
-//                       return $rate->where('place_id', 1);
-//                    }]);
-//                }]);
-//            },
+            'comments',
             'menus' => function($menu){
                 return $menu->with('products');
             }
@@ -128,8 +122,8 @@ class PlaceController extends Controller
         })->all();
 
         // get total comments count for current place and add to array
-//        $collection->prepend(count($collection['comments']), 'comment');
-
+        $collection->prepend(count($collection['comments']), 'comment');
+        
         // format price and add to array
         switch ($place->cost){
             case 0:
@@ -167,6 +161,13 @@ class PlaceController extends Controller
         // format shares, comments
         $array = $collection->all();
 
+        //get comments author
+        $comments = $array['comments'];
+        foreach($comments as $key => $comment){
+            $comments[$key]['author'] = $comment['commentable_type'] :: find($comment['commentable_id'])->toArray();
+        }
+        $array['comments'] = $comments;
+
         $data = array();
 
         foreach ($array as $key=>$value){
@@ -189,21 +190,21 @@ class PlaceController extends Controller
 //                }
 //            }
 
-            //comments format
-//            if($key == 'comments'){
-//                foreach ($array[$key] as $k=>$v){
+//            comments format
+            if($key == 'comments'){
+                foreach ($array[$key] as $k=>$v){
 //                    if(count(($v['user']['rates'])) > 0) {
 //                        $data[$key][$k]['rate'] = $v['user']['rates'][0]['mark'];
 //                    }
 //                    else{
 //                        $data[$key][$k]['rate'] = 0;
 //                    }
-//
-//                    $data[$key][$k]['name'] = $v['user']['name'];
-//                    $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
-//                    $data[$key][$k]['comment'] = $v['text'];
-//                }
-//            }
+
+                    $data[$key][$k]['name'] = $v['author']['name'];
+                    $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
+                    $data[$key][$k]['comment'] = $v['text'];
+                }
+            }
 
             // images format
             if($key == 'images'){
@@ -225,7 +226,7 @@ class PlaceController extends Controller
         $data['mobileNumber'] = $array['mobile'];
         $data['name'] = $array['name'];
         $data['rating'] = (int)$array['rating'];
-//        $data['comment'] = $array['comment'];
+        $data['comment'] = $array['comment'];
         $data['intro'] = $array['intro'];
         $data['address'] = $array['address'];
         $data['lat'] = $array['lat'];
