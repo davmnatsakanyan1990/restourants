@@ -208,6 +208,9 @@ html body .elementLeft {
 html body .elementRight {
   float: right;
 }
+html body .floatNone {
+  float: none;
+}
 html body .mobileNumberPart {
   line-height: 45px;
   color: white;

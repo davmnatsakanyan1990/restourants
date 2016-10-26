@@ -127,8 +127,12 @@
                                 <div class="introContent elementLeft" ng-bind="currentRestaurant.price"></div>
                             </div>
                             <div class="moreInfoAddress clearElement">
-                                <div class="introTitle capitalize elementLeft">Working hours:</div>
-                                <div class="introContent elementLeft" ng-bind="currentRestaurant.workingHours"></div>
+                                <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
+                                <div class="introContent clearElement floatNone" ng-repeat="(day,hour) in currentRestaurant.workingHours">
+                                    <div class="capitalize elementLeft" ng-bind="day"></div><span class="elementLeft">:&nbsp;</span>
+                                    <div class="elementLeft" ng-bind="hour"></div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
