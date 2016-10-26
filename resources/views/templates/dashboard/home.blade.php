@@ -324,7 +324,7 @@
                         </a>
 
                     </div>
-                    <button class="showMoreButton" ng-click="addMorePoints()" id="active">show more</button>
+                    <button class="showMoreButton" ng-click="addMorePoints()" id="active" ng-if="!noMoreInfoToShow">show more</button>
                     {{--<div class="additionalInfo">
                         <div class="additionalTitle">Restaurants in nearby towns</div>
                         <div class="imageAndInfo" ng-repeat="adInfo in additionalInfo">

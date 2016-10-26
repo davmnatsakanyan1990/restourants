@@ -7,6 +7,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.animateSecondMenuVar = false;
     $scope.activePage = 'page1';
     $scope.FixedRestMenu = false;
+    $scope.noMoreInfoToShow = false;
     $scope.checkboxModel = {
         checkboxModelF1: [],
         checkboxModelF2: [],
@@ -15,7 +16,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF5: [],
         checkboxModelF6: []
     };
-
 
     $scope.callData = {
         page: 1,
@@ -27,8 +27,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             $scope.city = response.data.city;
 
             $scope.initMap({
-                zoom: 1,
-                center: new google.maps.LatLng($scope.restaurants[0].lat*1+1, $scope.restaurants[0].long*1-2),
+                zoom: 10,
+                center: new google.maps.LatLng($scope.restaurants[0].lat*1+0.3, $scope.restaurants[0].long*1-1.5),
                 scrollwheel: false,
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             });
@@ -45,6 +45,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 		console.log($scope.callData.page);
         RestaurantService.getRestaurantsList($scope.callData)
             .then(function (response) {
+                if(response.data.status && response.data.status == 'ended'){
+                    $scope.noMoreInfoToShow = true;
+                }
                 $scope.city = response.data.city;
                 for (i = 0; i < response.data.restaurants.length; i++){
                     createMarker(response.data.restaurants[i]);
@@ -75,7 +78,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     var infoWindow = new google.maps.InfoWindow();
 
     $scope.openInfoWindow = function(e, selectedMarker){
-        e.preventDefault()
+        e.preventDefault();
         google.maps.event.trigger(selectedMarker, 'click');
     };
 
