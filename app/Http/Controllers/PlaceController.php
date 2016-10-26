@@ -93,6 +93,9 @@ class PlaceController extends Controller
             'images',
             'rates',
             'workinghour',
+            'cuisins',
+            'highlights',
+            'types',
             'shares' => function($share){
                 return $share->with('image');
             },
@@ -206,6 +209,33 @@ class PlaceController extends Controller
                 }
             }
 
+            // cuisins format
+            if($key == 'cuisins'){
+                $cuisins = array();
+                foreach ($array[$key] as $k=>$v){
+                    array_push($cuisins, $v['name']);
+                }
+                $data['cuisins'] = $cuisins;
+            }
+
+            // services format
+            if($key == 'highlights'){
+                $services = array();
+                foreach ($array[$key] as $k=>$v){
+                    array_push($services, $v['name']);
+                }
+                $data['services'] = $services;
+            }
+
+            //types format
+            if($key == 'types'){
+                $types = array();
+                foreach ($array[$key] as $k=>$v){
+                    array_push($types, $v['name']);
+                }
+                $data['types'] = $types;
+            }
+
             // images format
             if($key == 'images'){
                 $images = array();
@@ -236,7 +266,7 @@ class PlaceController extends Controller
         $data['workingHours'] = $array['workingHours'];
 
        // $data['shareItems'] = $data['shares'];
-       
+
         return response()->json($data);
     }
     

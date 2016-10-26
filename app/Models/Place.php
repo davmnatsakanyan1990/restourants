@@ -50,7 +50,7 @@ class Place extends Model
     }
     
     public function cuisins(){
-        return $this->belongsToMany(Cuisin::class);
+        return $this->belongsToMany(Cuisin::class, 'place_cuisins');
     }
 
     public function workinghour(){
@@ -66,6 +66,6 @@ class Place extends Model
     }
     
     public function types(){
-        return $this->belongsToMany(Type::class);
+        return $this->belongsToMany(Type::class, 'place_types');
     }
 }
