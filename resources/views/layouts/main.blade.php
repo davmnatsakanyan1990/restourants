@@ -98,7 +98,7 @@
                                 registration
 								</div>
                                 <div class="relativeElement">
-                                    <input class="capitalize lightInput blockElement" type="text" name="name" placeholder="name" ng-model = "currentUser.name"/>
+                                    <input class="capitalize lightInput blockElement" type="text" name="name" placeholder="name" ng-model = "currentUser.name" required/>
                                     <div ng-show="registerForm.$submitted || registerForm.name.$touched">
                                         <div class="rightTooltips" ng-show="registerForm.name.$error.required">
                                             type your name
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="relativeElement marginTop10">
-                                    <input class="capitalize lightInput blockElement" type="text" name="email" placeholder="E-mail" ng-model = "currentUser.email"/>
+                                    <input class="capitalize lightInput blockElement" type="text" name="email" placeholder="E-mail" ng-model = "currentUser.email" required/>
                                     <div ng-show="registerForm.$submitted || registerForm.email.$touched">
                                         <div class="rightTooltips" ng-show="registerForm.email.$error.required">
                                             type your email
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="relativeElement marginTop10">
-                                    <input class="capitalize lightInput blockElement" type="password" name="password" placeholder="password" ng-model = "currentUser.password"/>
+                                    <input class="capitalize lightInput blockElement" type="password" name="password" placeholder="password" ng-model = "currentUser.password" required/>
                                     <div ng-show="registerForm.$submitted || registerForm.password.$touched">
                                         <div class="rightTooltips" ng-show="registerForm.password.$error.required">
                                             type your password
@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
 								<div class="relativeElement marginTop10">
-                                    <input class="capitalize lightInput blockElement" type="password" name="confirm" placeholder="confirm password" ng-model = "currentUser.confirmPassword"/>
+                                    <input class="capitalize lightInput blockElement" type="password" name="confirm" placeholder="confirm password" ng-model = "currentUser.confirmPassword" required/>
                                     <div ng-show="registerForm.$submitted || registerForm.confirm.$touched">
                                         <div class="rightTooltips" ng-show="registerForm.confirm.$error.required">
                                             retype your password
