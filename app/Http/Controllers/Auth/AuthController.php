@@ -9,6 +9,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Socialite;
 
 class AuthController extends Controller
 {
@@ -49,7 +50,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function registerValidator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
@@ -99,13 +100,12 @@ class AuthController extends Controller
      */
     public function register(Request $request){
 
-        $validator = $this->validator($request->all());
+        $validator = $this->registerValidator($request->all());
 
         if ($validator->fails()) {
-            return response()->json(['status' =>'error']);
-//            $this->throwValidationException(
-//                $request, $validator
-//            );
+            $this->throwValidationException(
+                $request, $validator
+            );
         }
 
         Auth::guard('user')->login($this->create($request->all()));
@@ -123,5 +123,27 @@ class AuthController extends Controller
         Auth::guard('user')->logout();
 
         return response()->json(['status' =>'ok']);
+    }
+
+    /**
+     * Redirect the user to the FACEBOOK authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from FACEBOOK.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        dd($user);
     }
 }

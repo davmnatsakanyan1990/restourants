@@ -43,6 +43,9 @@ Route::group([
         Route::post('login', 'AuthController@login');
         Route::post('register', 'AuthController@register');
         Route::get('logout', 'AuthController@logout');
+
+        Route::get('auth/facebook', 'AuthController@redirectToProvider');
+        Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback');
     });
 
 Route::get('user/is_auth', function(){
