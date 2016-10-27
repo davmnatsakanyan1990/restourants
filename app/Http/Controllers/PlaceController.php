@@ -264,6 +264,7 @@ class PlaceController extends Controller
             }
         }
 
+        $data['id'] = $array['id'];
         $data['mobileNumber'] = $array['mobile'];
         $data['name'] = $array['name'];
         $data['rating'] = (int)$array['rating'];
