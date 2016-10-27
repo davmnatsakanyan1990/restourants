@@ -43,7 +43,14 @@ app.factory('RestaurantService', function($http) {
                 method : "GET",
                 url : "user/logout"
             })
-        }
+        },
+        writeComment: function(data) {
+            return $http({
+                method : "POST",
+                url : "comment/add",
+                data: data
+            })
+        },
 
     };
 });

@@ -221,7 +221,7 @@
                             <textarea placeholder="Write your comment" ng-model="comment"></textarea>
                             <div class="doubleButtons clearElement">
                                 <button class="writeComment capitalize elementLeft" ng-click="ClearInner()">clear</button>
-                                <button class="writeComment capitalize elementLeft">send</button>
+                                <button class="writeComment capitalize elementLeft" ng-click="writeCommentNow(1)">send</button>
                             </div>
                         </div>
                         <div class="commentContent" ng-repeat="com in currentRestaurant.comments">

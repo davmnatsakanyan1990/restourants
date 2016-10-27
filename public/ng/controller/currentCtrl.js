@@ -117,9 +117,31 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 			.then(function (response) {
 				$scope.CurrentMenu = response.data
          });
-
     };
-
+    $scope.writeCommentNow = function (type) {
+        var data;
+         if(type == 1){
+         data = {
+         text: $scope.comment,
+         user_type: 'user',
+         place_id: $scope.currentRestaurant.id,
+         parent_id: 0
+         };
+         }else if(type == 2){
+         data = {
+         text: $scope.comment,
+         user_type: 'user',
+         place_id: $scope.currentRestaurant.id,
+         parent_id: 1
+         };
+         }
+        RestaurantService.writeComment(data)
+            .then(function (response) {
+                if(response.data.status == "ok")
+                $scope.currentRestaurant.comments.push(response.data.comment);
+                $scope.ClearInner();
+            });
+    };
 
     //map section
     var infoWindow = new google.maps.InfoWindow();
