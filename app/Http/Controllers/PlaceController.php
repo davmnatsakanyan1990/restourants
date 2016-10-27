@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Place;
 use App\Http\Requests;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -168,7 +170,15 @@ class PlaceController extends Controller
         $comments = $array['comments'];
         foreach($comments as $key => $comment){
             $comments[$key]['author'] = $comment['commentable_type'] :: find($comment['commentable_id'])->toArray();
+            $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
+
+
+            foreach ($sub_comments as $k=>$sub_comment){
+                $sub_comments[$k]['author'] = $sub_comment['commentable_type'] :: find($sub_comment['commentable_id'])->toArray();
+            }
+            $comments[$key]['sub_comments'] = $sub_comments;
         }
+
         $array['comments'] = $comments;
 
         $data = array();
@@ -248,7 +258,8 @@ class PlaceController extends Controller
             // menus format
             if($key == 'menus'){
                 foreach ($array[$key] as $k=>$v){
-                    $data['menuItems'][$k] = $v['name'];
+                    $data['menuItems'][$k]['name'] = $v['name'];
+                    $data['menuItems'][$k]['id'] = $v['id'];
                 }
             }
         }
@@ -268,6 +279,11 @@ class PlaceController extends Controller
        // $data['shareItems'] = $data['shares'];
 
         return response()->json($data);
+    }
+
+    public function products($menu_id){
+       $products = Product::where('menu_id', $menu_id)->select(['title', 'description', 'price'])->get()->toArray();
+        return $products;
     }
     
     

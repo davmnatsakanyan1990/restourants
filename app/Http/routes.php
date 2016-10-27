@@ -83,6 +83,7 @@ Route::group([
 
 Route::get('restaurants', 'PlaceController@index');
 Route::get('show/{id}', 'PlaceController@show');
+Route::get('products/{menu_id}', 'PlaceController@products');
 
 
 /**
