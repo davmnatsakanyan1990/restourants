@@ -76,7 +76,7 @@ Route::group([
     'prefix' => 'comment',
     ],
     function(){
-        Route::get('add', 'CommentController@create');
+        Route::post('add', 'CommentController@create');
     });
 
 
