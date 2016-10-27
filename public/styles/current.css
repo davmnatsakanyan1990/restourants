@@ -260,6 +260,7 @@ button:focus {
   padding: 20px;
 }
 .restPageContainer .pageContainer .containerContent .container3 .fillRestMenu .testyFood {
+  margin-top: 10px;
   width: 250px;
   height: 250px;
   overflow: auto;
@@ -302,6 +303,16 @@ button:focus {
 }
 .restPageContainer .pageContainer .containerContent .container3 .chooseRestMenu:focus {
   outline: none;
+  background-color: #3d3f52;
+  color: white;
+  border: 1px solid #3d3f52;
+  transition: 0.3s;
+}
+.restPageContainer .pageContainer .containerContent .container3 .chooseRestMenu.active {
+  background-color: #3d3f52;
+  color: white;
+  border: 1px solid #3d3f52;
+  transition: 0.3s;
 }
 .restPageContainer .pageContainer .containerContent .container4 .specAllInfo {
   margin: 0 15px 15px 0;

@@ -150,7 +150,7 @@
                     <div class="containerTitle capitalize">menu</div>
                     <div class="clearElement">
                         <div class="containerContent elementLeft" ng-repeat="item in currentRestaurant.menuItems">
-                            <button class="chooseRestMenu capitalize" ng-bind="item" ng-click="chooseCurrentMenu(item)"></button>
+                            <button class="chooseRestMenu capitalize" ng-bind="item.name" ng-click="chooseCurrentMenu(item)"></button>
                         </div>
                     </div>
                     <div class="fillRestMenu clearElement" ng-if="CurrentMenu && currentRestaurant.menuItems">
