@@ -106,8 +106,6 @@
 html{
   height: 100vh;
   body{
-
-
     height: 100vh;
     background-color: #efefef;
     a{
@@ -152,6 +150,61 @@ html{
     .relativeElement{
       position: relative;
     }
+    .loginLogout{
+      position: relative;
+      float: right;
+      margin-right: 20px;
+      .user{
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border-radius: 100%;
+        margin-right: 20px;
+        margin-top: 8px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+        text-transform: capitalize;
+        line-height: 30px;
+      }
+      .logout{
+        cursor: pointer;
+        position: absolute;
+        width: 100px;
+        height: 33px;
+        background-color: white;
+        right: -16px;
+        top: 50px;
+        border: 1px solid;
+        color: #3d3f52;
+        text-align: center;
+        padding: 5px;
+        text-transform: capitalize;
+        &:after, &:before {
+          bottom: 100%;
+          left: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        &:after {
+          border-color: rgba(136, 183, 213, 0);
+          border-bottom-color: @secondColor;
+          border-width: 10px;
+          margin-left: -10px;
+        }
+        &:before {
+          border-color: rgba(194, 225, 245, 0);
+          border-bottom-color: #3d3f52;
+          border-width: 12px;
+          margin-left: -12px;
+        }
+      }
+    }
+
     .registerPopup{
       .loginRegister{
         text-align: left;

@@ -21,7 +21,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 	RestaurantService.getLogedUser()
 		.then(function (response) {
-			if(response.status == 1){
+			if(response.data.status == 1){
 				$scope.logedUser = true;
 			}
          });

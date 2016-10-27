@@ -38,6 +38,12 @@ app.factory('RestaurantService', function($http) {
                 data: data
             })
         },
+        logout: function(data) {
+            return $http({
+                method : "GET",
+                url : "user/logout"
+            })
+        }
 
     };
 });
