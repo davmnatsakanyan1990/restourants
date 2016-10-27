@@ -294,6 +294,7 @@ button{
           border: 1px solid #efefef;
           padding: 20px;
           .testyFood{
+            margin-top: 10px;
             width: 250px;
             height: 250px;
             overflow: auto;
@@ -336,6 +337,16 @@ button{
           }
           &:focus{
             outline: none;
+            background-color: @mainColor;
+            color: @secondColor;
+            border: 1px solid @mainColor;
+            transition: 0.3s;
+          }
+          &.active{
+            background-color: @mainColor;
+            color: @secondColor;
+            border: 1px solid @mainColor;
+            transition: 0.3s;
           }
         }
 

@@ -112,59 +112,12 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     };
     $scope.chooseCurrentMenu = function (data) {
         //there will be call backend
-		var dataCall = {
-			id: $scope.currentRestaurant.id,
-			menu: data
-		}
-		RestaurantService.getMenu(dataCall)
+
+		RestaurantService.getMenu(data.id)
 			.then(function (response) {
 				$scope.CurrentMenu = response.data
          });
-		
-        $scope.CurrentMenu = [
-            {
-                title: 'Lorem ipsum dolor',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
-                'Aliquid debitis deserunt eaque eligendi exercitationem facilis maiores ' +
-                'officia possimus quibusdam tempore?',
-                price: '220$ / 200g'
-            },
-            {
-                title: 'Lorem ipsum dolor',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
-                'Aliquid debitis deserunt eaque eligendi exercitationem facilis maiores ' +
-                'officia possimus quibusdam tempore?',
-                price: '120$ / 100g'
-            },
-            {
-                title: 'Lorem ipsum dolor',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
-                'Aliquid debitis deserunt eaque eligendi exercitationem facilis maiores ' +
-                'officia possimus quibusdam tempore?',
-                price: '430$'
-            },
-            {
-                title: 'Lorem ipsum dolor',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
-                'Aliquid debitis deserunt eaque eligendi exercitationem facilis maiores ' +
-                'officia possimus quibusdam tempore?',
-                price: '130$'
-            },
-            {
-                title: 'Lorem ipsum dolor',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
-                'Aliquid debitis deserunt eaque eligendi exercitationem facilis maiores ' +
-                'officia possimus quibusdam tempore?',
-                price: '5530$'
-            },
-            {
-                title: 'Lorem ipsum dolor',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ' +
-                'Aliquid debitis deserunt eaque eligendi exercitationem facilis maiores ' +
-                'officia possimus quibusdam tempore?',
-                price: '23$'
-            }
-        ]
+
     };
 
 

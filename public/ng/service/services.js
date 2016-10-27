@@ -21,7 +21,7 @@ app.factory('RestaurantService', function($http) {
 		getMenu: function(data) {
             return $http({
                 method : "GET",
-                url : "restaurants/menu" + data
+                url : "products/" + data
             })
         },
         userLogin: function(data) {
