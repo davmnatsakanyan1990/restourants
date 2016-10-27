@@ -18,7 +18,12 @@
             <input class="capitalize" type="text" placeholder="search"/>
         </div>
     </div>
-    <div class="nav capitalize menuRight" data-toggle="modal" data-target="#myModal"><a class="pointer">Log In</a></div>
+    <div class="nav capitalize menuRight" data-toggle="modal" data-target="#myModal" ng-if="!logedUser"><a class="pointer">Log In</a></div>
+    <div class="loginLogout" ng-if="logedUser">
+        <div class="user menuRight" ng-bind="userFirstLetter" ng-if="logedUser" ng-click="toggleLogOut()"></div>
+        <div class="logout" ng-if="openLogOut" ng-click = "logout()">log out</div>
+    </div>
+
 
     <div class="dropdownMenu" ng-show="custom" ng-class="{'secondPart': !first}">
         <div class="dropdownInner" ng-class="first ? 'first' : 'second'">

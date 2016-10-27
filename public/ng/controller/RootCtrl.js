@@ -3,6 +3,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     $scope.search = true;
     $scope.custom = false;
     $scope.animateTopMenuVar = false;
+    $scope.openLogOut = false;
     
     $scope.toggleMenu = function(menu) {
         if(menu == 'home'){
@@ -90,24 +91,58 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         ['Abanda',  'Abbeville', 'Abbotsford', 'Abbott', 'Abbottstown', 'Abbyville', 'Abercrombie', 'Aberdeen', 'Aberdeen', 'Gardens'],
     ];
 
+    $scope.toggleLogOut = function () {
+        $scope.openLogOut = $scope.openLogOut === false ? true: false;
+    };
+
     $scope.currentRest = function(id){
         $rootScope.currentId = id
     };
+
+    RestaurantService.getLogedUser()
+        .then(function (response) {
+            if(response.data.status == 1){
+                $scope.logedUser = true;
+            }
+        });
 	
 	//login and reister part
 	$scope.loginUser = function(user){
-        RestaurantService.userLogin(user)
-            .then(function (response) {
-                console.log(response.data);
-            });
-
+	    if(user.password && user.email){
+            RestaurantService.userLogin(user)
+                .then(function (response) {
+                    if(response.data.status == "ok") {
+                        var un = user.email;
+                        $scope.userFirstLetter = un.substring(0,1);
+                        $scope.user = {};
+                    }
+                    RestaurantService.getLogedUser()
+                        .then(function (response) {
+                            if(response.data.status == 1){
+                                $scope.logedUser = true;
+                            }
+                        });
+                });
+        }
 	};
 	$scope.register = function(user){
-        RestaurantService.userRegistration(user)
-            .then(function (response) {
-                console.log(response.data);
-            });
-
+	    if(user.name && user.email && user.password && user.confirmPassword){
+            RestaurantService.userRegistration(user)
+                .then(function (response) {
+                    if(response.data.status == "ok") {
+                        $scope.currentUser = {};
+                    }
+                });
+        }
 	};
-    
+	$scope.logout = function () {
+        RestaurantService.logout()
+            .then(function (response) {
+                if(response.data.status == "ok"){
+                    $scope.logedUser = false;
+                }
+            });
+    }
+
+
 });

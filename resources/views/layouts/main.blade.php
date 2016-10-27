@@ -75,7 +75,7 @@
 
 								</div>
 
-								<button class="loginUsingBut" ng-click="loginUser(user)">log in</button>
+								<button class="loginUsingBut" ng-click="loginUser(user)" data-dismiss="modal">log in</button>
 
                                 {{--<div class="loginusingSistem capitalize">
                                     log in
@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
 
-								<button class="loginUsing googlePlus marginTop10" ng-click = "register(currentUser)">register</button>
+								<button class="loginUsing googlePlus marginTop10" ng-click = "register(currentUser)" data-dismiss="modal">register</button>
 							</form>
                            
                         </div>
