@@ -96,15 +96,15 @@
                         <div class="intro" ng-bind="currentRestaurant.intro"></div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize">cuisine</div>
-                            <div class="introContent" ng-bind="currentRestaurant.cuisins">European, Italian</div>
+                            <div class="introContent" ng-bind="currentRestaurant.cuisins"></div>
                         </div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize">Type of place</div>
-                            <div class="introContent" ng-bind="currentRestaurant.typePlace">bars, banquet hall, terrace, rooftop restaurant, karaoke bar</div>
+                            <div class="introContent" ng-bind="currentRestaurant.type"></div>
                         </div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize">services</div>
-                            <div class="introContent" ng-bind="currentRestaurant.services">Wi-Fi, a business lunch, parking, hookah, karaoke, board games</div>
+                            <div class="introContent" ng-bind="currentRestaurant.services"></div>
                         </div>
                     </div>
                     <div class="containerPart elementLeft">
@@ -214,7 +214,7 @@
                 <div class="container5 pages parallax" id="review">
                     <div class="containerTitle capitalize clearElement">
                         <div class="revText elementLeft">reviews</div>
-                        <button class="writeComment elementRight" ng-click="hideWrite()">Write</button>
+                        <button class="writeComment elementRight" ng-if = "logedUser" ng-click="hideWrite()">Write</button>
                     </div>
                     <div class="containerContent with100">
                         <div class="writeContent" ng-class="{'hideWriteContent': writeComment}">

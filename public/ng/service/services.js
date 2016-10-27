@@ -12,6 +12,18 @@ app.factory('RestaurantService', function($http) {
                 url : "restaurants?city=" + data.city+"&page="+ data.page
             })
         },
+		getLogedUser: function(data) {
+            return $http({
+                method : "GET",
+                url : "user/is_auth"
+            })
+        },
+		getMenu: function(data) {
+            return $http({
+                method : "GET",
+                url : "restaurants/menu" + data
+            })
+        },
         userLogin: function(data) {
             return $http({
                 method : "POST",

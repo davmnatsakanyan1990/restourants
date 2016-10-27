@@ -56,15 +56,21 @@
                                     <div class="elementLeft">google</div>
                                 </button>
 								<div class="restLogin">
-                                    <div class="">
-                                        <input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" ng-model="user.email" required/>
-                                        <div class="tooltips">
-
-                                        </div>
+                                    <div class="relativeElement">
+                                        <input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" name = "uName" ng-model="user.email" required/>
+                                       <div ng-show="loginForm.$submitted || loginForm.uName.$touched">
+                                           <div class="tooltips" ng-show="loginForm.uName.$error.email || loginForm.uName.$error.required">
+                                               wrong email
+                                           </div>
+                                       </div>
                                     </div>
-									<div class="marginTop10">
-                                        <input class="capitalize lightInput blockElement" type="password" placeholder="password" ng-model="user.password" required/>
-                                        <div></div>
+									<div class="marginTop10 relativeElement">
+                                        <input class="capitalize lightInput blockElement" type="password" name ="pass" placeholder="password" ng-model="user.password" required/>
+                                        <div ng-show="loginForm.$submitted || loginForm.pass.$touched">
+                                            <div class="tooltips" ng-show="loginForm.pass.$error.required">
+                                                wrong password
+                                            </div>
+                                        </div>
                                     </div>
 
 								</div>
@@ -91,11 +97,40 @@
 								<div class="loginRegister capitalize">
                                 registration
 								</div>
-								<input class="capitalize lightInput blockElement" type="text" placeholder="name" ng-model = "currentUser.name"/>
-								<input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" ng-model = "currentUser.email"/>
-								<input class="capitalize lightInput blockElement" type="password" placeholder="password" ng-model = "currentUser.password"/>
-                                <input class="capitalize lightInput blockElement" type="password" placeholder="confirm password" ng-model = "currentUser.confirmPassword"/>
-								<button class="loginUsing googlePlus" ng-click = "register(currentUser)">register</button>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput blockElement" type="text" name="name" placeholder="name" ng-model = "currentUser.name" required/>
+                                    <div ng-show="registerForm.$submitted || registerForm.name.$touched">
+                                        <div class="rightTooltips" ng-show="registerForm.name.$error.required">
+                                            type your name
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relativeElement marginTop10">
+                                    <input class="capitalize lightInput blockElement" type="text" name="email" placeholder="E-mail" ng-model = "currentUser.email" required/>
+                                    <div ng-show="registerForm.$submitted || registerForm.email.$touched">
+                                        <div class="rightTooltips" ng-show="registerForm.email.$error.required">
+                                            type your email
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relativeElement marginTop10">
+                                    <input class="capitalize lightInput blockElement" type="password" name="password" placeholder="password" ng-model = "currentUser.password" required/>
+                                    <div ng-show="registerForm.$submitted || registerForm.password.$touched">
+                                        <div class="rightTooltips" ng-show="registerForm.password.$error.required">
+                                            type your password
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="relativeElement marginTop10">
+                                    <input class="capitalize lightInput blockElement" type="password" name="confirm" placeholder="confirm password" ng-model = "currentUser.confirmPassword" required/>
+                                    <div ng-show="registerForm.$submitted || registerForm.confirm.$touched">
+                                        <div class="rightTooltips" ng-show="registerForm.confirm.$error.required">
+                                            retype your password
+                                        </div>
+                                    </div>
+                                </div>
+
+								<button class="loginUsing googlePlus marginTop10" ng-click = "register(currentUser)">register</button>
 							</form>
                            
                         </div>
