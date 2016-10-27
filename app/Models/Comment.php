@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class Comment extends Model
 {
+    protected $fillable = [
+        'text',
+        'place_id',
+        'parent_id',
+        'commentable_id',
+        'commentable_type',
+    ];
     public function commentable(){
         return $this->morphTo();
     }

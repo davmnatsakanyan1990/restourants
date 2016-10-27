@@ -28,9 +28,18 @@ class CommentController extends Controller
         }
         
         $text = $request->text;
-        $place_id = $request->id;
+        $place_id = $request->place_id;
+
+        if($request->parent_id){
+            $parent_id = $request->parent_id;
+        }
+        else{
+            $parent_id = 0;
+        }
 
 
-        Comment::insert(['text' => $text, 'place_id' => $place_id, 'commentable_id' => $author_id, 'commentable_type' => $author_type]);
+       Comment::create(['text' => $text, 'place_id' => $place_id, 'parent_id' => $parent_id, 'commentable_id' => $author_id, 'commentable_type' => $author_type]);
+
+        return response()->json(['status' => 'ok']);
     }
 }
