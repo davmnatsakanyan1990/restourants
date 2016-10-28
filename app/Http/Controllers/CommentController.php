@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,13 @@ class CommentController extends Controller
             $parent_id = 0;
         }
         
-       $comment = Comment::create(['text' => $text, 'place_id' => $place_id, 'parent_id' => $parent_id, 'commentable_id' => $author_id, 'commentable_type' => $author_type]);
+       $response = Comment::create(['text' => $text, 'place_id' => $place_id, 'parent_id' => $parent_id, 'commentable_id' => $author_id, 'commentable_type' => $author_type]);
+
+        $comment = [];
+        $author = User::find($response->commentable_id)->name;
+        $comment['name'] = $author;
+        $comment['date'] = date_format(date_create($response->created_at), "m/d/y");
+        $comment['text'] = $response->text;
 
         return response()->json(['status' => 'ok', 'comment' => $comment]);
     }
