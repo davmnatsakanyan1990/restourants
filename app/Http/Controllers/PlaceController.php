@@ -216,6 +216,7 @@ class PlaceController extends Controller
                     $data[$key][$k]['name'] = $v['author']['name'];
                     $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
                     $data[$key][$k]['comment'] = $v['text'];
+                    
                 }
             }
 
