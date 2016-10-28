@@ -324,7 +324,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="comment" ng-bind="com.comment"></div>
+                                    <div class="comment" ng-bind="sub.comment"></div>
                                 </div>
                             </div>
                             <div class="writeSubComment clearElement">
