@@ -158,7 +158,7 @@ class ApiController extends Controller
         if(count($d['comments']) > 0){
             $i = 0;
             foreach ($d['comments'] as $comment){
-                $author = User::create(['name' => $comment['author'], 'email' => time(), 'password' => 'password' ]);
+                $author = User::create(['name' => $comment['author'], 'email' => time().$i, 'password' => 'password' ]);
                 $author_id = $author->id;
 
                 Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
@@ -167,15 +167,16 @@ class ApiController extends Controller
 
                 if(count($comment['sub_comments']) > 0){
                     foreach ($comment['sub_comments'] as $comment){
-                        $author = User::create(['name' => $comment['author'], 'email' => 'someuser@gmail.com', 'password' => 'password' ]);
+                        $author = User::create(['name' => $comment['author'], 'email' => time().$i, 'password' => 'password' ]);
                         $author_id = $author->id;
 
                         Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
 
                         Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => $comm->id, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
-
+                        $i++;
                     }
                 }
+                $i++;
             }
         }
 

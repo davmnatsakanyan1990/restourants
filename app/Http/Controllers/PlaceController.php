@@ -218,6 +218,19 @@ class PlaceController extends Controller
                     $data[$key][$k]['comment'] = $v['text'];
                     $data[$key][$k]['id'] = $v['id'];
 
+                    $sub_coms = Comment::where('parent_id', $v['id'])->get()->toArray();
+                    if(count($sub_coms) > 0) {
+                        foreach ($sub_coms as $index => $comment) {
+                            $author = $comment['commentable_type']:: find($comment['commentable_id'])->name;
+                            $data[$key][$k]['subComment'][$index]['name'] = $author;
+                            $data[$key][$k]['subComment'][$index]['comment'] = $comment['text'];
+                            $data[$key][$k]['subComment'][$index]['date'] = date_format(date_create($comment['created_at']), "m/d/y");
+                            $data[$key][$k]['subComment'][$index]['id'] = $comment['id'];
+                        }
+                    }
+                    else{
+                        $data[$key][$k]['subComment'] = null;
+                    }
                 }
             }
 

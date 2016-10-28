@@ -16,7 +16,7 @@ class CreatePlacesTable extends Migration
             $table->increments('id');
             $table->string('mobile');
             $table->string('name');
-            $table->string('intro');
+            $table->longText('intro');
             $table->string('address');
             $table->integer('location_id')->unsigned();
             $table->string('lat');
