@@ -157,7 +157,7 @@
                         <div class="testyFood elementLeft" ng-repeat="menu in CurrentMenu">
                             <div class="foodTitle" ng-bind="menu.title"></div>
                             <div class="foodDescription" ng-bind="menu.description"></div>
-                            <div class="foodPrice" ng-bind="menu.price"></div>
+                            <div class="foodPrice" ng-if="menu.price" ng-bind="menu.price + '$'"></div>
                         </div>
                     </div>
                 </div>
