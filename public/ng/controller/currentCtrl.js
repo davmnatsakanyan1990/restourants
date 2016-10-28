@@ -121,19 +121,19 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     $scope.writeCommentNow = function (type) {
         var data;
          if(type == 1){
-         data = {
-         text: $scope.comment,
-         user_type: 'user',
-         place_id: $scope.currentRestaurant.id,
-         parent_id: 0
-         };
+             data = {
+                 text: $scope.comment,
+                 user_type: 'user',
+                 place_id: $scope.currentRestaurant.id,
+                 parent_id: 0
+             };
          }else if(typeof type == 'object'){
-         data = {
-         text: type.commentReply,
-         user_type: 'user',
-         place_id: $scope.currentRestaurant.id,
-         parent_id: type.id
-         };
+             data = {
+                 text: type.commentReply,
+                 user_type: 'user',
+                 place_id: $scope.currentRestaurant.id,
+                 parent_id: type.id
+             };
          }
         RestaurantService.writeComment(data)
             .then(function (response) {
@@ -148,7 +148,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                                     $scope.currentRestaurant.comments[i].subComment.push(response.data.comment);
                                 }else{
                                     $scope.currentRestaurant.comments[i].subComment = [response.data.comment];
-                                    console.log($scope.currentRestaurant);
                                 }
                                 break;
                             }
