@@ -327,8 +327,8 @@
                                     <div class="comment" ng-bind="sub.comment"></div>
                                 </div>
                             </div>
-                            <div class="writeSubComment clearElement">
-                                <input type="text" class="elementLeft replyInput" placeholder="reply to this comment" ng-model="com.commentReply"/>
+                            <div class="writeSubComment clearElement" ng-if="logedUser">
+                                <input type="text" class="elementLeft replyInput" placeholder="Reply to this comment" ng-model="com.commentReply"/>
                                 <button class="replyButton elementLeft" ng-click="writeCommentNow(com)">Reply</button>
                             </div>
                         </div>

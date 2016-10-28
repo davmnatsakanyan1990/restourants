@@ -386,6 +386,7 @@ button:focus {
   margin-left: 30px;
   background-color: #efefef;
   padding-left: 20px;
+  border-bottom: 1px solid white;
 }
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .writeSubComment {
   margin-left: 30px;
