@@ -367,6 +367,20 @@ button:focus {
   font-size: 16px;
   font-weight: 700;
 }
+.restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #3d3f52;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+}
+.restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .photo img {
+  width: 100%;
+  height: 100%;
+}
 .restPageContainer .pageContainer .containerContent .container5 .bottomPart {
   border-top: 1px solid #efefef;
   padding: 10px 0 0 0;

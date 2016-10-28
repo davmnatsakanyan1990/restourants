@@ -226,45 +226,53 @@
                         </div>
                         <div class="commentContent" ng-repeat="com in currentRestaurant.comments">
                             <div class="clearElement commentTopPart">
-                                <div class="name elementLeft marginR10" ng-bind="com.name"></div>
-                                <div class="rate elementLeft marginR10">
-                                    <div class="rate" ng-if="com.rate == 1">
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                <div class="photo elementLeft marginR10" ng-bind="com.name.substring(0,1)">
+                                    {{--<img src="images/users/<%com.img%>"/>--}}
+                                </div>
+                                <div class="elementLeft">
+                                    <div class="clearElement">
+                                        <div class="name elementLeft marginR10" ng-bind="com.name"></div>
+                                        <div class="time elementLeft" ng-bind="com.date"></div>
                                     </div>
-                                    <div class="rate" ng-if="com.rate == 2">
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="rate" ng-if="com.rate == 3">
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="rate" ng-if="com.rate == 4">
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starGrey" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="rate" ng-if="com.rate == 5">
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
-                                        <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                    <div class="rate ">
+                                        <div class="rate" ng-if="com.rate == 1">
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="rate" ng-if="com.rate == 2">
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="rate" ng-if="com.rate == 3">
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="rate" ng-if="com.rate == 4">
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="rate" ng-if="com.rate == 5">
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                            <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="time elementLeft" ng-bind="com.date"></div>
+
                             </div>
                             <div class="comment" ng-bind="com.comment"></div>
                         </div>
