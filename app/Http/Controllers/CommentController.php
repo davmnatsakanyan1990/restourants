@@ -36,8 +36,8 @@ class CommentController extends Controller
             $parent_id = 0;
         }
         
-       Comment::create(['text' => $text, 'place_id' => $place_id, 'parent_id' => $parent_id, 'commentable_id' => $author_id, 'commentable_type' => $author_type]);
+       $comment = Comment::create(['text' => $text, 'place_id' => $place_id, 'parent_id' => $parent_id, 'commentable_id' => $author_id, 'commentable_type' => $author_type]);
 
-        return response()->json(['status' => 'ok']);
+        return response()->json(['status' => 'ok', 'comment' => $comment]);
     }
 }
