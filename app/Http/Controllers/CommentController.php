@@ -43,7 +43,7 @@ class CommentController extends Controller
         $author = User::find($response->commentable_id)->name;
         $comment['name'] = $author;
         $comment['date'] = date_format(date_create($response->created_at), "m/d/y");
-        $comment['text'] = $response->text;
+        $comment['comment'] = $response->text;
 
         return response()->json(['status' => 'ok', 'comment' => $comment]);
     }
