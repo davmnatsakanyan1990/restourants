@@ -144,10 +144,10 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                     }else if(typeof type == 'object'){
                         for(var i = 0; i<$scope.currentRestaurant.comments.length; i++){
                             if($scope.currentRestaurant.comments[i].id == type.id){
-                                if($scope.currentRestaurant.comments.subComment){
-                                    $scope.currentRestaurant.comments.subComment.push(response.data.comment);
+                                if($scope.currentRestaurant.comments[i].subComment){
+                                    $scope.currentRestaurant.comments[i].subComment.push(response.data.comment);
                                 }else{
-                                    $scope.currentRestaurant.comments.subComment = [response.data.comment];
+                                    $scope.currentRestaurant.comments[i].subComment = [response.data.comment];
                                     console.log($scope.currentRestaurant);
                                 }
                                 break;
