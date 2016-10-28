@@ -328,8 +328,8 @@
                                 </div>
                             </div>
                             <div class="writeSubComment clearElement">
-                                <input type="text" class="elementLeft replyInput" placeholder="reply to this comment" ng-model="commentReply"/>
-                                <button class="replyButton elementLeft">Reply</button>
+                                <input type="text" class="elementLeft replyInput" placeholder="reply to this comment" ng-model="com.commentReply"/>
+                                <button class="replyButton elementLeft" ng-click="writeCommentNow(com)">Reply</button>
                             </div>
                         </div>
                         <div class="bottomPart">

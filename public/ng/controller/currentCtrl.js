@@ -127,18 +127,27 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
          place_id: $scope.currentRestaurant.id,
          parent_id: 0
          };
-         }else if(type == 2){
+         }else if(typeof type == 'object'){
          data = {
-         text: $scope.comment,
+         text: type.commentReply,
          user_type: 'user',
          place_id: $scope.currentRestaurant.id,
-         parent_id: 1
+         parent_id: type.id
          };
          }
         RestaurantService.writeComment(data)
             .then(function (response) {
-                if(response.data.status == "ok")
-                $scope.currentRestaurant.comments.push(response.data.comment);
+                if(response.data.status == "ok"){
+                    if(type == 1){
+                        $scope.currentRestaurant.comments.unshift(response.data.comment);
+                    }else if(typeof type == 'object'){
+                        for(var i = 0; i<$scope.currentRestaurant.comments.length; i++){
+                            if($scope.currentRestaurant.comments[i][id] == type.id){
+                                $scope.currentRestaurant.comments.subComment.push(response.data.comment);
+                            }
+                        }
+                    }
+                }
                 $scope.ClearInner();
             });
     };
