@@ -19,12 +19,12 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
     });
 
-	RestaurantService.getLogedUser()
+	/*RestaurantService.getLogedUser()
 		.then(function (response) {
 			if(response.data.status == 1){
 				$scope.logedUser = true;
 			}
-         });
+         });*/
 	
     RestaurantService.getRestaurantData($rootScope.currentId)
         .then(function (response) {

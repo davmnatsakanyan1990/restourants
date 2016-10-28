@@ -4,6 +4,10 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     $scope.custom = false;
     $scope.animateTopMenuVar = false;
     $scope.openLogOut = false;
+    var userNameFull = localStorage.getItem("userName");
+    var userName = JSON.parse(userNameFull);
+    $scope.userFirstLetter = userName.substring(0,1);
+    console.log($scope.userFirstLetter);
     
     $scope.toggleMenu = function(menu) {
         if(menu == 'home'){
@@ -115,6 +119,8 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         var un = user.email;
                         $scope.userFirstLetter = un.substring(0,1);
                         $scope.user = {};
+                        var userName = JSON.stringify(un);
+                        localStorage.setItem('userName',userName);
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
@@ -140,6 +146,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             .then(function (response) {
                 if(response.data.status == "ok"){
                     $scope.logedUser = false;
+                    localStorage.removeItem("userName");
                 }
             });
     }
