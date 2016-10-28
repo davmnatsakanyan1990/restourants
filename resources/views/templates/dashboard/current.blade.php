@@ -227,7 +227,7 @@
                         <div class="commentContent" ng-repeat="com in currentRestaurant.comments">
                             <div class="clearElement commentTopPart">
                                 <div class="photo elementLeft marginR10" ng-bind="com.name.substring(0,1)">
-                                    {{--<img src="images/users/<%com.img%>"/>--}}
+                                    <img src="images/users/<%com.img%>" ng-if="com.img"/>
                                 </div>
                                 <div class="elementLeft">
                                     <div class="clearElement">
@@ -272,9 +272,65 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="comment" ng-bind="com.comment"></div>
+                            <div class="subComment" ng-if="com.subComment">
+                                <div class="commentContent" ng-repeat="sub in com.subComment">
+                                    <div class="clearElement commentTopPart">
+                                        <div class="photo elementLeft marginR10" ng-bind="sub.name.substring(0,1)">
+                                            <img src="images/users/<%sub.img%>" ng-if="sub.img"/>
+                                        </div>
+                                        <div class="elementLeft">
+                                            <div class="clearElement">
+                                                <div class="name elementLeft marginR10" ng-bind="sub.name"></div>
+                                                <div class="time elementLeft" ng-bind="sub.date"></div>
+                                            </div>
+                                            <div class="rate ">
+                                                <div class="rate" ng-if="sub.rate == 1">
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="rate" ng-if="sub.rate == 2">
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="rate" ng-if="sub.rate == 3">
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="rate" ng-if="sub.rate == 4">
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starGrey" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="rate" ng-if="sub.rate == 5">
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                    <i class="fa fa-star starColor" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment" ng-bind="com.comment"></div>
+                                </div>
+                            </div>
+                            <div class="writeSubComment clearElement">
+                                <input type="text" class="elementLeft replyInput" placeholder="reply to this comment" ng-model="commentReply"/>
+                                <button class="replyButton elementLeft">Reply</button>
+                            </div>
                         </div>
                         <div class="bottomPart">
                             <button class="capitalize writeComment ">show more</button>
