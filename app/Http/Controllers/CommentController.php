@@ -44,6 +44,7 @@ class CommentController extends Controller
         $comment['name'] = $author;
         $comment['date'] = date_format(date_create($response->created_at), "m/d/y");
         $comment['comment'] = $response->text;
+        $comment['id'] = $response->id;
 
         return response()->json(['status' => 'ok', 'comment' => $comment]);
     }

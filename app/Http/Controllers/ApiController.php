@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\City;
+use App\Models\Comment;
 use App\Models\Cuisin;
 use App\Models\Highlight;
 use App\Models\Image;
@@ -155,11 +156,17 @@ class ApiController extends Controller
 
         //fill comments
         if(count($d['comments']) > 0){
-            dd($d['comments']);
             foreach ($d['comments'] as $comment){
                 $author = User::create(['name' => $comment['author'], 'email' => 'someuser@gmail.com', 'password' => 'password' ]);
                 $author_id = $author->id;
-                dd($author_id);
+
+                Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
+
+                Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => 0, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
+
+                if(count($comment['sub_comments']) > 0){
+
+                }
             }
         }
 
