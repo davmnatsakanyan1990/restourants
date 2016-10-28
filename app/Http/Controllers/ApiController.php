@@ -48,124 +48,133 @@ class ApiController extends Controller
         $d = json_decode($data_json, true);
         $data = array();
 
-//        //get location id
-//        $location_id = Location::where('name', $d['location'])->first()->id;
-//
-//        // get geo coordinates
-//        $formatted_address = str_replace(' ', '+', $d['address']);
-//        // Get cURL resource
-//        $curl = curl_init();
-//        // Set some options - we are passing in a useragent too here
-//        curl_setopt_array($curl, array(
-//            CURLOPT_RETURNTRANSFER => 1,
-//            CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='.$formatted_address.'&key='.env('GOOGLE_API_KEY'),
-//            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-//        ));
-//        if(!curl_exec($curl)){
-//            die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
-//        }
-//        // Send the request & save response to $resp
-//        $resp = curl_exec($curl);
-//
-//        $response = json_decode($resp);
-//        // Close request to clear up some resources
-//        curl_close($curl);
-//        if(count($response->results) > 0) {
-//            $data['lat'] = $response->results[0]->geometry->location->lat;
-//            $data['lon'] = $response->results[0]->geometry->location->lng;
-//        }
-//        else{
-//            $data['lat'] = 0;
-//            $data['lon'] = 0;
-//        }
-//
-//        $cost = count($d['cost']);
-//        $data['mobile'] = $d['mobile'];
-//        $data['name'] = $d['name'];
-//        $data['intro'] = ' dfdf';
-//        $data['address'] = $d['address'];
-//        $data['location_id'] = $location_id;
-//
-//        $data['site'] = 'site1.com';
-//        $data['cost'] = $cost;
-//
-//        //fill places table
-//        $place_id = DB::table('places')->insertGetId(
-//            $data
-//        );
-//
-//        //fill menus
-//        if(!is_null($d['menus'])) {
-//            foreach ($d['menus'] as $key => $value) {
-//                $menu['name'] = $key;
-//                $menu['place_id'] = $place_id;
-//
-//                $menu_id = DB::table('menus')->insertGetId($menu);
-//                $products = [];
-//
-//                foreach ($value as $item) {
-//
-//                    $item['menu_id'] = $menu_id;
-//                    array_push($products, $item);
-//
-//                }
-//                DB::table('products')->insert($products);
-//            }
-//        }
-//
-//        //fill images
-//        foreach($d['images'] as $key=>$image) {
-//            if($key == 0){
-//                DB::table('images')->insert([
-//                    'name' => $image,
-//                    'imageable_id' => $place_id,
-//                    'imageable_type' => 'App\Models\Place',
-//                    'role' => 1
-//                ]);
-//            }
-//            else{
-//                DB::table('images')->insert([
-//                    'name' => $image,
-//                    'imageable_id' => $place_id,
-//                    'imageable_type' => 'App\Models\Place'
-//                ]);
-//            }
-//        }
-//
-//        $wk_hours = $d['workinghours'];
-//        $wk_hours['place_id'] = $place_id;
-//
-//        // fill working hours
-//        DB::table('working_hours')->insert($wk_hours);
-//
-//        //fill highlights_places
-//        $h = array();
-//        foreach ($d['highlights'] as $key=>$value){
-//            $h[$key]['name'] = $value;
-//        }
-//
-//        $highlights = Highlight::whereIn('name', $h)->get()->toArray();
-//        $high_data = array();
-//        foreach ($highlights as $key=>$value){
-//            $high_data[$key]['place_id'] = $place_id;
-//            $high_data[$key]['highlight_id'] = $value['id'];
-//        }
-//
-//        DB::table('place_highlights')->insert($high_data);
-//
+        //get location id
+        $location_id = Location::where('name', $d['location'])->first()->id;
+
+        // get geo coordinates
+        $formatted_address = str_replace(' ', '+', $d['address']);
+        // Get cURL resource
+        $curl = curl_init();
+        // Set some options - we are passing in a useragent too here
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='.$formatted_address.'&key='.env('GOOGLE_API_KEY'),
+            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        ));
+        if(!curl_exec($curl)){
+            die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
+        }
+        // Send the request & save response to $resp
+        $resp = curl_exec($curl);
+
+        $response = json_decode($resp);
+        // Close request to clear up some resources
+        curl_close($curl);
+        if(count($response->results) > 0) {
+            $data['lat'] = $response->results[0]->geometry->location->lat;
+            $data['lon'] = $response->results[0]->geometry->location->lng;
+        }
+        else{
+            $data['lat'] = 0;
+            $data['lon'] = 0;
+        }
+
+        $cost = count($d['cost']);
+        $data['mobile'] = $d['mobile'];
+        $data['name'] = $d['name'];
+        $data['intro'] = ' dfdf';
+        $data['address'] = $d['address'];
+        $data['location_id'] = $location_id;
+
+        $data['site'] = 'site1.com';
+        $data['cost'] = $cost;
+
+        //fill places table
+        $place_id = DB::table('places')->insertGetId(
+            $data
+        );
+
+        //fill menus
+        if(!is_null($d['menus'])) {
+            foreach ($d['menus'] as $key => $value) {
+                $menu['name'] = $key;
+                $menu['place_id'] = $place_id;
+
+                $menu_id = DB::table('menus')->insertGetId($menu);
+                $products = [];
+
+                foreach ($value as $item) {
+
+                    $item['menu_id'] = $menu_id;
+                    array_push($products, $item);
+
+                }
+                DB::table('products')->insert($products);
+            }
+        }
+
+        //fill images
+        foreach($d['images'] as $key=>$image) {
+            if($key == 0){
+                DB::table('images')->insert([
+                    'name' => $image,
+                    'imageable_id' => $place_id,
+                    'imageable_type' => 'App\Models\Place',
+                    'role' => 1
+                ]);
+            }
+            else{
+                DB::table('images')->insert([
+                    'name' => $image,
+                    'imageable_id' => $place_id,
+                    'imageable_type' => 'App\Models\Place'
+                ]);
+            }
+        }
+
+        $wk_hours = $d['workinghours'];
+        $wk_hours['place_id'] = $place_id;
+
+        // fill working hours
+        DB::table('working_hours')->insert($wk_hours);
+
+        //fill highlights_places
+        $h = array();
+        foreach ($d['highlights'] as $key=>$value){
+            $h[$key]['name'] = $value;
+        }
+
+        $highlights = Highlight::whereIn('name', $h)->get()->toArray();
+        $high_data = array();
+        foreach ($highlights as $key=>$value){
+            $high_data[$key]['place_id'] = $place_id;
+            $high_data[$key]['highlight_id'] = $value['id'];
+        }
+
+        DB::table('place_highlights')->insert($high_data);
+
 
         //fill comments
         if(count($d['comments']) > 0){
+            $i = 0;
             foreach ($d['comments'] as $comment){
-                $author = User::create(['name' => $comment['author'], 'email' => 'someuser@gmail.com', 'password' => 'password' ]);
+                $author = User::create(['name' => $comment['author'], 'email' => time(), 'password' => 'password' ]);
                 $author_id = $author->id;
 
                 Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
 
-                Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => 0, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
+                $comm = Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => 0, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
 
                 if(count($comment['sub_comments']) > 0){
+                    foreach ($comment['sub_comments'] as $comment){
+                        $author = User::create(['name' => $comment['author'], 'email' => 'someuser@gmail.com', 'password' => 'password' ]);
+                        $author_id = $author->id;
 
+                        Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
+
+                        Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => $comm->id, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
+
+                    }
                 }
             }
         }

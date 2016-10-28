@@ -101,7 +101,7 @@ Route::get('assign/type', 'ApiController@assignType');
 
 
 Route::get('test', function(){
-    
+    dd(time());
 });
 
 
