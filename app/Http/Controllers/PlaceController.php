@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Comment;
+use App\Models\Location;
 use App\Models\Place;
 use App\Http\Requests;
 use App\Models\Product;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
+use App\Models\Cuisin;
+use App\Models\Highlight;
 
 class PlaceController extends Controller
 {
@@ -62,6 +68,19 @@ class PlaceController extends Controller
         }
 
         return $result;
+    }
+
+    public function getFilters(){
+        $data = [];
+        $data['categories'] = Category::select('id', 'name')->get()->toArray();
+        $data['highlights'] = Highlight::select('id', 'name')->get()->toArray();
+        $data['cuisins'] = Cuisin::select('id', 'name')->get()->toArray();
+        $data['types'] = Type::select('id', 'name')->get()->toArray();
+
+        $city = City::where('name', request('city'))->first();
+        $data['locations'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
+        return $data;
+
     }
 
     /**

@@ -162,8 +162,8 @@ class AuthController extends Controller
             return response()->json(['status' =>'ok']);
         }
         else{
-            $user = User::create(['name' => $data->name,  'username' => $data->id, 'email' => $data->email]);
-            Auth::guard('user')->login($user);
+            $u = User::create(['name' => $data->name,  'username' => $data->id, 'email' => $data->email]);
+            Auth::guard('user')->login($u);
             return response()->json(['status' =>'ok']);
         }
     }
