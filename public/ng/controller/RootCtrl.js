@@ -146,9 +146,19 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             RestaurantService.userRegistration(user)
                 .then(function (response) {
                     if(response.data.status == "ok") {
+                        var un = user.email;
+                        $scope.userFirstLetter = un.substring(0,1);
+                        var userName = JSON.stringify(un);
+                        localStorage.setItem('userName',userName);
                         $scope.currentUser = {};
                         $scope.reset();
                     }
+                    RestaurantService.getLogedUser()
+                        .then(function (response) {
+                            if(response.data.status == 1){
+                                $scope.logedUser = true;
+                            }
+                        });
                 });
         }else{
             $scope.reset();
