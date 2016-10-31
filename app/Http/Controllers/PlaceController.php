@@ -67,6 +67,7 @@ class PlaceController extends Controller
             $result['status'] = 'ended';
         }
 
+        $result['filters'] = $this->getFilters();
         return $result;
     }
 
