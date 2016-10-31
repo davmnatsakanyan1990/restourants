@@ -119,7 +119,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 	
 	//login and reister part
 	$scope.loginUser = function(user){
-	    if(user.password && user.email){
+	    if(user && user.password && user.email){
             RestaurantService.userLogin(user)
                 .then(function (response) {
                     if(response.data.status == "ok") {
@@ -128,6 +128,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         $scope.user = {};
                         var userName = JSON.stringify(un);
                         localStorage.setItem('userName',userName);
+                        $scope.reset();
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
@@ -136,16 +137,21 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                             }
                         });
                 });
+        }else{
+            $scope.reset();
         }
 	};
 	$scope.register = function(user){
-	    if(user.name && user.email && user.password && user.confirmPassword){
+	    if(user && user.name && user.email && user.password && user.confirmPassword){
             RestaurantService.userRegistration(user)
                 .then(function (response) {
                     if(response.data.status == "ok") {
                         $scope.currentUser = {};
+                        $scope.reset();
                     }
                 });
+        }else{
+            $scope.reset();
         }
 	};
 	$scope.logout = function () {
@@ -156,7 +162,18 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                     localStorage.removeItem("userName");
                 }
             });
-    }
+    };
+    $scope.reset = function() {
+        $scope.loginForm.$setPristine();
+        $scope.loginForm.$setUntouched();
+
+        $scope.registerForm.$setPristine();
+        $scope.registerForm.$setUntouched();
+
+        //$scope.user = angular.copy($scope.master);
+    };
+
+    //$scope.reset();
 
 
 });
