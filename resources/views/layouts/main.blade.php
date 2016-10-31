@@ -47,14 +47,14 @@
 								<div class="loginRegister">
                                     log in
 								</div>
-                                <button class="loginUsing facebook">
+                                <div class="loginUsing facebook" ng-click="loginFacebook()">
                                     <div class="elementLeft"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                                     <div class="elementLeft">facebook</div>
-                                </button>
-                                <button class="loginUsing googlePlus">
+                                </div>
+                                <div class="loginUsing googlePlus">
                                     <div class="elementLeft"><i class="fa fa-google" aria-hidden="true"></i></div>
                                     <div class="elementLeft">google</div>
-                                </button>
+                                </div>
 								<div class="restLogin">
                                     <div class="relativeElement">
                                         <input class="capitalize lightInput blockElement" type="text" placeholder="E-mail" name = "uName" ng-model="user.email" required/>

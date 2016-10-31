@@ -185,5 +185,8 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
     //$scope.reset();
 
+    $scope.loginFacebook = function () {
+        RestaurantService.loginUsingFacebook();
+    }
 
 });

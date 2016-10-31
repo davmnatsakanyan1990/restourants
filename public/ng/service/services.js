@@ -44,6 +44,12 @@ app.factory('RestaurantService', function($http) {
                 url : "user/logout"
             })
         },
+        loginUsingFacebook: function(data) {
+            return $http({
+                method : "GET",
+                url : "user/auth/facebook"
+            })
+        },
         writeComment: function(data) {
             return $http({
                 method : "POST",

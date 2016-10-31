@@ -226,6 +226,7 @@ html body .registerPopup .loginPart .loginUsing {
   margin-bottom: 10px;
   height: 38px;
   width: 100%;
+  cursor: pointer;
 }
 html body .registerPopup .loginPart .loginUsing:last-child {
   margin-bottom: 0;
