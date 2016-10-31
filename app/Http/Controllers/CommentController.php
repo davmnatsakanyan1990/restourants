@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Comment;
 use App\User;
 use Illuminate\Http\Request;
@@ -40,7 +41,10 @@ class CommentController extends Controller
        $response = Comment::create(['text' => $text, 'place_id' => $place_id, 'parent_id' => $parent_id, 'commentable_id' => $author_id, 'commentable_type' => $author_type]);
 
         $comment = [];
-        $author = $response->commentable_type ::find($response->commentable_id)->name;
+        if($response->commentable_type = 'App\User')
+            $author = User::find($response->commentable_id)->name;
+        elseif($response->commentable_type = 'App\Models\Admin')
+            $author = Admin::find($response->commentable_id)->name;
         $comment['name'] = $author;
         $comment['date'] = date_format(date_create($response->created_at), "m/d/y");
         $comment['comment'] = $response->text;

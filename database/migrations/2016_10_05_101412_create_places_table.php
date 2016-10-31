@@ -24,8 +24,6 @@ class CreatePlacesTable extends Migration
             $table->string('site');
             $table->enum('cost', [0,1,2,3,4]);
             $table->timestamps();
-
-            $table->foreign('location_id')->references('id')->on('locations');
         });
     }
 
