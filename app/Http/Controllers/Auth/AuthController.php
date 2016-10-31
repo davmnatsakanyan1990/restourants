@@ -41,7 +41,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:user', ['except' => 'logout']);
+        $this->middleware('guest:user', ['except' => ['logout', 'isAuth']]);
     }
 
     /**
@@ -108,9 +108,20 @@ class AuthController extends Controller
             );
         }
 
-        Auth::guard('user')->login($this->create($request->all()));
+        $user = $this->create($request->all());
+
+        Auth::guard('user')->login($user);
 
         return response()->json(['status' =>'ok']);
+    }
+
+    public function isAuth(){
+        if(Auth::guard('user')->check()){
+            return response()->json(['status' => 1]);
+        }
+        else{
+            return response()->json(['status' => 0]);
+        }
     }
 
     /**
@@ -142,8 +153,18 @@ class AuthController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->user();
+        $data = Socialite::driver('facebook')->user();
 
-        dd($user);
+        $user = User::where('username', $data->id)->get()->toArray();
+
+        if($user){
+            Auth::guard('user')->login($user);
+            return response()->json(['status' =>'ok']);
+        }
+        else{
+            $user = User::create(['name' => $data->name,  'username' => $data->id, 'email' => $data->email]);
+            Auth::guard('user')->login($user);
+            return response()->json(['status' =>'ok']);
+        }
     }
 }

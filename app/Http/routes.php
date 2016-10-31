@@ -44,18 +44,13 @@ Route::group([
         Route::post('register', 'AuthController@register');
         Route::get('logout', 'AuthController@logout');
 
+        Route::get('is_auth', 'AuthController@isAuth');
+
         Route::get('auth/facebook', 'AuthController@redirectToProvider');
         Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback');
     });
 
-Route::get('user/is_auth', function(){
-    if(Auth::guard('user')->check()){
-        return response()->json(['status' => 1]);
-    }
-    else{
-        return response()->json(['status' => 0]);
-    }
-});
+
 //Route::auth();
 
 /**
