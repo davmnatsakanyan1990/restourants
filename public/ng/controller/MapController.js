@@ -25,6 +25,20 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         .then(function (response) {
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
+            $scope.showFilters = response.data.filters;
+
+            $scope.drowCuisine = [];
+            for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
+                $scope.drowCuisine.push({"display": $scope.showFilters.Cuisine[p], "pass" : $scope.showFilters.Cuisine[p].name})
+            }
+            $scope.drowMode = [];
+            for(var m = 0; m < $scope.showFilters.Mode.length; m++){
+                $scope.drowMode.push({"display": $scope.showFilters.Mode[m], "pass" : $scope.showFilters.Mode[m]})
+            }
+            $scope.drowSort = [];
+            for(var n = 0; n < $scope.showFilters['Sort By'].length; n++){
+                $scope.drowSort.push({"display": $scope.showFilters['Sort By'][n], "pass" : $scope.showFilters['Sort By'][n]})
+            }
 
             $scope.initMap({
                 zoom: 10,
@@ -279,8 +293,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
 
-
-    $scope.cuisins = [
+    /*$scope.cuisins = [
         'Afghani',
         'African',
         'American',
@@ -328,7 +341,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.drowCuisine = [];
     for(var p = 0; p < $scope.cuisins.length; p++){
         $scope.drowCuisine.push({"display": $scope.cuisins[p], "pass" : $scope.cuisins[p]})
-    }
+    }*/
 
 
 
