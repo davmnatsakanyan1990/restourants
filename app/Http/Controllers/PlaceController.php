@@ -73,13 +73,13 @@ class PlaceController extends Controller
 
     public function getFilters(){
         $data = [];
-        $data['categories'] = Category::select('id', 'name')->get()->toArray();
-        $data['highlights'] = Highlight::select('id', 'name')->get()->toArray();
-        $data['cuisins'] = Cuisin::select('id', 'name')->get()->toArray();
-        $data['types'] = Type::select('id', 'name')->get()->toArray();
+        $data['Mode'] = Category::select('id', 'name')->get()->toArray();
+        $data['Sort By'] = Highlight::select('id', 'name')->get()->toArray();
+        $data['Cuisine'] = Cuisin::select('id', 'name')->get()->toArray();
+        $data['Type Of Restaurants'] = Type::select('id', 'name')->get()->toArray();
 
         $city = City::where('name', request('city'))->first();
-        $data['locations'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
+        $data['Location'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
         return $data;
 
     }
