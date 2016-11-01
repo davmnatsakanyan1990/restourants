@@ -8,6 +8,14 @@
     @include("layouts.partials.menu")
     <ng-view></ng-view>
 
+    <div class="confirmation confirm">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <div class="text">Your registration is success</div>
+    </div>
+    <div class="confirmation error" id="error">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <div class="text">Something went wrong</div>
+    </div>
     <!--logIn popup-->
     {{--<div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-sm">

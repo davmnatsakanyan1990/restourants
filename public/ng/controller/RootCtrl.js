@@ -118,17 +118,27 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         });
 	
 	//login and reister part
+    var animate = function (element) {
+        element.animate({ opacity: '0.4', height: '100px'}, "slow");
+        element.animate({ opacity: '1'}, "slow");
+        element.animate({ opacity: '0.4'}, "slow");
+        element.animate({ opacity: '0', height: '0'}, "slow");
+    };
+    var confirm = document.getElementsByClassName('confirm');
 	$scope.loginUser = function(user){
 	    if(user && user.password && user.email){
             RestaurantService.userLogin(user)
                 .then(function (response) {
                     if(response.data.status == "ok") {
+                        $scope.successLogin = true;
                         var un = user.email;
                         $scope.userFirstLetter = un.substring(0,1);
                         $scope.user = {};
                         var userName = JSON.stringify(un);
                         localStorage.setItem('userName',userName);
                         $scope.reset();
+                    }else{
+                        //animate($(".error"));
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
@@ -136,6 +146,8 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                                 $scope.logedUser = true;
                             }
                         });
+                }, function(error){
+                    console.log(error.data)
                 });
         }else{
             $scope.reset();
@@ -146,12 +158,17 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             RestaurantService.userRegistration(user)
                 .then(function (response) {
                     if(response.data.status == "ok") {
+                        $scope.successRegister = true;
                         var un = user.email;
                         $scope.userFirstLetter = un.substring(0,1);
                         var userName = JSON.stringify(un);
                         localStorage.setItem('userName',userName);
                         $scope.currentUser = {};
                         $scope.reset();
+                        animate($(".confirm"));
+                    }else{
+                        $scope.successRegister = false;
+                        animate($(".error"));
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
@@ -159,6 +176,9 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                                 $scope.logedUser = true;
                             }
                         });
+                }, function(error){
+                    console.log(error.data);
+                    animate($(".error"));
                 });
         }else{
             $scope.reset();
@@ -170,6 +190,8 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                 if(response.data.status == "ok"){
                     $scope.logedUser = false;
                     localStorage.removeItem("userName");
+                }else{
+                    $scope.successLogin = false;
                 }
             });
     };
