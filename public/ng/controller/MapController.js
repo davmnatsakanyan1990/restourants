@@ -39,6 +39,14 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             for(var n = 0; n < $scope.showFilters['Sort By'].length; n++){
                 $scope.drowSort.push({"display": $scope.showFilters['Sort By'][n], "pass" : $scope.showFilters['Sort By'][n]})
             }
+            $scope.drowType = [];
+            for(var q = 0; q < $scope.showFilters['Type Of Restaurants'].length; q++){
+                $scope.drowType.push({"display": $scope.showFilters['Type Of Restaurants'][q], "pass" : $scope.showFilters['Type Of Restaurants'][q]})
+            }
+            $scope.drowCLocation = [];
+            for(var r = 0; r < $scope.showFilters['Location'].length; r++){
+                $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
+            }
 
             $scope.initMap({
                 zoom: 10,

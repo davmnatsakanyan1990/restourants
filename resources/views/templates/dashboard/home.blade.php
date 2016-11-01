@@ -74,24 +74,12 @@
                             <div class="filters ">
                                 <span class="triangle"></span>
                                 <p ng-repeat="mode in drowMode track by $index">
-                                    <input type="checkbox" id="test<% $index %>" ng-model="checkboxModel.checkboxModelF1[mode.pass]"/>
+                                    <input type="checkbox" id="test<% $index %>" ng-model="checkboxModel.checkboxModelF1[mode.pass.name]"/>
                                     <label for="test<% $index %>" ng-bind="mode.display.name"></label>
                                 </p>
-                                {{--<p>
-                                    <input type="checkbox" id="test2" ng-model="checkboxModel.checkboxModelF1[1]"/>
-                                    <label for="test2">Delivery</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test3" ng-model="checkboxModel.checkboxModelF1[2]"/>
-                                    <label for="test3">Drinks & Nightlife</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test4" ng-model="checkboxModel.checkboxModelF1[3]"/>
-                                    <label for="test4">Take Out</label>
-                                </p>--}}
                                 <button class=" filterButtons capitalize">cancel</button>
                                 <button class="filterButtons capitalize"
-                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF1, ['Dine-In', 'Delivery', 'Drinks & Nightlife', 'Take Out'])">
+                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF1)">
                                     ok
                                 </button>
                             </div>
@@ -127,28 +115,12 @@
                             <div class="filters">
                                 <span class="triangle"></span>
                                 <p ng-repeat="sortBy in drowSort track by $index">
-                                    <input type="checkbox" id="test<% $index %>3" ng-model="checkboxModel.checkboxModelF3[sortBy.pass]"/>
+                                    <input type="checkbox" id="test<% $index %>3" ng-model="checkboxModel.checkboxModelF3[sortBy.pass.name]"/>
                                     <label for="test<% $index %>3" ng-bind="sortBy.display.name">Popularity - high to low</label>
                                 </p>
-                                {{--<p>
-                                    <input type="checkbox" id="test23" ng-model="checkboxModel.checkboxModelF3[1]"/>
-                                    <label for="test23">Rating - high to low</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test33" ng-model="checkboxModel.checkboxModelF3[2]"/>
-                                    <label for="test33">Cost - high to low</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test43" ng-model="checkboxModel.checkboxModelF3[3]"/>
-                                    <label for="test43">Cost - low to high</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test53" ng-model="checkboxModel.checkboxModelF3[4]"/>
-                                    <label for="test53">Recently added</label>
-                                </p>--}}
                                 <button class=" filterButtons capitalize">cancel</button>
                                 <button class="filterButtons capitalize"
-                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF3, ['Popularity - high to low', 'Rating - high to low', 'ost - high to low', 'Cost - low to high', 'Recently added'])">
+                                        ng-click="pushElementInFilter(checkboxModel.checkboxModelF3)">
                                     ok
                                 </button>
                             </div>
@@ -171,46 +143,10 @@
                         <div class="forBefore displayNone" id="f5">
                             <div class="filters">
                                 <span class="triangle"></span>
-                                <p ng-repeat="type in showFilters['Type Of Restaurants'] track by $index">
-                                    <input type="checkbox" id="test<% $index %>5" ng-model="checkboxModel.checkboxModelF5[type]"/>
-                                    <label for="test<% $index %>5" ng-bind="type.name"></label>
+                                <p ng-repeat="type in drowType track by $index">
+                                    <input type="checkbox" id="test<% $index %>5" ng-model="checkboxModel.checkboxModelF5[type.pass.name]"/>
+                                    <label for="test<% $index %>5" ng-bind="type.display.name"></label>
                                 </p>
-                                {{--<p>
-                                    <input type="checkbox" id="test25" ng-model="checkboxModel.checkboxModelF5[1]"/>
-                                    <label for="test25">Cafés</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test35" ng-model="checkboxModel.checkboxModelF5[2]"/>
-                                    <label for="test35">Quick Bites</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test45" ng-model="checkboxModel.checkboxModelF5[3]"/>
-                                    <label for="test45">Bars</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test55" ng-model="checkboxModel.checkboxModelF5[4]"/>
-                                    <label for="test55">Food Trucks</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test65" ng-model="checkboxModel.checkboxModelF5[5]"/>
-                                    <label for="test65">Bakeries</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test75" ng-model="checkboxModel.checkboxModelF5[6]"/>
-                                    <label for="test75">Pubs</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test85" ng-model="checkboxModel.checkboxModelF5[7]"/>
-                                    <label for="test85">Fast Food</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test95" ng-model="checkboxModel.checkboxModelF5[8]"/>
-                                    <label for="test95">Fast Casual</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test05" ng-model="checkboxModel.checkboxModelF5[9]"/>
-                                    <label for="test05">Dessert Shop</label>
-                                </p>--}}
                                 <button class=" filterButtons capitalize">cancel</button>
                                 <button class="filterButtons capitalize"
                                         ng-click="pushElementInFilter(checkboxModel.checkboxModelF5)">
@@ -223,22 +159,10 @@
                         <div class="forBefore displayNone" id="f6">
                             <div class="filters">
                                 <span class="triangle"></span>
-                                <p ng-repeat="location in showFilters.Location track by $index">
-                                    <input type="checkbox" id="test16" ng-model="checkboxModel.checkboxModelF6[location]"/>
-                                    <label for="test<% $index %>6" ng-bind="location.name"></label>
+                                <p ng-repeat="location in drowCLocation track by $index">
+                                    <input type="checkbox" id="test<% $index %>6" ng-model="checkboxModel.checkboxModelF6[location.pass.name]"/>
+                                    <label for="test<% $index %>6" ng-bind="location.display.name"></label>
                                 </p>
-                                {{--<p>
-                                    <input type="checkbox" id="test26" ng-model="checkboxModel.checkboxModelF6[1]"/>
-                                    <label for="test26">Yellow</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test36" ng-model="checkboxModel.checkboxModelF6[2]"/>
-                                    <label for="test36">Green</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="test46" ng-model="checkboxModel.checkboxModelF6[3]"/>
-                                    <label for="test46">Brown</label>
-                                </p>--}}
                                 <button class=" filterButtons capitalize">cancel</button>
                                 <button class="filterButtons capitalize"
                                         ng-click="pushElementInFilter(checkboxModel.checkboxModelF6)">
