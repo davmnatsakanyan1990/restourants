@@ -137,8 +137,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         var userName = JSON.stringify(un);
                         localStorage.setItem('userName',userName);
                         $scope.reset();
-                    }else{
-                        //animate($(".error"));
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
@@ -166,9 +164,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         $scope.currentUser = {};
                         $scope.reset();
                         animate($(".confirm"));
-                    }else{
-                        $scope.successRegister = false;
-                        animate($(".error"));
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
