@@ -367,9 +367,6 @@ button:focus {
   font-size: 16px;
   font-weight: 700;
 }
-.restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .comment {
-  margin-bottom: 10px;
-}
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .photo {
   width: 50px;
   height: 50px;
@@ -384,6 +381,9 @@ button:focus {
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .photo img {
   width: 100%;
   height: 100%;
+}
+.restPageContainer .pageContainer .containerContent .container5 .commentContent .comment {
+  margin-bottom: 10px;
 }
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .subComment .commentContent {
   margin-left: 30px;

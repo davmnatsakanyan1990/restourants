@@ -301,57 +301,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
 
-    /*$scope.cuisins = [
-        'Afghani',
-        'African',
-        'American',
-        'Argentine',
-        'Asian',
-        'BBQ',
-        'Bagels',
-        'Bakery',
-        'Bar',
-        'Food',
-        'Belgian',
-        'Beverages',
-        'Brazilian',
-        'Breakfast',
-        'British',
-        'Burger',
-        'Cafe',
-        'Cajun',
-        'California',
-        'Canadian',
-        'Caribbean',
-        'Chilean',
-        'Chinese',
-        'Coffee and Tea',
-        'Crepes',
-        'Deli',
-        'Desserts',
-        'Dim',
-        'Sum',
-        'Diner',
-        'Donuts',
-        'Eastern',
-        'European',
-        'Ethiopian',
-        'European', 'Filipino', 'French', 'Frozen', 'Yogurt', 'Fusion', 'German', 'Greek', 'Hawaiian', 'Healthy',
-        'Food', 'Ice Cream', 'Indian', 'International', 'Irish', 'Italian',
-        'Japanese', 'Kebab', 'Korean', 'Latin', 'American', 'Mediterranean', 'Mexican',
-        'Middle', 'Eastern', 'Mongolian', 'Moroccan', 'Nepalese', 'New', 'American', 'New', 'Mexican', 'Pacific',
-        'Pakistani', 'Persian', 'Peruvian', 'Pizza', 'Ramen', 'Russian', 'Salad', 'Salvadorean', 'Sandwich', 'Seafood', 'Somali', 'Soul',
-        'Food', 'South', 'American', 'Southern', 'Southwestern', 'Spanish', 'Steak', 'Sushi',
-        'Taco', 'Taiwanese', 'Tapas', 'Tea', 'Teriyaki', 'Tex-Mex',
-        'Thai', 'Tibetan', 'Turkish', 'Vegetarian', 'Vietnamese'
-    ];
-
-    $scope.drowCuisine = [];
-    for(var p = 0; p < $scope.cuisins.length; p++){
-        $scope.drowCuisine.push({"display": $scope.cuisins[p], "pass" : $scope.cuisins[p]})
-    }*/
-
-
 
     //filters section
     $scope.filters = [];
@@ -397,6 +346,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         for(var t=0; t<$scope.filters.length; t++){
                             if( key==$scope.filters[t]){
                                 elementAlreadyExist = true;
+                                if(index[key]==false){
+                                    $scope.filters.splice(t,1);
+                                }
                                 break;
                             }else{
                                 elementAlreadyExist = false;
