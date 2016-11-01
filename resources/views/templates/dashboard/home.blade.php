@@ -218,25 +218,25 @@
                             <div class="textSection">
                                 <div class="title" ng-bind="info.title"></div>
                                 <div class="text" ng-bind="info.service"></div>
-                                <div class="rate" ng-if="info.rating ==1">
+                                <div class="rate" ng-if="info.rating <=1">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                 </div>
-                                <div class="rate" ng-if="info.rating ==2">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
-                                <div class="rate" ng-if="info.rating ==3">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                <div class="rate" ng-if="info.rating <=2 && info.rating >1">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                 </div>
-                                <div class="rate" ng-if="info.rating ==4">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                <div class="rate" ng-if="info.rating <=3 && info.rating >2">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                 </div>
-                                <div class="rate" ng-if="info.rating ==5">
+                                <div class="rate" ng-if="info.rating <=4 && info.rating >3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="rate" ng-if="info.rating <=5 && info.rating >4">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
