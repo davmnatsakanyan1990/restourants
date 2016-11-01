@@ -33,6 +33,10 @@ class ApiController extends Controller
                 File::move('C:\Users\Designer\Downloads\\'.$image['name'], 'C:\xampp\htdocs\restourants\public\images\restaurantImages\\'.$image['name']);
 
             }
+//            $items = Image::where('imageable_type', 'App\Models\Place')->where('name',$image['name'] )->get()->toArray();
+//            if(count($items)>1){
+//                dd($image['name']);
+//            }
 
         }
     }
