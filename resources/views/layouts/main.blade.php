@@ -36,7 +36,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header popupHeader">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" ng-click="reset()">&times;</button>
                     <h4 class="modal-title capitalize">log in or register</h4>
                 </div>
                 <div class="modal-body popupBody registerPopup littleInputs">
