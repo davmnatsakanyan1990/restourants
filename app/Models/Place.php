@@ -58,7 +58,7 @@ class Place extends Model
     }
     
     public function categories(){
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'place_categories');
     }
     
     public function location(){

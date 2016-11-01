@@ -71,6 +71,11 @@ class PlaceController extends Controller
         return $result;
     }
 
+    /**
+     * Get all filters
+     * 
+     * @return array
+     */
     public function getFilters(){
         $data = [];
         $data['Mode'] = Category::select('id', 'name')->get()->toArray();
@@ -82,6 +87,95 @@ class PlaceController extends Controller
         $data['Location'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
         return $data;
 
+    }
+    
+    public function filter(){
+//        $categories = request('Mode');
+//        $costs = request('Cost');
+//        $highlights = request('Sort By');
+//        $cuisines = request('Cuisine');
+//        $types = request('Type Of Restaurants');
+//        $locations = request('Location');
+//        $page = request('page');
+        $page = 1;
+        $categories = [];
+        $costs = [];
+        $highlights = [];
+        $cuisines = [];
+        $types = [];
+        $locations = [];
+
+       $data = Place::with([
+           'categories' => function($query) use($categories) {
+              return $query->whereIn('category_id', $categories);
+           },
+           'highlights' => function($query) use ($highlights){
+               return $query->whereIn('highlight_id', $highlights);
+           },
+           'cuisins' => function($query) use ($cuisines){
+               return $query->whereIn('cuisin_id', $cuisines);
+           },
+           'types' => function($query) use ($types){
+               return $query->whereIn('type_id', $types);
+           },
+           'thumb_image',
+           ''
+       ]);
+
+
+        if(count($locations) > 0)
+            $data = $data->whereIn('location_id', $locations);
+
+        if(count($costs) > 0)
+            $data = $data->whereIn('cost', $costs);
+
+        $places = $data->get()->toArray();
+
+
+        if(count($categories) > 0)
+            $places = collect($places)->filter(function($value, $key){
+                return count($value['categories']) > 0;
+            })->values()->all();
+
+        if(count($highlights) > 0)
+            $places = collect($places)->filter(function($value, $key){
+                return count($value['highlights']) > 0;
+            })->values()->all();
+
+        if(count($cuisines) > 0)
+            $places = collect($places)->filter(function($value, $key){
+                return count($value['cuisins']) > 0;
+            })->values()->all();
+
+        if(count($types) > 0)
+            $places = collect($places)->filter(function($value, $key){
+                return count($value['types']) > 0;
+            })->values()->all();
+
+dd($places);
+//dd(collect($places)->values()->chunk(10)->toArray());
+//        foreach ($places[$page-1] as $item){
+//            $place = array();
+//            $rate = $this->avg_rate($item['id']);
+//            $place['rating'] = $rate;
+//            $place['id'] = $item['id'];
+//            $place['title'] = $item['name'];
+//            $place['explane'] = $item['intro'];
+//            $place['address'] = $item['address'];
+//            $place['lat'] = $item['lat'];
+//            $place['long'] = $item['lon'];
+//            $place['image'] = $item['thumb_image'][0]['name'];
+//
+//            $hs = array();
+//            foreach ($item['highlights'] as $key => $highlight){
+//                array_push($hs, $highlight['name']);
+//            }
+//            $place['service'] = $hs;
+//
+//            array_push($places, $place);
+//        }
+//        // TODO
+//        dd($places);
     }
 
     /**
@@ -121,7 +215,9 @@ class PlaceController extends Controller
             'shares' => function($share){
                 return $share->with('image');
             },
-            'comments',
+            'comments' => function($comments){
+                return $comments->orderBy('created_at', 'desc');
+            },
             'menus' => function($menu){
                 return $menu->with('products');
             }

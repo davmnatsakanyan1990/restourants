@@ -80,6 +80,7 @@ Route::group([
 
 
 Route::get('restaurants', 'PlaceController@index');
+Route::get('restaurants/filter', 'PlaceController@filter');
 Route::get('show/{id}', 'PlaceController@show');
 Route::get('products/{menu_id}', 'PlaceController@products');
 
