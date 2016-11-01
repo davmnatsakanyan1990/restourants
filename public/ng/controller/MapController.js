@@ -25,6 +25,28 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         .then(function (response) {
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
+            $scope.showFilters = response.data.filters;
+
+            $scope.drowCuisine = [];
+            for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
+                $scope.drowCuisine.push({"display": $scope.showFilters.Cuisine[p], "pass" : $scope.showFilters.Cuisine[p].name})
+            }
+            $scope.drowMode = [];
+            for(var m = 0; m < $scope.showFilters.Mode.length; m++){
+                $scope.drowMode.push({"display": $scope.showFilters.Mode[m], "pass" : $scope.showFilters.Mode[m]})
+            }
+            $scope.drowSort = [];
+            for(var n = 0; n < $scope.showFilters['Sort By'].length; n++){
+                $scope.drowSort.push({"display": $scope.showFilters['Sort By'][n], "pass" : $scope.showFilters['Sort By'][n]})
+            }
+            $scope.drowType = [];
+            for(var q = 0; q < $scope.showFilters['Type Of Restaurants'].length; q++){
+                $scope.drowType.push({"display": $scope.showFilters['Type Of Restaurants'][q], "pass" : $scope.showFilters['Type Of Restaurants'][q]})
+            }
+            $scope.drowCLocation = [];
+            for(var r = 0; r < $scope.showFilters['Location'].length; r++){
+                $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
+            }
 
             $scope.initMap({
                 zoom: 10,
@@ -280,58 +302,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
 
 
-    $scope.cuisins = [
-        'Afghani',
-        'African',
-        'American',
-        'Argentine',
-        'Asian',
-        'BBQ',
-        'Bagels',
-        'Bakery',
-        'Bar',
-        'Food',
-        'Belgian',
-        'Beverages',
-        'Brazilian',
-        'Breakfast',
-        'British',
-        'Burger',
-        'Cafe',
-        'Cajun',
-        'California',
-        'Canadian',
-        'Caribbean',
-        'Chilean',
-        'Chinese',
-        'Coffee and Tea',
-        'Crepes',
-        'Deli',
-        'Desserts',
-        'Dim',
-        'Sum',
-        'Diner',
-        'Donuts',
-        'Eastern',
-        'European',
-        'Ethiopian',
-        'European', 'Filipino', 'French', 'Frozen', 'Yogurt', 'Fusion', 'German', 'Greek', 'Hawaiian', 'Healthy',
-        'Food', 'Ice Cream', 'Indian', 'International', 'Irish', 'Italian',
-        'Japanese', 'Kebab', 'Korean', 'Latin', 'American', 'Mediterranean', 'Mexican',
-        'Middle', 'Eastern', 'Mongolian', 'Moroccan', 'Nepalese', 'New', 'American', 'New', 'Mexican', 'Pacific',
-        'Pakistani', 'Persian', 'Peruvian', 'Pizza', 'Ramen', 'Russian', 'Salad', 'Salvadorean', 'Sandwich', 'Seafood', 'Somali', 'Soul',
-        'Food', 'South', 'American', 'Southern', 'Southwestern', 'Spanish', 'Steak', 'Sushi',
-        'Taco', 'Taiwanese', 'Tapas', 'Tea', 'Teriyaki', 'Tex-Mex',
-        'Thai', 'Tibetan', 'Turkish', 'Vegetarian', 'Vietnamese'
-    ];
-
-    $scope.drowCuisine = [];
-    for(var p = 0; p < $scope.cuisins.length; p++){
-        $scope.drowCuisine.push({"display": $scope.cuisins[p], "pass" : $scope.cuisins[p]})
-    }
-
-
-
     //filters section
     $scope.filters = [];
     var elementAlreadyExist = false;
@@ -369,13 +339,21 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         }else if(typeof index == 'object'){
             for(var key in index){
                 if(key){
-
+                    if(index[key]==false){
+                        var elementDeleted = true;
+                    }else{
+                       elementDeleted = false;
+                    }
                     if($scope.filters.length ==0){
                         $scope.filters.push(key);
                     }else{
                         for(var t=0; t<$scope.filters.length; t++){
                             if( key==$scope.filters[t]){
                                 elementAlreadyExist = true;
+                                if(elementDeleted){
+                                    $scope.filters.splice(t,1);
+                                    delete index[key];
+                                }
                                 break;
                             }else{
                                 elementAlreadyExist = false;
