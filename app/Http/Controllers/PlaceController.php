@@ -88,38 +88,39 @@ class PlaceController extends Controller
         return $data;
 
     }
-    
+
+    /**
+     * Get filtered data
+     *
+     * @return array
+     */
     public function filter(){
-//        $categories = request('Mode');
-//        $costs = request('Cost');
-//        $highlights = request('Sort By');
-//        $cuisines = request('Cuisine');
-//        $types = request('Type Of Restaurants');
-//        $locations = request('Location');
-//        $page = request('page');
-        $page = 1;
-        $categories = [];
-        $costs = [];
-        $highlights = [];
-        $cuisines = [];
-        $types = [];
-        $locations = [];
+        $categories = request('Mode');
+        $costs = request('Cost');
+        $highlights = request('Sort By');
+        $cuisines = request('Cuisine');
+        $types = request('Type Of Restaurants');
+        $locations = request('Location');
+        $page = request('Page') ? request('Page') : 1;
 
        $data = Place::with([
            'categories' => function($query) use($categories) {
-              return $query->whereIn('category_id', $categories);
+               if(count($categories) > 0)
+                return $query->whereIn('category_id', $categories);
            },
            'highlights' => function($query) use ($highlights){
-               return $query->whereIn('highlight_id', $highlights);
+               if(count($highlights) > 0)
+                return $query->whereIn('highlight_id', $highlights);
            },
            'cuisins' => function($query) use ($cuisines){
-               return $query->whereIn('cuisin_id', $cuisines);
+               if(count($cuisines) > 0)
+                return $query->whereIn('cuisin_id', $cuisines);
            },
            'types' => function($query) use ($types){
-               return $query->whereIn('type_id', $types);
+               if(count($types) > 0)
+                return $query->whereIn('type_id', $types);
            },
-           'thumb_image',
-           ''
+           'thumb_image'
        ]);
 
 
@@ -152,30 +153,31 @@ class PlaceController extends Controller
                 return count($value['types']) > 0;
             })->values()->all();
 
-dd($places);
-//dd(collect($places)->values()->chunk(10)->toArray());
-//        foreach ($places[$page-1] as $item){
-//            $place = array();
-//            $rate = $this->avg_rate($item['id']);
-//            $place['rating'] = $rate;
-//            $place['id'] = $item['id'];
-//            $place['title'] = $item['name'];
-//            $place['explane'] = $item['intro'];
-//            $place['address'] = $item['address'];
-//            $place['lat'] = $item['lat'];
-//            $place['long'] = $item['lon'];
-//            $place['image'] = $item['thumb_image'][0]['name'];
-//
-//            $hs = array();
-//            foreach ($item['highlights'] as $key => $highlight){
-//                array_push($hs, $highlight['name']);
-//            }
-//            $place['service'] = $hs;
-//
-//            array_push($places, $place);
-//        }
-//        // TODO
-//        dd($places);
+
+        $chunked_data = collect($places)->values()->chunk(10)->toArray();
+        $restaurants = array();
+        foreach ($chunked_data[$page-1] as $item){
+            $place = array();
+            $rate = $this->avg_rate($item['id']);
+            $place['rating'] = $rate;
+            $place['id'] = $item['id'];
+            $place['title'] = $item['name'];
+            $place['explane'] = $item['intro'];
+            $place['address'] = $item['address'];
+            $place['lat'] = $item['lat'];
+            $place['long'] = $item['lon'];
+            $place['image'] = $item['thumb_image'][0]['name'];
+
+            $hs = array();
+            foreach ($item['highlights'] as $key => $highlight){
+                array_push($hs, $highlight['name']);
+            }
+            $place['service'] = $hs;
+
+            array_push($restaurants, $place);
+        }
+
+        return $restaurants;
     }
 
     /**
