@@ -339,15 +339,20 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         }else if(typeof index == 'object'){
             for(var key in index){
                 if(key){
-
+                    if(index[key]==false){
+                        var elementDeleted = true;
+                    }else{
+                       elementDeleted = false;
+                    }
                     if($scope.filters.length ==0){
                         $scope.filters.push(key);
                     }else{
                         for(var t=0; t<$scope.filters.length; t++){
                             if( key==$scope.filters[t]){
                                 elementAlreadyExist = true;
-                                if(index[key]==false){
+                                if(elementDeleted){
                                     $scope.filters.splice(t,1);
+                                    delete index[key];
                                 }
                                 break;
                             }else{
