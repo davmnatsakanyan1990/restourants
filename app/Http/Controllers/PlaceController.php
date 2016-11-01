@@ -9,7 +9,6 @@ use App\Models\Place;
 use App\Http\Requests;
 use App\Models\Product;
 use App\Models\Type;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Cuisin;
@@ -95,6 +94,8 @@ class PlaceController extends Controller
      * @return array
      */
     public function filter(){
+
+        //get request data
         $categories = request('Mode');
         $costs = request('Cost');
         $highlights = request('Sort By');
@@ -154,6 +155,7 @@ class PlaceController extends Controller
             })->values()->all();
 
 
+        //format data
         $chunked_data = collect($places)->values()->chunk(10)->toArray();
         $restaurants = array();
         foreach ($chunked_data[$page-1] as $item){
