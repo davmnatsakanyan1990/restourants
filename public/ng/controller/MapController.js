@@ -16,10 +16,11 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF5: [],
         checkboxModelF6: []
     };
-
+    $scope.filters = [];
     $scope.callData = {
         page: 1,
-        city: 'Salt%20Lake%20City'
+        city: 'Salt%20Lake%20City',
+        filters: []
     };
     RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
@@ -64,17 +65,18 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     // add more restaurant in list
     $scope.addMorePoints = function(){
         $scope.callData.page++;
-		console.log($scope.callData.page);
-        RestaurantService.getRestaurantsList($scope.callData)
+        $scope.callData.filters = $scope.filters;
+        RestaurantService.getMoreRestaurant($scope.callData)
             .then(function (response) {
                 if(response.data.status && response.data.status == 'ended'){
                     $scope.noMoreInfoToShow = true;
                 }
-                $scope.city = response.data.city;
-                for (i = 0; i < response.data.restaurants.length; i++){
-                    createMarker(response.data.restaurants[i]);
-                    $scope.restaurants.push(response.data.restaurants[i]);
-                }
+                var sum = 0;
+                angular.forEach(response.data.restaurants, function(value, key){
+                    createMarker(value);
+                    $scope.restaurants.push(value);
+                });
+
             });
     };
 
@@ -303,10 +305,10 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
 
     //filters section
-    $scope.filters = [];
+
     var elementAlreadyExist = false;
     
-    //whent add a filter from second menu
+    //when add a filter from second menu
     $scope.pushElementInFilter = function (index, data) {
         console.log(index);
         if(Object.prototype.toString.call( data ) === '[object Array]' ){
@@ -337,6 +339,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 }
             }
         }else if(typeof index == 'object'){
+            console.log(index);
             for(var key in index){
                 if(key){
                     if(index[key]==false){
@@ -366,8 +369,15 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 }
             }
         }
-
-
+        if($scope.filters.length>0){
+            $scope.callData.page = 1;
+            $scope.callData.city = 'Salt%20Lake%20City';
+            $scope.callData.filters = $scope.filters.length>0 ? $scope.filters : [];
+            RestaurantService.getMoreRestaurant($scope.callData)
+                .then(function (response) {
+                    $scope.restaurants = response.data
+                });
+        }
     };
     
     //when delete a filter after click in it

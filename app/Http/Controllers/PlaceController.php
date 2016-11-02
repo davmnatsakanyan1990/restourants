@@ -71,17 +71,17 @@ class PlaceController extends Controller
         return $result;
     }
 
-    public function loadMore(){
-        $city = request('city');
-        $page = request('page');
-
+    public function loadMore($data){
+        $d = json_decode($data, true);
+        $city = $d['city'];
+        $page = $d['page'];
         $filters = array();
-        $filters['categories'] = request('Mode') ? json_decode(request('Mode'), true) : [];
-        $filters['costs'] = request('Cost') ? request('Cost') : [];
-        $filters['highlights'] = request('Sort By') ? request('Sort By') : [];
-        $filters['cuisines'] = request('Cuisine') ? request('Cuisine') : [];
-        $filters['types'] = request('Type Of Restaurants') ? request('Type Of Restaurants') : [];
-        $filters['locations'] = request('Location') ? request('Location') : [];
+        $filters['categories'] = array_key_exists('Mode', $d) ? $d['Mode'] : [];
+        $filters['costs'] = array_key_exists('Cost', $d) ? $d['Cost'] : [];
+        $filters['highlights'] = array_key_exists('Sort By', $d) ? $d['Sort By'] : [];
+        $filters['cuisines'] = array_key_exists('Cuisine', $d) ? $d['Cuisine'] : [];
+        $filters['types'] = array_key_exists('Type Of Restaurants', $d) ? $d['Type Of Restaurants'] : [];
+        $filters['locations'] = array_key_exists('Location', $d) ? $d['Location'] : [];
 
         if(count($filters['categories']) > 0 || count($filters['costs']) > 0 || count($filters['highlights']) > 0 || count($filters['cuisines']) > 0 || count($filters['types']) > 0 || count($filters['locations']) > 0) {
 
@@ -103,16 +103,17 @@ class PlaceController extends Controller
 
     }
 
-    public function filter(){
-        $city = request('city');
+    public function filter($data){
+        $d = json_decode($data, true);
+        $city = $d['city'];
 
         $filters = array();
-        $filters['categories'] = request('Mode') ? json_decode(request('Mode'), true) : [];
-        $filters['costs'] = request('Cost') ? request('Cost') : [];
-        $filters['highlights'] = request('Sort By') ? request('Sort By') : [];
-        $filters['cuisines'] = request('Cuisine') ? request('Cuisine') : [];
-        $filters['types'] = request('Type Of Restaurants') ? request('Type Of Restaurants') : [];
-        $filters['locations'] = request('Location') ? request('Location') : [];
+        $filters['categories'] = array_key_exists('Mode', $d) ? $d['Mode'] : [];
+        $filters['costs'] = array_key_exists('Cost', $d) ? $d['Cost'] : [];
+        $filters['highlights'] = array_key_exists('Sort By', $d) ? $d['Sort By'] : [];
+        $filters['cuisines'] = array_key_exists('Cuisine', $d) ? $d['Cuisine'] : [];
+        $filters['types'] = array_key_exists('Type Of Restaurants', $d) ? $d['Type Of Restaurants'] : [];
+        $filters['locations'] = array_key_exists('Location', $d) ? $d['Location'] : [];
 
         $restaurants = $this->getRestaurants($city, $filters);
         $chunked = collect($restaurants)->values()->chunk(10)->toArray();
