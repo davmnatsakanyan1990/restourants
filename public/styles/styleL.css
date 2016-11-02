@@ -792,7 +792,7 @@ html body .content .sliderSection .secondNav ul li.navSecond .filters {
   padding: 10px;
   border: 1px solid;
   overflow: auto;
-  max-height: 250px;
+  /*max-height: 250px;*/
 }
 html body .content .sliderSection .secondNav ul li.navSecond .filters:before {
   content: "\A";
@@ -825,6 +825,13 @@ html body .content .sliderSection .secondNav ul li.navSecond .filters .triangle:
   left: 60px;
   top: -14px;
   transform: rotate(90deg);
+}
+html body .content .sliderSection .secondNav ul li.navSecond .filters .filtersAll {
+  overflow: auto;
+  max-height: 200px;
+}
+html body .content .sliderSection .secondNav ul li.navSecond .filters .twoButtons {
+  margin-top: 10px;
 }
 html body .content .sliderSection .secondNav ul li:last-child {
   margin-right: 0;
@@ -1444,6 +1451,10 @@ html body .uppercase {
     left: 60px;
     top: -14px;
     transform: rotate(90deg);
+  }
+  html body .content .sliderSection .secondNav ul li.navSecond .filters .filtersAll {
+    overflow: auto;
+    max-height: 200px;
   }
   html body .content .sliderSection .secondNav ul li:last-child {
     margin-right: 0;
