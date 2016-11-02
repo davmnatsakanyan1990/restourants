@@ -17,10 +17,11 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF6: []
     };
     $scope.filters = [];
+    $scope.filterToSend = [];
     $scope.callData = {
         page: 1,
         city: 'Salt%20Lake%20City',
-        filters: []
+        filters: {}
     };
     RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
@@ -48,6 +49,48 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             for(var r = 0; r < $scope.showFilters['Location'].length; r++){
                 $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
             }
+            $scope.drowCost = [
+                {
+                    'display': {
+                        id: 1,
+                        name: '$'
+                    },
+                    'pass': {
+                        id: 1,
+                        name: '$'
+                    }
+                },
+                {
+                    'display': {
+                        id: 2,
+                        name: '$$'
+                    },
+                    'pass': {
+                        id: 2,
+                        name: '$$'
+                    }
+                },
+                {
+                    'display': {
+                        id: 3,
+                        name: '$$$'
+                    },
+                    'pass': {
+                        id: 3,
+                        name: '$$$'
+                    }
+                },
+                {
+                    'display': {
+                        id: 4,
+                        name: '$$$$'
+                    },
+                    'pass': {
+                        id: 4,
+                        name: '$$$$'
+                    }
+                }
+            ];
 
             $scope.initMap({
                 zoom: 10,
@@ -310,36 +353,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, data) {
-        console.log(index);
-        if(Object.prototype.toString.call( data ) === '[object Array]' ){
-            for(var i=0; i<index.length; i++){
-                if(index[i]){
-                    if($scope.filters.length ==0){
-                        $scope.filters.push(data[i]);
-                    }else{
-                        for(var j=0; j<$scope.filters.length; j++){
-                            if( data[i]==$scope.filters[j]){
-                                elementAlreadyExist = true;
-                                break;
-                            }else{
-                                elementAlreadyExist = false;
-                            }
-                        }
-                        if(!elementAlreadyExist){
-                            $scope.filters.push(data[i]);
-                        }
-                    }
-                }
-                else if(!index[i]){
-                    for(var k=0; k<$scope.filters.length; k++){
-                        if(data[i] == $scope.filters[k]){
-                            $scope.filters.splice(k, 1)
-                        }
-                    }
-                }
-            }
-        }else if(typeof index == 'object'){
+       if(typeof index == 'object' && typeof data == 'object'){
             console.log(index);
+            console.log(data);
             for(var key in index){
                 if(key){
                     if(index[key]==false){
@@ -368,16 +384,34 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     }
                 }
             }
+           if($scope.filters.length>0){
+               $scope.callData.page = 1;
+               $scope.callData.city = 'Salt%20Lake%20City';
+
+               for(var a in data){
+
+                   for(var b=0; b<data[a].length; b++){
+                       for(var k=0; k<$scope.filters.length; k++){
+
+                           if(data[a][b].display.name==$scope.filters[k]){
+                               if(!$scope.callData.filters[a]) {
+                                   $scope.callData.filters[a] = [];
+                               }
+                               $scope.callData.filters[a].push(data[a][b].display.id);
+                           }
+                       }
+                   }
+
+               }
+               console.log($scope.callData);
+
+               RestaurantService.getMoreRestaurant($scope.callData)
+                   .then(function (response) {
+                       $scope.restaurants = response.data
+                   });
+           }
         }
-        if($scope.filters.length>0){
-            $scope.callData.page = 1;
-            $scope.callData.city = 'Salt%20Lake%20City';
-            $scope.callData.filters = $scope.filters.length>0 ? $scope.filters : [];
-            RestaurantService.getMoreRestaurant($scope.callData)
-                .then(function (response) {
-                    $scope.restaurants = response.data
-                });
-        }
+
     };
     
     //when delete a filter after click in it
