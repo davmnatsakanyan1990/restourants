@@ -165,7 +165,7 @@ class ApiController extends Controller
                 $author = User::create(['name' => $comment['author'], 'email' => time().$i, 'password' => 'password' ]);
                 $author_id = $author->id;
 
-                Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
+                //Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
 
                 $comm = Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => 0, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
 
@@ -175,7 +175,7 @@ class ApiController extends Controller
                         $author = User::create(['name' => $comment['author'], 'email' => time().$i, 'password' => 'password' ]);
                         $author_id = $author->id;
 
-                        Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
+                        //Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
 
                         Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => $comm->id, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
 
