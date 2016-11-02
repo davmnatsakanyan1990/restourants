@@ -62,7 +62,17 @@ app.factory('RestaurantService', function($http) {
                 method : "GET",
                 url : "restaurants/more/" + JSON.stringify(data)
             })
+        },
+        filterRestaurant: function(data) {
+            console.log(data);
+            return false;
+            //TODO
+            return $http({
+                method : "GET",
+                url : "restaurants/filter/" + JSON.stringify(data)
+            })
         }
+
 
     };
 });
