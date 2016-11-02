@@ -24,106 +24,157 @@ class PlaceController extends Controller
      */
     public function index(){
         $city = request('city');
-        $page = request('page');
-        $places = array();
+//        $places = array();
+//
+//        $result = array();
+//        $d = Place::with(['thumb_image', 'highlights', 'location' => function($location) use ($city){
+//            $location->with(['city' => function($query) use ($city){
+//                return $query->where('name', $city);
+//            }]);
+//        }])->get();
+//
+//        $data = $d->filter(function ($value, $key) {
+//            return $value->location->city != null;
+//        })->values()->chunk(10)->toArray();
+//
+//
+//        foreach ($data[$page-1] as $item){
+//            $place = array();
+//            $rate = $this->avg_rate($item['id']);
+//            $place['rating'] = $rate;
+//            $place['id'] = $item['id'];
+//            $place['title'] = $item['name'];
+//            $place['explane'] = $item['intro'];
+//            $place['address'] = $item['address'];
+//            $place['lat'] = $item['lat'];
+//            $place['long'] = $item['lon'];
+//            $place['image'] = $item['thumb_image'][0]['name'];
+//
+//            $hs = array();
+//            foreach ($item['highlights'] as $key => $highlight){
+//                array_push($hs, $highlight['name']);
+//            }
+//            $place['service'] = $hs;
+//
+//            array_push($places, $place);
+//        }
 
-        $result = array();
-        $d = Place::with(['thumb_image', 'highlights', 'location' => function($location) use ($city){
-            $location->with(['city' => function($query) use ($city){
-                return $query->where('name', $city);
-            }]);
-        }])->get();
+//        $result['restaurants'] = $places;
 
-        $data = $d->filter(function ($value, $key) {
-            return $value->location->city != null;
-        })->values()->chunk(10)->toArray();
+        $restaurants = $this->getRestaurants($city);
+        $chunked = collect($restaurants)->values()->chunk(10)->toArray();
 
-
-        foreach ($data[$page-1] as $item){
-            $place = array();
-            $rate = $this->avg_rate($item['id']);
-            $place['rating'] = $rate;
-            $place['id'] = $item['id'];
-            $place['title'] = $item['name'];
-            $place['explane'] = $item['intro'];
-            $place['address'] = $item['address'];
-            $place['lat'] = $item['lat'];
-            $place['long'] = $item['lon'];
-            $place['image'] = $item['thumb_image'][0]['name'];
-
-            $hs = array();
-            foreach ($item['highlights'] as $key => $highlight){
-                array_push($hs, $highlight['name']);
-            }
-            $place['service'] = $hs;
-
-            array_push($places, $place);
-        }
-
-        $result['restaurants'] = $places;
+        $result['restaurants'] = $chunked[0];
         $result['city'] = $city;
-        if($page == count($data)){
-            $result['status'] = 'ended';
-        }
-
         $result['filters'] = $this->getFilters();
+
         return $result;
     }
 
-    /**
-     * Get all filters
-     * 
-     * @return array
-     */
-    public function getFilters(){
-        $data = [];
-        $data['Mode'] = Category::select('id', 'name')->get()->toArray();
-        $data['Sort By'] = Highlight::select('id', 'name')->get()->toArray();
-        $data['Cuisine'] = Cuisin::select('id', 'name')->get()->toArray();
-        $data['Type Of Restaurants'] = Type::select('id', 'name')->get()->toArray();
+    public function loadMore(){
+        $city = request('city');
+        $page = request('page');
 
-        $city = City::where('name', request('city'))->first();
-        $data['Location'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
-        return $data;
+        $filters = array();
+        $filters['categories'] = request('Mode') ? json_decode(request('Mode'), true) : [];
+        $filters['costs'] = request('Cost') ? request('Cost') : [];
+        $filters['highlights'] = request('Sort By') ? request('Sort By') : [];
+        $filters['cuisines'] = request('Cuisine') ? request('Cuisine') : [];
+        $filters['types'] = request('Type Of Restaurants') ? request('Type Of Restaurants') : [];
+        $filters['locations'] = request('Location') ? request('Location') : [];
+
+        if(count($filters['categories']) > 0 || count($filters['costs']) > 0 || count($filters['highlights']) > 0 || count($filters['cuisines']) > 0 || count($filters['types']) > 0 || count($filters['locations']) > 0) {
+
+            $restaurants = $this->getRestaurants($city, $filters);
+        }
+        else{
+            $restaurants = $this->getRestaurants($city);
+        }
+
+        $chunked = collect($restaurants)->values()->chunk(10)->toArray();
+
+        $result['restaurants'] = $chunked[$page-1];
+
+        if($page == count($chunked)){
+            $result['status'] = 'ended';
+        }
+
+        return $result;
 
     }
+
+    public function filter(){
+        $city = request('city');
+
+        $filters = array();
+        $filters['categories'] = request('Mode') ? json_decode(request('Mode'), true) : [];
+        $filters['costs'] = request('Cost') ? request('Cost') : [];
+        $filters['highlights'] = request('Sort By') ? request('Sort By') : [];
+        $filters['cuisines'] = request('Cuisine') ? request('Cuisine') : [];
+        $filters['types'] = request('Type Of Restaurants') ? request('Type Of Restaurants') : [];
+        $filters['locations'] = request('Location') ? request('Location') : [];
+
+        $restaurants = $this->getRestaurants($city, $filters);
+        $chunked = collect($restaurants)->values()->chunk(10)->toArray();
+
+        $response = $chunked[0];
+
+        return $response;
+
+    }
+
 
     /**
      * Get filtered data
      *
      * @return array
      */
-    public function filter(){
+    public function getRestaurants($city, $filters = null){
 
-        //get request data
-        $categories = request('Mode');
-        $costs = request('Cost');
-        $highlights = request('Sort By');
-        $cuisines = request('Cuisine');
-        $types = request('Type Of Restaurants');
-        $locations = request('Location');
-        $page = request('Page') ? request('Page') : 1;
+        //get filter data
+        if($filters) {
+            $categories = $filters['categories'];
+            $costs = $filters['costs'];
+            $highlights = $filters['highlights'];
+            $cuisines = $filters['cuisines'];
+            $types = $filters['types'];
+            $locations = $filters['locations'];
+        }
+        else{
+            $categories = [];
+            $costs = [];
+            $highlights = [];
+            $cuisines = [];
+            $types = [];
+            $locations = [];
+        }
 
-       $data = Place::with([
-           'categories' => function($query) use($categories) {
-               if(count($categories) > 0)
-                return $query->whereIn('category_id', $categories);
-           },
-           'highlights' => function($query) use ($highlights){
-               if(count($highlights) > 0)
-                return $query->whereIn('highlight_id', $highlights);
-           },
-           'cuisins' => function($query) use ($cuisines){
-               if(count($cuisines) > 0)
-                return $query->whereIn('cuisin_id', $cuisines);
-           },
-           'types' => function($query) use ($types){
-               if(count($types) > 0)
-                return $query->whereIn('type_id', $types);
-           },
-           'thumb_image'
-       ]);
 
+
+        $data = Place::with([
+            'categories' => function($query) use($categories) {
+                if(count($categories) > 0)
+                    return $query->whereIn('category_id', $categories);
+            },
+            'highlights' => function($query) use ($highlights){
+                if(count($highlights) > 0)
+                    return $query->whereIn('highlight_id', $highlights);
+            },
+            'cuisins' => function($query) use ($cuisines){
+                if(count($cuisines) > 0)
+                    return $query->whereIn('cuisin_id', $cuisines);
+            },
+            'types' => function($query) use ($types){
+                if(count($types) > 0)
+                    return $query->whereIn('type_id', $types);
+            },
+            'location' => function($query) use ($city){
+                $query->with(['city' => function($query1) use ($city){
+                    return $query1->where('name', $city);
+                }]);
+            },
+            'thumb_image'
+        ]);
 
         if(count($locations) > 0)
             $data = $data->whereIn('location_id', $locations);
@@ -133,6 +184,9 @@ class PlaceController extends Controller
 
         $places = $data->get()->toArray();
 
+        $places = collect($places)->filter(function($value, $key){
+            return !is_null($value['location']['city']);
+        })->values()->all();
 
         if(count($categories) > 0)
             $places = collect($places)->filter(function($value, $key){
@@ -156,9 +210,8 @@ class PlaceController extends Controller
 
 
         //format data
-        $chunked_data = collect($places)->values()->chunk(10)->toArray();
         $restaurants = array();
-        foreach ($chunked_data[$page-1] as $item){
+        foreach ($places as $item){
             $place = array();
             $rate = $this->avg_rate($item['id']);
             $place['rating'] = $rate;
@@ -180,6 +233,24 @@ class PlaceController extends Controller
         }
 
         return $restaurants;
+    }
+
+    /**
+     * Get all filters
+     *
+     * @return array
+     */
+    public function getFilters(){
+        $data = [];
+        $data['Mode'] = Category::select('id', 'name')->get()->toArray();
+        $data['Sort By'] = Highlight::select('id', 'name')->get()->toArray();
+        $data['Cuisine'] = Cuisin::select('id', 'name')->get()->toArray();
+        $data['Type Of Restaurants'] = Type::select('id', 'name')->get()->toArray();
+
+        $city = City::where('name', request('city'))->first();
+        $data['Location'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
+        return $data;
+
     }
 
     /**
@@ -225,7 +296,7 @@ class PlaceController extends Controller
             'menus' => function($menu){
                 return $menu->with('products');
             }
-            ])
+        ])
             ->findOrFail($id);
 
         // get avg rate for current place and push to array
@@ -248,7 +319,7 @@ class PlaceController extends Controller
 
         // get total comments count for current place and add to array
         $collection->prepend(count($collection['comments']), 'comment');
-        
+
         // format price and add to array
         switch ($place->cost){
             case 0:
@@ -412,15 +483,15 @@ class PlaceController extends Controller
         $data['price'] = $array['price'];
         $data['workingHours'] = $array['workingHours'];
 
-       // $data['shareItems'] = $data['shares'];
+        // $data['shareItems'] = $data['shares'];
 
         return response()->json($data);
     }
 
     public function products($menu_id){
-       $products = Product::where('menu_id', $menu_id)->select(['title', 'description', 'price'])->get()->toArray();
+        $products = Product::where('menu_id', $menu_id)->select(['title', 'description', 'price'])->get()->toArray();
         return $products;
     }
-    
-    
+
+
 }

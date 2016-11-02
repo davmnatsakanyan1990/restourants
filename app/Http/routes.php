@@ -38,7 +38,7 @@ Route::group(['prefix' => 'templates'], function () {
 Route::group([
     'prefix' => 'user',
     'namespace' => 'Auth'
-    ],
+],
     function(){
         Route::post('login', 'AuthController@login');
         Route::post('register', 'AuthController@register');
@@ -60,7 +60,7 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin\Auth',
-    ],
+],
     function(){
         Route::get('login', 'AuthController@showLoginForm');
         Route::post('login', 'AuthController@login');
@@ -72,7 +72,7 @@ Route::group([
  */
 Route::group([
     'prefix' => 'comment',
-    ],
+],
     function(){
         Route::post('add', 'CommentController@create');
     });
@@ -80,6 +80,7 @@ Route::group([
 
 
 Route::get('restaurants', 'PlaceController@index');
+Route::get('restaurants/more', 'PlaceController@loadMore');
 Route::get('restaurants/filter', 'PlaceController@filter');
 Route::get('show/{id}', 'PlaceController@show');
 Route::get('products/{menu_id}', 'PlaceController@products');
@@ -97,7 +98,8 @@ Route::get('assign/type', 'ApiController@assignType');
 
 
 Route::get('test', function(){
-    dd(time());
+    $d=json_encode(['city'=>'fff', 'cate' => [1,2,3]]);
+    dd($d);
 });
 
 
