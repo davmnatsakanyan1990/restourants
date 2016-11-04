@@ -16,8 +16,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF5: [],
         checkboxModelF6: []
     };
-    $scope.filters = [];
-    $scope.filterToSend = [];
+    $scope.filters = {};
     $scope.callData = {
         page: 1,
         city: 'Salt%20Lake%20City',
@@ -31,7 +30,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
             $scope.drowCuisine = [];
             for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
-                $scope.drowCuisine.push({"display": $scope.showFilters.Cuisine[p], "pass" : $scope.showFilters.Cuisine[p].name})
+                $scope.drowCuisine.push({"display": $scope.showFilters.Cuisine[p], "pass" : $scope.showFilters.Cuisine[p]})
             }
             $scope.drowMode = [];
             for(var m = 0; m < $scope.showFilters.Mode.length; m++){
@@ -49,48 +48,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             for(var r = 0; r < $scope.showFilters['Location'].length; r++){
                 $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
             }
-            $scope.drowCost = [
-                {
-                    'display': {
-                        id: 1,
-                        name: '$'
-                    },
-                    'pass': {
-                        id: 1,
-                        name: '$'
-                    }
-                },
-                {
-                    'display': {
-                        id: 2,
-                        name: '$$'
-                    },
-                    'pass': {
-                        id: 2,
-                        name: '$$'
-                    }
-                },
-                {
-                    'display': {
-                        id: 3,
-                        name: '$$$'
-                    },
-                    'pass': {
-                        id: 3,
-                        name: '$$$'
-                    }
-                },
-                {
-                    'display': {
-                        id: 4,
-                        name: '$$$$'
-                    },
-                    'pass': {
-                        id: 4,
-                        name: '$$$$'
-                    }
-                }
-            ];
 
             $scope.initMap({
                 zoom: 10,
@@ -102,11 +59,12 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             for (i = 0; i < $scope.restaurants.length; i++){
                 createMarker($scope.restaurants[i]);
             }
-         });
+        });
 
 
     // add more restaurant in list
     $scope.addMorePoints = function(){
+        console.log($scope.callData);
         $scope.callData.page++;
         $scope.callData.filters = $scope.filters;
         RestaurantService.getMoreRestaurant($scope.callData)
@@ -125,10 +83,10 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     $scope.initMap = function(mapOptions){
         var mapOptions = mapOptions || {
-            zoom: 10,
-            center: new google.maps.LatLng(40.0000, -98.0000),
-            mapTypeId: google.maps.MapTypeId.TERRAIN
-        };
+                zoom: 10,
+                center: new google.maps.LatLng(40.0000, -98.0000),
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
 
         $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
@@ -213,7 +171,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             $scope.visibleLittleMenu = false;
         }
     });
-    
+
     //toggling second menu
     $scope.toggleSecondMenu = function(){
         $scope.animateSecondMenuVar = $scope.animateSecondMenuVar === false ? true: false;
@@ -262,23 +220,23 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
     //in feature it will be call
-   /* $scope.additionalInfo = {
-        restaurant1:{
-            image: 'images/restaurantImages/rest1.jpg',
-            title: 'Title1',
-            more: '420 places'
-        },
-        restaurant2:{
-            image: 'images/restaurantImages/rest2.jpg',
-            title: 'Title2',
-            more: '420 places'
-        },
-        restaurant3:{
-            image: 'images/restaurantImages/rest3.jpg',
-            title: 'Title3',
-            more: '420 places'
-        }
-    };*/
+    /* $scope.additionalInfo = {
+     restaurant1:{
+     image: 'images/restaurantImages/rest1.jpg',
+     title: 'Title1',
+     more: '420 places'
+     },
+     restaurant2:{
+     image: 'images/restaurantImages/rest2.jpg',
+     title: 'Title2',
+     more: '420 places'
+     },
+     restaurant3:{
+     image: 'images/restaurantImages/rest3.jpg',
+     title: 'Title3',
+     more: '420 places'
+     }
+     };*/
 
     //top sider
 
@@ -350,75 +308,89 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     //filters section
 
     var elementAlreadyExist = false;
-    
+
     //when add a filter from second menu
-    $scope.pushElementInFilter = function (index, data) {
-       if(typeof index == 'object' && typeof data == 'object'){
-            console.log(index);
-            console.log(data);
-            for(var key in index){
-                if(key){
-                    if(index[key]==false){
-                        var elementDeleted = true;
-                    }else{
-                       elementDeleted = false;
-                    }
-                    if($scope.filters.length ==0){
-                        $scope.filters.push(key);
-                    }else{
-                        for(var t=0; t<$scope.filters.length; t++){
-                            if( key==$scope.filters[t]){
-                                elementAlreadyExist = true;
-                                if(elementDeleted){
-                                    $scope.filters.splice(t,1);
-                                    delete index[key];
-                                }
-                                break;
-                            }else{
-                                elementAlreadyExist = false;
-                            }
+    $scope.pushElementInFilter = function (index, type) {
+        if(index.length > 0) {
+            $scope.callData.filters[type] = [];
+            $scope.filters[type] = [];
+
+            for (var k in index) {
+                for (var key in index[k]) {
+                    if (key) {
+                        if (index[k][key] == false) {
+                            var elementDeleted = true;
+                        } else {
+                            elementDeleted = false;
                         }
-                        if(!elementAlreadyExist){
-                            $scope.filters.push(key);
+                        if ($scope.filters.length == 0) {
+                            $scope.filters[type].push(key);
+                        } else {
+                            for (var t = 0; t < $scope.filters.length; t++) {
+                                if (key == $scope.filters[t]) {
+                                    elementAlreadyExist = true;
+                                    if (elementDeleted) {
+                                        $scope.filters.splice(t, 1);
+                                        delete index[k][key];
+                                    }
+                                    break;
+                                } else {
+                                    elementAlreadyExist = false;
+                                }
+                            }
+                            if (!elementAlreadyExist) {
+                                $scope.filters[type].push(key);
+                            }
                         }
                     }
                 }
+
+                $scope.callData.filters[type].push(k);
             }
-           if($scope.filters.length>0){
-               $scope.callData.page = 1;
-               $scope.callData.city = 'Salt%20Lake%20City';
 
-               for(var a in data){
+    //         // if($scope.filters.length>0){
+            $scope.callData.page = 1;
+            $scope.callData.city = 'Salt%20Lake%20City';
 
-                   for(var b=0; b<data[a].length; b++){
-                       for(var k=0; k<$scope.filters.length; k++){
+            RestaurantService.filterRestaurant($scope.callData)
+                .then(function (response) {
+            console.log(response.data);
 
-                           if(data[a][b].display.name==$scope.filters[k]){
-                               if(!$scope.callData.filters[a]) {
-                                   $scope.callData.filters[a] = [];
-                               }
-                               $scope.callData.filters[a].push(data[a][b].display.id);
-                           }
-                       }
-                   }
+                    if(response.data.restaurants) {
+                        if(response.data.status && response.data.status == 'ended'){
+                            $scope.noMoreInfoToShow = true;
+                        }
 
-               }
-               console.log($scope.callData);
+                        $scope.restaurants = response.data.restaurants;
 
-               RestaurantService.getMoreRestaurant($scope.callData)
-                   .then(function (response) {
-                       $scope.restaurants = response.data
-                   });
-           }
+                        $scope.initMap({
+                            zoom: 10,
+                            center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.3, $scope.restaurants[0].long * 1 - 1.5),
+                            scrollwheel: false,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                        });
+
+                        for (i = 0; i < $scope.restaurants.length; i++) {
+                            createMarker($scope.restaurants[i]);
+                        }
+                    }
+                    else {
+                        $scope.markers = [];
+                        $scope.noMoreInfoToShow = true;
+
+                    }
+                });
+            // }
         }
-
     };
-    
+
     //when delete a filter after click in it
-    $scope.deleteElementFromFilter = function (data) {
-        for(var m=0; m < $scope.filters.length; m++){
-            if(data == $scope.filters[m]){
-                $scope.filters.splice(m, 1);
+    $scope.deleteElementFromFilter = function (filter, type) {
+        console.log(filter);
+        console.log(type);
+        for(var m=0; m < $scope.filters[type].length; m++){
+            if(filter == $scope.filters[type][m]){
+                $scope.filters[type].splice(m, 1);
             }
         }
     }

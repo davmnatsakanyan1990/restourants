@@ -24,42 +24,6 @@ class PlaceController extends Controller
      */
     public function index(){
         $city = request('city');
-//        $places = array();
-//
-//        $result = array();
-//        $d = Place::with(['thumb_image', 'highlights', 'location' => function($location) use ($city){
-//            $location->with(['city' => function($query) use ($city){
-//                return $query->where('name', $city);
-//            }]);
-//        }])->get();
-//
-//        $data = $d->filter(function ($value, $key) {
-//            return $value->location->city != null;
-//        })->values()->chunk(10)->toArray();
-//
-//
-//        foreach ($data[$page-1] as $item){
-//            $place = array();
-//            $rate = $this->avg_rate($item['id']);
-//            $place['rating'] = $rate;
-//            $place['id'] = $item['id'];
-//            $place['title'] = $item['name'];
-//            $place['explane'] = $item['intro'];
-//            $place['address'] = $item['address'];
-//            $place['lat'] = $item['lat'];
-//            $place['long'] = $item['lon'];
-//            $place['image'] = $item['thumb_image'][0]['name'];
-//
-//            $hs = array();
-//            foreach ($item['highlights'] as $key => $highlight){
-//                array_push($hs, $highlight['name']);
-//            }
-//            $place['service'] = $hs;
-//
-//            array_push($places, $place);
-//        }
-
-//        $result['restaurants'] = $places;
 
         $restaurants = $this->getRestaurants($city);
         $chunked = collect($restaurants)->values()->chunk(10)->toArray();
@@ -104,21 +68,33 @@ class PlaceController extends Controller
     }
 
     public function filter($data){
+
         $d = json_decode($data, true);
+        $page = $d['page'];
         $city = $d['city'];
 
         $filters = array();
-        $filters['categories'] = array_key_exists('Mode', $d) ? $d['Mode'] : [];
-        $filters['costs'] = array_key_exists('Cost', $d) ? $d['Cost'] : [];
-        $filters['highlights'] = array_key_exists('Sort By', $d) ? $d['Sort By'] : [];
-        $filters['cuisines'] = array_key_exists('Cuisine', $d) ? $d['Cuisine'] : [];
-        $filters['types'] = array_key_exists('Type Of Restaurants', $d) ? $d['Type Of Restaurants'] : [];
-        $filters['locations'] = array_key_exists('Location', $d) ? $d['Location'] : [];
+        $filters['categories'] = array_key_exists('Mode', $d['filters']) ? $d['filters']['Mode'] : [];
+        $filters['costs'] = array_key_exists('Cost', $d['filters']) ? $d['filters']['Cost'] : [];
+        $filters['highlights'] = array_key_exists('Sort By', $d['filters']) ? $d['filters']['Sort By'] : [];
+        $filters['cuisines'] = array_key_exists('Cuisine', $d['filters']) ? $d['filters']['Cuisine'] : [];
+        $filters['types'] = array_key_exists('Type', $d['filters']) ? $d['filters']['Type'] : [];
+        $filters['locations'] = array_key_exists('Location', $d['filters']) ? $d['filters']['Location'] : [];
 
         $restaurants = $this->getRestaurants($city, $filters);
-        $chunked = collect($restaurants)->values()->chunk(10)->toArray();
 
-        $response = $chunked[0];
+        if(count($restaurants) > 0) {
+            $chunked = collect($restaurants)->values()->chunk(10)->toArray();
+            $response['restaurants'] = $chunked[0];
+            if($page == count($chunked)){
+                $response['status'] = 'ended';
+            }
+        }
+        else{
+            $response = [];
+        }
+
+
 
         return $response;
 
