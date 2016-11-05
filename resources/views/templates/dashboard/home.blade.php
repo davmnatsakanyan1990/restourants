@@ -147,12 +147,12 @@
                                 <div class="filtersAll">
                                     <p ng-repeat="cuisin in drowCuisine track by $index">
                                         <input type="checkbox" id="test<% $index %>4" ng-model="checkboxModel.checkboxModelF4[cuisin.pass.id][cuisin.pass.name]"/>
-                                        <label for="test<% $index %>4" ng-bind="cuisin.display.name">American</label>
+                                        <label for="test<% $index %>4" ng-bind="cuisin.display.name"></label>
                                     </p>
                                 </div>
                                 <div class="twoButtons">
                                     <button class=" filterButtons capitalize">cancel</button>
-                                    <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF4, 'Cuisin')">ok</button>
+                                    <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF4, 'Cuisine')">ok</button>
                                 </div>
                             </div>
                         </div>
@@ -206,9 +206,9 @@
                 </ul>
             </div>
             <div class="filterSection clearElement">
-                <div ng-repeat="(k, t) in filters">
-                    <div  class="currentFilter" ng-repeat="filter in t" >
-                        <div ng-bind="filter"></div>
+                <div ng-repeat="(k, v) in filters">
+                    <div  class="currentFilter" ng-repeat="filter in v" >
+                        <div ng-bind="filter.name"></div>
                         <i class="fa fa-times" aria-hidden="true"  ng-click="deleteElementFromFilter(filter, k)"></i>
                     </div>
                 </div>
@@ -245,6 +245,7 @@
                             </div>
                             <div class="textSection">
                                 <div class="title" ng-bind="info.title"></div>
+                                <div class="title" ng-bind="info.id"></div>
                                 <div class="text" ng-bind="info.service"></div>
                                 <div class="rate" ng-if="info.rating <=1">
                                     <i class="fa fa-star" aria-hidden="true"></i>

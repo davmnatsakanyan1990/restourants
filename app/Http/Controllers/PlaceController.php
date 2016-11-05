@@ -40,12 +40,12 @@ class PlaceController extends Controller
         $city = $d['city'];
         $page = $d['page'];
         $filters = array();
-        $filters['categories'] = array_key_exists('Mode', $d) ? $d['Mode'] : [];
-        $filters['costs'] = array_key_exists('Cost', $d) ? $d['Cost'] : [];
-        $filters['highlights'] = array_key_exists('Sort By', $d) ? $d['Sort By'] : [];
-        $filters['cuisines'] = array_key_exists('Cuisine', $d) ? $d['Cuisine'] : [];
-        $filters['types'] = array_key_exists('Type Of Restaurants', $d) ? $d['Type Of Restaurants'] : [];
-        $filters['locations'] = array_key_exists('Location', $d) ? $d['Location'] : [];
+        $filters['categories'] = array_key_exists('Mode', $d['filters']) ? $d['filters']['Mode'] : [];
+        $filters['costs'] = array_key_exists('Cost', $d['filters']) ? $d['filters']['Cost'] : [];
+        $filters['highlights'] = array_key_exists('Sort By', $d['filters']) ? $d['filters']['Sort By'] : [];
+        $filters['cuisines'] = array_key_exists('Cuisine', $d['filters']) ? $d['filters']['Cuisine'] : [];
+        $filters['types'] = array_key_exists('Type', $d['filters']) ? $d['filters']['Type'] : [];
+        $filters['locations'] = array_key_exists('Location', $d['filters']) ? $d['filters']['Location'] : [];
 
         if(count($filters['categories']) > 0 || count($filters['costs']) > 0 || count($filters['highlights']) > 0 || count($filters['cuisines']) > 0 || count($filters['types']) > 0 || count($filters['locations']) > 0) {
 

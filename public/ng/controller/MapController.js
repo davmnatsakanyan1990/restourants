@@ -12,7 +12,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         checkboxModelF1: [],
         checkboxModelF2: [],
         checkboxModelF3: [],
-        checkboxModelF4: {},
+        checkboxModelF4: [],
         checkboxModelF5: [],
         checkboxModelF6: []
     };
@@ -64,9 +64,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     // add more restaurant in list
     $scope.addMorePoints = function(){
-        console.log($scope.callData);
         $scope.callData.page++;
-        $scope.callData.filters = $scope.filters;
         RestaurantService.getMoreRestaurant($scope.callData)
             .then(function (response) {
                 if(response.data.status && response.data.status == 'ended'){
@@ -323,14 +321,16 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         } else {
                             elementDeleted = false;
                         }
-                        if ($scope.filters.length == 0) {
-                            $scope.filters[type].push(key);
+
+                        if ($scope.filters[type].length == 0) {
+                            $scope.filters[type].push({'id' : k, 'name' :  key });
                         } else {
-                            for (var t = 0; t < $scope.filters.length; t++) {
-                                if (key == $scope.filters[t]) {
+                            for (var t = 0; t < $scope.filters[type].length; t++) {
+
+                                if (key == $scope.filters[type][t]) {
                                     elementAlreadyExist = true;
                                     if (elementDeleted) {
-                                        $scope.filters.splice(t, 1);
+                                        $scope.filters[type].splice(t, 1);
                                         delete index[k][key];
                                     }
                                     break;
@@ -339,7 +339,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                                 }
                             }
                             if (!elementAlreadyExist) {
-                                $scope.filters[type].push(key);
+                                $scope.filters[type].push({'id' : k, 'name' :  key });
                             }
                         }
                     }
@@ -348,13 +348,11 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 $scope.callData.filters[type].push(k);
             }
 
-    //         // if($scope.filters.length>0){
             $scope.callData.page = 1;
             $scope.callData.city = 'Salt%20Lake%20City';
 
             RestaurantService.filterRestaurant($scope.callData)
                 .then(function (response) {
-            console.log(response.data);
 
                     if(response.data.restaurants) {
                         if(response.data.status && response.data.status == 'ended'){
@@ -380,19 +378,67 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
                     }
                 });
-            // }
         }
     };
 
     //when delete a filter after click in it
     $scope.deleteElementFromFilter = function (filter, type) {
-        console.log(filter);
-        console.log(type);
+        if(type == 'Mode')
+            $scope.checkboxModel.checkboxModelF1[filter.id] = false;
+
+        if(type == 'Cost')
+            $scope.checkboxModel.checkboxModelF2[filter.id] = false;
+
+        if(type == 'Sort By')
+            $scope.checkboxModel.checkboxModelF3[filter.id] = false;
+
+        if(type == 'Cuisine')
+            $scope.checkboxModel.checkboxModelF4[filter.id] = false;
+
+        if(type == 'Type')
+            $scope.checkboxModel.checkboxModelF5[filter.id] = false;
+
+        if(type == 'Location')
+            $scope.checkboxModel.checkboxModelF6[filter.id] = false;
+
+
         for(var m=0; m < $scope.filters[type].length; m++){
-            if(filter == $scope.filters[type][m]){
+            if(filter.id == $scope.filters[type][m].id){
                 $scope.filters[type].splice(m, 1);
+                $scope.callData.filters[type].splice(m,1);
             }
         }
+
+        RestaurantService.filterRestaurant($scope.callData)
+            .then(function (response) {
+
+                if(response.data.restaurants) {
+                    if(response.data.status && response.data.status == 'ended'){
+                        $scope.noMoreInfoToShow = true;
+                    }
+                    else{
+                        $scope.noMoreInfoToShow = false;
+                    }
+
+                    $scope.restaurants = response.data.restaurants;
+
+                    $scope.initMap({
+                        zoom: 10,
+                        center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.3, $scope.restaurants[0].long * 1 - 1.5),
+                        scrollwheel: false,
+                        mapTypeId: google.maps.MapTypeId.TERRAIN
+                    });
+
+                    for (i = 0; i < $scope.restaurants.length; i++) {
+                        createMarker($scope.restaurants[i]);
+                    }
+                }
+                else {
+                    $scope.markers = [];
+                    $scope.noMoreInfoToShow = true;
+
+                }
+            });
     }
 
 });
