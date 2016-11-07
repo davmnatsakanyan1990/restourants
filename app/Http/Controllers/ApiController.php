@@ -12,6 +12,7 @@ use App\Models\Location;
 use App\Models\Place;
 use App\Models\PlaceCategory;
 use App\Models\PlaceType;
+use App\Models\Rate;
 use App\Models\Type;
 use App\User;
 use Illuminate\Http\Request;
@@ -118,21 +119,23 @@ class ApiController extends Controller
         }
 
         //fill images
-        foreach($d['images'] as $key=>$image) {
-            if($key == 0){
-                DB::table('images')->insert([
-                    'name' => $image,
-                    'imageable_id' => $place_id,
-                    'imageable_type' => 'App\Models\Place',
-                    'role' => 1
-                ]);
-            }
-            else{
-                DB::table('images')->insert([
-                    'name' => $image,
-                    'imageable_id' => $place_id,
-                    'imageable_type' => 'App\Models\Place'
-                ]);
+        if(count($d['images']) > 0) {
+            foreach ($d['images'] as $key => $image) {
+                if ($key == 0) {
+
+                    DB::table('images')->insert([
+                        'name' => $image,
+                        'imageable_id' => $place_id,
+                        'imageable_type' => 'App\Models\Place',
+                        'role' => 1
+                    ]);
+                } else {
+                    DB::table('images')->insert([
+                        'name' => $image,
+                        'imageable_id' => $place_id,
+                        'imageable_type' => 'App\Models\Place'
+                    ]);
+                }
             }
         }
 
@@ -144,18 +147,22 @@ class ApiController extends Controller
 
         //fill highlights_places
         $h = array();
-        foreach ($d['highlights'] as $key=>$value){
-            $h[$key]['name'] = $value;
+        if(count($d['highlights']) > 0) {
+            foreach ($d['highlights'] as $key => $value) {
+                $h[$key]['name'] = $value;
+            }
+
+            $highlights = Highlight::whereIn('name', $h)->get()->toArray();
+            $high_data = array();
+            foreach ($highlights as $key=>$value){
+                $high_data[$key]['place_id'] = $place_id;
+                $high_data[$key]['highlight_id'] = $value['id'];
+            }
+
+            DB::table('place_highlights')->insert($high_data);
         }
 
-        $highlights = Highlight::whereIn('name', $h)->get()->toArray();
-        $high_data = array();
-        foreach ($highlights as $key=>$value){
-            $high_data[$key]['place_id'] = $place_id;
-            $high_data[$key]['highlight_id'] = $value['id'];
-        }
 
-        DB::table('place_highlights')->insert($high_data);
 
 
         //fill comments
@@ -169,6 +176,10 @@ class ApiController extends Controller
 
                 $comm = Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => 0, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
 
+                if(!is_null($comment['rate'])) {
+                    Rate::create(['user_id' => $author_id, 'place_id' => $place_id, 'mark' => $comment['rate']]);
+                }
+                
                 if(count($comment['sub_comments']) > 0){
                     foreach ($comment['sub_comments'] as $comment){
                         $i++;
@@ -187,17 +198,18 @@ class ApiController extends Controller
 
         //fill place_cuisins
         $c = array();
-        foreach ($d['cuisines'] as $key=>$value){
-            $c[$key]['name'] = $value;
+        if(count($d['cuisines']) > 0) {
+            foreach ($d['cuisines'] as $key => $value) {
+                $c[$key]['name'] = $value;
+            }
+            $cuisins = Cuisin::whereIn('name', $c)->get()->toArray();
+            $cuis_data = array();
+            foreach ($cuisins as $key=>$value){
+                $cuis_data[$key]['place_id'] = $place_id;
+                $cuis_data[$key]['cuisin_id'] = $value['id'];
+            }
+            DB::table('place_cuisins')->insert($cuis_data);
         }
-
-        $cuisins = Cuisin::whereIn('name', $c)->get()->toArray();
-        $cuis_data = array();
-        foreach ($cuisins as $key=>$value){
-            $cuis_data[$key]['place_id'] = $place_id;
-            $cuis_data[$key]['cuisin_id'] = $value['id'];
-        }
-        DB::table('place_cuisins')->insert($cuis_data);
     }
 
     public function fillCuisines(Request $request){
