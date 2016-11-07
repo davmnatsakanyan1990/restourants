@@ -188,6 +188,9 @@ class PlaceController extends Controller
 
         //format data
         $restaurants = array();
+//        echo '<pre>';
+//        print_r($places);
+//        echo '</pre>';
         foreach ($places as $item){
             $place = array();
             $rate = $this->avg_rate($item['id']);
@@ -198,7 +201,11 @@ class PlaceController extends Controller
             $place['address'] = $item['address'];
             $place['lat'] = $item['lat'];
             $place['long'] = $item['lon'];
-            $place['image'] = $item['thumb_image'][0]['name'];
+
+            if(count($item['thumb_image']) > 0)
+                $place['image'] = $item['thumb_image'][0]['name'];
+            else
+                $place['image'] = null;
 
             $hs = array();
             foreach ($item['highlights'] as $key => $highlight){
