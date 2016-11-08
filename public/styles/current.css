@@ -524,7 +524,15 @@ footer .socialIco div:last-child {
   margin: 0;
 }
 @media screen and (max-width: 800px) {
+  .restPageContainer .pageContainer {
+    top: -60px;
+  }
   .restPageContainer .pageContainer .containerContent .container1 .containerPart {
     padding: 15px;
+    width: 100%;
+    float: none;
+  }
+  .restPageContainer .pageContainer .containerContent .container1 .containerPart .mapPartMap {
+    padding: 20px 10px 0;
   }
 }
