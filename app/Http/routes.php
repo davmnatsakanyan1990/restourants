@@ -19,6 +19,7 @@ Route::get('/current', function () {
     return view('current');
 });
 */
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -46,8 +47,8 @@ Route::group([
 
         Route::get('is_auth', 'AuthController@isAuth');
 
-        Route::get('auth/facebook', 'AuthController@redirectToProvider');
-        Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback');
+        Route::get('auth/{provider}', 'AuthController@redirectToProvider');
+        Route::get('auth/{provider}/callback', 'AuthController@handleProviderCallback');
     });
 
 
@@ -85,6 +86,9 @@ Route::get('restaurants/filter/{data}', 'PlaceController@filter');
 Route::get('show/{id}', 'PlaceController@show');
 Route::get('products/{menu_id}', 'PlaceController@products');
 
+Route::get('comments', 'PlaceController@moreComments');
+Route::get('sendmail/{email}', 'UserController@sendMail');
+
 
 /**
  * Routes for API call
@@ -98,8 +102,7 @@ Route::get('assign/type', 'ApiController@assignType');
 
 
 Route::get('test', function(){
-    $d=json_encode(['city'=>'fff', 'cate' => [1,2,3]]);
-    dd($d);
+    User::create(['name' => 'dfdf',  'username' => 'dfdf', 'email' => 'dav.mnatsakanyan@gmail.com']);
 });
 
 

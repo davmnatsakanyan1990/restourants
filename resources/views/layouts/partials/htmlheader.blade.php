@@ -27,3 +27,6 @@
 
 
 <link rel="stylesheet" href="{{asset('lib/fancybox/source/helpers/jquery.fancybox-thumbs.css')}}" type="text/css" media="screen" />
+<script>
+    var BASE_URL = '{{ url('/') }}';
+</script>

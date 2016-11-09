@@ -220,7 +220,7 @@
                         <div class="writeContent" ng-class="{'hideWriteContent': writeComment}">
                             <textarea placeholder="Write your comment" ng-model="comment"></textarea>
                             <div class="doubleButtons clearElement">
-                                <button class="writeComment capitalize elementLeft" ng-click="ClearInner()">clear</button>
+                                {{--<button class="writeComment capitalize elementLeft" ng-click="ClearInner()">clear</button>--}}
                                 <button class="writeComment capitalize elementLeft" ng-click="writeCommentNow(1)">send</button>
                             </div>
                         </div>
@@ -333,7 +333,7 @@
                             </div>
                         </div>
                         <div class="bottomPart">
-                            <button class="capitalize writeComment ">show more</button>
+                            <button class="capitalize writeComment " ng-click="moreComments()" ng-if="moreCommentsToShow">show more</button>
                         </div>
                     </div>
                 </div>

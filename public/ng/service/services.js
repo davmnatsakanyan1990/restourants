@@ -68,6 +68,20 @@ app.factory('RestaurantService', function($http) {
                 method : "GET",
                 url : "restaurants/filter/" + JSON.stringify(data)
             })
+        },
+
+        getMoreComments: function(data){
+            return $http ({
+                method : "GET",
+                url : 'comments?place_id='+data.place_id+'&page='+data.page
+            })
+        },
+
+        sendRegistrationMail: function(email){
+            return $http ({
+                method: "GET",
+                url: 'sendmail/'+email
+            })
         }
 
 

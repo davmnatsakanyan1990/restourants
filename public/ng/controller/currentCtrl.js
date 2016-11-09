@@ -6,7 +6,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     $scope.animateSecMenuVar = false;
     $scope.haveData = false;
     $scope.editedRating = false;
-	$scope.logedUser = false;
+	// $rootScope.logedUser = false;
     $scope.$watch(function () {
         return $window.scrollY;
     }, function (scrollY) {
@@ -22,14 +22,22 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 	RestaurantService.getLogedUser()
 		.then(function (response) {
 			if(response.data.status == 1){
-				$scope.logedUser = true;
+				$rootScope.logedUser = true;
 			}
          });
     var restId = localStorage.getItem("restId");
     var restaurantId = JSON.parse(restId);
+
+    $scope.commentsCallData = {
+        page: 1,
+        place_id: restaurantId
+    };
+    
     RestaurantService.getRestaurantData(restaurantId)
         .then(function (response) {
             $scope.currentRestaurant = response.data;
+            $scope.moreCommentsToShow = response.data.more_comments;
+            console.log(response.data);
             //make map point
             $scope.initMap({
                 zoom: 16,
@@ -181,5 +189,18 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     };
     //end of map section
 
+    $scope.moreComments = function(){
+        $scope.commentsCallData.page++;
+        RestaurantService.getMoreComments($scope.commentsCallData)
+            .then(function(response){
+
+                $scope.moreCommentsToShow = response.data.more_data;
+
+                angular.forEach(response.data.comments, function(value, key){
+
+                    $scope.currentRestaurant.comments.push(value);
+                });
+            })
+    }
 });
 

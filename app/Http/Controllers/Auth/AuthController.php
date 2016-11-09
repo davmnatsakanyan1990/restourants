@@ -85,7 +85,7 @@ class AuthController extends Controller
         $credentials = $this->getCredentials($request);
 
         if (Auth::guard('user')->attempt($credentials, $request->has('remember'))) {
-            return response()->json(['status' =>'ok']);
+            return response()->json(['status' =>'ok', 'user' => Auth::guard('user')->user()->toArray()]);
         }
         else{
             return response()->json(['status' =>'error']);
@@ -112,12 +112,12 @@ class AuthController extends Controller
 
         Auth::guard('user')->login($user);
 
-        return response()->json(['status' =>'ok']);
+        return response()->json(['status' =>'ok', 'user' => Auth::guard('user')->user()->toArray()]);
     }
 
     public function isAuth(){
         if(Auth::guard('user')->check()){
-            return response()->json(['status' => 1]);
+            return response()->json(['status' => 1, 'user' => Auth::guard('user')->user()->toArray()]);
         }
         else{
             return response()->json(['status' => 0]);
@@ -141,9 +141,9 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -151,20 +151,20 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
-        $data = Socialite::driver('facebook')->user();
+        $data = Socialite::driver($provider)->user();
 
-        $user = User::where('username', $data->id)->get()->toArray();
+        $user = User::where('username', $data->id)->first();
 
         if($user){
             Auth::guard('user')->login($user);
-            return response()->json(['status' =>'ok']);
+            return redirect('/#');
         }
         else{
             $u = User::create(['name' => $data->name,  'username' => $data->id, 'email' => $data->email]);
             Auth::guard('user')->login($u);
-            return response()->json(['status' =>'ok']);
+            return redirect('/#');
         }
     }
 }

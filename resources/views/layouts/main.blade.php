@@ -59,7 +59,7 @@
                                     <div class="elementLeft"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                                     <div class="elementLeft">facebook</div>
                                 </div>
-                                <div class="loginUsing googlePlus">
+                                <div class="loginUsing googlePlus" ng-click="loginGoogle()">
                                     <div class="elementLeft"><i class="fa fa-google" aria-hidden="true"></i></div>
                                     <div class="elementLeft">google</div>
                                 </div>

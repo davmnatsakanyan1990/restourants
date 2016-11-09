@@ -188,9 +188,6 @@ class PlaceController extends Controller
 
         //format data
         $restaurants = array();
-//        echo '<pre>';
-//        print_r($places);
-//        echo '</pre>';
         foreach ($places as $item){
             $place = array();
             $rate = $this->avg_rate($item['id']);
@@ -354,7 +351,10 @@ class PlaceController extends Controller
             $comments[$key]['sub_comments'] = $sub_comments;
         }
 
-        $array['comments'] = $comments;
+
+        $chunked = collect($comments)->values()->chunk(5)->toArray();
+        $comm_pages = count($chunked);
+        $array['comments'] = $chunked[0];
 
         $data = array();
 
@@ -459,6 +459,10 @@ class PlaceController extends Controller
         $data['name'] = $array['name'];
         $data['rating'] = (int)$array['rating'];
         $data['comment'] = $array['comment'];
+        if($comm_pages == 1)
+            $data['more_comments'] = false;
+        else
+            $data['more_comments'] = true;
         $data['intro'] = $array['intro'];
         $data['address'] = $array['address'];
         $data['lat'] = $array['lat'];
@@ -472,6 +476,76 @@ class PlaceController extends Controller
         return response()->json($data);
     }
 
+    /**
+     * get more comments
+     *
+     * @return mixed
+     */
+    public function moreComments(){
+        $place_id = request('place_id');
+        $page = request('page');
+
+        $place = Place::with(['comments' => function($comments){
+            return $comments->orderBy('created_at', 'desc');
+        }])
+        ->findOrFail($place_id);
+
+        $collection = collect($place->toArray());
+
+        $array = $collection->all();
+
+        //get comments author
+        $comments = $array['comments'];
+        foreach($comments as $key => $comment){
+            $comments[$key]['author'] = $comment['commentable_type'] :: find($comment['commentable_id'])->toArray();
+            $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
+
+
+            foreach ($sub_comments as $k=>$sub_comment){
+                $sub_comments[$k]['author'] = $sub_comment['commentable_type'] :: find($sub_comment['commentable_id'])->toArray();
+            }
+            $comments[$key]['sub_comments'] = $sub_comments;
+        }
+        $chunked = collect($comments)->values()->chunk(5)->toArray();
+        $pages = count($chunked);
+        $array['comments'] = $chunked[$page-1];
+
+        $response = array();
+        $comms = array();
+        foreach ($array['comments'] as $k=>$v){
+
+            $comms[$k]['name'] = $v['author']['name'];
+            $comms[$k]['date'] = date_format(date_create($v['created_at']), "m/d/y");
+            $comms[$k]['comment'] = $v['text'];
+            $comms[$k]['id'] = $v['id'];
+
+            $sub_coms = Comment::where('parent_id', $v['id'])->get()->toArray();
+            if(count($sub_coms) > 0) {
+                foreach ($sub_coms as $index => $comment) {
+                    $author = $comment['commentable_type']:: find($comment['commentable_id'])->name;
+                    $comms[$k]['subComment'][$index]['name'] = $author;
+                    $comms[$k]['subComment'][$index]['comment'] = $comment['text'];
+                    $comms[$k]['subComment'][$index]['date'] = date_format(date_create($comment['created_at']), "m/d/y");
+                    $comms[$k]['subComment'][$index]['id'] = $comment['id'];
+                }
+            }
+            else{
+                $comms[$k]['subComment'] = null;
+            }
+        }
+
+        $response['comments'] = $comms;
+        if($page == $pages)
+            $response['more_data'] = false;
+        else
+            $response['more_data'] = true;
+        return $response;
+    }
+    /**
+     * get products for given menu
+     * @param $menu_id
+     * @return mixed
+     */
     public function products($menu_id){
         $products = Product::where('menu_id', $menu_id)->select(['title', 'description', 'price'])->get()->toArray();
         return $products;

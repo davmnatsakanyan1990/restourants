@@ -113,11 +113,21 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     RestaurantService.getLogedUser()
         .then(function (response) {
             if(response.data.status == 1){
-                $scope.logedUser = true;
+                $rootScope.logedUser = true;
+
+                //set user name to local storage for social login
+                if(!localStorage.getItem('userName')) {
+                    var user = response.data.user;
+                    var un = user.name;
+                    $scope.userFirstLetter = un.substring(0, 1);
+                    var userName = JSON.stringify(un);
+                    localStorage.setItem('userName', userName);
+                }
+
             }
         });
 	
-	//login and reister part
+	//login and register part
     var animate = function (element) {
         element.animate({ opacity: '0.4', height: '100px'}, "slow");
         element.animate({ opacity: '1'}, "slow");
@@ -125,11 +135,12 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         element.animate({ opacity: '0', height: '0'}, "slow");
     };
     var confirm = document.getElementsByClassName('confirm');
-	$scope.loginUser = function(user){
-	    if(user && user.password && user.email){
-            RestaurantService.userLogin(user)
+	$scope.loginUser = function(data){
+	    if(data && data.password && data.email){
+            RestaurantService.userLogin(data)
                 .then(function (response) {
                     if(response.data.status == "ok") {
+                        var user = response.data.user;
                         $scope.successLogin = true;
                         var un = user.email;
                         $scope.userFirstLetter = un.substring(0,1);
@@ -141,7 +152,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                     RestaurantService.getLogedUser()
                         .then(function (response) {
                             if(response.data.status == 1){
-                                $scope.logedUser = true;
+                                $rootScope.logedUser = true;
                             }
                         });
                 }, function(error){
@@ -164,11 +175,16 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         $scope.currentUser = {};
                         $scope.reset();
                         animate($(".confirm"));
+                        
+                        RestaurantService.sendRegistrationMail(user.email)
+                            .then(function(response){
+
+                            });
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
                             if(response.data.status == 1){
-                                $scope.logedUser = true;
+                                $rootScope.logedUser = true;
                             }
                         });
                 }, function(error){
@@ -183,7 +199,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         RestaurantService.logout()
             .then(function (response) {
                 if(response.data.status == "ok"){
-                    $scope.logedUser = false;
+                    $rootScope.logedUser = false;
                     localStorage.removeItem("userName");
                 }else{
                     $scope.successLogin = false;
@@ -203,7 +219,13 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     //$scope.reset();
 
     $scope.loginFacebook = function () {
-        RestaurantService.loginUsingFacebook();
+       // RestaurantService.loginUsingFacebook();
+        window.location = BASE_URL+'/user/auth/facebook';
+    }
+
+    $scope.loginGoogle = function () {
+        // RestaurantService.loginUsingFacebook();
+        window.location = BASE_URL+'/user/auth/google';
     }
 
 });
