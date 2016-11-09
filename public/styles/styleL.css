@@ -727,7 +727,7 @@ html body .content .sliderSection .headBody {
 html body .content .sliderSection .slider {
   height: 100px;
   margin-top: 20px;
-  max-width: 1040px;
+  max-width: 500px;
   margin: 0 auto;
 }
 html body .content .sliderSection .secondNav {
@@ -1127,6 +1127,9 @@ html body .uppercase {
   text-transform: uppercase;
 }
 @media screen and (max-width: 767px) {
+  html body .restNav {
+    display: none;
+  }
   html body .searchMenuPart {
     width: 100% !important;
   }

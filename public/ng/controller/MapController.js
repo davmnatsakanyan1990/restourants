@@ -50,8 +50,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             }
 
             $scope.initMap({
-                zoom: 10,
-                center: new google.maps.LatLng($scope.restaurants[0].lat*1+0.3, $scope.restaurants[0].long*1-1.5),
+                zoom: 16,
+                center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.006),
                 scrollwheel: false,
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             });
@@ -80,8 +80,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
     $scope.initMap = function(mapOptions){
+
         var mapOptions = mapOptions || {
-                zoom: 10,
+                zoom: 16,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             };
@@ -96,13 +97,20 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
         $scope.map.fitBounds(bounds); // map should be your map class
         $scope.map.setCenter(mapOptions.center); //set after fitBounds
+
+        var listener = google.maps.event.addListener($scope.map, "idle", function() {
+            $scope.map.setZoom(mapOptions['zoom']);
+            google.maps.event.removeListener(listener);
+        });
     };
 
     var infoWindow = new google.maps.InfoWindow();
 
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
-        google.maps.event.trigger(selectedMarker, 'click');
+        console.log('4')
+        google.maps.event.trigger( selectedMarker, 'click');
+        $scope.map.setCenter(selectedMarker['position']); //set after fitBounds
     };
 
     var createMarker = function (info){
@@ -110,7 +118,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(info.lat, info.long),
-            icon: 'images/ball.png',
+            icon: 'images/1(1).png',
             title: info.title,
             id: info.id,
             image: info.image,
@@ -118,6 +126,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             explane: info.explane,
             rating: info.rating
         });
+
         marker.content = '<div class="infoWindowContent">' + info.explane + '</div>';
 
         google.maps.event.addListener(marker, 'click', function(){
@@ -148,6 +157,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 $scope.clichedElementId
             );
         });
+
 
         $scope.markers.push(marker);
     };
@@ -285,18 +295,17 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             }
         }
     }else if(window.innerWidth > 649 && window.innerWidth <=1178) {
-        $scope.cal = 2;
+        $scope.cal = 3;
         for(var i =0; i<$scope.images.length; i++){
             if (i % 6 == 0 && i!=0){
-                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3], $scope.images[i-4], $scope.images[i-5]]);
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
             }
         }
     }else if(window.innerWidth >1178){
-        $scope.cal = 1;
+        $scope.cal = 3;
         for(var i =0; i<$scope.images.length; i++){
             if (i % 11 == 0 && i!=0){
-                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3], $scope.images[i-4], $scope.images[i-5], $scope.images[i-6], $scope.images[i-7],
-                    $scope.images[i-8],  $scope.images[i-9], $scope.images[i-10], $scope.images[i-11]]);
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
             }
         }
     };
@@ -362,8 +371,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         $scope.restaurants = response.data.restaurants;
 
                         $scope.initMap({
-                            zoom: 10,
-                            center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.3, $scope.restaurants[0].long * 1 - 1.5),
+                            zoom: 16,
+                            center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.1),
                             scrollwheel: false,
                             mapTypeId: google.maps.MapTypeId.TERRAIN
                         });
@@ -423,8 +432,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     $scope.restaurants = response.data.restaurants;
 
                     $scope.initMap({
-                        zoom: 10,
-                        center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.3, $scope.restaurants[0].long * 1 - 1.5),
+                        zoom: 16,
+                        center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
                         scrollwheel: false,
                         mapTypeId: google.maps.MapTypeId.TERRAIN
                     });
