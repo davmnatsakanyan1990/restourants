@@ -166,13 +166,13 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(lat, long),
-            icon: '../images/ball.png',
+            icon: '../images/1(1).png',
 
         });
     };
     $scope.initMap = function(mapOptions){
         var mapOptions = mapOptions || {
-                zoom: 14,
+                zoom: 16,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             };

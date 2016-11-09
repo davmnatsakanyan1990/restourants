@@ -433,7 +433,7 @@ button{
           }
           .subComment{
             .commentContent{
-              margin-left: 30px;
+              margin: 0 30px;
               background-color: #efefef;
               padding-left: 20px;
               border-bottom: 1px solid @secondColor;
@@ -489,7 +489,7 @@ button{
           margin-bottom: 20px;
         }
         .containerContent{
-          display: table;
+          display: block;
           float: left;
           margin: 10px 15px 0 0;
           &:last-child{
@@ -590,7 +590,7 @@ footer{
 @media screen and (max-width: 800px){
   .restPageContainer{
     .pageContainer{
-      top: -60px;
+      top: -30px;
       .containerContent{
         .container1{
           .containerPart{
@@ -603,7 +603,19 @@ footer{
             }
           }
         }
+
+        .container5 {
+          .commentContent {
+            .subComment {
+              .commentContent {
+                margin: 0;
+              }
+            }
+          }
+        }
+
       }
     }
   }
 }
+
