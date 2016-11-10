@@ -79,6 +79,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             });
     };
 
+
+
     $scope.initMap = function(mapOptions){
 
         var mapOptions = mapOptions || {
@@ -108,26 +110,47 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
-        console.log('4')
+        //var bootomRight =  new google.maps.LatLng(info.lat, info.long),
         google.maps.event.trigger( selectedMarker, 'click');
-        $scope.map.setCenter(selectedMarker['position']); //set after fitBounds
+        $scope.map.setCenter(selectedMarker['hoverPosition']); //set after fitBounds
     };
 
-    var createMarker = function (info){
 
+    var createMarker = function (info){
+      /*var pinIcon;
+        switch (info.id) {
+            case 1:
+                pinIcon = 'images/1(1).png';
+                break;
+            case 2:
+                pinIcon = 'images/2(2).png';
+                break;
+            case 3:
+                pinIcon = 'images/3(3).png';
+                break;
+            case 4:
+                pinIcon = 'images/4(4).png';
+                break;
+        }*/
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(info.lat, info.long),
             icon: 'images/1(1).png',
+            //icon: icons[info.type].icon,
             title: info.title,
             id: info.id,
             image: info.image,
             service: info.service,
             explane: info.explane,
-            rating: info.rating
+            rating: info.rating,
+            hoverPosition: new google.maps.LatLng(info.lat*1+0.003, info.long*1-0.006),
         });
 
+
+
         marker.content = '<div class="infoWindowContent">' + info.explane + '</div>';
+
+
 
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
@@ -376,7 +399,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                             scrollwheel: false,
                             mapTypeId: google.maps.MapTypeId.TERRAIN
                         });
-
                         for (i = 0; i < $scope.restaurants.length; i++) {
                             createMarker($scope.restaurants[i]);
                         }
