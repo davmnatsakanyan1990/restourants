@@ -1,6 +1,6 @@
 app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout, RestaurantService) {
 
-    var categories = {};
+
     $scope.custom = false;
     $scope.openDropMenu = false;
     $scope.animateTopMenuVar = false;
@@ -27,84 +27,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
             $scope.showFilters = response.data.filters;
-
-            //top sider
-
-            $scope.myNewArr = [];
-            $scope.cats = [];
-
-            for(var i = 0; i < 3; i++){
-                for(var index = 2; index < response.data.filters.Mode.length; index++){
-                    $scope.cats.push({'name' : response.data.filters.Mode[index].name, 'id' : response.data.filters.Mode[index].id, 'image' : '../images/foodImages/'+(index+1)+'.jpg'});
-
-                }
-            }
-
-            if(window.innerWidth < 380){
-                $scope.cal = 6;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 2 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth < 470 && window.innerWidth > 380){
-                $scope.cal = 4;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 3 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth < 649 && window.innerWidth > 470){
-                $scope.cal = 3;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 4 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                                {'name': $scope.cats[i-3].name, 'image' : $scope.cats[i-3].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth > 649 && window.innerWidth <=1178) {
-                $scope.cal = 3;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 6 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                                {'name': $scope.cats[i-3].name, 'image' : $scope.cats[i-3].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth >1178){
-                $scope.cal = 3;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 11 == 0 && i!=0){
-
-                        //  $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                                {'name': $scope.cats[i-3].name, 'image' : $scope.cats[i-3].image },
-                            ]
-                        );
-                    }
-                }
-            };
 
             $scope.drowCuisine = [];
             for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
@@ -191,7 +113,21 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
     var createMarker = function (info){
-console.log(info);
+      /*var pinIcon;
+        switch (info.id) {
+            case 1:
+                pinIcon = 'images/1(1).png';
+                break;
+            case 2:
+                pinIcon = 'images/2(2).png';
+                break;
+            case 3:
+                pinIcon = 'images/3(3).png';
+                break;
+            case 4:
+                pinIcon = 'images/4(4).png';
+                break;
+        }*/
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(info.lat, info.long),
@@ -322,6 +258,72 @@ console.log(info);
      more: '420 places'
      }
      };*/
+
+    //top sider
+
+    $scope.myNewArr = [];
+    $scope.images = [
+
+        '../images/foodImages/1.jpg',
+        '../images/foodImages/2.jpg',
+        '../images/foodImages/3.jpg',
+        '../images/foodImages/4.jpg',
+        '../images/foodImages/5.jpg',
+        '../images/foodImages/6.jpg',
+        '../images/foodImages/7.jpg',
+        '../images/foodImages/1.jpg',
+        '../images/foodImages/2.jpg',
+        '../images/foodImages/3.jpg',
+        '../images/foodImages/4.jpg',
+        '../images/foodImages/5.jpg',
+        '../images/foodImages/6.jpg',
+        '../images/foodImages/7.jpg',
+        '../images/foodImages/1.jpg',
+        '../images/foodImages/2.jpg',
+        '../images/foodImages/3.jpg',
+        '../images/foodImages/4.jpg',
+        '../images/foodImages/5.jpg',
+        '../images/foodImages/6.jpg',
+        '../images/foodImages/7.jpg'
+    ];
+    if(window.innerWidth < 380){
+        $scope.cal = 6;
+        for(var i =0; i<$scope.images.length; i++){
+            if (i % 2 == 0 && i!=0){
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1]]);
+            }
+        }
+    }else if(window.innerWidth < 470 && window.innerWidth > 380){
+        $scope.cal = 4;
+        for(var i =0; i<$scope.images.length; i++){
+            if (i % 3 == 0 && i!=0){
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2]]);
+            }
+        }
+    }else if(window.innerWidth < 649 && window.innerWidth > 470){
+        $scope.cal = 3;
+        for(var i =0; i<$scope.images.length; i++){
+            if (i % 4 == 0 && i!=0){
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
+            }
+        }
+    }else if(window.innerWidth > 649 && window.innerWidth <=1178) {
+        $scope.cal = 3;
+        for(var i =0; i<$scope.images.length; i++){
+            if (i % 6 == 0 && i!=0){
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
+            }
+        }
+    }else if(window.innerWidth >1178){
+        $scope.cal = 3;
+        for(var i =0; i<$scope.images.length; i++){
+            if (i % 11 == 0 && i!=0){
+                $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
+            }
+        }
+    };
+
+
 
     //filters section
 
