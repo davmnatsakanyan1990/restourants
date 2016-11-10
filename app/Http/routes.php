@@ -68,6 +68,14 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
     });
 
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+],
+    function(){
+        Route::get('dashboard', 'DashboardController@index');
+    });
+
 /**
  * Comments route
  */
