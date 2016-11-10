@@ -1,1 +1,47 @@
-/* here you can put your own css to customize and override the theme */
+.main_content {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.main_content .custom_panel {
+    background-color: #f4f8f9;
+    border-radius: 5px !important;
+}
+
+.main_content .custom_panel h3 {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    padding-bottom: 20px;
+}
+
+.main_content .custom_panel h4 {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 400 !important;
+}
+
+.main_content .rest_name {
+    font-weight: bold !important;
+    color: #00abc9;
+    font-size: 16px;
+}
+
+.main_content .custom_panel table{
+    width: 100%;
+}
+.main_content .custom_panel table td:first-child{
+    width: 50%;
+}
+
+.main_content .custom_panel table td:nth-child(2){
+    width: 25%;
+}
+
+.main_content .custom_panel table td:nth-child(3){
+    color: #00abc9;
+}
+
+.custom_panel a {
+    color: #00abc9;
+}

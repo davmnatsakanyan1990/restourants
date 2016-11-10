@@ -68,4 +68,8 @@ class Place extends Model
     public function types(){
         return $this->belongsToMany(Type::class, 'place_types');
     }
+    
+    public function admin(){
+        return $this->hasOne('App\Models\Place');
+    }
 }

@@ -20,28 +20,28 @@
                                     <div class="item active">
                                         <div class="row">
                                             <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>"
-                                                 ng-repeat="image in myNewArr[0] track by $index">
-                                                <a class="thumbnail"
+                                                 ng-repeat="cat in myNewArr[0] track by $index">
+                                                <a  class="thumbnail"
                                                    style="width: 60px; height: 70px; margin: 0 auto; border: none;">
-                                                    <img src="<%image%>" style="max-width:100%;">
+                                                    <img src="<%cat.image%>" style="max-width:100%;">
                                                     <div class="text"
                                                          style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
-                                                        someText
+                                                        <% cat.name %>
                                                     </div>
                                                 </a>
                                             </div>
                                         </div><!--.row-->
                                     </div><!--.item-->
-                                    <div class="item" ng-repeat="img in myNewArr track by $index">
+                                    <div class="item" ng-repeat="cat in myNewArr track by $index">
                                         <div class="row">
                                             <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>"
-                                                 ng-repeat="image in img track by $index">
+                                                 ng-repeat="category in cat track by $index">
                                                 <a class="thumbnail"
                                                    style="width: 60px; height: 70px; margin: 0 auto;  border: none;">
-                                                    <img src="<%image%>" style="max-width:100%;">
+                                                    <img src="<%category.image%>" style="max-width:100%;">
                                                     <div class="text"
                                                          style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
-                                                        someText
+                                                        <% category.name %>
                                                     </div>
                                                 </a>
                                             </div>

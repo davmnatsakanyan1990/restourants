@@ -29,4 +29,8 @@ class Admin extends Authenticatable
     public function comments(){
         $this->morphMany('App\Models\Comment', 'commentable');
     }
+    
+    public function place(){
+       return $this->hasOne('App\Models\Place');
+    }
 }

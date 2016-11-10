@@ -76,6 +76,14 @@ Route::group([
         Route::get('dashboard', 'DashboardController@index');
     });
 
+Route::group([
+    'prefix' => 'admin/place',
+    'namespace' => 'Admin',
+],
+    function(){
+        Route::get('edit', 'PlaceController@edit');
+    });
+
 /**
  * Comments route
  */
