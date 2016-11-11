@@ -38,6 +38,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/admin/css/custom.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
+
+    @yield('styles')
 </head>
 <!-- END HEAD -->
 
@@ -87,6 +89,9 @@ License: You must have a valid license purchased only from themeforest(the above
         App.init();
     });
 </script>
+
+@yield('scripts')
+
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

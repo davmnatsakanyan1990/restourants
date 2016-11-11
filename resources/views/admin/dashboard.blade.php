@@ -1,4 +1,7 @@
 @extends('admin.layouts.index')
+@section('styles')
+
+    @endsection
 @section('content')
     <div class="page-content-wrapper">
         <div class="page-content">
@@ -35,3 +38,7 @@
 
     </div>
 @endsection
+
+@section('scripts')
+
+    @endsection
