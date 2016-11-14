@@ -27,8 +27,8 @@
                             <div class="panel custom_panel panel2">
                                 <div class="panel-body">
                                     <h3>Primary Contact</h3>
-                                    <p><a href="#">Update account details</a></p>
-                                    <p><a href="#">Update billing details</a></p>
+                                    <p><a href="{{ url('admin/profile/edit') }}">Update account details</a></p>
+                                    <p><a href="{{ url('admin/payment/edit') }}">Update billing details</a></p>
                                 </div>
                             </div>
                         </div>

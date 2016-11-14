@@ -6,21 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
-class PlaceController extends Controller
+class PaymentController extends Controller
 {
-
-    public $place;
     public function __construct()
     {
         $this->middleware('auth:admin');
+    }
 
-        if(Auth::guard('admin')->check())
-            $this->place = Auth::guard('admin')->user()->place;
+    public function show(){
+
     }
 
     public function edit(){
-        return view('admin.place_edit');
+        return view('admin.update_billing_details');
     }
 }

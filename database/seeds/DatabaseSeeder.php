@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ShareTableSeeder::class);
 //        $this->call(MenuTableSeeder::class);
 //        $this->call(ProductTableSeeder::class);
-        $this->call(CategoryTableSeeder::class);
-        $this->call(HighlighTableSeeder::class);
-        $this->call(TypeTableSeeder::class);
+//        $this->call(CategoryTableSeeder::class);
+//        $this->call(HighlighTableSeeder::class);
+//        $this->call(TypeTableSeeder::class);
         $this->call(AdminTableSeeder::class);
     }
 }

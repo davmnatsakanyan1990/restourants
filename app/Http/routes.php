@@ -84,6 +84,22 @@ Route::group([
         Route::get('edit', 'PlaceController@edit');
     });
 
+Route::group([
+    'prefix' => 'admin/profile',
+    'namespace' => 'Admin',
+],
+    function(){
+        Route::get('edit', 'AdminController@edit');
+    });
+
+Route::group([
+    'prefix' => 'admin/payment',
+    'namespace' => 'Admin',
+],
+    function(){
+        Route::get('edit', 'PaymentController@edit');
+    });
+
 /**
  * Comments route
  */
