@@ -31,15 +31,24 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Cuisine</label>
-                                                        <input type="text" class="form-control"/>
+                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Type Of Place</label>
-                                                        <input type="text" class="form-control"/>
+                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Services</label>
-                                                        <textarea type="text" class="form-control"></textarea>
+                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Site</label>
@@ -47,7 +56,31 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Price</label>
-                                                        <input type="text" class="form-control"/>
+                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">City</label>
+                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Location</label>
+                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Mode</label>
+                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value="AL">mode1</option>
+                                                            <option value="WY">mode2</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group working-hours">
                                                         <label class="control-label">Working Hours</label>
