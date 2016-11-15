@@ -40,9 +40,9 @@
                             <h5 style="color: red;">*Secure info</h5>
                             <form role="form" method="post" action="{{ url('admin/profile/update/sec_info') }}">
                                 {{ csrf_field() }}
-                                <div class="form-group">
-                                    <input type="password" name="old_password" id="old_password" class="form-control input-sm" placeholder="Your Password">
-                                </div>
+                                {{--<div class="form-group">--}}
+                                    {{--<input type="password" name="old_password" id="old_password" class="form-control input-sm" placeholder="Your Password">--}}
+                                {{--</div>--}}
                                 <div class="form-group">
                                     <input type="password" name="password" id="password" class="form-control input-sm" placeholder="New Password">
                                 </div>
