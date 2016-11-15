@@ -58,6 +58,9 @@ var ComponentsDropdowns = function () {
         $("#select2_sample8").select2({
             tags: ['i', 'you', 'he']
         });
+        $("#select2_sample9").select2({
+            tags: ['we', 'you', 'they']
+        });
 
 
         function movieFormatResult(movie) {

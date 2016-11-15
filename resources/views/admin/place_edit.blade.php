@@ -32,7 +32,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Cuisine</label>
-                                                        <input type="hidden" id="select2_sample6" class="form-control select2" value="red, blue">
+                                                        <input type="hidden" id="select2_sample9" class="form-control select2" value="we, you">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Type Of Place</label>
@@ -86,51 +86,261 @@
                                                             <li>
                                                                 <label for="">Mon:</label>
                                                                 <input type="checkbox" name="mon" class="form-control" {{ ($place['workinghour']['mon'] != 'closed' && $place['workinghour']['mon'] != '') ? 'checked' : '' }}/>
-                                                                <input type="text" name="mon_from" class="form-control"/>
-                                                                <label for="">to</label>
-                                                                <input type="text" name="mon_to" class="form-control"/>
+                                                                <div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label for="" style="width: auto">to</label>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                             <li>
                                                                 <label for="">Tue:</label>
                                                                 <input type="checkbox" name="tue" class="form-control" {{ ($place['workinghour']['tue'] != 'closed' && $place['workinghour']['tue'] != '') ? 'checked' : '' }}/>
-                                                                <input type="text" name="tue_from" class="form-control"/>
-                                                                <label for="">to</label>
-                                                                <input type="text" name="tue_to" class="form-control"/>
+                                                                <div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label for="" style="width: auto">to</label>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                             <li>
                                                                 <label for="">Wed:</label>
                                                                 <input type="checkbox" name="wed" class="form-control" {{ ($place['workinghour']['wed'] != 'closed' && $place['workinghour']['wed'] != '') ? 'checked' : '' }}/>
-                                                                <input type="text" name="wed_from" class="form-control"/>
-                                                                <label for="">to</label>
-                                                                <input type="text" name="wed_to" class="form-control"/>
+                                                                <div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label for="" style="width: auto">to</label>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                             <li>
                                                                 <label for="">Thu:</label>
                                                                 <input type="checkbox" name="thu" class="form-control" {{ ($place['workinghour']['thu'] != 'closed' && $place['workinghour']['thu'] != '') ? 'checked' : '' }}/>
-                                                                <input type="text" name="thu_from" class="form-control"/>
-                                                                <label for="">to</label>
-                                                                <input type="text" name="thu_to" class="form-control"/>
+                                                                <div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label for="" style="width: auto">to</label>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                             <li>
                                                                 <label for="">Fri:</label>
                                                                 <input type="checkbox" name="fri" class="form-control" {{ ($place['workinghour']['fri'] != 'closed' && $place['workinghour']['fri'] != '') ? 'checked' : '' }}/>
-                                                                <input type="text" name="fri_from" class="form-control"/>
-                                                                <label for="">to</label>
-                                                                <input type="text" name="fri_to" class="form-control"/>
+                                                                <div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label for="" style="width: auto">to</label>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                             <li>
                                                                 <label for="">Sat:</label>
                                                                 <input type="checkbox" name="sat" class="form-control" {{ ($place['workinghour']['sat'] != 'closed' && $place['workinghour']['sat'] != '') ? 'checked' : '' }}/>
-                                                                <input type="text" name="sat_from" class="form-control"/>
-                                                                <label for="">to</label>
-                                                                <input type="text" name="sat_to" class="form-control"/>
+                                                                <div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label for="" style="width: auto">to</label>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                             <li>
                                                                 <label for="">Sun:</label>
                                                                 <input type="checkbox" name="sun" class="form-control" {{ ($place['workinghour']['sun'] != 'closed' && $place['workinghour']['sun'] != '') ? 'checked' : '' }}/>
-                                                                <input type="text" name="sun_from" class="form-control"/>
-                                                                <label for="">to</label>
-                                                                <input type="text" name="sun_to" class="form-control"/>
+                                                                <div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label for="" style="width: auto">to</label>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="margin5">:</div>
+                                                                    <div class="elementsBlock">
+                                                                        <input type="text" name="mon_from" class="form-control"/>
+                                                                        <div class="upDown">
+                                                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </li>
                                                         </ul>
 

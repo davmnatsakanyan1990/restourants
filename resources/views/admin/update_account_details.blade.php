@@ -25,7 +25,7 @@
                                 <div class="form-group">
                                     <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" value="{{ $admin['email'] }}">
                                 </div>
-                                <input type="submit" value="Update" class="btn btn-info btn-block">
+                                <input type="submit" value="Update" class="btn btn-info btn-block" style="margin-bottom: 10px;">
                             </form>
                                 @if(count($errors)>0)
                                     <div class="alert alert-danger fade-in">

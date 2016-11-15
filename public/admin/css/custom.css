@@ -196,3 +196,19 @@ div.profile > div {
     padding: 10px 30px;
     border-radius: 8px !important;
 }
+
+
+.elementsBlock{
+    position: relative;
+}
+.elementsBlock .upDown{
+    float: left;
+    position: absolute;
+    right: 13px;
+}
+.elementsBlock .upDown i{
+    display: block;
+}
+.margin5{
+    margin-top: 5px;
+}
