@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Place;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -22,5 +23,17 @@ class PlaceController extends Controller
 
     public function edit(){
         return view('admin.place_edit');
+    }
+    
+    public function update(Request $request){
+        Place::where('admin_id', $this->place->id)->update([
+            'name' => $request->name,
+            'mobile' => $request->mobile,
+            'intro' => $request->intro,
+            'address' => $request->address,
+            
+        ]);
+
+
     }
 }

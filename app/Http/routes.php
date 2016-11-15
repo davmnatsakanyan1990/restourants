@@ -82,6 +82,7 @@ Route::group([
 ],
     function(){
         Route::get('edit', 'PlaceController@edit');
+        Route::post('update', 'PlaceController@update');
     });
 
 Route::group([
