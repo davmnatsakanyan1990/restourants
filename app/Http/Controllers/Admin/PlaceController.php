@@ -22,6 +22,9 @@ class PlaceController extends Controller
     }
 
     public function edit(){
+       $place = Place::with(['highlights', 'cuisins', 'workinghour', 'categories', 'location', 'types'])
+            ->find($this->place->id);
+        dd($place->toArray());
         return view('admin.place_edit');
     }
     
@@ -31,7 +34,7 @@ class PlaceController extends Controller
             'mobile' => $request->mobile,
             'intro' => $request->intro,
             'address' => $request->address,
-            
+            'cost' => $request->cost
         ]);
 
 
