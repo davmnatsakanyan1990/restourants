@@ -183,14 +183,7 @@
 
         @section('scripts')
 
-
-
             <script src="/admin/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>
-
-
-
-
-
             <!-- END CORE PLUGINS -->
             <!-- BEGIN PAGE LEVEL PLUGINS -->
             <script type="text/javascript" src="/admin/plugins/bootstrap-select/bootstrap-select.min.js"></script>
