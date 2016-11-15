@@ -91,6 +91,8 @@ Route::group([
 ],
     function(){
         Route::get('edit', 'AdminController@edit');
+        Route::post('update/pers_info', 'AdminController@update_pers_info');
+        Route::post('update/sec_info', 'AdminController@update_sec_info');
     });
 
 Route::group([
@@ -135,7 +137,7 @@ Route::get('assign/type', 'ApiController@assignType');
 
 
 Route::get('test', function(){
-    User::create(['name' => 'dfdf',  'username' => 'dfdf', 'email' => 'dav.mnatsakanyan@gmail.com']);
+    dd(Auth::guard('admin')->user()->password);
 });
 
 
