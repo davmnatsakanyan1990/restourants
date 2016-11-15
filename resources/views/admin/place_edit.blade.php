@@ -161,5 +161,17 @@
             </div>
             <!-- END PAGE CONTENT-->
         </div>
+
+
+        @section('styles')
+
+                <!-- BEGIN PAGE LEVEL STYLES -->
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/bootstrap-select/bootstrap-select.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/select2/select2.css"/>
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/select2/select2-metronic.css"/>
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/jquery-multi-select/css/multi-select.css"/>
+
+        @endsection
+
     </div>
 @endsection
