@@ -52,6 +52,13 @@ var ComponentsDropdowns = function () {
             tags: services
         });
 
+        $("#select2_sample7").select2({
+            tags: ['red', 'green']
+        });
+        $("#select2_sample8").select2({
+            tags: ['i', 'you', 'he']
+        });
+
 
         function movieFormatResult(movie) {
             var markup = "<table class='movie-result'><tr>";

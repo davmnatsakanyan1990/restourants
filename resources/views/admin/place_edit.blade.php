@@ -32,27 +32,14 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Cuisine</label>
-                                                        <select class="form-control select2me" data-placeholder="Select...">
-                                                            <option value=""></option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
-                                                        </select>
+                                                        <input type="hidden" id="select2_sample6" class="form-control select2" value="red, blue">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Type Of Place</label>
-                                                        <select class="form-control select2me" data-placeholder="Select...">
-                                                            <option value=""></option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
-                                                        </select>
+                                                        <input type="hidden" id="select2_sample7" class="form-control select2" value="red, blue">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Services</label>
-                                                        {{--<select class="form-control select2me" data-placeholder="Select...">--}}
-                                                            {{--<option value=""></option>--}}
-                                                            {{--<option value="AL">Alabama</option>--}}
-                                                            {{--<option value="WY">Wyoming</option>--}}
-                                                        {{--</select>--}}
                                                         <input type="hidden" id="select2_sample5" class="form-control select2" value="red, blue">
                                                     </div>
                                                     <div class="form-group">
@@ -90,11 +77,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Mode</label>
-                                                        <select class="form-control select2me" data-placeholder="Select...">
-                                                            <option value=""></option>
-                                                            <option value="AL">mode1</option>
-                                                            <option value="WY">mode2</option>
-                                                        </select>
+                                                        <input type="hidden" id="select2_sample8" class="form-control select2" value="i, you">
                                                     </div>
                                                     <div class="form-group working-hours">
                                                         <label class="control-label">Working Hours</label>
