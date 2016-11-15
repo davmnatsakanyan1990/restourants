@@ -21,9 +21,9 @@ class AdminController extends Controller
     }
 
     public function edit(){
-        $admin = Auth::guard('admin')->user();
-        dd($admin);
-        return view('admin.update_account_details');
+        $admin = Auth::guard('admin')->user()->toArray();
+
+        return view('admin.update_account_details', compact('admin'));
     }
 
     public function update(){

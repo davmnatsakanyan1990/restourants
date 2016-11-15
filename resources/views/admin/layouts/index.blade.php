@@ -75,21 +75,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <![endif]-->
 <script src="/admin/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="/admin/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/admin/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/jquery.cokie.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<script src="/admin/scripts/core/app.js"></script>
-<script>
-    jQuery(document).ready(function() {
-        App.init();
-    });
-</script>
 
 @yield('scripts')
 

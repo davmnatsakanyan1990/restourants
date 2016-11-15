@@ -20,15 +20,15 @@
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
                                                         <label class="control-label">Restaurant Name</label>
-                                                        <input type="text" name="name" class="form-control"/>
+                                                        <input type="text" name="name" class="form-control" value="{{ $place['name'] }}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Mobile Number</label>
-                                                        <input type="text" name="mobile" class="form-control"/>
+                                                        <input type="text" name="mobile" class="form-control" value="{{ $place['mobile'] }}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Address</label>
-                                                        <input type="text" name="address" class="form-control"/>
+                                                        <input type="text" name="address" class="form-control" value="{{ $place['address'] }}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Cuisine</label>
@@ -48,38 +48,44 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Services</label>
-                                                        <select class="form-control select2me" data-placeholder="Select...">
-                                                            <option value=""></option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
-                                                        </select>
+                                                        {{--<select class="form-control select2me" data-placeholder="Select...">--}}
+                                                            {{--<option value=""></option>--}}
+                                                            {{--<option value="AL">Alabama</option>--}}
+                                                            {{--<option value="WY">Wyoming</option>--}}
+                                                        {{--</select>--}}
+                                                        <input type="hidden" id="select2_sample5" class="form-control select2" value="red, blue">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Site</label>
-                                                        <input type="text" name="site" class="form-control"/>
+                                                        <input type="text" name="site" class="form-control" value="{{ $place['site'] }}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Price</label>
-                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                        <select class="form-control select2me" data-placeholder="Select..." name="cost">
                                                             <option value=""></option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
+                                                            <option value="1" {{ $place['cost'] == 1 ? 'selected' : '' }}>$</option>
+                                                            <option value="2" {{ $place['cost'] == 2 ? 'selected' : '' }}>$$</option>
+                                                            <option value="3" {{ $place['cost'] == 3 ? 'selected' : '' }}>$$$</option>
+                                                            <option value="4" {{ $place['cost'] == 4 ? 'selected' : '' }}>$$$$</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">City</label>
-                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                        <select class="form-control select2me" data-placeholder="Select..." name="city">
                                                             <option value=""></option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
+                                                            @foreach($cities as $city)
+                                                                <option value="{{ $city['id'] }}" {{ $city['id'] == $place['location']['city_id'] ? 'selected' : ''  }}>{{ $city['name'] }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Location</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
                                                             <option value=""></option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="WY">Wyoming</option>
+                                                            @foreach($locations as $location)
+                                                                <option value="{{ $location['id'] }}" {{ $location['id'] == $place['location_id'] ? 'selected' : '' }}>{{ $location['name'] }}</option>
+                                                            @endforeach
+
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -96,49 +102,49 @@
                                                         <ul class="col-md-12">
                                                             <li>
                                                                 <label for="">Mon:</label>
-                                                                <input type="checkbox" name="mon" class="form-control"/>
+                                                                <input type="checkbox" name="mon" class="form-control" {{ ($place['workinghour']['mon'] != 'closed' && $place['workinghour']['mon'] != '') ? 'checked' : '' }}/>
                                                                 <input type="text" name="mon_from" class="form-control"/>
                                                                 <label for="">to</label>
                                                                 <input type="text" name="mon_to" class="form-control"/>
                                                             </li>
                                                             <li>
                                                                 <label for="">Tue:</label>
-                                                                <input type="checkbox" name="tue" class="form-control"/>
+                                                                <input type="checkbox" name="tue" class="form-control" {{ ($place['workinghour']['tue'] != 'closed' && $place['workinghour']['tue'] != '') ? 'checked' : '' }}/>
                                                                 <input type="text" name="tue_from" class="form-control"/>
                                                                 <label for="">to</label>
                                                                 <input type="text" name="tue_to" class="form-control"/>
                                                             </li>
                                                             <li>
                                                                 <label for="">Wed:</label>
-                                                                <input type="checkbox" name="wed" class="form-control"/>
+                                                                <input type="checkbox" name="wed" class="form-control" {{ ($place['workinghour']['wed'] != 'closed' && $place['workinghour']['wed'] != '') ? 'checked' : '' }}/>
                                                                 <input type="text" name="wed_from" class="form-control"/>
                                                                 <label for="">to</label>
                                                                 <input type="text" name="wed_to" class="form-control"/>
                                                             </li>
                                                             <li>
                                                                 <label for="">Thu:</label>
-                                                                <input type="checkbox" name="thu" class="form-control"/>
+                                                                <input type="checkbox" name="thu" class="form-control" {{ ($place['workinghour']['thu'] != 'closed' && $place['workinghour']['thu'] != '') ? 'checked' : '' }}/>
                                                                 <input type="text" name="thu_from" class="form-control"/>
                                                                 <label for="">to</label>
                                                                 <input type="text" name="thu_to" class="form-control"/>
                                                             </li>
                                                             <li>
                                                                 <label for="">Fri:</label>
-                                                                <input type="checkbox" name="fri" class="form-control"/>
+                                                                <input type="checkbox" name="fri" class="form-control" {{ ($place['workinghour']['fri'] != 'closed' && $place['workinghour']['fri'] != '') ? 'checked' : '' }}/>
                                                                 <input type="text" name="fri_from" class="form-control"/>
                                                                 <label for="">to</label>
                                                                 <input type="text" name="fri_to" class="form-control"/>
                                                             </li>
                                                             <li>
                                                                 <label for="">Sat:</label>
-                                                                <input type="checkbox" name="sat" class="form-control"/>
+                                                                <input type="checkbox" name="sat" class="form-control" {{ ($place['workinghour']['sat'] != 'closed' && $place['workinghour']['sat'] != '') ? 'checked' : '' }}/>
                                                                 <input type="text" name="sat_from" class="form-control"/>
                                                                 <label for="">to</label>
                                                                 <input type="text" name="sat_to" class="form-control"/>
                                                             </li>
                                                             <li>
                                                                 <label for="">Sun:</label>
-                                                                <input type="checkbox" name="sun" class="form-control"/>
+                                                                <input type="checkbox" name="sun" class="form-control" {{ ($place['workinghour']['sun'] != 'closed' && $place['workinghour']['sun'] != '') ? 'checked' : '' }}/>
                                                                 <input type="text" name="sun_from" class="form-control"/>
                                                                 <label for="">to</label>
                                                                 <input type="text" name="sun_to" class="form-control"/>
@@ -183,24 +189,24 @@
 
         @section('scripts')
 
-            <script src="/admin/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>
-            <!-- END CORE PLUGINS -->
             <!-- BEGIN PAGE LEVEL PLUGINS -->
-            <script type="text/javascript" src="/admin/plugins/bootstrap-select/bootstrap-select.min.js"></script>
-            <script type="text/javascript" src="/admin/plugins/select2/select2.min.js"></script>
-            <script type="text/javascript" src="/admin/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
-            <!-- END PAGE LEVEL PLUGINS -->
-            <!-- BEGIN PAGE LEVEL SCRIPTS -->
-            <script src="/admin/scripts/core/app.js"></script>
-            <script src="/admin/scripts/custom/components-dropdowns.js"></script>
-            <!-- END PAGE LEVEL SCRIPTS -->
-            <script>
-                jQuery(document).ready(function() {
-                    // initiate layout and plugins
-                    App.init();
-                    ComponentsDropdowns.init();
-                });
-            </script>
+                <script type="text/javascript" src="/admin/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+                <script type="text/javascript" src="/admin/plugins/select2/select2.min.js"></script>
+                <script type="text/javascript" src="/admin/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+                <!-- END PAGE LEVEL PLUGINS -->
+                <!-- BEGIN PAGE LEVEL SCRIPTS -->
+                <script src="/admin/scripts/core/app.js"></script>
+                <script src="/admin/scripts/custom/components-dropdowns.js"></script>
+                <!-- END PAGE LEVEL SCRIPTS -->/admin
+
+                <script>
+                    var services = ["red", "green", "blue", "yellow", "pink"];
+                    jQuery(document).ready(function() {
+                        // initiate layout and plugins
+                        App.init();
+                        ComponentsDropdowns.init();
+                    });
+                </script>
         @endsection
 
     </div>

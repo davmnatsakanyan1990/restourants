@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\City;
+use App\Models\Location;
 use App\Models\Place;
 use Illuminate\Http\Request;
 
@@ -23,12 +25,17 @@ class PlaceController extends Controller
 
     public function edit(){
        $place = Place::with(['highlights', 'cuisins', 'workinghour', 'categories', 'location', 'types'])
-            ->find($this->place->id);
-        dd($place->toArray());
-        return view('admin.place_edit');
+            ->find($this->place->id)->toArray();
+
+        $cities = City::select('id', 'name')->get()->toArray();
+        $locations = City::with('locations')->find($place['location']['city_id'])->locations->toArray();
+
+        //dd($place);
+        return view('admin.place_edit', compact('place', 'cities', 'locations'));
     }
     
     public function update(Request $request){
+        dd($request->all());
         Place::where('admin_id', $this->place->id)->update([
             'name' => $request->name,
             'mobile' => $request->mobile,
