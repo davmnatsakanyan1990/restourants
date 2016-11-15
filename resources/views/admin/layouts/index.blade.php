@@ -29,6 +29,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/admin/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/admin/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/admin/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="/admin/plugins/select2/select2-metronic.css"/>
+    <link rel="stylesheet" type="text/css" href="/admin/plugins/jquery-multi-select/css/multi-select.css"/>
     <!-- BEGIN THEME STYLES -->
     <link href="/admin/css/style-metronic.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/css/style.css" rel="stylesheet" type="text/css"/>
