@@ -33,6 +33,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Cuisine</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value=""></option>
                                                             <option value="AL">Alabama</option>
                                                             <option value="WY">Wyoming</option>
                                                         </select>
@@ -40,6 +41,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Type Of Place</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value=""></option>
                                                             <option value="AL">Alabama</option>
                                                             <option value="WY">Wyoming</option>
                                                         </select>
@@ -47,6 +49,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Services</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value=""></option>
                                                             <option value="AL">Alabama</option>
                                                             <option value="WY">Wyoming</option>
                                                         </select>
@@ -58,6 +61,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Price</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value=""></option>
                                                             <option value="AL">Alabama</option>
                                                             <option value="WY">Wyoming</option>
                                                         </select>
@@ -65,6 +69,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">City</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value=""></option>
                                                             <option value="AL">Alabama</option>
                                                             <option value="WY">Wyoming</option>
                                                         </select>
@@ -72,6 +77,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Location</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value=""></option>
                                                             <option value="AL">Alabama</option>
                                                             <option value="WY">Wyoming</option>
                                                         </select>
@@ -79,6 +85,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Mode</label>
                                                         <select class="form-control select2me" data-placeholder="Select...">
+                                                            <option value=""></option>
                                                             <option value="AL">mode1</option>
                                                             <option value="WY">mode2</option>
                                                         </select>
@@ -162,6 +169,40 @@
             </div>
             <!-- END PAGE CONTENT-->
         </div>
+
+
+        @section('styles')
+
+                <!-- BEGIN PAGE LEVEL STYLES -->
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/bootstrap-select/bootstrap-select.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/select2/select2.css"/>
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/select2/select2-metronic.css"/>
+                <link rel="stylesheet" type="text/css" href="/admin/plugins/jquery-multi-select/css/multi-select.css"/>
+
+        @endsection
+
+        @section('scripts')
+
+            <script src="/admin/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>
+            <!-- END CORE PLUGINS -->
+            <!-- BEGIN PAGE LEVEL PLUGINS -->
+            <script type="text/javascript" src="/admin/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+            <script type="text/javascript" src="/admin/plugins/select2/select2.min.js"></script>
+            <script type="text/javascript" src="/admin/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+            <!-- END PAGE LEVEL PLUGINS -->
+            <!-- BEGIN PAGE LEVEL SCRIPTS -->
+            <script src="/admin/scripts/core/app.js"></script>
+            <script src="/admin/scripts/custom/components-dropdowns.js"></script>
+            <!-- END PAGE LEVEL SCRIPTS -->
+            <script>
+                jQuery(document).ready(function() {
+                    // initiate layout and plugins
+                    App.init();
+                    ComponentsDropdowns.init();
+                });
+            </script>
+        @endsection
+
     </div>
 @endsection
 
