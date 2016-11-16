@@ -19,6 +19,7 @@ Route::get('/current', function () {
     return view('current');
 });
 */
+use App\Models\Place;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -101,6 +102,7 @@ Route::group([
 ],
     function(){
         Route::get('edit', 'PaymentController@edit');
+        Route::post('pay','PaymentController@pay');
     });
 
 /**

@@ -24,7 +24,7 @@ class PlaceController extends Controller
     }
 
     public function edit(){
-       $place = Place::with(['highlights', 'cuisins', 'workinghour', 'categories', 'location', 'types'])
+       $place = Place::withTrashed()->with(['highlights', 'cuisins', 'workinghour', 'categories', 'location', 'types'])
             ->find($this->place->id)->toArray();
 
         $cities = City::select('id', 'name')->get()->toArray();
@@ -36,7 +36,7 @@ class PlaceController extends Controller
     
     public function update(Request $request){
         dd($request->all());
-        Place::where('admin_id', $this->place->id)->update([
+        Place::withTrashed()->where('admin_id', $this->place->id)->update([
             'name' => $request->name,
             'mobile' => $request->mobile,
             'intro' => $request->intro,

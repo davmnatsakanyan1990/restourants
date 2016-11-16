@@ -7,9 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddAdminIdPlacesTable' => $baseDir . '/database/migrations/2016_11_09_150229_add_admin_id_places_table.php',
+    'AddDeletedAtToPlacesTable' => $baseDir . '/database/migrations/2016_11_16_081117_add_deleted_at_to_places_table.php',
     'AddForeignKeyPlacesTable' => $baseDir . '/database/migrations/2016_10_28_134617_add_foreign_key_places_table.php',
     'AddRememberTokenColumnAdminsTable' => $baseDir . '/database/migrations/2016_10_24_132041_add_remember_token_column_admins_table.php',
     'AddRoleColumnToImagesTable' => $baseDir . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
+    'AddSendedAtPlacesTable' => $baseDir . '/database/migrations/2016_11_16_104621_add_sended_at_places_table.php',
     'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'CategoryTableSeeder' => $baseDir . '/database/seeds/CategoryTableSeeder.php',
     'CommentTableSeeder' => $baseDir . '/database/seeds/CommentTableSeeder.php',
@@ -23,6 +25,7 @@ return array(
     'CreateLocationsTable' => $baseDir . '/database/migrations/2016_10_13_143102_create_locations_table.php',
     'CreateMenusTable' => $baseDir . '/database/migrations/2016_10_10_105837_create_menus_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePaymentsTable' => $baseDir . '/database/migrations/2016_11_16_103247_create_payments_table.php',
     'CreatePlaceCategoriesTable' => $baseDir . '/database/migrations/2016_10_13_130807_create_place_categories_table.php',
     'CreatePlaceCuisinsTable' => $baseDir . '/database/migrations/2016_10_13_111521_create_place_cuisins_table.php',
     'CreatePlaceHighlightsTable' => $baseDir . '/database/migrations/2016_10_13_101225_create_place_highlights_table.php',

@@ -328,9 +328,11 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
 
     public static $classMap = array (
         'AddAdminIdPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_09_150229_add_admin_id_places_table.php',
+        'AddDeletedAtToPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_081117_add_deleted_at_to_places_table.php',
         'AddForeignKeyPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_134617_add_foreign_key_places_table.php',
         'AddRememberTokenColumnAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_132041_add_remember_token_column_admins_table.php',
         'AddRoleColumnToImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
+        'AddSendedAtPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_104621_add_sended_at_places_table.php',
         'AdminTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminTableSeeder.php',
         'CategoryTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoryTableSeeder.php',
         'CommentTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentTableSeeder.php',
@@ -344,6 +346,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'CreateLocationsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_143102_create_locations_table.php',
         'CreateMenusTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_10_105837_create_menus_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreatePaymentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_103247_create_payments_table.php',
         'CreatePlaceCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_130807_create_place_categories_table.php',
         'CreatePlaceCuisinsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_111521_create_place_cuisins_table.php',
         'CreatePlaceHighlightsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_101225_create_place_highlights_table.php',

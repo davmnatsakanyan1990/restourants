@@ -31,6 +31,6 @@ class Admin extends Authenticatable
     }
     
     public function place(){
-       return $this->hasOne('App\Models\Place');
+       return $this->hasOne('App\Models\Place')->withTrashed();
     }
 }

@@ -47,7 +47,7 @@
                                     <input type="password" name="password" id="password" class="form-control input-sm" placeholder="New Password">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password_confirmation "  class="form-control input-sm" placeholder="Confirm New Password">
+                                    <input type="password" name="password_confirmation"  class="form-control input-sm" placeholder="Confirm New Password">
                                 </div>
                                 <input type="submit" value="Update" class="btn btn-info btn-block">
                             </form>

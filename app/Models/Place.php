@@ -3,9 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Place extends Model
 {
+
+    use SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'mobile',
         'name',
@@ -71,5 +82,9 @@ class Place extends Model
     
     public function admin(){
         return $this->hasOne('App\Models\Place');
+    }
+    
+    public function payment(){
+        return $this->hasOne(Payment::class);
     }
 }
