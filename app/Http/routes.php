@@ -102,6 +102,7 @@ Route::group([
 ],
     function(){
         Route::get('edit', 'PaymentController@edit');
+        Route::post('pay','PaymentController@pay');
     });
 
 /**
