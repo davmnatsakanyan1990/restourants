@@ -4,6 +4,7 @@
         <div class="page-content">
             <!-- Pick PAGE CONTENT-->
             <div class="pick-page">
+                <div class="messages"></div>
                 <h2>Pick a plan</h2>
 
                 <div class="columns plan-card-column">
@@ -22,8 +23,11 @@
                                 <p class="plan-card-description">A full-featured online store</p>
                             </div>
                             <footer class="card-footer">
-                                <form >
-                                    <input type="submit" name="commit" value="Select plan" class="button button card-button button-primary">
+                                <form>
+                                    <button type="button" name="commit"
+                                            class="button button card-button button-primary" data-toggle="modal"
+                                            data-target="#myModal">Select plan
+                                    </button>
                                 </form>
 
                             </footer>
@@ -32,7 +36,61 @@
 
                 </div>
             </div>
+
+            <!-- Button trigger modal -->
+        {{--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">--}}
+        {{--Provide Card Information--}}
+        {{--</button>--}}
+
+        <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Card Details</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div style="padding:0 20px">
+                                <form method="post" action="{{ url('admin/payment/pay') }}" id="form"
+                                      class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="ccNo">Card Number</label>
+                                        <input name="ccNo" id="ccNo" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">Cvv</label>
+                                        <input id="cvv" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expMonth">Expair Month</label>
+                                        <input id="expMonth" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expYear">Expair Year</label>
+                                        <input id="expYear" class="form-control">
+                                    </div>
+                                    <input type="submit" id="submit" class="hidden">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit1">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- END PAGE CONTENT-->
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+    <script src="{{ url('js/payment.js') }}" type="text/javascript"></script>
 @endsection
