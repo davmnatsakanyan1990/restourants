@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
     public $admin;
 
+    /**
+     * AdminController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth:admin');
@@ -20,30 +24,42 @@ class AdminController extends Controller
         $this->admin = Auth::guard('admin')->user();
     }
 
-    public function show(){
-
-    }
-
+    /**
+     * Show Admin-profile edit form
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit(){
         $admin = $this->admin->toArray();
 
         return view('admin.update_account_details', compact('admin'));
     }
 
+    /**
+     * Update Admin personal info
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update_pers_info(Request $request){
         Admin::where('id', $this->admin->id)->update(['name' => $request->name, 'email' => $request->email]);
         
         return redirect()->back()->with('message', 'Data was successfully updated');
     }
 
+    /**
+     * Update Admin password
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update_sec_info(Request $request){
         $this->validate($request, [
-            'password' => 'confirmed',
+            'password' => 'required|confirmed',
         ]);
-        $password = bcrypt($request->old_password);
 
-        if($password == $this->admin->password){
-           Admin::where('id', $this->admin->id)->update(['password' => bcrypt($request->password)]);
+        if (Hash::check($request->old_password, $this->admin->password)) {
+            Admin::where('id', $this->admin->id)->update(['password' => bcrypt($request->password)]);
             return redirect()->back()->with('message', 'Your password was successfully updated');
         }
     }

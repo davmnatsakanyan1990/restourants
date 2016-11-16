@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Models\Place;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
+         Commands\Inspire::class,
     ];
 
     /**
@@ -24,7 +25,22 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function () {
+            $places = Place::with('payment')->whereNotNull('sent_at')->has('payment', '==', null)->get()->toArray();
+
+            // get current date time in Unix format
+            $now = strtotime(date("Y-m-d H:i:s"));
+
+            foreach($places as $place){
+
+                //get email sent time in Unix format
+                $email_sent_time = strtotime($place['sent_at']);
+
+                // deactivate place
+                if($now > $email_sent_time + 604800){
+                    Place::where('id', $place['id'])->delete();
+                }
+            }
+        })->daily();
     }
 }

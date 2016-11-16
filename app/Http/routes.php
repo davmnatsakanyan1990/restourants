@@ -19,6 +19,7 @@ Route::get('/current', function () {
     return view('current');
 });
 */
+use App\Models\Place;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
