@@ -212,3 +212,8 @@ div.profile > div {
 .margin5{
     margin-top: 5px;
 }
+.addMore{
+    line-height: 34px;
+    color: #35aa47;
+    cursor: pointer;
+}
