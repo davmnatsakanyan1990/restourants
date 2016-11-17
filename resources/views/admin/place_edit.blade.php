@@ -121,7 +121,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="addMore" title="add more time period" onClick="addPeriod(this, 'mon')">
+                                                                    <div class="addMore" title="add more time period" >
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
@@ -163,7 +163,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="addMore" title="add more time period" onClick="addPeriod(this, 'mon')">
+                                                                    <div class="addMore" title="add more time period">
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
@@ -205,7 +205,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="addMore" title="add more time period" onClick="addPeriod(this, 'mon')">
+                                                                    <div class="addMore" title="add more time period">
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
@@ -248,7 +248,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="addMore" title="add more time period" onClick="addPeriod(this, 'mon')">
+                                                                    <div class="addMore" title="add more time period">
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
@@ -290,7 +290,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="addMore" title="add more time period" onClick="addPeriod(this, 'mon')">
+                                                                    <div class="addMore" title="add more time period">
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
@@ -332,7 +332,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="addMore" title="add more time period" onClick="addPeriod(this, 'mon')">
+                                                                    <div class="addMore" title="add more time period">
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
@@ -374,7 +374,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="addMore" title="add more time period" onClick="addPeriod(this, 'mon')">
+                                                                    <div class="addMore" title="add more time period">
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
