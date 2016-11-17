@@ -32,15 +32,28 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Cuisine</label>
-                                                        <input type="hidden" id="select2_sample9" class="form-control select2" value="we, you">
+                                                        <select name="cuisins[]" id="select2_sample9" class="form-control select2" multiple="multiple">
+                                                            @foreach($all_cuisins as $cuisin)
+                                                                <option {{ count(collect($place['cuisins'])->whereIn('id', [$cuisin['id']])->all()) > 0 ? 'selected' : ''  }} value="{{ $cuisin['id'] }}">{{ $cuisin['name'] }}</option>
+
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Type Of Place</label>
-                                                        <input type="hidden" id="select2_sample7" class="form-control select2" value="red, blue">
+                                                        <select name="types[]" id="select2_sample7" class="form-control select2" multiple="multiple">
+                                                            @foreach($all_types as $type)
+                                                                <option {{ count(collect($place['types'])->whereIn('id', [$type['id']])->all()) > 0 ? 'selected' : ''  }} value="{{ $type['id'] }}">{{ $type['name'] }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Services</label>
-                                                        <input type="hidden" id="select2_sample5" class="form-control select2" value="red, blue">
+                                                        <select name="services[]" id="select2_sample5" class="form-control select2" multiple="multiple">
+                                                            @foreach($all_highlights as $highlight)
+                                                                <option {{ count(collect($place['highlights'])->whereIn('id', [$highlight['id']])->all()) > 0 ? 'selected' : ''  }} value="{{ $highlight['id'] }}">{{ $highlight['name'] }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Site</label>
@@ -60,14 +73,14 @@
                                                         <label class="control-label">City</label>
                                                         <select class="form-control select2me" data-placeholder="Select..." name="city">
                                                             <option value=""></option>
-                                                            @foreach($cities as $city)
+                                                            @foreach($all_cities as $city)
                                                                 <option value="{{ $city['id'] }}" {{ $city['id'] == $place['location']['city_id'] ? 'selected' : ''  }}>{{ $city['name'] }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Location</label>
-                                                        <select class="form-control select2me" data-placeholder="Select...">
+                                                        <select name="location" class="form-control select2me" data-placeholder="Select...">
                                                             <option value=""></option>
                                                             @foreach($locations as $location)
                                                                 <option value="{{ $location['id'] }}" {{ $location['id'] == $place['location_id'] ? 'selected' : '' }}>{{ $location['name'] }}</option>
@@ -77,7 +90,11 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Mode</label>
-                                                        <input type="hidden" id="select2_sample8" class="form-control select2" value="i, you">
+                                                        <select name="categories[]" id="select2_sample8" class="form-control select2" multiple="multiple">
+                                                            @foreach($all_categories as $category)
+                                                                <option {{ count(collect($place['categories'])->whereIn('id', [$category['id']])->all()) > 0 ? 'selected' : ''  }} value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group working-hours">
                                                         <label class="control-label">Working Hours</label>
@@ -430,7 +447,8 @@
                 <!-- END PAGE LEVEL SCRIPTS -->/admin
 
                 <script>
-                    var services = ["red", "green", "blue", "yellow", "pink"];
+                    //var services = ["red", "green", "blue", "yellow", "pink"];
+
                     jQuery(document).ready(function() {
                         // initiate layout and plugins
                         App.init();

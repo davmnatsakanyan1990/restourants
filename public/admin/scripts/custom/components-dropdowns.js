@@ -48,19 +48,13 @@ var ComponentsDropdowns = function () {
             }
         });
 
-        $("#select2_sample5").select2({
-            tags: services
-        });
+        $("#select2_sample5").select2();
 
-        $("#select2_sample7").select2({
-            tags: ['red', 'green']
-        });
-        $("#select2_sample8").select2({
-            tags: ['i', 'you', 'he']
-        });
-        $("#select2_sample9").select2({
-            tags: ['we', 'you', 'they']
-        });
+        $("#select2_sample7").select2();
+        
+        $("#select2_sample8").select2();
+        
+        $("#select2_sample9").select2();
 
 
         function movieFormatResult(movie) {

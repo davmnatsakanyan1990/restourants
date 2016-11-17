@@ -30,16 +30,18 @@ function removePeriod(element) {
 
 $( document ).ready(function() {
     $(".addMore").click(function(event){
-        //console.log(event.target.parentNode.parentNode.parentNode);
         var addingElement= event.target.parentNode.parentNode.parentNode;
         var currentElementName = $(addingElement).find('label');
         var currentName = currentElementName[0].innerHTML;
         var elemName = currentName.split(":")[0].toLocaleLowerCase();
         console.log(elemName);
+
+        var el_count = $(addingElement).find('.addingElement').length;
+
         var adding = '<div class="addingElement" style = "margin: 10px 0 0 74px;">' +
             '<div class="counters">' +
             '<div class="elementsBlock">' +
-            '<input type="text" name=elemName"_from1" class="form-control" value="00"/>' +
+            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_from1" class="form-control" value="00"/>' +
             '<div class="upDown">' +
             '<i class="fa fa-angle-up hours" aria-hidden="true"></i>' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i>' +
@@ -47,7 +49,7 @@ $( document ).ready(function() {
             '</div>' +
             '<div class="margin5">:</div> ' +
             '<div class="elementsBlock"> ' +
-            '<input type="text" name=elemName"_from2" class="form-control" value="00"/> ' +
+            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_from2" class="form-control" value="00"/> ' +
             '<div class="upDown"> ' +
             '<i class="fa fa-angle-up minute" aria-hidden="true"></i> ' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i> ' +
@@ -55,7 +57,7 @@ $( document ).ready(function() {
             '</div> ' +
             '<label for="" style="width: auto">to</label> ' +
             '<div class="elementsBlock"> ' +
-            '<input type="text" name=elemName"_to1" class="form-control" value="00"/> ' +
+            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_to1" class="form-control" value="00"/> ' +
             '<div class="upDown">' +
             '<i class="fa fa-angle-up hours" aria-hidden="true"></i>' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i>' +
@@ -63,7 +65,7 @@ $( document ).ready(function() {
             '</div>' +
             '<div class="margin5">:</div>' +
             '<div class="elementsBlock">' +
-            '<input type="text" name=elemName"_to2" class="form-control" value="00"/>' +
+            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_to2" class="form-control" value="00"/>' +
             '<div class="upDown">' +
             '<i class="fa fa-angle-up minute" aria-hidden="true"></i>' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i>' +
@@ -92,26 +94,6 @@ $( document ).ready(function() {
             increment(formName, time);
         })
     });
-    /*function addPeriod(element, inputName) {
-
-        var elem = element.parentNode.parentNode;
-        var parent = element.parentNode;
-        var clon = parent.cloneNode(true);
-        //var clon = '<div class="addingElement"><div class="counters"><div class="elementsBlock"><input type="text" name="sat_from1" class="form-control" value="00"/></div></div></div>';
-        clon.style = 'margin: 10px 0 0 74px;';
-        //var child = clon.childNodes[0];
-        var icon = document.createElement("I");
-        icon.className = "fa fa-minus";
-        var replacementNode = clon.lastElementChild;
-        replacementNode.replaceChild(icon, replacementNode.childNodes[1]);
-        //replacementNode.onclick = null;
-        replacementNode.addEventListener("onclick", removePeriod());
-        replacementNode.style = 'color: red;';
-        var elementName = clon.getElementsByClassName('elementsBlock');
-        elem.insertBefore(clon, elem.appendChild.nextSibling);
-    };*/
-
-
 });
 
 $( window ).load(function() {
