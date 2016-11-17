@@ -212,3 +212,8 @@ div.profile > div {
 .margin5{
     margin-top: 5px;
 }
+
+.header.navbar a.navbar-brand {
+    padding: 0 !important;
+    height: auto !important;
+}

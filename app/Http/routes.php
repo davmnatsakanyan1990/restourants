@@ -101,7 +101,7 @@ Route::group([
     'namespace' => 'Admin',
 ],
     function(){
-        Route::get('edit', 'PaymentController@edit');
+        Route::get('subscribe', 'PaymentController@subscribe');
         Route::post('pay','PaymentController@pay');
     });
 
@@ -139,7 +139,21 @@ Route::get('assign/type', 'ApiController@assignType');
 
 
 Route::get('test', function(){
-    dd(Auth::guard('admin')->user()->password);
+    $places = Place::with('payment')->whereNotNull('sent_at')->has('payment', '==', null)->get()->toArray();
+
+    // get current date time in Unix format
+    $now = strtotime(date("Y-m-d H:i:s"));
+
+    foreach($places as $place){
+
+        //get email sent time in Unix format
+        $email_sent_time = strtotime($place['sent_at']);
+
+        // deactivate place
+        if($now > $email_sent_time + 604800){
+            Place::where('id', $place['id'])->delete();
+        }
+    }
 });
 
 

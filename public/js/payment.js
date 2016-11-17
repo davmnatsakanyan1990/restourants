@@ -23,11 +23,13 @@ function successCallback(response){
         data: {'token': token},
         method:'post',
         success:function (response) {
-            console.log(response);
-            if(response.success)
-               var div='<div class="alert alert-success">' + response.message + "</div>";
-            else
-                var div='<div class="alert alert-danger">' + response.message + "</div>";
+            if(response.success) {
+                var div = '<div class="alert alert-success">' + response.message + "</div>";
+                $('.pick-page').hide()
+            }
+            else {
+                var div = '<div class="alert alert-danger">' + response.message + "</div>";
+            }
             $('.messages').append(div);
         }
     });

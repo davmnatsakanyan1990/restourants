@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Payment;
+use App\Models\Place;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,20 +11,28 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\Lib\Twocheckout\TwocheckoutCharge;
 use App\Http\Controllers\Admin\Lib\Twocheckout;
 use App\Http\Controllers\Admin\Lib\Twocheckout\Api\TwocheckoutError;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
+    public $place;
     public function __construct()
     {
         $this->middleware('auth:admin');
+
+        $this->place = Auth::guard('admin')->user()->place;
     }
 
     public function show(){
 
     }
 
-    public function edit(){
-        return view('admin.update_billing_details');
+    public function subscribe(){
+        $is_subscribed = true;
+        if(is_null($this->place->payment)){
+            $is_subscribed = false;
+        }
+        return view('admin.subscribe', compact('is_subscribed'));
     }
 
     public function pay(Request $request)
@@ -64,10 +74,15 @@ class PaymentController extends Controller
                 )
             ));
             if ($charge['response']['responseCode'] == 'APPROVED') {
+                Payment::create(['place_id' => $this->place->id, 'amount' => 10]);
+
+                if($this->place->trashed()){
+                    $this->place->restore();
+                }
                 return response()->json(['success' => 1,'message' => 'Thanks for Subscribing!']);
             }
-        } catch (Twocheckout_Error $e) {
-            return response()->json(['success' => 0,'message' => 'Something went wrong.Please try again.']);
+        } catch (TwocheckoutError $e) {
+            return response()->json(['success' => 0,'message' => $e->getMessage()]);
         }
     }
 }
