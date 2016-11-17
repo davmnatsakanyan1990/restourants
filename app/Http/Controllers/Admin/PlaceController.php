@@ -50,7 +50,7 @@ class PlaceController extends Controller
     }
     
     public function update(Request $request){
-        dd($request->all());
+       // dd($request->all());
         $categories = $request->categories;
         $cuisins = $request->cuisins;
         $highlights = $request->services;
@@ -59,34 +59,58 @@ class PlaceController extends Controller
         //remove old categories
          PlaceCategory::where('place_id', $this->place->id)->delete();
         // add new categories
-        foreach ($categories as $category){
-            PlaceCategory::create(['place_id'=> $this->place->id, 'category_id'=> $category['id']]);
+        if(count($categories) > 0) {
+            foreach ($categories as $category) {
+                PlaceCategory::create(['place_id' => $this->place->id, 'category_id' => $category]);
+            }
         }
 
         //remove old cuisins
         PlaceCuisin::where('place_id', $this->place->id)->delete();
         //add new cuisins
-        foreach ($cuisins as $cuisin){
-            PlaceCuisin::create(['place_id' => $this->place->id, 'cuisin_id' => $cuisin['id']]);
+        if(count($cuisins) > 0) {
+            foreach ($cuisins as $cuisin) {
+                PlaceCuisin::create(['place_id' => $this->place->id, 'cuisin_id' => $cuisin]);
+            }
         }
 
         //remove old highlights
         PlaceHighlight::where('place_id', $this->place->id)->delete();
         //add new highlights
-        foreach ($highlights as $highlight){
-            PlaceHighlight::create(['place_id' => $this->place->id, 'highlight_id' => $highlight['id']]);
+        if(count($highlights) > 0) {
+            foreach ($highlights as $highlight) {
+                PlaceHighlight::create(['place_id' => $this->place->id, 'highlight_id' => $highlight]);
+            }
         }
 
         //remove old types
         PlaceType::where('place_id', $this->place->id)->delete();
         //add new types
-        foreach ($types as $type){
-            PlaceType::create(['place_id' => $this->place->id, 'type_id' => $type['id']]);
+        if(count($types) > 0) {
+            foreach ($types as $type) {
+                PlaceType::create(['place_id' => $this->place->id, 'type_id' => $type]);
+            }
         }
 
         // update working hours
-        if(isset($request->mon)){
-        
+        $working_hours = array();
+        if(isset($request->mon['index'])){
+            $mon = array();
+            foreach($request->mon['data'] as $part){
+                $from = date('g:i a', strtotime($part['from']['hr'].':'.$part['from']['min']));
+                $to = date('g:i a', strtotime($part['to']['hr'].':'.$part['to']['min']));
+                array_push($mon, $from.' to '.$to);
+            }
+            $working_hours['mon'] = '';
+            if(count($mon) > 1) {
+                foreach ($mon as $p) {
+                    $working_hours['mon'] = $working_hours['mon'] . ',' . $p;
+                }
+            }
+            else{
+                $working_hours['mon'] = $mon[0];
+            }
+            dd($working_hours);
         }
 
         Place::withTrashed()->where('admin_id', $this->place->id)->update([

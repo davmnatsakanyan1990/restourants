@@ -41,7 +41,7 @@ $( document ).ready(function() {
         var adding = '<div class="addingElement" style = "margin: 10px 0 0 74px;">' +
             '<div class="counters">' +
             '<div class="elementsBlock">' +
-            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_from1" class="form-control" value="00"/>' +
+            '<input type="text" name="'+elemName+'[data]['+(el_count+1)+'][from][hr]" class="form-control" value="00"/>' +
             '<div class="upDown">' +
             '<i class="fa fa-angle-up hours" aria-hidden="true"></i>' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i>' +
@@ -49,7 +49,7 @@ $( document ).ready(function() {
             '</div>' +
             '<div class="margin5">:</div> ' +
             '<div class="elementsBlock"> ' +
-            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_from2" class="form-control" value="00"/> ' +
+            '<input type="text" name="'+elemName+'[data]['+(el_count+1)+'][from][min]" class="form-control" value="00"/> ' +
             '<div class="upDown"> ' +
             '<i class="fa fa-angle-up minute" aria-hidden="true"></i> ' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i> ' +
@@ -57,7 +57,7 @@ $( document ).ready(function() {
             '</div> ' +
             '<label for="" style="width: auto">to</label> ' +
             '<div class="elementsBlock"> ' +
-            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_to1" class="form-control" value="00"/> ' +
+            '<input type="text" name="'+elemName+'[data]['+(el_count+1)+'][to][hr]" class="form-control" value="00"/> ' +
             '<div class="upDown">' +
             '<i class="fa fa-angle-up hours" aria-hidden="true"></i>' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i>' +
@@ -65,7 +65,7 @@ $( document ).ready(function() {
             '</div>' +
             '<div class="margin5">:</div>' +
             '<div class="elementsBlock">' +
-            '<input type="text" name="'+elemName+'_'+(el_count+1)+'_to2" class="form-control" value="00"/>' +
+            '<input type="text" name="'+elemName+'[data]['+(el_count+1)+'][to][min]" class="form-control" value="00"/>' +
             '<div class="upDown">' +
             '<i class="fa fa-angle-up minute" aria-hidden="true"></i>' +
             '<i class="fa fa-angle-down" aria-hidden="true"></i>' +

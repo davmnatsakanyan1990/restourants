@@ -102,39 +102,39 @@
                                                         <ul class="col-md-12">
                                                             <li>
                                                                 <label for="">Mon:</label>
-                                                                <input type="checkbox" name="mon" class="form-control" {{ ($place['workinghour']['mon'] != 'closed' && $place['workinghour']['mon'] != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="mon[index]" class="form-control" {{ ($place['workinghour']['mon'] != 'closed' && $place['workinghour']['mon'] != '') ? 'checked' : '' }}/>
 
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon_from1" class="form-control" value="00"/>
+                                                                            <input type="text" name="mon[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('mon_from1',   'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon_from1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('mon[data][1][from][hr]',   'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon_from2" class="form-control" value="00"/>
+                                                                            <input type="text" name="mon[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('mon_from2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon_from2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('mon[data][1][from][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon_to1" class="form-control" value="00"/>
+                                                                            <input type="text" name="mon[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('mon_to1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon_to1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('mon[data][1][to][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon_to2" class="form-control" value="00"/>
+                                                                            <input type="text" name="mon[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('mon_to2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon_to2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('mon[data][1][to][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -145,38 +145,38 @@
                                                             </li>
                                                             <li>
                                                                 <label for="">Tue:</label>
-                                                                <input type="checkbox" name="tue" class="form-control" {{ ($place['workinghour']['tue'] != 'closed' && $place['workinghour']['tue'] != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="tue[index]" class="form-control" {{ ($place['workinghour']['tue'] != 'closed' && $place['workinghour']['tue'] != '') ? 'checked' : '' }}/>
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="tue_from1" class="form-control" value="00"/>
+                                                                            <input type="text" name="tue[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue_from1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue_from1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][from][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="tue_from2" class="form-control" value="00"/>
+                                                                            <input type="text" name="tue[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue_from2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue_from2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][from][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="tue_to1" class="form-control" value="00"/>
+                                                                            <input type="text" name="tue[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue_to1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue_to1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][to][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="tue_to2" class="form-control" value="00"/>
+                                                                            <input type="text" name="tue[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue_to2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue_to2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][to][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -187,38 +187,38 @@
                                                             </li>
                                                             <li>
                                                                 <label for="">Wed:</label>
-                                                                <input type="checkbox" name="wed" class="form-control" {{ ($place['workinghour']['wed'] != 'closed' && $place['workinghour']['wed'] != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="wed[index]" class="form-control" {{ ($place['workinghour']['wed'] != 'closed' && $place['workinghour']['wed'] != '') ? 'checked' : '' }}/>
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="wed_from1" class="form-control" value="00"/>
+                                                                            <input type="text" name="wed[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed_from1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed_from1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][from][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="wed_from2" class="form-control" value="00"/>
+                                                                            <input type="text" name="wed[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed_from2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed_from2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][from][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="wed_to1" class="form-control" value="00"/>
+                                                                            <input type="text" name="wed[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed_to1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed_to1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][to][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="wed_to2" class="form-control" value="00"/>
+                                                                            <input type="text" name="wed[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed_to2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed_to2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][to][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -230,38 +230,38 @@
                                                             </li>
                                                             <li>
                                                                 <label for="">Thu:</label>
-                                                                <input type="checkbox" name="thu" class="form-control" {{ ($place['workinghour']['thu'] != 'closed' && $place['workinghour']['thu'] != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="thu[index]" class="form-control" {{ ($place['workinghour']['thu'] != 'closed' && $place['workinghour']['thu'] != '') ? 'checked' : '' }}/>
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="thu_from1" class="form-control" value="00"/>
+                                                                            <input type="text" name="thu[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu_from1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu_from1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][from][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="thu_from2" class="form-control" value="00"/>
+                                                                            <input type="text" name="thu[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu_from2', 'minute')"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu_from2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][from][min]', 'minute')"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="thu_to1" class="form-control" value="00"/>
+                                                                            <input type="text" name="thu[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu_to1', 'hours')"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu_to1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][to][hr]', 'hours')"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="thu_to2" class="form-control" value="00"/>
+                                                                            <input type="text" name="thu[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu_to2', 'minute')"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu_to2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][to][min]', 'minute')"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -272,38 +272,38 @@
                                                             </li>
                                                             <li>
                                                                 <label for="">Fri:</label>
-                                                                <input type="checkbox" name="fri" class="form-control" {{ ($place['workinghour']['fri'] != 'closed' && $place['workinghour']['fri'] != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="fri[index]" class="form-control" {{ ($place['workinghour']['fri'] != 'closed' && $place['workinghour']['fri'] != '') ? 'checked' : '' }}/>
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="fri_from1" class="form-control" value="00"/>
+                                                                            <input type="text" name="fri[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri_from1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri_from1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][from][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="fri_from2" class="form-control" value="00"/>
+                                                                            <input type="text" name="fri[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri_from2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri_from2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][from][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="fri_to1" class="form-control" value="00"/>
+                                                                            <input type="text" name="fri[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri_to1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri_to1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][to][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="fri_to2" class="form-control" value="00"/>
+                                                                            <input type="text" name="fri[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri_to2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri_to2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][to][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -314,38 +314,38 @@
                                                             </li>
                                                             <li>
                                                                 <label for="">Sat:</label>
-                                                                <input type="checkbox" name="sat" class="form-control" {{ ($place['workinghour']['sat'] != 'closed' && $place['workinghour']['sat'] != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="sat[index]" class="form-control" {{ ($place['workinghour']['sat'] != 'closed' && $place['workinghour']['sat'] != '') ? 'checked' : '' }}/>
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sat_from1" class="form-control" value="00"/>
+                                                                            <input type="text" name="sat[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat_from1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat_from1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][from][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sat_from2" class="form-control" value="00"/>
+                                                                            <input type="text" name="sat[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat_from2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat_from2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][from][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sat_to1" class="form-control" value="00"/>
+                                                                            <input type="text" name="sat[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat_to1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat_to1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][to][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sat_to2" class="form-control" value="00"/>
+                                                                            <input type="text" name="sat[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat_to2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat_to2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][to][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -356,38 +356,38 @@
                                                             </li>
                                                             <li>
                                                                 <label for="">Sun:</label>
-                                                                <input type="checkbox" name="sun" class="form-control" {{ ($place['workinghour']['sun'] != 'closed' && $place['workinghour']['sun'] != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="sun[index]" class="form-control" {{ ($place['workinghour']['sun'] != 'closed' && $place['workinghour']['sun'] != '') ? 'checked' : '' }}/>
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sun_from1" class="form-control" value="00"/>
+                                                                            <input type="text" name="sun[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun_from1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun_from1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][from][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sun_from2" class="form-control" value="00"/>
+                                                                            <input type="text" name="sun[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun_from2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun_from2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][from][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sun_to1" class="form-control" value="00"/>
+                                                                            <input type="text" name="sun[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun_to1', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun_to1', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][to][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="sun_to2" class="form-control" value="00"/>
+                                                                            <input type="text" name="sun[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun_to2', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun_to2', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][to][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
