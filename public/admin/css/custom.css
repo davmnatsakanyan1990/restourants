@@ -217,3 +217,8 @@ div.profile > div {
     padding: 0 !important;
     height: auto !important;
 }
+.addMore{
+    line-height: 34px;
+    color: #35aa47;
+    cursor: pointer;
+}
