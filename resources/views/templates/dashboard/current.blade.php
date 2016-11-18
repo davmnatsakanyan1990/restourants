@@ -128,11 +128,12 @@
                             </div>
                             <div class="moreInfoAddress clearElement">
                                 <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
-                                <div class="introContent clearElement floatNone" ng-repeat="(day,hour) in currentRestaurant.workingHours">
-                                    <div class="capitalize elementLeft" ng-bind="day"></div><span class="elementLeft">:&nbsp;</span>
-                                    <div class="elementLeft" ng-bind="hour"></div>
+                                <div class="clearElement">
+                                    <div class="introContent clearElement elementLeft" ng-repeat="(day,hourr) in hoursPart">
+                                        <div class="capitalize infoTitle" ng-bind="day"></div>
+                                        <div class="infoHour" ng-repeat="hour in hourr" ng-bind="hour"></div>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

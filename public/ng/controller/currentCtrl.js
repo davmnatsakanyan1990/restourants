@@ -57,6 +57,21 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                 $scope.editedRating = true;
             };
             //
+
+            $scope.hoursPart = $scope.currentRestaurant.workingHours;
+            console.log($scope.hoursPart);
+
+
+            for(var a in $scope.hoursPart){
+                var hoursString= $scope.hoursPart[a];
+                var hoursArray = hoursString.split(',');
+                $scope.hoursPart[a] = hoursArray;
+
+
+            }
+            console.log($scope.hoursPart);
+
+
             $scope.haveData = true;
             //restaurants images part
             var arr = $scope.currentRestaurant.images;
