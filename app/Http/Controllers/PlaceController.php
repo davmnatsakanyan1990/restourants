@@ -339,23 +339,25 @@ class PlaceController extends Controller
         $array = $collection->all();
 
         //get comments author
-        $comments = $array['comments'];
-        foreach($comments as $key => $comment){
-            $comments[$key]['author'] = $comment['commentable_type'] :: find($comment['commentable_id'])->toArray();
-            $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
+        $array['comments'] = [];
+        if(count($array['comments']) > 0){
+            $comments = $array['comments'];
+            foreach ($comments as $key => $comment) {
+                $comments[$key]['author'] = $comment['commentable_type']:: find($comment['commentable_id'])->toArray();
+                $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
 
 
-            foreach ($sub_comments as $k=>$sub_comment){
-                $sub_comments[$k]['author'] = $sub_comment['commentable_type'] :: find($sub_comment['commentable_id'])->toArray();
+                foreach ($sub_comments as $k => $sub_comment) {
+                    $sub_comments[$k]['author'] = $sub_comment['commentable_type']:: find($sub_comment['commentable_id'])->toArray();
+                }
+                $comments[$key]['sub_comments'] = $sub_comments;
             }
-            $comments[$key]['sub_comments'] = $sub_comments;
+
+
+            $chunked = collect($comments)->values()->chunk(5)->toArray();
+            $comm_pages = count($chunked);
+            $array['comments'] = $chunked[0];
         }
-
-
-        $chunked = collect($comments)->values()->chunk(5)->toArray();
-        $comm_pages = count($chunked);
-        $array['comments'] = $chunked[0];
-
         $data = array();
 
         foreach ($array as $key=>$value){
@@ -379,8 +381,9 @@ class PlaceController extends Controller
 //            }
 
 //            comments format
-            if($key == 'comments'){
-                foreach ($array[$key] as $k=>$v){
+            if(count($array['comments']) > 0){
+                if ($key == 'comments') {
+                    foreach ($array[$key] as $k => $v) {
 //                    if(count(($v['user']['rates'])) > 0) {
 //                        $data[$key][$k]['rate'] = $v['user']['rates'][0]['mark'];
 //                    }
@@ -388,23 +391,23 @@ class PlaceController extends Controller
 //                        $data[$key][$k]['rate'] = 0;
 //                    }
 
-                    $data[$key][$k]['name'] = $v['author']['name'];
-                    $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
-                    $data[$key][$k]['comment'] = $v['text'];
-                    $data[$key][$k]['id'] = $v['id'];
+                        $data[$key][$k]['name'] = $v['author']['name'];
+                        $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
+                        $data[$key][$k]['comment'] = $v['text'];
+                        $data[$key][$k]['id'] = $v['id'];
 
-                    $sub_coms = Comment::where('parent_id', $v['id'])->get()->toArray();
-                    if(count($sub_coms) > 0) {
-                        foreach ($sub_coms as $index => $comment) {
-                            $author = $comment['commentable_type']:: find($comment['commentable_id'])->name;
-                            $data[$key][$k]['subComment'][$index]['name'] = $author;
-                            $data[$key][$k]['subComment'][$index]['comment'] = $comment['text'];
-                            $data[$key][$k]['subComment'][$index]['date'] = date_format(date_create($comment['created_at']), "m/d/y");
-                            $data[$key][$k]['subComment'][$index]['id'] = $comment['id'];
+                        $sub_coms = Comment::where('parent_id', $v['id'])->get()->toArray();
+                        if (count($sub_coms) > 0) {
+                            foreach ($sub_coms as $index => $comment) {
+                                $author = $comment['commentable_type']:: find($comment['commentable_id'])->name;
+                                $data[$key][$k]['subComment'][$index]['name'] = $author;
+                                $data[$key][$k]['subComment'][$index]['comment'] = $comment['text'];
+                                $data[$key][$k]['subComment'][$index]['date'] = date_format(date_create($comment['created_at']), "m/d/y");
+                                $data[$key][$k]['subComment'][$index]['id'] = $comment['id'];
+                            }
+                        } else {
+                            $data[$key][$k]['subComment'] = null;
                         }
-                    }
-                    else{
-                        $data[$key][$k]['subComment'] = null;
                     }
                 }
             }
@@ -459,7 +462,7 @@ class PlaceController extends Controller
         $data['name'] = $array['name'];
         $data['rating'] = (int)$array['rating'];
         $data['comment'] = $array['comment'];
-        if($comm_pages == 1)
+        if(isset($comm_pages) && $comm_pages == 1)
             $data['more_comments'] = false;
         else
             $data['more_comments'] = true;

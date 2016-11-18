@@ -61,7 +61,7 @@ class PlaceController extends Controller
 
         foreach ($hours as $k=>$value){
 
-            if($value != 'closed') {
+            if($value != 'closed' && $value != '') {
                 $parts = explode(',', $value);
                 foreach ($parts as $key => $part) {
 
