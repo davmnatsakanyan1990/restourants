@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 .star-rating .star.filled {
-  color: #ee8b2d;
+  color: #ff7e00;
 }
 .star-rating.readonly .star.filled {
   color: #666;
