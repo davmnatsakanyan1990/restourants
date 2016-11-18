@@ -12,6 +12,7 @@ use App\Models\PlaceCuisin;
 use App\Models\PlaceHighlight;
 use App\Models\PlaceType;
 use App\Models\Type;
+use App\Models\WorkingHour;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -45,8 +46,49 @@ class PlaceController extends Controller
         $all_types = Type::all()->toArray();
 
         $all_categories = Category::all()->toArray();
-//dd($place);
-        return view('admin.place_edit', compact('place', 'locations', 'all_cities', 'all_cuisins', 'all_highlights', 'all_types', 'all_categories'));
+
+        $hours = array();
+
+        $hours['mon'] = $place['workinghour']['mon'];
+        $hours['tue'] = $place['workinghour']['tue'];
+        $hours['wed'] = $place['workinghour']['wed'];
+        $hours['thu'] = $place['workinghour']['thu'];
+        $hours['fri'] = $place['workinghour']['fri'];
+        $hours['sat'] = $place['workinghour']['sat'];
+        $hours['sun'] = $place['workinghour']['sun'];
+
+        $d = array();
+
+        foreach ($hours as $k=>$value){
+
+            if($value != 'closed') {
+                $parts = explode(',', $value);
+                foreach ($parts as $key => $part) {
+
+                    $ex = explode('to', $part);
+                    $from = $ex[0];
+                    $to = $ex[1];
+
+                    $from_hr = explode(':', date('H:i', strtotime($from)))[0];
+                    $from_min = explode(':', date('H:i', strtotime($from)))[1];
+
+                    $to_hr = explode(':', date('H:i', strtotime($to)))[0];
+                    $to_min = explode(':', date('H:i', strtotime($to)))[1];
+
+                    $d[$k][$key]['from']['hr'] = $from_hr;
+                    $d[$k][$key]['from']['min'] = $from_min;
+
+                    $d[$k][$key]['to']['hr'] = $to_hr;
+                    $d[$k][$key]['to']['min'] = $to_min;
+
+                }
+            }
+            else{
+                $d[$k] = 'closed';
+            }
+        }
+        
+        return view('admin.place_edit', compact('d', 'place', 'locations', 'all_cities', 'all_cuisins', 'all_highlights', 'all_types', 'all_categories'));
     }
     
     public function update(Request $request){
@@ -93,6 +135,9 @@ class PlaceController extends Controller
         }
 
         // update working hours
+
+        // monday
+        
         $working_hours = array();
         if(isset($request->mon['index'])){
             $mon = array();
@@ -103,15 +148,171 @@ class PlaceController extends Controller
             }
             $working_hours['mon'] = '';
             if(count($mon) > 1) {
-                foreach ($mon as $p) {
-                    $working_hours['mon'] = $working_hours['mon'] . ',' . $p;
+                foreach ($mon as $k=>$p) {
+                    if($k==0)
+                        $working_hours['mon'] = $p;
+                    else
+                        $working_hours['mon'] = $working_hours['mon'] . ', ' . $p;
                 }
             }
             else{
                 $working_hours['mon'] = $mon[0];
             }
-            dd($working_hours);
         }
+        else{
+            $working_hours['mon'] = 'closed';
+        }
+
+        // tuesday
+        if(isset($request->tue['index'])){
+            $tue = array();
+            foreach($request->tue['data'] as $part){
+                $from = date('g:i a', strtotime($part['from']['hr'].':'.$part['from']['min']));
+                $to = date('g:i a', strtotime($part['to']['hr'].':'.$part['to']['min']));
+                array_push($tue, $from.' to '.$to);
+            }
+            $working_hours['tue'] = '';
+            if(count($tue) > 1) {
+                foreach ($tue as $k=>$p) {
+                    if($k==0)
+                        $working_hours['tue'] = $p;
+                    else
+                        $working_hours['tue'] = $working_hours['tue'] . ', ' . $p;
+                }
+            }
+            else{
+                $working_hours['tue'] = $tue[0];
+            }
+        }
+        else{
+            $working_hours['tue'] = 'closed';
+        }
+
+        //wednesday
+        if(isset($request->wed['index'])){
+            $wed = array();
+            foreach($request->tue['data'] as $part){
+                $from = date('g:i a', strtotime($part['from']['hr'].':'.$part['from']['min']));
+                $to = date('g:i a', strtotime($part['to']['hr'].':'.$part['to']['min']));
+                array_push($wed, $from.' to '.$to);
+            }
+            $working_hours['wed'] = '';
+            if(count($wed) > 1) {
+                foreach ($wed as $k=>$p) {
+                    if($k==0)
+                        $working_hours['wed'] = $p;
+                    else
+                        $working_hours['wed'] = $working_hours['wed'] . ', ' . $p;
+                }
+            }
+            else{
+                $working_hours['wed'] = $wed[0];
+            }
+        }
+        else{
+            $working_hours['wed'] = 'closed';
+        }
+
+        // thuesday
+        if(isset($request->thu['index'])){
+            $thu = array();
+            foreach($request->thu['data'] as $part){
+                $from = date('g:i a', strtotime($part['from']['hr'].':'.$part['from']['min']));
+                $to = date('g:i a', strtotime($part['to']['hr'].':'.$part['to']['min']));
+                array_push($thu, $from.' to '.$to);
+            }
+            $working_hours['thu'] = '';
+            if(count($thu) > 1) {
+                foreach ($thu as $k=>$p) {
+                    if($k==0)
+                        $working_hours['thu'] = $p;
+                    else
+                        $working_hours['thu'] = $working_hours['thu'] . ', ' . $p;
+                }
+            }
+            else{
+                $working_hours['thu'] = $thu[0];
+            }
+        }
+        else{
+            $working_hours['thu'] = 'closed';
+        }
+
+        // friday
+        if(isset($request->fri['index'])){
+            $fri = array();
+            foreach($request->fri['data'] as $part){
+                $from = date('g:i a', strtotime($part['from']['hr'].':'.$part['from']['min']));
+                $to = date('g:i a', strtotime($part['to']['hr'].':'.$part['to']['min']));
+                array_push($fri, $from.' to '.$to);
+            }
+            $working_hours['fri'] = '';
+            if(count($fri) > 1) {
+                foreach ($fri as $k=>$p) {
+                    if($k==0)
+                        $working_hours['fri'] = $p;
+                    else
+                        $working_hours['fri'] = $working_hours['fri'] . ', ' . $p;
+                }
+            }
+            else{
+                $working_hours['fri'] = $fri[0];
+            }
+        }
+        else{
+            $working_hours['fri'] = 'closed';
+        }
+
+        // saturday
+        if(isset($request->sat['index'])){
+            $sat = array();
+            foreach($request->sat['data'] as $part){
+                $from = date('g:i a', strtotime($part['from']['hr'].':'.$part['from']['min']));
+                $to = date('g:i a', strtotime($part['to']['hr'].':'.$part['to']['min']));
+                array_push($sat, $from.' to '.$to);
+            }
+            $working_hours['sat'] = '';
+            if(count($sat) > 1) {
+                foreach ($sat as $k=>$p) {
+                    if($k==0)
+                        $working_hours['sat'] = $p;
+                    else
+                        $working_hours['sat'] = $working_hours['sat'] . ', ' . $p;
+                }
+            }
+            else{
+                $working_hours['sat'] = $sat[0];
+            }
+        }
+        else{
+            $working_hours['sat'] = 'closed';
+        }
+
+        if(isset($request->sun['index'])){
+            $sun = array();
+            foreach($request->sun['data'] as $part){
+                $from = date('g:i a', strtotime($part['from']['hr'].':'.$part['from']['min']));
+                $to = date('g:i a', strtotime($part['to']['hr'].':'.$part['to']['min']));
+                array_push($sun, $from.' to '.$to);
+            }
+            $working_hours['sun'] = '';
+            if(count($sun) > 1) {
+                foreach ($sun as $k=>$p) {
+                    if($k==0)
+                        $working_hours['sun'] = $p;
+                    else
+                        $working_hours['sun'] = $working_hours['sun'] . ', ' . $p;
+                }
+            }
+            else{
+                $working_hours['sun'] = $sun[0];
+            }
+        }
+        else{
+            $working_hours['sun'] = 'closed';
+        }
+
+        WorkingHour::where('place_id', $this->place->id)->update($working_hours);
 
         Place::withTrashed()->where('admin_id', $this->place->id)->update([
             'name' => $request->name,
@@ -120,6 +321,8 @@ class PlaceController extends Controller
             'address' => $request->address,
             'cost' => $request->cost
         ]);
+        
+        return redirect()->back()->with('message', 'Data was successfully updated');
 
 
     }

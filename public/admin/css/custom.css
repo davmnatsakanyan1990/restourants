@@ -222,3 +222,8 @@ div.profile > div {
     color: #35aa47;
     cursor: pointer;
 }
+
+.customMargin {
+    margin: 10px 0 0 74px;
+}
+
