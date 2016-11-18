@@ -5,6 +5,11 @@
             <!-- BEGIN PAGE CONTENT-->
             <div class="row profile">
                 <div class="col-md-6">
+                    @if(session('message'))
+                        <div class="alert alert-success">
+                            <p>{{ session('message') }}</p>
+                        </div>
+                    @endif
                     <h2>Restaurant Info</h2>
                     <!--BEGIN TABS-->
                     <div class="tabbable tabbable-custom tabbable-full-width">
@@ -100,41 +105,43 @@
                                                         <label class="control-label">Working Hours</label>
 
                                                         <ul class="col-md-12">
+                                                            @foreach($d as $wk_day => $value)
                                                             <li>
-                                                                <label for="">Mon:</label>
-                                                                <input type="checkbox" name="mon[index]" class="form-control" {{ ($place['workinghour']['mon'] != 'closed' && $place['workinghour']['mon'] != '') ? 'checked' : '' }}/>
+                                                                <label for="">{{ $wk_day }}:</label>
+                                                                <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" {{ ($value != 'closed' && $value != '') ? 'checked' : '' }}/>
 
+                                                                @if($value == 'closed' || $value == '')
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon[data][1][from][hr]" class="form-control" value="00"/>
+                                                                            <input type="text" name="{{ $wk_day }}[data][1][from][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('mon[data][1][from][hr]',   'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][from][hr]', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][1][from][hr]',   'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][from][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon[data][1][from][min]" class="form-control" value="00"/>
+                                                                            <input type="text" name="{{ $wk_day }}[data][1][from][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('mon[data][1][from][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][from][min]', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][1][from][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][from][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <label for="" style="width: auto">to</label>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon[data][1][to][hr]" class="form-control" value="00"/>
+                                                                            <input type="text" name="{{ $wk_day }}[data][1][to][hr]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('mon[data][1][to][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][to][hr]', 'hours')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][1][to][hr]', 'hours' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][to][hr]', 'hours')"></i>
                                                                             </div>
                                                                         </div>
                                                                         <div class="margin5">:</div>
                                                                         <div class="elementsBlock">
-                                                                            <input type="text" name="mon[data][1][to][min]" class="form-control" value="00"/>
+                                                                            <input type="text" name="{{ $wk_day }}[data][1][to][min]" class="form-control" value="00"/>
                                                                             <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('mon[data][1][to][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('mon[data][1][to][min]', 'minute')"></i>
+                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][1][to][min]', 'minute' )"></i>
+                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][to][min]', 'minute')"></i>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -142,260 +149,309 @@
                                                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
+                                                                @else
+                                                                    @foreach($value as $k => $part)
+                                                                    <div class="addingElement {{ $k == 0 ? '' : 'customMargin' }}">
+                                                                        <div class="counters">
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][{{ $k+1 }}][from][hr]" class="form-control" value="{{ $part['from']['hr'] }}"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][{{ $k+1 }}][from][hr]',   'hours' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][{{ $k+1 }}][from][hr]', 'hours')"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="margin5">:</div>
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][{{ $k+1 }}][from][min]" class="form-control" value="{{ $part['from']['min'] }}"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][{{ $k+1 }}][from][min]', 'minute' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][{{ $k+1 }}][from][min]', 'minute')"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <label for="" style="width: auto">to</label>
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][{{ $k+1 }}][to][hr]" class="form-control" value="{{ $part['to']['hr'] }}"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][{{ $k+1 }}][to][hr]', 'hours' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][{{ $k+1 }}][to][hr]', 'hours')"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="margin5">:</div>
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][{{ $k+1 }}][to][min]" class="form-control" value="{{ $part['to']['min'] }}"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][{{ $k+1 }}][to][min]', 'minute' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][{{ $k+1 }}][to][min]', 'minute')"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        @if($k == 0)
+                                                                            <div class="addMore" title="add more time period" >
+                                                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                            </div>
+                                                                        @else
+                                                                            <div class="addMore" title="add more time period" style="color: red;" onclick = "removePeriod(this)">
+                                                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                                                            </div>
+                                                                        @endif
+                                                                    </div>
+                                                                    @endforeach
+                                                                @endif
                                                             </li>
-                                                            <li>
-                                                                <label for="">Tue:</label>
-                                                                <input type="checkbox" name="tue[index]" class="form-control" {{ ($place['workinghour']['tue'] != 'closed' && $place['workinghour']['tue'] != '') ? 'checked' : '' }}/>
-                                                                <div class="addingElement">
-                                                                    <div class="counters">
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="tue[data][1][from][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][from][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][from][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="tue[data][1][from][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][from][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][from][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <label for="" style="width: auto">to</label>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="tue[data][1][to][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][to][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][to][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="tue[data][1][to][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][to][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][to][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="addMore" title="add more time period">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <label for="">Wed:</label>
-                                                                <input type="checkbox" name="wed[index]" class="form-control" {{ ($place['workinghour']['wed'] != 'closed' && $place['workinghour']['wed'] != '') ? 'checked' : '' }}/>
-                                                                <div class="addingElement">
-                                                                    <div class="counters">
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="wed[data][1][from][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][from][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][from][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="wed[data][1][from][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][from][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][from][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <label for="" style="width: auto">to</label>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="wed[data][1][to][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][to][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][to][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="wed[data][1][to][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][to][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][to][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="addMore" title="add more time period">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </div>
-                                                                </div>
+                                                            @endforeach
+                                                            {{--<li>--}}
+                                                                {{--<label for="">Tue:</label>--}}
+                                                                {{--<input type="checkbox" name="tue[index]" class="form-control" {{ ($place['workinghour']['tue'] != 'closed' && $place['workinghour']['tue'] != '') ? 'checked' : '' }}/>--}}
+                                                                {{--<div class="addingElement">--}}
+                                                                    {{--<div class="counters">--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="tue[data][1][from][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][from][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][from][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="tue[data][1][from][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][from][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][from][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<label for="" style="width: auto">to</label>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="tue[data][1][to][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][to][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][to][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="tue[data][1][to][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('tue[data][1][to][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('tue[data][1][to][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                    {{--<div class="addMore" title="add more time period">--}}
+                                                                        {{--<i class="fa fa-plus" aria-hidden="true"></i>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<label for="">Wed:</label>--}}
+                                                                {{--<input type="checkbox" name="wed[index]" class="form-control" {{ ($place['workinghour']['wed'] != 'closed' && $place['workinghour']['wed'] != '') ? 'checked' : '' }}/>--}}
+                                                                {{--<div class="addingElement">--}}
+                                                                    {{--<div class="counters">--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="wed[data][1][from][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][from][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][from][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="wed[data][1][from][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][from][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][from][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<label for="" style="width: auto">to</label>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="wed[data][1][to][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][to][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][to][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="wed[data][1][to][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('wed[data][1][to][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('wed[data][1][to][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                    {{--<div class="addMore" title="add more time period">--}}
+                                                                        {{--<i class="fa fa-plus" aria-hidden="true"></i>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
 
-                                                            </li>
-                                                            <li>
-                                                                <label for="">Thu:</label>
-                                                                <input type="checkbox" name="thu[index]" class="form-control" {{ ($place['workinghour']['thu'] != 'closed' && $place['workinghour']['thu'] != '') ? 'checked' : '' }}/>
-                                                                <div class="addingElement">
-                                                                    <div class="counters">
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="thu[data][1][from][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][from][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][from][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="thu[data][1][from][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][from][min]', 'minute')"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][from][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <label for="" style="width: auto">to</label>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="thu[data][1][to][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][to][hr]', 'hours')"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][to][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="thu[data][1][to][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][to][min]', 'minute')"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][to][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="addMore" title="add more time period">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <label for="">Fri:</label>
-                                                                <input type="checkbox" name="fri[index]" class="form-control" {{ ($place['workinghour']['fri'] != 'closed' && $place['workinghour']['fri'] != '') ? 'checked' : '' }}/>
-                                                                <div class="addingElement">
-                                                                    <div class="counters">
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="fri[data][1][from][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][from][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][from][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="fri[data][1][from][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][from][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][from][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <label for="" style="width: auto">to</label>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="fri[data][1][to][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][to][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][to][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="fri[data][1][to][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][to][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][to][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="addMore" title="add more time period">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <label for="">Sat:</label>
-                                                                <input type="checkbox" name="sat[index]" class="form-control" {{ ($place['workinghour']['sat'] != 'closed' && $place['workinghour']['sat'] != '') ? 'checked' : '' }}/>
-                                                                <div class="addingElement">
-                                                                    <div class="counters">
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sat[data][1][from][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][from][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][from][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sat[data][1][from][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][from][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][from][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <label for="" style="width: auto">to</label>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sat[data][1][to][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][to][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][to][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sat[data][1][to][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][to][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][to][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="addMore" title="add more time period">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <label for="">Sun:</label>
-                                                                <input type="checkbox" name="sun[index]" class="form-control" {{ ($place['workinghour']['sun'] != 'closed' && $place['workinghour']['sun'] != '') ? 'checked' : '' }}/>
-                                                                <div class="addingElement">
-                                                                    <div class="counters">
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sun[data][1][from][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][from][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][from][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sun[data][1][from][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][from][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][from][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <label for="" style="width: auto">to</label>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sun[data][1][to][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][to][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][to][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="sun[data][1][to][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][to][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][to][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="addMore" title="add more time period">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<label for="">Thu:</label>--}}
+                                                                {{--<input type="checkbox" name="thu[index]" class="form-control" {{ ($place['workinghour']['thu'] != 'closed' && $place['workinghour']['thu'] != '') ? 'checked' : '' }}/>--}}
+                                                                {{--<div class="addingElement">--}}
+                                                                    {{--<div class="counters">--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="thu[data][1][from][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][from][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][from][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="thu[data][1][from][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][from][min]', 'minute')"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][from][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<label for="" style="width: auto">to</label>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="thu[data][1][to][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][to][hr]', 'hours')"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][to][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="thu[data][1][to][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('thu[data][1][to][min]', 'minute')"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('thu[data][1][to][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                    {{--<div class="addMore" title="add more time period">--}}
+                                                                        {{--<i class="fa fa-plus" aria-hidden="true"></i>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<label for="">Fri:</label>--}}
+                                                                {{--<input type="checkbox" name="fri[index]" class="form-control" {{ ($place['workinghour']['fri'] != 'closed' && $place['workinghour']['fri'] != '') ? 'checked' : '' }}/>--}}
+                                                                {{--<div class="addingElement">--}}
+                                                                    {{--<div class="counters">--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="fri[data][1][from][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][from][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][from][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="fri[data][1][from][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][from][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][from][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<label for="" style="width: auto">to</label>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="fri[data][1][to][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][to][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][to][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="fri[data][1][to][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('fri[data][1][to][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('fri[data][1][to][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                    {{--<div class="addMore" title="add more time period">--}}
+                                                                        {{--<i class="fa fa-plus" aria-hidden="true"></i>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<label for="">Sat:</label>--}}
+                                                                {{--<input type="checkbox" name="sat[index]" class="form-control" {{ ($place['workinghour']['sat'] != 'closed' && $place['workinghour']['sat'] != '') ? 'checked' : '' }}/>--}}
+                                                                {{--<div class="addingElement">--}}
+                                                                    {{--<div class="counters">--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sat[data][1][from][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][from][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][from][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sat[data][1][from][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][from][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][from][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<label for="" style="width: auto">to</label>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sat[data][1][to][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][to][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][to][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sat[data][1][to][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sat[data][1][to][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sat[data][1][to][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                    {{--<div class="addMore" title="add more time period">--}}
+                                                                        {{--<i class="fa fa-plus" aria-hidden="true"></i>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<label for="">Sun:</label>--}}
+                                                                {{--<input type="checkbox" name="sun[index]" class="form-control" {{ ($place['workinghour']['sun'] != 'closed' && $place['workinghour']['sun'] != '') ? 'checked' : '' }}/>--}}
+                                                                {{--<div class="addingElement">--}}
+                                                                    {{--<div class="counters">--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sun[data][1][from][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][from][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][from][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sun[data][1][from][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][from][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][from][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<label for="" style="width: auto">to</label>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sun[data][1][to][hr]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][to][hr]', 'hours' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][to][hr]', 'hours')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                        {{--<div class="margin5">:</div>--}}
+                                                                        {{--<div class="elementsBlock">--}}
+                                                                            {{--<input type="text" name="sun[data][1][to][min]" class="form-control" value="00"/>--}}
+                                                                            {{--<div class="upDown">--}}
+                                                                                {{--<i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('sun[data][1][to][min]', 'minute' )"></i>--}}
+                                                                                {{--<i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('sun[data][1][to][min]', 'minute')"></i>--}}
+                                                                            {{--</div>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                    {{--<div class="addMore" title="add more time period">--}}
+                                                                        {{--<i class="fa fa-plus" aria-hidden="true"></i>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
+                                                            {{--</li>--}}
                                                         </ul>
 
                                                     </div>
