@@ -215,7 +215,12 @@ div.profile > div {
 
 .header.navbar a.navbar-brand {
     padding: 0 !important;
-    height: auto !important;
+    /*height: auto !important;*/
+    height: 43px !important;
+    padding-top: 7px !important;
+}
+.header.navbar a.navbar-brand img{
+    height: 30px;
 }
 .addMore{
     line-height: 34px;
