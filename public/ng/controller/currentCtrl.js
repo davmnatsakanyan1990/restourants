@@ -49,7 +49,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 
             //rating part
-            $scope.rating1 = $scope.currentRestaurant.rating+1;
+            $scope.rating1 = $scope.currentRestaurant.rating != 0 ?$scope.currentRestaurant.rating : 1;
 
             $scope.isReadonly = true;
             $scope.rateFunction = function (rating) {
