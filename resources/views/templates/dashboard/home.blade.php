@@ -1,4 +1,4 @@
-<div ng-controller="MapCtrl">
+<div>
     <div class="content">
         <div class="sliderSection">
             <h1 class="headTitle">

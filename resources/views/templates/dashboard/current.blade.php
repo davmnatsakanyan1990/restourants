@@ -1,5 +1,5 @@
 
-    <div ng-controller="currentController" >
+    <div>
 
         <script src="{{asset('lib/star/star.js')}}"></script>
 
