@@ -943,6 +943,9 @@ html body .content .pageSection .cont .infoContent .info {
   padding-left: 7px;
   margin-top: 20px;
 }
+html body .content .pageSection .cont .infoContent .info a {
+  display: block;
+}
 html body .content .pageSection .cont .infoContent .info:hover {
   border-left: 3px solid #00897b;
   padding-left: 4px;
