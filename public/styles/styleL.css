@@ -525,6 +525,11 @@ html body .navigation .mobile-menu-icon {
 }
 html body .navigation .navIco {
   float: left;
+  line-height: 45px;
+  padding-left: 25px;
+}
+html body .navigation .navIco img {
+  height: 30px;
 }
 html body .navigation .menuLeft {
   float: left;
