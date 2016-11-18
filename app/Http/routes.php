@@ -139,21 +139,14 @@ Route::get('assign/type', 'ApiController@assignType');
 
 
 Route::get('test', function(){
-    $places = Place::with('payment')->whereNotNull('sent_at')->has('payment', '==', null)->get()->toArray();
-
-    // get current date time in Unix format
-    $now = strtotime(date("Y-m-d H:i:s"));
-
-    foreach($places as $place){
-
-        //get email sent time in Unix format
-        $email_sent_time = strtotime($place['sent_at']);
-
-        // deactivate place
-        if($now > $email_sent_time + 604800){
-            Place::where('id', $place['id'])->delete();
-        }
+    $places = Place::all()->toArray();
+    $data = [];
+    foreach ($places as $place){
+        $object = Place::where('name', $place['name'])->get()->toArray();
+        if(count($object) > 1)
+            array($data, $object[0]);
     }
+    dd($data);
 });
 
 
