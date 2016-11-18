@@ -1,5 +1,5 @@
 
-    <div ng-controller="currentController" >
+    <div>
 
         <script src="{{asset('lib/star/star.js')}}"></script>
 
@@ -79,7 +79,7 @@
 
                     <div class="lead">
                         {{--<div class="starrr" ></div>--}}
-                        <div id="some" star-rating ng-model="rating1" max="5" on-rating-select="rateFunction(rating)" readonly="editedRating"></div>
+                        <div id="some" star-rating ng-model="rating1" max="5" on-rating-select="rateFunction(rating)" ></div>
 
                     </div>
                 </div>

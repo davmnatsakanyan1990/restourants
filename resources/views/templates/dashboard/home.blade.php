@@ -1,4 +1,4 @@
-<div ng-controller="MapCtrl">
+<div>
     <div class="content">
         <div class="sliderSection">
             <h1 class="headTitle">
@@ -239,7 +239,7 @@
                 <div class="infoContent">
                     <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                          ng-click="currentRest(info.id)" ng-mouseenter="openInfoWindow($event, info)">
-                        <a href="#current">
+                        <a href="#current" class="clearElement">
                             <div class="imageSection">
                                 <img src="images/restaurantImages/<% info.image %>">
                             </div>
@@ -277,6 +277,7 @@
                         </a>
 
                     </div>
+                    <loading ></loading>
                     <button class="showMoreButton" ng-click="addMorePoints()" id="active" ng-if="!noMoreInfoToShow">show more</button>
                     {{--<div class="additionalInfo">
                         <div class="additionalTitle">Restaurants in nearby towns</div>

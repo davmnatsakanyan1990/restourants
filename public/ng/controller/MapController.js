@@ -142,6 +142,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     // add more restaurant in list
     $scope.addMorePoints = function(){
+        $scope.loading = true;
         $scope.callData.page++;
         RestaurantService.getMoreRestaurant($scope.callData)
             .then(function (response) {
@@ -153,6 +154,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     createMarker(value);
                     $scope.restaurants.push(value);
                 });
+                $scope.loading = false;
 
             });
     };

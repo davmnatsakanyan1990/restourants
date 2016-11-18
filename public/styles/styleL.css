@@ -3,6 +3,12 @@
   display: table;
   clear: both;
 }
+.loading {
+  text-align: center;
+}
+.loading img {
+  margin-right: 5px;
+}
 .forBefore {
   position: absolute;
   top: 60px;
@@ -942,6 +948,9 @@ html body .content .pageSection .cont .infoContent {
 html body .content .pageSection .cont .infoContent .info {
   padding-left: 7px;
   margin-top: 20px;
+}
+html body .content .pageSection .cont .infoContent .info a {
+  display: block;
 }
 html body .content .pageSection .cont .infoContent .info:hover {
   border-left: 3px solid #00897b;
