@@ -3,6 +3,12 @@
   display: table;
   clear: both;
 }
+.loading {
+  text-align: center;
+}
+.loading img {
+  margin-right: 5px;
+}
 .forBefore {
   position: absolute;
   top: 60px;

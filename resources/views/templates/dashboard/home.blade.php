@@ -277,6 +277,7 @@
                         </a>
 
                     </div>
+                    <loading ></loading>
                     <button class="showMoreButton" ng-click="addMorePoints()" id="active" ng-if="!noMoreInfoToShow">show more</button>
                     {{--<div class="additionalInfo">
                         <div class="additionalTitle">Restaurants in nearby towns</div>
