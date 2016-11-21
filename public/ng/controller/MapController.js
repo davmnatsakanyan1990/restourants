@@ -22,6 +22,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         city: 'Salt%20Lake%20City',
         filters: {}
     };
+    $scope.modeLoad = false;
     RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
             $scope.restaurants = response.data.restaurants;
@@ -29,8 +30,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             $scope.showFilters = response.data.filters;
 
             //top sider
+            $scope.category = [];
 
-            $scope.myNewArr = [];
+           /* $scope.myNewArr = [];
             $scope.cats = [];
 
             for(var i = 0; i < 3; i++){
@@ -38,9 +40,19 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     $scope.cats.push({'name' : response.data.filters.Mode[index].name, 'id' : response.data.filters.Mode[index].id, 'image' : '../images/foodImages/'+(index+1)+'.jpg'});
 
                 }
-            }
+            }*/
+           if(window.innerWidth > 600){
+               $scope.modeLoad = true;
+               for(var a=0; a< response.data.filters.Mode.length; a++){
+                   $scope.category.push({'name' : response.data.filters.Mode[a].name, 'id' : response.data.filters.Mode[a].id, 'image' : '../images/foodImages/'+(a+1)+'.jpg'})
+               }
+           }else{
+               $scope.modeLoad = false;
+           }
 
-            if(window.innerWidth < 380){
+
+
+            /*if(window.innerWidth < 380){
                 $scope.cal = 6;
                 for(var i =0; i<$scope.cats.length; i++){
                     if (i % 2 == 0 && i!=0){
@@ -104,7 +116,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         );
                     }
                 }
-            };
+            };*/
 
             $scope.drowCuisine = [];
             for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
@@ -157,6 +169,14 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 $scope.loading = false;
 
             });
+    };
+
+    $scope.clickTopSlider = function () {
+        RestaurantService.getMode()
+            .then(function (response) {
+
+            });
+        
     };
 
     $scope.initMap = function(mapOptions){

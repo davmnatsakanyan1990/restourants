@@ -230,6 +230,10 @@ button:focus {
 .restPageContainer .pageContainer .containerContent .containerPart .moreInfo .introTitle {
   font-weight: 700;
   font-size: 20px;
+  border-bottom: 1px solid #bcbcbc;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .moreInfo .introTitle .doubleBorder {
+  border-bottom: 2px solid #ff7e00;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .moreInfo .introContent {
   font-size: 16px;
@@ -237,6 +241,7 @@ button:focus {
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartTitle {
   padding: 0 0 20px 20px;
   border-bottom: 1px solid #efefef;
+  font-size: 16px;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartMap {
   padding: 20px 20px 0 20px;
@@ -254,6 +259,28 @@ button:focus {
   font-weight: 700;
   margin-right: 20px;
   font-size: 18px;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent {
+  font-size: 16px;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent .infoTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00897B;
+  margin-bottom: 5px;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent {
+  margin: 10px 20px 0 0;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent .infoHour {
+  margin-bottom: 5px;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent .infoHour:last-child {
+  margin-bottom: 0;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .hourBlock {
+  background-color: #f3f3f3;
+  padding: 0 20px 20px 20px;
 }
 .restPageContainer .pageContainer .containerContent .container1 {
   background-color: white;
@@ -391,6 +418,7 @@ button:focus {
 }
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .comment {
   margin-bottom: 10px;
+  max-width: 900px;
 }
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .subComment .commentContent {
   margin: 0 30px;
@@ -439,7 +467,7 @@ button:focus {
   clear: both;
 }
 .restPageContainer .pageContainer .containerContent .pages .containerTitle {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
 }

@@ -95,15 +95,15 @@
                     <div class="containerPart elementLeft">
                         <div class="intro" ng-bind="currentRestaurant.intro"></div>
                         <div class="moreInfo">
-                            <div class="introTitle capitalize">cuisine</div>
+                            <div class="introTitle capitalize"><span class="doubleBorder">cuisine</span></div>
                             <div class="introContent" ng-bind="currentRestaurant.cuisins"></div>
                         </div>
                         <div class="moreInfo">
-                            <div class="introTitle capitalize">Type of place</div>
+                            <div class="introTitle capitalize"><span class="doubleBorder">Type of place</span></div>
                             <div class="introContent" ng-bind="currentRestaurant.type"></div>
                         </div>
                         <div class="moreInfo">
-                            <div class="introTitle capitalize">services</div>
+                            <div class="introTitle capitalize"><span class="doubleBorder">services</span></div>
                             <div class="introContent" ng-bind="currentRestaurant.services"></div>
                         </div>
                     </div>
@@ -128,11 +128,12 @@
                             </div>
                             <div class="moreInfoAddress clearElement">
                                 <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
-                                <div class="introContent clearElement floatNone" ng-repeat="(day,hour) in currentRestaurant.workingHours">
-                                    <div class="capitalize elementLeft" ng-bind="day"></div><span class="elementLeft">:&nbsp;</span>
-                                    <div class="elementLeft" ng-bind="hour"></div>
+                                <div class="clearElement hourBlock">
+                                    <div class="introContent hourContent clearElement elementLeft" ng-repeat="(day,hourr) in hoursPart">
+                                        <div class="capitalize infoTitle" ng-bind="day"></div>
+                                        <div class="infoHour" ng-repeat="hour in hourr" ng-bind="hour"></div>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

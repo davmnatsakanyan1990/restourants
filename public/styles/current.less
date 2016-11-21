@@ -258,6 +258,10 @@ button{
           .introTitle{
             font-weight: 700;
             font-size: 20px;
+            border-bottom: 1px solid #bcbcbc;
+            .doubleBorder{
+              border-bottom: 2px solid #ff7e00;
+            }
           }
           .introContent{
             font-size: 16px;
@@ -267,6 +271,7 @@ button{
         .mapPartTitle{
           padding:0 0 20px 20px;
           border-bottom: 1px solid #efefef;
+          font-size: 16px;
         }
         .mapPartMap{
           padding: 20px 20px 0 20px;
@@ -284,6 +289,27 @@ button{
               font-size: 18px;
             }
             .introContent{
+              font-size: 16px;
+              .infoTitle{
+                font-size: 16px;
+                font-weight: 700;
+                color: #00897B;
+                margin-bottom: 5px;
+              }
+              &.hourContent{
+                margin: 10px 20px 0 0;
+                .infoHour{
+                  //font-weight: 500;
+                  margin-bottom: 5px;
+                  &:last-child{
+                    margin-bottom: 0;
+                  }
+                }
+              }
+            }
+            .hourBlock{
+              background-color: #f3f3f3;
+              padding: 0 20px 20px 20px;
             }
           }
         }
@@ -436,6 +462,7 @@ button{
           }
           .comment{
             margin-bottom: 10px;
+            max-width: 900px;
           }
           .subComment{
             .commentContent{
@@ -490,7 +517,7 @@ button{
           clear: both;
         }
         .containerTitle{
-          font-size: 18px;
+          font-size: 22px;
           font-weight: 700;
           margin-bottom: 20px;
         }
