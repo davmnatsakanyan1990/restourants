@@ -138,15 +138,8 @@ Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
 
 
-Route::get('test', function(){
-    $places = Place::all()->toArray();
-    $data = [];
-    foreach ($places as $place){
-        $object = Place::where('name', $place['name'])->get()->toArray();
-        if(count($object) > 1)
-            array($data, $object[0]);
-    }
-    dd($data);
+Route::get('run_cron', function(){
+    phpinfo();
 });
 
 
