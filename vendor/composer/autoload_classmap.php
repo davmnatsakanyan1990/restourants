@@ -553,5 +553,6 @@ return array(
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'TypeTableSeeder' => $baseDir . '/database/seeds/TypeTableSeeder.php',
+    'UniqueCoulmnsUsersTable' => $baseDir . '/database/migrations/2016_11_21_120429_unique_coulmns_users_table.php',
     'UserTableSeeder' => $baseDir . '/database/seeds/UserTableSeeder.php',
 );

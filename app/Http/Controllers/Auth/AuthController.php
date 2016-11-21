@@ -54,7 +54,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users,email,NULL,id,provider,""',
 //            'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -83,6 +83,7 @@ class AuthController extends Controller
     public function login(Request $request){
 
         $credentials = $this->getCredentials($request);
+        $credentials['provider'] = '';
 
         if (Auth::guard('user')->attempt($credentials, $request->has('remember'))) {
             return response()->json(['status' =>'ok', 'user' => Auth::guard('user')->user()->toArray()]);
@@ -155,14 +156,14 @@ class AuthController extends Controller
     {
         $data = Socialite::driver($provider)->user();
 
-        $user = User::where('username', $data->id)->first();
+        $user = User::where('username', $data->id)->where('provider', $provider)->first();
 
         if($user){
             Auth::guard('user')->login($user);
             return redirect('/#');
         }
         else{
-            $u = User::create(['name' => $data->name,  'username' => $data->id, 'email' => $data->email]);
+            $u = User::create(['name' => $data->name,  'username' => $data->id, 'email' => $data->email, 'provider' => $provider]);
             Auth::guard('user')->login($u);
             return redirect('/#');
         }
