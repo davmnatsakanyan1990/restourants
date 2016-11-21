@@ -18,7 +18,7 @@
                                 <div class="row">
                                     <div class="col-md-2 col-xs-2 col-sm-2" ng-repeat="cat in category track by $index">
                                         <a class="thumbnail"
-                                           style="width: 60px; height: 70px; margin: 0 auto;  border: none;">
+                                           style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" ng-click="clickTopSlider(cat.name)">
                                             <img src="<%cat.image%>" style="max-width:100%;">
                                             <div class="text"
                                                  style="font-size: 11px; color: #3c3e51; margin-top: 5px;">

@@ -171,10 +171,21 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             });
     };
 
-    $scope.clickTopSlider = function () {
-        RestaurantService.getMode()
+    $scope.clickTopSlider = function (categoryName) {
+        RestaurantService.getMode(categoryName)
             .then(function (response) {
+                $scope.restaurants = response.data.restaurants;
 
+                $scope.initMap({
+                    zoom: 16,
+                    center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.1),
+                    scrollwheel: false,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
+                });
+
+                for (i = 0; i < $scope.restaurants.length; i++) {
+                    createMarker($scope.restaurants[i]);
+                }
             });
         
     };
