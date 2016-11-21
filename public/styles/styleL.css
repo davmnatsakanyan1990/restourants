@@ -519,7 +519,7 @@ html body .navigation {
   z-index: 20;
   background: rgba(52, 54, 74, 0.95);
   color: #a3a4ae;
-  font-size: 14px;
+  font-size: 16px;
 }
 html body .navigation:after {
   content: '';
@@ -533,6 +533,7 @@ html body .navigation .navIco {
   float: left;
   line-height: 45px;
   padding-left: 25px;
+  margin-right: 50px;
 }
 html body .navigation .navIco img {
   height: 30px;
@@ -678,6 +679,7 @@ html body .navigation .dropdownMenu .dropdownInner .topButtons .mergedButtons {
   margin-right: 7px;
 }
 html body .restNav {
+  font-size: 16px;
   position: absolute;
   top: 45px;
   left: 0;
@@ -982,17 +984,17 @@ html body .content .pageSection .cont .infoContent .info .imageSection {
   width: 160px;
   height: 160px;
   float: left;
+  overflow: hidden;
 }
 html body .content .pageSection .cont .infoContent .info .imageSection img {
-  width: 160px;
-  height: 160px;
+  width: 300px;
 }
 html body .content .pageSection .cont .infoContent .info .textSection {
   float: left;
   margin: 10px 0 0 10px;
 }
 html body .content .pageSection .cont .infoContent .info .textSection .title {
-  font-weight: 400;
+  font-weight: 700;
   font-family: robotobold,Arial;
   font-size: 20px;
   line-height: 25px;
@@ -1001,8 +1003,9 @@ html body .content .pageSection .cont .infoContent .info .textSection .title {
   color: #23527c;
 }
 html body .content .pageSection .cont .infoContent .info .textSection .text {
-  color: #000;
+  color: #8e8e8e;
   max-width: 300px;
+  font-size: 16px;
 }
 html body .content .pageSection .cont .infoContent .info .textSection .rate {
   color: #ff7e00;

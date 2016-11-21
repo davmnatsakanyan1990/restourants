@@ -128,7 +128,7 @@
                             </div>
                             <div class="moreInfoAddress clearElement">
                                 <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
-                                <div class="clearElement">
+                                <div class="clearElement hourBlock">
                                     <div class="introContent hourContent clearElement elementLeft" ng-repeat="(day,hourr) in hoursPart">
                                         <div class="capitalize infoTitle" ng-bind="day"></div>
                                         <div class="infoHour" ng-repeat="hour in hourr" ng-bind="hour"></div>

@@ -273,11 +273,14 @@ button:focus {
   margin: 10px 20px 0 0;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent .infoHour {
-  font-weight: 500;
   margin-bottom: 5px;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent .infoHour:last-child {
   margin-bottom: 0;
+}
+.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .hourBlock {
+  background-color: #f3f3f3;
+  padding: 0 20px 20px 20px;
 }
 .restPageContainer .pageContainer .containerContent .container1 {
   background-color: white;
