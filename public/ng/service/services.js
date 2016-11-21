@@ -82,6 +82,13 @@ app.factory('RestaurantService', function($http) {
                 method: "GET",
                 url: 'sendmail/'+email
             })
+        },
+
+        getMode: function(data){
+            return $http ({
+                method: "GET",
+                url: 'category/'+data
+            })
         }
 
 
