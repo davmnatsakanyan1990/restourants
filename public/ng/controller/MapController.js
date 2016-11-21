@@ -23,6 +23,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         filters: {}
     };
     $scope.modeLoad = false;
+    var slidePage = 0;
     RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
             $scope.restaurants = response.data.restaurants;
@@ -140,8 +141,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             }
 
             $scope.initMap({
-                zoom: 16,
-                center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.006),
+                zoom: 12,
+                center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.016),
                 scrollwheel: false,
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             });
@@ -172,13 +173,16 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
     $scope.clickTopSlider = function (categoryName) {
-        RestaurantService.getMode(categoryName)
+        slidePage += 1;
+        var currentCity = $scope.callData.city;
+        var myCallData = {page: slidePage, city_name: currentCity, category: categoryName};
+        RestaurantService.getMode(myCallData)
             .then(function (response) {
                 $scope.restaurants = response.data.restaurants;
 
                 $scope.initMap({
-                    zoom: 16,
-                    center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.1),
+                    zoom: 12,
+                    center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
                     scrollwheel: false,
                     mapTypeId: google.maps.MapTypeId.TERRAIN
                 });
@@ -193,7 +197,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.initMap = function(mapOptions){
 
         var mapOptions = mapOptions || {
-                zoom: 16,
+                zoom: 12,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             };
@@ -430,7 +434,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         $scope.restaurants = response.data.restaurants;
 
                         $scope.initMap({
-                            zoom: 16,
+                            zoom: 12,
                             center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.1),
                             scrollwheel: false,
                             mapTypeId: google.maps.MapTypeId.TERRAIN

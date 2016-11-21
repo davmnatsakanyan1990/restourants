@@ -87,7 +87,7 @@ app.factory('RestaurantService', function($http) {
         getMode: function(data){
             return $http ({
                 method: "GET",
-                url: 'category/'+data
+                url: 'category/products?page='+data.page+'&city='+data.city_name+'&category='+data.category
             })
         }
 
