@@ -241,6 +241,7 @@ button:focus {
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartTitle {
   padding: 0 0 20px 20px;
   border-bottom: 1px solid #efefef;
+  font-size: 16px;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartMap {
   padding: 20px 20px 0 20px;
