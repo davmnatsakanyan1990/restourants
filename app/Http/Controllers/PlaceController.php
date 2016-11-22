@@ -6,7 +6,6 @@ use App\Models\City;
 use App\Models\Comment;
 use App\Models\Location;
 use App\Models\Place;
-use App\Http\Requests;
 use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Support\Facades\DB;

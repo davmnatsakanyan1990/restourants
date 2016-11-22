@@ -113,7 +113,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                     }
                 }
             }
-            ;
+            $scope.$parent.docLoader = false;
 
         }.bind($scope));
 
