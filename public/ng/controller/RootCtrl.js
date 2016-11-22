@@ -2,6 +2,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     
     $scope.search = true;
     $scope.custom = false;
+    $scope.docLoader = true;
     $scope.animateTopMenuVar = false;
     $scope.openLogOut = false;
     var userNameFull = localStorage.getItem("userName");
@@ -230,7 +231,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     $scope.loginFacebook = function () {
        // RestaurantService.loginUsingFacebook();
         window.location = BASE_URL+'/user/auth/facebook';
-    };
+    }
 
     $scope.loginGoogle = function () {
         // RestaurantService.loginUsingFacebook();

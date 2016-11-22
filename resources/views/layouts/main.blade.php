@@ -5,6 +5,7 @@
     @include("layouts.partials.scripts")
 </head>
 <body ng-app="myApp" ng-controller="rootController">
+<div class="home-loader" ng-show="docLoader"><img src="/images/loader2.gif" width="100" height="100"></div>
     @include("layouts.partials.menu")
     <ng-view></ng-view>
 
