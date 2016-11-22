@@ -10,12 +10,29 @@
             <p class="headBody uppercase">
                 Best of <span ng-bind="city"></span>
             </p>
-            <div class="slider">
+            <div class="slider" ng-if="modeLoad">
 
                 <div class=""><!--slider-->
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div id="Carousel" class="carus2 carousel slide carouselTop">
+
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-md-2 col-xs-2 col-sm-2" ng-repeat="cat in category track by $index">
+                                        <a class="thumbnail"
+                                           style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" ng-click="clickTopSlider(cat.name)">
+                                            <img src="<%cat.image%>" style="max-width:100%;">
+                                            <div class="text"
+                                                 style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
+                                                <% cat.name %>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                           {{-- <div id="Carousel" class="carus2 carousel slide carouselTop">
                                 <!-- Carousel items -->
                                 <div class="carousel-inner">
 
@@ -32,8 +49,8 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                        </div><!--.row-->
-                                    </div><!--.item-->
+                                        </div>
+                                    </div>
                                     <div class="item" ng-repeat="cat in myNewArr track by $index">
                                         <div class="row">
                                             <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>"
@@ -48,14 +65,14 @@
                                                 </a>
                                             </div>
 
-                                        </div><!--.row-->
-                                    </div><!--.item-->
+                                        </div>
+                                    </div>
                                 </div><!--.carousel-inner-->
                                 <a data-slide="prev" href=".carus2" class="carousel-control left cont"
                                    style="left: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">‹</a>
                                 <a data-slide="next" href=".carus2" class="carousel-control right cont"
                                    style="right: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">›</a>
-                            </div><!--.Carousel-->
+                            </div><!--.Carousel-->--}}
                         </div>
                     </div>
                 </div><!--.container-->
@@ -249,7 +266,7 @@
                                 <div class="title" ng-bind="info.title"></div>
 
                                 <div class="text" ng-bind="info.service"></div>
-                                <div class="rate" ng-if="info.rating <=1">
+                                {{--<div class="rate" ng-if="info.rating <=1">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                 </div>
                                 <div class="rate" ng-if="info.rating <=2 && info.rating >1">
@@ -273,7 +290,7 @@
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
+                                </div>--}}
                                 <div class="explanation" ng-bind="info.explane"></div>
                             </div>
                         </a>

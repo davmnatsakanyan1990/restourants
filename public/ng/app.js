@@ -2,7 +2,10 @@ var app = angular.module("myApp", ["ngRoute"]);
 
 app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
     function ($interpolateProvider, $routeProvider,$locationProvider) {
-
+        /*$locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });*/
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
 

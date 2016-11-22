@@ -314,7 +314,7 @@ class PlaceController extends Controller
 
         WorkingHour::where('place_id', $this->place->id)->update($working_hours);
 
-        Place::withTrashed()->where('admin_id', $this->place->id)->update([
+        Place::withTrashed()->find($this->place->id)->update([
             'name' => $request->name,
             'mobile' => $request->mobile,
             'intro' => $request->intro,

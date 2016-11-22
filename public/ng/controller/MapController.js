@@ -21,6 +21,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         city: 'Salt%20Lake%20City',
         filters: {}
     };
+    $scope.modeLoad = false;
+    var slidePage = 0;
     RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
 
@@ -29,8 +31,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             $scope.showFilters = response.data.filters;
 
             //top sider
+            $scope.category = [];
 
-            $scope.myNewArr = [];
+           /* $scope.myNewArr = [];
             $scope.cats = [];
 
             for(var i = 0; i < 3; i++){
@@ -38,9 +41,19 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                     $scope.cats.push({'name' : response.data.filters.Mode[index].name, 'id' : response.data.filters.Mode[index].id, 'image' : '../images/foodImages/'+(index+1)+'.jpg'});
 
                 }
-            }
+            }*/
+           if(window.innerWidth > 600){
+               $scope.modeLoad = true;
+               for(var a=0; a< response.data.filters.Mode.length; a++){
+                   $scope.category.push({'name' : response.data.filters.Mode[a].name, 'id' : response.data.filters.Mode[a].id, 'image' : '../images/foodImages/'+(a+1)+'.jpg'})
+               }
+           }else{
+               $scope.modeLoad = false;
+           }
 
-            if(window.innerWidth < 380){
+
+
+            /*if(window.innerWidth < 380){
                 $scope.cal = 6;
                 for(var i =0; i<$scope.cats.length; i++){
                     if (i % 2 == 0 && i!=0){
@@ -104,7 +117,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         );
                     }
                 }
-            };
+            };*/
 
             $scope.drowCuisine = [];
             for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
@@ -128,8 +141,8 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             }
 
             $scope.initMap({
-                zoom: 16,
-                center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.006),
+                zoom: 12,
+                center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.016),
                 scrollwheel: false,
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             });
@@ -162,10 +175,32 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             });
     };
 
+    $scope.clickTopSlider = function (categoryName) {
+        slidePage += 1;
+        var currentCity = $scope.callData.city;
+        var myCallData = {page: slidePage, city_name: currentCity, category: categoryName};
+        RestaurantService.getMode(myCallData)
+            .then(function (response) {
+                $scope.restaurants = response.data.restaurants;
+
+                $scope.initMap({
+                    zoom: 12,
+                    center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
+                    scrollwheel: false,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
+                });
+
+                for (i = 0; i < $scope.restaurants.length; i++) {
+                    createMarker($scope.restaurants[i]);
+                }
+            });
+        
+    };
+
     $scope.initMap = function(mapOptions){
 
         var mapOptions = mapOptions || {
-                zoom: 16,
+                zoom: 12,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             };
@@ -402,7 +437,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         $scope.restaurants = response.data.restaurants;
 
                         $scope.initMap({
-                            zoom: 16,
+                            zoom: 12,
                             center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.1),
                             scrollwheel: false,
                             mapTypeId: google.maps.MapTypeId.TERRAIN

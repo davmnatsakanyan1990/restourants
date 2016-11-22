@@ -874,6 +874,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'TypeTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TypeTableSeeder.php',
+        'UniqueCoulmnsUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_21_120429_unique_coulmns_users_table.php',
         'UserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserTableSeeder.php',
     );
 
