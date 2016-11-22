@@ -38,13 +38,7 @@ class PlaceController extends Controller
         $d = json_decode($data, true);
         $city = $d['city'];
         $page = $d['page'];
-        $filters = array();
-        $filters['categories'] = array_key_exists('Mode', $d['filters']) ? $d['filters']['Mode'] : [];
-        $filters['costs'] = array_key_exists('Cost', $d['filters']) ? $d['filters']['Cost'] : [];
-        $filters['highlights'] = array_key_exists('Sort By', $d['filters']) ? $d['filters']['Sort By'] : [];
-        $filters['cuisines'] = array_key_exists('Cuisine', $d['filters']) ? $d['filters']['Cuisine'] : [];
-        $filters['types'] = array_key_exists('Type', $d['filters']) ? $d['filters']['Type'] : [];
-        $filters['locations'] = array_key_exists('Location', $d['filters']) ? $d['filters']['Location'] : [];
+        $filters = $this->createFilters($d['filters']);
 
         if(count($filters['categories']) > 0 || count($filters['costs']) > 0 || count($filters['highlights']) > 0 || count($filters['cuisines']) > 0 || count($filters['types']) > 0 || count($filters['locations']) > 0) {
 
@@ -66,19 +60,25 @@ class PlaceController extends Controller
 
     }
 
+    public function createFilters($data){
+        $filters = array();
+        $filters['categories'] = array_key_exists('Mode', $data) ? $data['Mode'] : [];
+        $filters['costs'] = array_key_exists('Cost', $data) ? $data['Cost'] : [];
+        $filters['highlights'] = array_key_exists('Sort By', $data) ? $data['Sort By'] : [];
+        $filters['cuisines'] = array_key_exists('Cuisine', $data) ? $data['Cuisine'] : [];
+        $filters['types'] = array_key_exists('Type', $data) ? $data['Type'] : [];
+        $filters['locations'] = array_key_exists('Location', $data) ? $data['Location'] : [];
+        
+        return $filters;
+    }
+
     public function filter($data){
 
         $d = json_decode($data, true);
         $page = $d['page'];
         $city = $d['city'];
 
-        $filters = array();
-        $filters['categories'] = array_key_exists('Mode', $d['filters']) ? $d['filters']['Mode'] : [];
-        $filters['costs'] = array_key_exists('Cost', $d['filters']) ? $d['filters']['Cost'] : [];
-        $filters['highlights'] = array_key_exists('Sort By', $d['filters']) ? $d['filters']['Sort By'] : [];
-        $filters['cuisines'] = array_key_exists('Cuisine', $d['filters']) ? $d['filters']['Cuisine'] : [];
-        $filters['types'] = array_key_exists('Type', $d['filters']) ? $d['filters']['Type'] : [];
-        $filters['locations'] = array_key_exists('Location', $d['filters']) ? $d['filters']['Location'] : [];
+        $filters = $this->createFilters($d['filters']);
 
         $restaurants = $this->getRestaurants($city, $filters);
 
@@ -92,11 +92,32 @@ class PlaceController extends Controller
         else{
             $response = [];
         }
-
-
-
+        
         return $response;
 
+    }
+    
+    public function getCategoryProducts($data){
+        $d = json_decode($data, true);
+        $page = $d['page'];
+        $city = $d['city'];
+
+        $filters = $this->createFilters($d['filters']);
+
+        $restaurants = $this->getRestaurants($city, $filters);
+
+        if(count($restaurants) > 0) {
+            $chunked = collect($restaurants)->values()->chunk(10)->toArray();
+            $response['restaurants'] = $chunked[0];
+            if($page == count($chunked)){
+                $response['status'] = 'ended';
+            }
+        }
+        else{
+            $response = [];
+        }
+        
+        return $response;
     }
 
 
@@ -161,7 +182,9 @@ class PlaceController extends Controller
         $places = $data->get()->toArray();
 
         $places = collect($places)->filter(function($value, $key){
+
             return !is_null($value['location']['city']);
+            
         })->values()->all();
 
         if(count($categories) > 0)
