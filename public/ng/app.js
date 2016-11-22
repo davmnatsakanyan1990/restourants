@@ -22,7 +22,7 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
                 templateUrl : "templates/dashboard/activation",
                 controller : "MapCtrl"
             })
-            .when("/current", {
+            .when("/restaurant/:name/:id", {
                 templateUrl : "templates/dashboard/current",
                 controller : "currentController"
             });

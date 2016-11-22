@@ -258,7 +258,7 @@
                 <div class="infoContent">
                     <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                          ng-click="currentRest(info.id)" ng-mouseenter="openInfoWindow($event, info)">
-                        <a href="#current" class="clearElement">
+                        <a href="#restaurant/<% info.title %>/<% info.id %>" class="clearElement">
                             <div class="imageSection">
                                 <img src="images/restaurantImages/<% info.image %>">
                             </div>

@@ -1,5 +1,5 @@
-app.controller("currentController", function ($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
-
+app.controller("currentController", function ($scope, $rootScope, $http, $document, $window, $timeout, $route, RestaurantService) {
+var request = $route.current.params;
     $scope.openPhoneInput = false;
     $scope.CurrentMenu = '';
     $scope.writeComment = true;
@@ -25,8 +25,8 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 				$rootScope.logedUser = true;
 			}
          });
-    var restId = localStorage.getItem("restId");
-    var restaurantId = JSON.parse(restId);
+    //var restId = request.id
+    var restaurantId = request.id;
 
     $scope.commentsCallData = {
         page: 1,
