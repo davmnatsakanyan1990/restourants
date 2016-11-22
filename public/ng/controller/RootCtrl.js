@@ -1,4 +1,4 @@
-app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
+app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, RestaurantService) {
     
     $scope.search = true;
     $scope.custom = false;
@@ -40,6 +40,15 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
         console.log($scope.first)
     };
+
+
+    $scope.$watch(
+        function(){
+            return $location.absUrl();
+        },
+        function(newValue, oldValue){
+            setCookie('pageUrl', newValue, 3600);
+        });
 
     $scope.showSearch = function(){
         $scope.search = false
@@ -221,11 +230,22 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     $scope.loginFacebook = function () {
        // RestaurantService.loginUsingFacebook();
         window.location = BASE_URL+'/user/auth/facebook';
-    }
+    };
 
     $scope.loginGoogle = function () {
         // RestaurantService.loginUsingFacebook();
         window.location = BASE_URL+'/user/auth/google';
+    };
+
+    function setCookie(index, value, expires) {
+        var now = new Date();
+        var time = now.getTime();
+        time += 1000 * expires;
+        now.setTime(time);
+        document.cookie =
+            index+'=' + value +
+            '; expires=' + now.toUTCString() +
+            '; path=/';
     }
 
 });

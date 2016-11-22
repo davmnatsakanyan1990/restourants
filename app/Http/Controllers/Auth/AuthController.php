@@ -160,12 +160,12 @@ class AuthController extends Controller
 
         if($user){
             Auth::guard('user')->login($user);
-            return redirect('/#');
+            return redirect($_COOKIE['pageUrl']);
         }
         else{
             $u = User::create(['name' => $data->name,  'username' => $data->id, 'email' => $data->email, 'provider' => $provider]);
             Auth::guard('user')->login($u);
-            return redirect('/#');
+            return redirect($_COOKIE['pageUrl']);
         }
     }
 }
