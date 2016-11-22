@@ -1,5 +1,7 @@
 <div>
+
     <div class="content">
+
         <div class="sliderSection">
             <h1 class="headTitle">
                 <span class="titleFirstPart">Choose your favorite</span>
@@ -294,7 +296,7 @@
                         </a>
 
                     </div>
-                    <loading ></loading>
+                    <loading></loading>
                     <button class="showMoreButton" ng-click="addMorePoints()" id="active" ng-if="!noMoreInfoToShow">show more</button>
                     {{--<div class="additionalInfo">
                         <div class="additionalTitle">Restaurants in nearby towns</div>
