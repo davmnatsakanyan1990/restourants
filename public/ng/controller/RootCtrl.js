@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
     $scope.showModal = false;
+=======
+app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, RestaurantService) {
+    
+>>>>>>> b1d4654108c4e9d53ef67dadaca32b747993be3e
     $scope.search = true;
     $scope.custom = false;
     $scope.docLoader = true;
@@ -41,6 +46,15 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
         console.log($scope.first)
     };
+
+
+    $scope.$watch(
+        function(){
+            return $location.absUrl();
+        },
+        function(newValue, oldValue){
+            setCookie('pageUrl', newValue, 3600);
+        });
 
     $scope.showSearch = function(){
         $scope.search = false
@@ -227,6 +241,17 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     $scope.loginGoogle = function () {
         // RestaurantService.loginUsingFacebook();
         window.location = BASE_URL+'/user/auth/google';
+    };
+
+    function setCookie(index, value, expires) {
+        var now = new Date();
+        var time = now.getTime();
+        time += 1000 * expires;
+        now.setTime(time);
+        document.cookie =
+            index+'=' + value +
+            '; expires=' + now.toUTCString() +
+            '; path=/';
     }
 
 });
