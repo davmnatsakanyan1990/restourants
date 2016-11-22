@@ -11,13 +11,13 @@ button:focus {
 }
 .ownerButton {
   padding: 10px;
-  background-color: white;
   border: 1px solid #ff7e00;
-  color: #038a7c;
-}
-.ownerButton:hover {
   background-color: #ff7e00;
   color: white;
+}
+.ownerButton:hover {
+  color: #3d3f52;
+  background-color: white;
 }
 .starColor {
   color: #ffc200;

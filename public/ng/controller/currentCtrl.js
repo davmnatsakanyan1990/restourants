@@ -36,7 +36,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     RestaurantService.getRestaurantData(restaurantId)
         .then(function (response) {
             $scope.currentRestaurant = response.data;
-            $scope.moreCommentsToShow = response.data.more_comments;
+            $scope.moreCommentsToShow = $scope.currentRestaurant.more_comments;
             console.log(response.data);
             //make map point
             $scope.initMap({
