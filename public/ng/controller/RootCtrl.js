@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
-    $scope.showModal = false;
-=======
+
 app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, RestaurantService) {
-    
->>>>>>> b1d4654108c4e9d53ef67dadaca32b747993be3e
+    $scope.showModal = false;
     $scope.search = true;
     $scope.custom = false;
     $scope.docLoader = true;
