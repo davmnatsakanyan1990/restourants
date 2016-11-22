@@ -147,48 +147,57 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
          });
     };
     $scope.writeCommentNow = function (type) {
+
         var data;
          if(type == 1){
-             data = {
-                 text: $scope.comment,
-                 user_type: 'user',
-                 place_id: $scope.currentRestaurant.id,
-                 parent_id: 0
-             };
+             if($scope.comment){
+                 data = {
+                     text: $scope.comment,
+                     user_type: 'user',
+                     place_id: $scope.currentRestaurant.id,
+                     parent_id: 0
+                 };
+             }
          }else if(typeof type == 'object'){
-             data = {
-                 text: type.commentReply,
-                 user_type: 'user',
-                 place_id: $scope.currentRestaurant.id,
-                 parent_id: type.id
-             };
-         }
-        RestaurantService.writeComment(data)
-            .then(function (response) {
-                if(response.data.status == "ok"){
-                    if(type == 1){
-                        if($scope.currentRestaurant.comments){
-                            $scope.currentRestaurant.comments.unshift(response.data.comment);
-                        }else{
-                            $scope.currentRestaurant.comments = [];
-                            $scope.currentRestaurant.comments.unshift(response.data.comment);
-                        }
+             if(type.commentReply){
+                 data = {
+                     text: type.commentReply,
+                     user_type: 'user',
+                     place_id: $scope.currentRestaurant.id,
+                     parent_id: type.id
+                 };
+                 type.commentReply = ''
+             }
 
-                        $scope.ClearInner();
-                    }else if(typeof type == 'object'){
-                        for(var i = 0; i<$scope.currentRestaurant.comments.length; i++){
-                            if($scope.currentRestaurant.comments[i].id == type.id){
-                                if($scope.currentRestaurant.comments[i].subComment){
-                                    $scope.currentRestaurant.comments[i].subComment.push(response.data.comment);
-                                }else{
-                                    $scope.currentRestaurant.comments[i].subComment = [response.data.comment];
-                                }
-                                break;
-                            }
-                        }
-                    }
-                }
-            });
+         }
+         if(data){
+             RestaurantService.writeComment(data)
+                 .then(function (response) {
+                     if(response.data.status == "ok"){
+                         if(type == 1){
+                             if($scope.currentRestaurant.comments){
+                                 $scope.currentRestaurant.comments.unshift(response.data.comment);
+                             }else{
+                                 $scope.currentRestaurant.comments = [];
+                                 $scope.currentRestaurant.comments.unshift(response.data.comment);
+                             }
+
+                             $scope.ClearInner();
+                         }else if(typeof type == 'object'){
+                             for(var i = 0; i<$scope.currentRestaurant.comments.length; i++){
+                                 if($scope.currentRestaurant.comments[i].id == type.id){
+                                     if($scope.currentRestaurant.comments[i].subComment){
+                                         $scope.currentRestaurant.comments[i].subComment.push(response.data.comment);
+                                     }else{
+                                         $scope.currentRestaurant.comments[i].subComment = [response.data.comment];
+                                     }
+                                     break;
+                                 }
+                             }
+                         }
+                     }
+                 });
+         }
     };
 
     //map section
