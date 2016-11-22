@@ -1,7 +1,8 @@
 app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
-    
+    $scope.docLoader = true;
     $scope.search = true;
     $scope.custom = false;
+    $scope.docLoader = true;
     $scope.animateTopMenuVar = false;
     $scope.openLogOut = false;
     var userNameFull = localStorage.getItem("userName");

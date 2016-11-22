@@ -1,6 +1,4 @@
 app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout, RestaurantService) {
-
-
     $scope.custom = false;
     $scope.openDropMenu = false;
     $scope.animateTopMenuVar = false;
@@ -8,6 +6,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.activePage = 'page1';
     $scope.FixedRestMenu = false;
     $scope.noMoreInfoToShow = false;
+
     $scope.checkboxModel = {
         checkboxModelF1: [],
         checkboxModelF2: [],
@@ -24,6 +23,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
     RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
+
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
             $scope.showFilters = response.data.filters;
@@ -137,6 +137,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             for (i = 0; i < $scope.restaurants.length; i++){
                 createMarker($scope.restaurants[i]);
             }
+
+            $scope.$parent.docLoader = false;
+
         });
 
 

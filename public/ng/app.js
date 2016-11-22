@@ -26,3 +26,4 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
 
 
     }]);
+
