@@ -110,16 +110,16 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         $scope.openLogOut = $scope.openLogOut === false ? true: false;
     };
 
-    $scope.currentRest = function(id){
-        $rootScope.currentId = id;
-        var restId = localStorage.getItem("restId");
-        //var restaurantId = JSON.parse(restId);
-        if(restId){
-            localStorage.removeItem("restId");
-        }
-        var currentRest = JSON.stringify(id);
-        localStorage.setItem('restId',currentRest);
-    };
+    //$scope.currentRest = function(id){
+    //    $rootScope.currentId = id;
+    //    var restId = localStorage.getItem("restId");
+    //    //var restaurantId = JSON.parse(restId);
+    //    if(restId){
+    //        localStorage.removeItem("restId");
+    //    }
+    //    var currentRest = JSON.stringify(id);
+    //    localStorage.setItem('restId',currentRest);
+    //};
 
     RestaurantService.getLogedUser()
         .then(function (response) {

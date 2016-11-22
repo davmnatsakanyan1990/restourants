@@ -10,11 +10,11 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
         $interpolateProvider.endSymbol('%>');
 
         $routeProvider
-            .when("/", {
-                templateUrl : "templates/dashboard/home",
-                controller : "MapCtrl"
-            })
-            .when("/home", {
+            //.when("/:city/home", {
+            //    templateUrl : "templates/dashboard/home",
+            //    controller : "MapCtrl"
+            //})
+            .when("/:city/restaurants", {
                 templateUrl : "templates/dashboard/home",
                 controller : "MapCtrl"
             })
@@ -22,7 +22,7 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
                 templateUrl : "templates/dashboard/activation",
                 controller : "MapCtrl"
             })
-            .when("/restaurant/:name/:id", {
+            .when("/:city/:name/:id", {
                 templateUrl : "templates/dashboard/current",
                 controller : "currentController"
             });
