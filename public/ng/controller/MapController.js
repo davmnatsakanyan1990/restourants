@@ -399,7 +399,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         }
 
                         if ($scope.filters[type].length == 0) {
-                            $scope.filters[type].push({'id' : k, 'name' :  key });
+                            if(!elementDeleted){
+                                $scope.filters[type].push({'id' : k, 'name' :  key });
+                            }
                         } else {
                             for (var t = 0; t < $scope.filters[type].length; t++) {
 
@@ -414,7 +416,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                                     elementAlreadyExist = false;
                                 }
                             }
-                            if (!elementAlreadyExist) {
+                            if (!elementDeleted) {
                                 $scope.filters[type].push({'id' : k, 'name' :  key });
                             }
                         }

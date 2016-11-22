@@ -387,7 +387,7 @@
                 <div class="footerText">
                     <div class="footerSec">
                         <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location</div>
-                        <div class="footerText" data-toggle="modal" data-target="#myModalMaster">add master</div>
+                        <div class="footerText" data-toggle="modal" data-target="#myModalMaster">register owner</div>
                         <div class="footerText">for organization</div>
                     </div>
                     <div class="footerSec">

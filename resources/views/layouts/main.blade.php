@@ -215,7 +215,7 @@
             <div class="modal-content">
                 <div class="modal-header popupHeader">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title capitalize">add master</h4>
+                    <h4 class="modal-title capitalize">register owner</h4>
                 </div>
                 <form>
                     <div class="modal-body popupBody leftContent littleInputs">
