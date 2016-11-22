@@ -51,7 +51,7 @@
         <div class="pageContainer" style=" width: calc(100% - 60px);">
             <div class="containerTop" id="description">
                 <div class="titlePart" ng-bind="currentRestaurant.name"></div>
-
+                <button data-toggle="modal" data-target="#myModalMaster" class="writeComment elementRight">You is the owner?</button>
                 {{--<div class="positioningCall">
                     <div class="numberInputPart" ng-click="togglePhoneNumber()">call me</div>
                     <div class="dropMenu" ng-if="openPhoneInput">
