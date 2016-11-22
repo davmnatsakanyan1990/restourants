@@ -256,7 +256,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             service: info.service,
             explane: info.explane,
             rating: info.rating,
-            hoverPosition: new google.maps.LatLng(info.lat*1+0.003, info.long*1-0.006),
+            hoverPosition: new google.maps.LatLng(info.lat*1+0.043, info.long*1-0.106),
 
         });
 
@@ -268,6 +268,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             $scope.clichedElementId = marker.id;
 
             $scope.$watch('clichedElementId', function() {
+
                 var element = document.getElementsByClassName('active');
                 for (var i = 0; i < element.length; i++) {
                     var el = element[i];

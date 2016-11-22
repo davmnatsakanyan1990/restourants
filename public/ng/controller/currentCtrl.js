@@ -163,7 +163,13 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
             .then(function (response) {
                 if(response.data.status == "ok"){
                     if(type == 1){
-                        $scope.currentRestaurant.comments.unshift(response.data.comment);
+                        if($scope.currentRestaurant.comments){
+                            $scope.currentRestaurant.comments.unshift(response.data.comment);
+                        }else{
+                            $scope.currentRestaurant.comments = [];
+                            $scope.currentRestaurant.comments.unshift(response.data.comment);
+                        }
+
                         $scope.ClearInner();
                     }else if(typeof type == 'object'){
                         for(var i = 0; i<$scope.currentRestaurant.comments.length; i++){
