@@ -51,7 +51,7 @@
         <div class="pageContainer" style=" width: calc(100% - 60px);">
             <div class="containerTop" id="description">
                 <div class="titlePart" ng-bind="currentRestaurant.name"></div>
-
+                <button data-toggle="modal" data-target="#myModalMaster" class="ownerButton elementRight">Are you the owner?</button>
                 {{--<div class="positioningCall">
                     <div class="numberInputPart" ng-click="togglePhoneNumber()">call me</div>
                     <div class="dropMenu" ng-if="openPhoneInput">
@@ -106,6 +106,15 @@
                             <div class="introTitle capitalize"><span class="doubleBorder">services</span></div>
                             <div class="introContent" ng-bind="currentRestaurant.services"></div>
                         </div>
+                        <div class="marginTop10 moreInfoAddress clearElement">
+                            <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
+                            <div class="clearElement hourBlock">
+                                <div class="introContent hourContent clearElement elementLeft" ng-repeat="(day,hourr) in hoursPart">
+                                    <div class="capitalize infoTitle" ng-bind="day"></div>
+                                    <div class="infoHour" ng-repeat="hour in hourr" ng-bind="hour"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="containerPart elementLeft">
                         <div class="mapPartTitle" ng-bind="currentRestaurant.mobileNumber"></div>
@@ -126,7 +135,7 @@
                                 <div class="introTitle capitalize elementLeft">Price:</div>
                                 <div class="introContent elementLeft" ng-bind="currentRestaurant.price"></div>
                             </div>
-                            <div class="moreInfoAddress clearElement">
+                            {{--<div class="moreInfoAddress clearElement">
                                 <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
                                 <div class="clearElement hourBlock">
                                     <div class="introContent hourContent clearElement elementLeft" ng-repeat="(day,hourr) in hoursPart">
@@ -134,7 +143,7 @@
                                         <div class="infoHour" ng-repeat="hour in hourr" ng-bind="hour"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
                 </div>

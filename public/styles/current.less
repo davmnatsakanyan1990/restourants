@@ -15,6 +15,16 @@ button{
     outline: none;
   }
 }
+.ownerButton{
+  padding: 10px;
+  border: 1px solid #ff7e00;
+  background-color: #ff7e00;
+  color: white;
+  &:hover{
+    color: @mainColor;
+    background-color: white;
+  }
+}
 .starColor{
   color:#ffc200;
 }
@@ -239,6 +249,39 @@ button{
     }
     .containerContent{
       position: relative;
+
+      .moreInfoAddress{
+        margin-bottom: 15px;
+        .introTitle{
+          font-weight: 700;
+          margin-right: 20px;
+          font-size: 18px;
+        }
+        .introContent{
+          font-size: 16px;
+          .infoTitle{
+            font-size: 16px;
+            font-weight: 700;
+            color: #00897B;
+            margin-bottom: 5px;
+          }
+          &.hourContent{
+            margin: 10px 20px 0 0;
+            .infoHour{
+              //font-weight: 500;
+              margin-bottom: 5px;
+              &:last-child{
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+        .hourBlock{
+          background-color: #f3f3f3;
+          padding: 0 20px 20px 20px;
+        }
+      }
+
       .containerPart{
         padding: 30px;
         &:first-child{
@@ -281,7 +324,7 @@ button{
         }
         .mapPartContent{
           padding: 20px;
-          .moreInfoAddress{
+          /*.moreInfoAddress{
             margin-bottom: 15px;
             .introTitle{
               font-weight: 700;
@@ -311,7 +354,7 @@ button{
               background-color: #f3f3f3;
               padding: 0 20px 20px 20px;
             }
-          }
+          }*/
         }
       }
       .container1{

@@ -9,6 +9,16 @@
 button:focus {
   outline: none;
 }
+.ownerButton {
+  padding: 10px;
+  border: 1px solid #ff7e00;
+  background-color: #ff7e00;
+  color: white;
+}
+.ownerButton:hover {
+  color: #3d3f52;
+  background-color: white;
+}
 .starColor {
   color: #ffc200;
 }
@@ -209,6 +219,36 @@ button:focus {
 .restPageContainer .pageContainer .containerContent {
   position: relative;
 }
+.restPageContainer .pageContainer .containerContent .moreInfoAddress {
+  margin-bottom: 15px;
+}
+.restPageContainer .pageContainer .containerContent .moreInfoAddress .introTitle {
+  font-weight: 700;
+  margin-right: 20px;
+  font-size: 18px;
+}
+.restPageContainer .pageContainer .containerContent .moreInfoAddress .introContent {
+  font-size: 16px;
+}
+.restPageContainer .pageContainer .containerContent .moreInfoAddress .introContent .infoTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00897B;
+  margin-bottom: 5px;
+}
+.restPageContainer .pageContainer .containerContent .moreInfoAddress .introContent.hourContent {
+  margin: 10px 20px 0 0;
+}
+.restPageContainer .pageContainer .containerContent .moreInfoAddress .introContent.hourContent .infoHour {
+  margin-bottom: 5px;
+}
+.restPageContainer .pageContainer .containerContent .moreInfoAddress .introContent.hourContent .infoHour:last-child {
+  margin-bottom: 0;
+}
+.restPageContainer .pageContainer .containerContent .moreInfoAddress .hourBlock {
+  background-color: #f3f3f3;
+  padding: 0 20px 20px 20px;
+}
 .restPageContainer .pageContainer .containerContent .containerPart {
   padding: 30px;
 }
@@ -251,36 +291,37 @@ button:focus {
 }
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartContent {
   padding: 20px;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress {
-  margin-bottom: 15px;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introTitle {
-  font-weight: 700;
-  margin-right: 20px;
-  font-size: 18px;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent {
-  font-size: 16px;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent .infoTitle {
-  font-size: 16px;
-  font-weight: 700;
-  color: #00897B;
-  margin-bottom: 5px;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent {
-  margin: 10px 20px 0 0;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent .infoHour {
-  margin-bottom: 5px;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .introContent.hourContent .infoHour:last-child {
-  margin-bottom: 0;
-}
-.restPageContainer .pageContainer .containerContent .containerPart .mapPartContent .moreInfoAddress .hourBlock {
-  background-color: #f3f3f3;
-  padding: 0 20px 20px 20px;
+  /*.moreInfoAddress{
+            margin-bottom: 15px;
+            .introTitle{
+              font-weight: 700;
+              margin-right: 20px;
+              font-size: 18px;
+            }
+            .introContent{
+              font-size: 16px;
+              .infoTitle{
+                font-size: 16px;
+                font-weight: 700;
+                color: #00897B;
+                margin-bottom: 5px;
+              }
+              &.hourContent{
+                margin: 10px 20px 0 0;
+                .infoHour{
+                  //font-weight: 500;
+                  margin-bottom: 5px;
+                  &:last-child{
+                    margin-bottom: 0;
+                  }
+                }
+              }
+            }
+            .hourBlock{
+              background-color: #f3f3f3;
+              padding: 0 20px 20px 20px;
+            }
+          }*/
 }
 .restPageContainer .pageContainer .containerContent .container1 {
   background-color: white;
