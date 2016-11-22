@@ -126,7 +126,11 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
         $scope.SharesPopupData = data;
     };
     $scope.hideWrite = function () {
-        $scope.writeComment = $scope.writeComment === false ? true : false;
+        if($rootScope.logedUser){
+            $scope.writeComment = $scope.writeComment === false ? true : false;
+        }else{
+            $('#myModal').modal()
+        }
     };
     $scope.ClearInner = function (data) {
         $scope.comment = '';

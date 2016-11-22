@@ -13,8 +13,8 @@ class UniqueCoulmnsUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-//            $table->dropUnique('users_email_unique');
-//            $table->string('provider');
+            $table->dropUnique('users_email_unique');
+            $table->string('provider');
             $table->unique(['email', 'provider']);
         });
     }

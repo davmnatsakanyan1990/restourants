@@ -1,5 +1,5 @@
 app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, RestaurantService) {
-    $scope.docLoader = true;
+    $scope.showModal = false;
     $scope.search = true;
     $scope.custom = false;
     $scope.docLoader = true;
