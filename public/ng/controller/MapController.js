@@ -182,7 +182,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.clickTopSlider = function (categoryName) {
         slidePage += 1;
         var currentCity = $scope.callData.city;
-        var myCallData = {page: slidePage, city_name: currentCity, category: categoryName};
+        var myCallData = [{mode:{page: slidePage, city_name: currentCity, category: categoryName}}];
         RestaurantService.getMode(myCallData)
             .then(function (response) {
                 $scope.restaurants = response.data.restaurants;
@@ -445,10 +445,11 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
                         $scope.initMap({
                             zoom: 12,
-                            center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.1),
+                            center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.016),
                             scrollwheel: false,
                             mapTypeId: google.maps.MapTypeId.TERRAIN
                         });
+
 
                         for (i = 0; i < $scope.restaurants.length; i++) {
                             createMarker($scope.restaurants[i]);
