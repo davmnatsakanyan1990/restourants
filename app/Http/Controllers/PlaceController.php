@@ -27,6 +27,12 @@ class PlaceController extends Controller
         $restaurants = $this->getRestaurants($city);
         $chunked = collect($restaurants)->values()->chunk(10)->toArray();
 
+        if(count($chunked) < 2){
+            $result['noMoreData'] = true;
+        }
+        else{
+            $result['noMoreData'] = false;
+        }
         $result['restaurants'] = $chunked[0];
         $result['city'] = $city;
         $result['filters'] = $this->getFilters();
@@ -181,6 +187,7 @@ class PlaceController extends Controller
 
         $places = $data->get()->toArray();
 
+        // filter by city
         $places = collect($places)->filter(function($value, $key){
 
             return !is_null($value['location']['city']);
@@ -210,29 +217,34 @@ class PlaceController extends Controller
 
         //format data
         $restaurants = array();
-        foreach ($places as $item){
-            $place = array();
-            $rate = $this->avg_rate($item['id']);
-            $place['rating'] = $rate;
-            $place['id'] = $item['id'];
-            $place['title'] = $item['name'];
-            $place['explane'] = $item['intro'];
-            $place['address'] = $item['address'];
-            $place['lat'] = $item['lat'];
-            $place['long'] = $item['lon'];
+        if(count($places) > 0) {
+            foreach ($places as $item) {
+                $place = array();
+                $rate = $this->avg_rate($item['id']);
+                $place['rating'] = $rate;
+                $place['id'] = $item['id'];
+                $place['title'] = $item['name'];
+                $place['explane'] = $item['intro'];
+                $place['address'] = $item['address'];
+                $place['lat'] = $item['lat'];
+                $place['long'] = $item['lon'];
 
-            if(count($item['thumb_image']) > 0)
-                $place['image'] = $item['thumb_image'][0]['name'];
-            else
-                $place['image'] = null;
+                if (count($item['thumb_image']) > 0)
+                    $place['image'] = $item['thumb_image'][0]['name'];
+                else
+                    $place['image'] = null;
 
-            $hs = array();
-            foreach ($item['highlights'] as $key => $highlight){
-                array_push($hs, $highlight['name']);
+                $hs = array();
+                foreach ($item['highlights'] as $key => $highlight) {
+                    array_push($hs, $highlight['name']);
+                }
+                $place['service'] = $hs;
+
+                array_push($restaurants, $place);
             }
-            $place['service'] = $hs;
-
-            array_push($restaurants, $place);
+        }
+        else{
+            $restaurants = [];
         }
 
         return $restaurants;

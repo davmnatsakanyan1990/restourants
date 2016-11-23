@@ -1,4 +1,5 @@
-app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout, RestaurantService) {
+app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,$route, RestaurantService) {
+    var request = $route.current.params;
     $scope.custom = false;
     $scope.openDropMenu = false;
     $scope.animateTopMenuVar = false;
@@ -18,7 +19,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.filters = {};
     $scope.callData = {
         page: 1,
-        city: 'Salt%20Lake%20City',
+        city: request.city,
         filters: {}
     };
     $scope.modeLoad = false;
@@ -29,6 +30,9 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
             $scope.showFilters = response.data.filters;
+
+            $scope.noMoreInfoToShow = response.data.noMoreData;
+
 
             //top sider
             $scope.category = [];

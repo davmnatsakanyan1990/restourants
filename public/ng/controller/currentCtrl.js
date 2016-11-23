@@ -1,5 +1,5 @@
 app.controller("currentController", function ($scope, $rootScope, $http, $document, $window, $timeout, $route, RestaurantService) {
-var request = $route.current.params;
+    var request = $route.current.params;
     $scope.openPhoneInput = false;
     $scope.CurrentMenu = '';
     $scope.writeComment = true;
@@ -25,7 +25,7 @@ var request = $route.current.params;
 				$rootScope.logedUser = true;
 			}
          });
-    //var restId = request.id
+
     var restaurantId = request.id;
 
     $scope.commentsCallData = {
