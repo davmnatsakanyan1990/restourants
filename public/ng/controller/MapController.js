@@ -182,7 +182,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.clickTopSlider = function (categoryName) {
         slidePage += 1;
         var currentCity = $scope.callData.city;
-        var myCallData = [{mode:{page: slidePage, city_name: currentCity, category: categoryName}}];
+        var myCallData = {page: slidePage, city_name: currentCity, mode:{ category: categoryName}};
         RestaurantService.getMode(myCallData)
             .then(function (response) {
                 $scope.restaurants = response.data.restaurants;
