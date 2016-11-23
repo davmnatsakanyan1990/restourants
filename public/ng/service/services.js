@@ -9,7 +9,7 @@ app.factory('RestaurantService', function($http) {
         getRestaurantsList: function(data) {
            return $http({
                 method : "GET",
-                url : "restaurants?city=" + data.city+"&page="+ data.page
+                url : data.city+"/restaurants?page="+ data.page
             })
         },
 		getLogedUser: function(data) {
@@ -44,12 +44,6 @@ app.factory('RestaurantService', function($http) {
                 url : "user/logout"
             })
         },
-        // loginUsingFacebook: function(data) {
-        //     return $http({
-        //         method : "GET",
-        //         url : "user/auth/facebook"
-        //     })
-        // },
         writeComment: function(data) {
             return $http({
                 method : "POST",
@@ -57,16 +51,16 @@ app.factory('RestaurantService', function($http) {
                 data: data
             })
         },
-        getMoreRestaurant: function(data) {
+        getMoreRestaurant: function(page, city, filters) {
             return $http({
                 method : "GET",
-                url : "restaurants/more/" + JSON.stringify(data)
+                url : city+"/restaurants/more/?page="+page+"&filters=" + JSON.stringify(filters)
             })
         },
         filterRestaurant: function(data) {
             return $http({
                 method : "GET",
-                url : "restaurants/filter/" + JSON.stringify(data)
+                url : data.city+"/restaurants/filter/?page="+data.page+"&filters=" + JSON.stringify(data.filters)
             })
         },
 
@@ -84,10 +78,10 @@ app.factory('RestaurantService', function($http) {
             })
         },
 
-        getMode: function(data){
+        getMode: function(data, city){
             return $http ({
                 method: "GET",
-                url : "restaurants/category/" + JSON.stringify(data)
+                url : "restaurants/category/" + JSON.stringify(data)+"?city="+city
             })
         }
 

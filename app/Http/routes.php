@@ -117,9 +117,9 @@ Route::group([
 
 
 
-Route::get('restaurants', 'PlaceController@index');
-Route::get('restaurants/more/{data}', 'PlaceController@loadMore');
-Route::get('restaurants/filter/{data}', 'PlaceController@filter');
+Route::get('{city}/restaurants', 'PlaceController@index');
+Route::get('{city}/restaurants/more', 'PlaceController@loadMore');
+Route::get('{city}/restaurants/filter', 'PlaceController@filter');
 Route::get('restaurants/category/{data}', 'PlaceController@getCategoryProducts');
 Route::get('show/{id}', 'PlaceController@show');
 Route::get('products/{menu_id}', 'PlaceController@products');

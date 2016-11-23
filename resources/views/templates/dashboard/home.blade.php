@@ -19,8 +19,8 @@
                             <div class="item">
                                 <div class="row">
                                     <div class="col-md-2 col-xs-2 col-sm-2" ng-repeat="cat in category track by $index">
-                                        <a class="thumbnail"
-                                           style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" ng-click="clickTopSlider(cat.name)">
+                                        <a class="thumbnail" href="#/<% city %>/category/<% cat.name %>/<% cat.id %>"
+                                           style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" >
                                             <img src="<%cat.image%>" style="max-width:100%;">
                                             <div class="text"
                                                  style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
@@ -255,7 +255,8 @@
                  </ul>
              </div>--}}
             <div class="cont">
-                <div class="infoContent">
+                <div ng-if="markers.length == 0">Nothing was found</div>
+                <div class="infoContent" ng-if="markers.length>0">
                     <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                           ng-mouseenter="openInfoWindow($event, info)">
                         <a href="#/<% city %>/<% info.title %>/<% info.id %>" class="clearElement">
