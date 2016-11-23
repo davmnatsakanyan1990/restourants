@@ -373,7 +373,6 @@ class PlaceController extends Controller
         $array = $collection->all();
 
         //get comments author
-        $array['comments'] = [];
         if(count($array['comments']) > 0){
             $comments = $array['comments'];
             foreach ($comments as $key => $comment) {
