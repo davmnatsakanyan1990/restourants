@@ -84,10 +84,10 @@ app.factory('RestaurantService', function($http) {
             })
         },
 
-        getMode: function(data){
+        getMode: function(data, city){
             return $http ({
                 method: "GET",
-                url : "restaurants/category/" + JSON.stringify(data)
+                url : "restaurants/category/" + JSON.stringify(data)+"?city="+city
             })
         }
 

@@ -106,7 +106,11 @@ class PlaceController extends Controller
     public function getCategoryProducts($data){
         $d = json_decode($data, true);
         $page = $d['page'];
-        $city = $d['city'];
+        $city = request('city');
+
+        $cat_name = $d['filters']['Mode'];
+        $cate_id = Category::where('name', $cat_name)->first()->id;
+        $d['filters']['Mode'] = [$cate_id];
 
         $filters = $this->createFilters($d['filters']);
 
@@ -120,8 +124,10 @@ class PlaceController extends Controller
             }
         }
         else{
-            $response = [];
+            $response['restaurants'] = [];
         }
+
+        $response['filters'] = $this->getFilters();
         
         return $response;
     }
@@ -263,7 +269,10 @@ class PlaceController extends Controller
         $data['Type Of Restaurants'] = Type::select('id', 'name')->get()->toArray();
 
         $city = City::where('name', request('city'))->first();
-        $data['Location'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
+        if($city)
+            $data['Location'] = Location::where('city_id', $city->id)->select('id', 'name')->get()->toArray();
+        else
+            $data['Location'] = [];
         return $data;
 
     }

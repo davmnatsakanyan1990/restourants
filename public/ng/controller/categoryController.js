@@ -1,4 +1,4 @@
-app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,$route, RestaurantService) {
+app.controller('CategoryCtr', function ($scope, $http, $document, $window, $timeout,$route, RestaurantService) {
     var request = $route.current.params;
     $scope.custom = false;
     $scope.openDropMenu = false;
@@ -20,108 +20,35 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     $scope.callData = {
         page: 1,
         city: request.city,
-        filters: {}
+        filters: {'Mode': [request.id] }
     };
     $scope.modeLoad = false;
-    var slidePage = 0;
-    RestaurantService.getRestaurantsList($scope.callData)
-        .then(function (response) {
+    // if(request.page)
+    //     var slidePage = request.page;
+    // else
+    //     var slidePage = 1;
 
-            $scope.restaurants = response.data.restaurants;
-            $scope.city = response.data.city;
+    //console.log(slidePage);
+    //slidePage += 1;
+    $scope.city = request.city;
+    var myCallData = {page: $scope.callData.page, filters:{ Mode: [request.name]}};
+    RestaurantService.getMode(myCallData, $scope.city)
+        .then(function (response) {
             $scope.showFilters = response.data.filters;
 
-            $scope.noMoreInfoToShow = response.data.noMoreData;
-
+            $scope.restaurants = response.data.restaurants;
 
             //top sider
             $scope.category = [];
 
-           /* $scope.myNewArr = [];
-            $scope.cats = [];
-
-            for(var i = 0; i < 3; i++){
-                for(var index = 2; index < response.data.filters.Mode.length; index++){
-                    $scope.cats.push({'name' : response.data.filters.Mode[index].name, 'id' : response.data.filters.Mode[index].id, 'image' : '../images/foodImages/'+(index+1)+'.jpg'});
-
+            if(window.innerWidth > 600){
+                $scope.modeLoad = true;
+                for(var a=0; a< response.data.filters.Mode.length; a++){
+                    $scope.category.push({'name' : response.data.filters.Mode[a].name, 'id' : response.data.filters.Mode[a].id, 'image' : '../images/foodImages/'+(a+1)+'.jpg'})
                 }
-            }*/
-           if(window.innerWidth > 600){
-               $scope.modeLoad = true;
-               for(var a=0; a< response.data.filters.Mode.length; a++){
-                   $scope.category.push({'name' : response.data.filters.Mode[a].name, 'id' : response.data.filters.Mode[a].id, 'image' : '../images/foodImages/'+(a+1)+'.jpg'})
-               }
-           }else{
-               $scope.modeLoad = false;
-           }
-
-
-
-            /*if(window.innerWidth < 380){
-                $scope.cal = 6;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 2 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth < 470 && window.innerWidth > 380){
-                $scope.cal = 4;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 3 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth < 649 && window.innerWidth > 470){
-                $scope.cal = 3;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 4 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                                {'name': $scope.cats[i-3].name, 'image' : $scope.cats[i-3].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth > 649 && window.innerWidth <=1178) {
-                $scope.cal = 3;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 6 == 0 && i!=0){
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                                {'name': $scope.cats[i-3].name, 'image' : $scope.cats[i-3].image },
-                            ]
-                        );
-                    }
-                }
-            }else if(window.innerWidth >1178){
-                $scope.cal = 3;
-                for(var i =0; i<$scope.cats.length; i++){
-                    if (i % 11 == 0 && i!=0){
-
-                        //  $scope.myNewArr.push([$scope.images[i], $scope.images[i-1], $scope.images[i-2], $scope.images[i-3]]);
-                        $scope.myNewArr.push([
-                                {'name': $scope.cats[i].name, 'image' : $scope.cats[i].image },
-                                {'name': $scope.cats[i-1].name, 'image' : $scope.cats[i-1].image },
-                                {'name': $scope.cats[i-2].name, 'image' : $scope.cats[i-2].image },
-                                {'name': $scope.cats[i-3].name, 'image' : $scope.cats[i-3].image },
-                            ]
-                        );
-                    }
-                }
-            };*/
+            }else{
+                $scope.modeLoad = false;
+            }
 
             $scope.drowCuisine = [];
             for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
@@ -144,23 +71,25 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
             }
 
-            $scope.initMap({
-                zoom: 12,
-                center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.016),
-                scrollwheel: false,
-                mapTypeId: google.maps.MapTypeId.TERRAIN
-            });
+            if(response.data.restaurants.length > 0) {
+                $scope.initMap({
+                    zoom: 12,
+                    center: new google.maps.LatLng($scope.restaurants[0].lat * 1, $scope.restaurants[0].long * 1 - 0.3),
+                    scrollwheel: false,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
+                });
 
-            for (i = 0; i < $scope.restaurants.length; i++){
-                createMarker($scope.restaurants[i]);
+                for (i = 0; i < $scope.restaurants.length; i++) {
+                    createMarker($scope.restaurants[i]);
+                }
+            }
+            else{
+                $scope.markers = [];
             }
 
             $scope.$parent.docLoader = false;
-
         });
 
-
-    // add more restaurant in list
     $scope.addMorePoints = function(){
         $scope.loading = true;
         $scope.callData.page++;
@@ -178,28 +107,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
             });
     };
-
-    // $scope.clickTopSlider = function () {
-    //     slidePage += 1;
-    //     var currentCity = $scope.callData.city;
-    //     var myCallData = {page: slidePage, city_name: currentCity, filters:{ Mode: [categoryName]}};
-    //     RestaurantService.getMode(myCallData)
-    //         .then(function (response) {
-    //             $scope.restaurants = response.data.restaurants;
-    //
-    //             $scope.initMap({
-    //                 zoom: 12,
-    //                 center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
-    //                 scrollwheel: false,
-    //                 mapTypeId: google.maps.MapTypeId.TERRAIN
-    //             });
-    //
-    //             for (i = 0; i < $scope.restaurants.length; i++) {
-    //                 createMarker($scope.restaurants[i]);
-    //             }
-    //         });
-    //    
-    // };
 
     $scope.initMap = function(mapOptions){
 
@@ -228,6 +135,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
 
     var infoWindow = new google.maps.InfoWindow();
 
+
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
         google.maps.event.trigger( selectedMarker, 'click');
@@ -235,21 +143,21 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
     };
 
     var createMarker = function (info){
-      /*var pinIcon;
-        switch (info.id) {
-            case 1:
-                pinIcon = 'images/1(1).png';
-                break;
-            case 2:
-                pinIcon = 'images/2(2).png';
-                break;
-            case 3:
-                pinIcon = 'images/3(3).png';
-                break;
-            case 4:
-                pinIcon = 'images/4(4).png';
-                break;
-        }*/
+        /*var pinIcon;
+         switch (info.id) {
+         case 1:
+         pinIcon = 'images/1(1).png';
+         break;
+         case 2:
+         pinIcon = 'images/2(2).png';
+         break;
+         case 3:
+         pinIcon = 'images/3(3).png';
+         break;
+         case 4:
+         pinIcon = 'images/4(4).png';
+         break;
+         }*/
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(info.lat, info.long),
@@ -364,26 +272,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
             element.classList.add('displayBlock');
         }
     };
-
-    //in feature it will be call
-    /* $scope.additionalInfo = {
-     restaurant1:{
-     image: 'images/restaurantImages/rest1.jpg',
-     title: 'Title1',
-     more: '420 places'
-     },
-     restaurant2:{
-     image: 'images/restaurantImages/rest2.jpg',
-     title: 'Title2',
-     more: '420 places'
-     },
-     restaurant3:{
-     image: 'images/restaurantImages/rest3.jpg',
-     title: 'Title3',
-     more: '420 places'
-     }
-     };*/
-    //filters section
 
     var elementAlreadyExist = false;
 
@@ -524,5 +412,4 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 }
             });
     }
-
 });
