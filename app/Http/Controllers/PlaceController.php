@@ -21,8 +21,7 @@ class PlaceController extends Controller
      *
      * @return array
      */
-    public function index(){
-        $city = request('city');
+    public function index($city){
 
         $restaurants = $this->getRestaurants($city);
         $chunked = collect($restaurants)->values()->chunk(10)->toArray();
@@ -40,11 +39,16 @@ class PlaceController extends Controller
         return $result;
     }
 
-    public function loadMore($data){
-        $d = json_decode($data, true);
-        $city = $d['city'];
-        $page = $d['page'];
-        $filters = $this->createFilters($d['filters']);
+    /**
+     * Get next 10 places
+     *
+     * @param $city
+     * @return mixed
+     */
+    public function loadMore($city){
+        $filter_data = json_decode(request('filters'), true);
+        $page = request('page');
+        $filters = $this->createFilters($filter_data);
 
         if(count($filters['categories']) > 0 || count($filters['costs']) > 0 || count($filters['highlights']) > 0 || count($filters['cuisines']) > 0 || count($filters['types']) > 0 || count($filters['locations']) > 0) {
 
@@ -63,9 +67,12 @@ class PlaceController extends Controller
         }
 
         return $result;
-
     }
 
+    /**
+     * @param $data
+     * @return array
+     */
     public function createFilters($data){
         $filters = array();
         $filters['categories'] = array_key_exists('Mode', $data) ? $data['Mode'] : [];
@@ -78,13 +85,17 @@ class PlaceController extends Controller
         return $filters;
     }
 
-    public function filter($data){
+    /**
+     * Get filtered places, for given filters
+     *
+     * @param $city
+     * @return array
+     */
+    public function filter($city){
+        $filter_data = json_decode(request('filters'), true);
+        $page = request('page');
 
-        $d = json_decode($data, true);
-        $page = $d['page'];
-        $city = $d['city'];
-
-        $filters = $this->createFilters($d['filters']);
+        $filters = $this->createFilters($filter_data);
 
         $restaurants = $this->getRestaurants($city, $filters);
 
@@ -134,8 +145,8 @@ class PlaceController extends Controller
 
 
     /**
-     * Get filtered data
-     *
+     * @param $city
+     * @param null $filters
      * @return array
      */
     public function getRestaurants($city, $filters = null){
@@ -404,34 +415,10 @@ class PlaceController extends Controller
 
         foreach ($array as $key=>$value){
 
-//            // share format
-//            if($key == 'shares'){
-//                foreach ($array[$key] as $k=>$v){
-//
-//                    $data[$key][$k]['photo'] =  $v['image']['name'];
-//
-//                    $from = date_create($v['wrk_hrs_from']);
-//                    $formatted_from = date_format($from, "H:i");
-//
-//                    $to = date_create($v['wrk_hrs_to']);
-//                    $formatted_to = date_format($to, "H:i");
-//                    $data[$key][$k]['workingHours'] =  'Working hours: '.$formatted_from.'- '.$formatted_to;
-//                    $data[$key][$k]['title'] = $v['title'];
-//                    $data[$key][$k]['content'] = $v['content'];
-//                    $data[$key][$k]['location'] = $v['location'];
-//                }
-//            }
-
-//            comments format
+            //comments format
             if(count($array['comments']) > 0){
                 if ($key == 'comments') {
                     foreach ($array[$key] as $k => $v) {
-//                    if(count(($v['user']['rates'])) > 0) {
-//                        $data[$key][$k]['rate'] = $v['user']['rates'][0]['mark'];
-//                    }
-//                    else{
-//                        $data[$key][$k]['rate'] = 0;
-//                    }
 
                         $data[$key][$k]['name'] = $v['author']['name'];
                         $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
@@ -586,6 +573,7 @@ class PlaceController extends Controller
             $response['more_data'] = true;
         return $response;
     }
+    
     /**
      * get products for given menu
      * @param $menu_id
