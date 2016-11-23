@@ -555,6 +555,12 @@ footer .footerText .footerSec .footerText:hover {
   color: white;
   cursor: pointer;
 }
+footer .footerText .footerSec a {
+  color: #d2d1d1;
+}
+footer .footerText .footerSec a:hover {
+  color: white;
+}
 footer .socialIco {
   margin: 10px auto 0 auto;
   width: 110px;

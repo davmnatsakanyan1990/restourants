@@ -30,6 +30,18 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
                 templateUrl : "templates/dashboard/activation",
                 controller : "MapCtrl"
             })
+            .when("/forOrganization", {
+                templateUrl : "templates/dashboard/forOrganization",
+                controller : ""
+            })
+            .when("/aboutProject", {
+                templateUrl : "templates/dashboard/aboutProject",
+                controller : ""
+            })
+            .when("/contacts", {
+                templateUrl : "templates/dashboard/contacts",
+                controller : ""
+            })
             .when("/:city/:name/:id", {
                 templateUrl : "templates/dashboard/current",
                 controller : "currentController"

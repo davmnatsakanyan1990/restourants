@@ -1103,6 +1103,12 @@ html body .content .pageSection .cont footer .footerText .footerSec .footerText:
   color: white;
   cursor: pointer;
 }
+html body .content .pageSection .cont footer .footerText a {
+  color: #d2d1d1;
+}
+html body .content .pageSection .cont footer .footerText a:hover {
+  color: white;
+}
 html body .content .pageSection .cont footer .socialIco {
   margin: 10px auto 0 auto;
   width: 110px;
