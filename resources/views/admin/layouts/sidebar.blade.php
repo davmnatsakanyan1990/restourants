@@ -10,7 +10,7 @@
             </li>
             <li class="sidebar-search-wrapper">
                 <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-                <form class="sidebar-search" action="#" method="POST">
+               {{-- <form class="sidebar-search" action="#" method="POST">
                     <div class="form-container">
                         <div class="input-box">
                             <a href="javascript:;" class="remove">
@@ -19,7 +19,7 @@
                             <input type="button" class="submit" value=" "/>
                         </div>
                     </div>
-                </form>
+                </form>--}}
                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
             </li>
             <li class="start ">
@@ -34,7 +34,7 @@
                 <a href="{{ url('admin/payment/subscribe') }}">
                     <i class="fa fa-money" aria-hidden="true"></i>
 						<span class="title">
-							Subscribe
+							Upgrade
 						</span>
                 </a>
             </li>

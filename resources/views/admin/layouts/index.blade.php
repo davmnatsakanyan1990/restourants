@@ -28,6 +28,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/fonts/fonts.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN THEME STYLES -->

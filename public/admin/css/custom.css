@@ -232,3 +232,204 @@ div.profile > div {
     margin: 10px 0 0 74px;
 }
 
+
+
+
+/*upgrade page*/
+button, button:active, button:focus{
+    outline: none;
+}
+.elementLeft{
+    float: left;
+}
+.elementRight{
+    float: right;
+}
+.clearElement:after{
+     content: '';
+     display: table;
+     clear: both;
+}
+
+.wholePage{
+    padding: 65px 85px;
+    font-family: 'Source Sans Pro';
+}
+.topTitle{
+    font-size: 32px;
+    color: #3d3d3d;
+    font-family: 'Museo Slab 500';
+}
+.littleIext{
+    font-family: 'Museo Slab 500';
+    color: #a9a9a9;
+    font-size: 18px;
+    font-style: italic;
+}
+.plansPart{
+    margin-top: 55px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+.plan{
+    width: 48%
+
+}
+.planTitle{
+    font-size: 24px;
+    width: 100%;
+    color: white;
+    background-color: #ff7e00;
+    padding: 15px 28px;
+    font-family: 'Museo Slab 500';
+}
+.planContent{
+    border: 1px solid #ff7e00;
+    padding: 23px;
+    margin-top: 2px;
+}
+.price{
+    color: #ff7e00;
+    position: relative;
+    font-family: 'Museo Slab 500';
+}
+.priceSign i{
+    font-size: 25px;
+}
+.priceSign{
+    position: absolute;
+    top: 27px;
+    left: -17px;
+}
+.priceMore {
+
+}
+.priceMore span{
+    color: #ff7e00;
+}
+.bigPrice{
+    font-size: 78px;
+}
+.smallPrice{
+    font-size: 31px;
+}
+.choseButton{
+    font-family: 'Museo Slab 500';
+    font-size: 18px;
+    color: #ff7e00;
+    background-color: white;
+    border: 1px solid #ff7e00;
+    padding: 10px 34px;
+    margin-top: 25px;
+}
+.choseButton:hover{
+    color: white;
+    background-color: #ff7e00;
+}
+.choseButton .fa-phone{
+    font-size: 18px;
+    margin-right: 10px;
+}
+.text{
+    font-size: 26px;
+    color: #292929;
+    margin-top: 20px;
+}
+.pricePlace{
+    margin-top: 30px;
+}
+.callText{
+    font-size: 26px;
+    text-align: center;
+    padding: 0 100px;
+}
+.callText span{
+    color: #ff7e00;
+}
+.callText2{
+    margin-top: 28px;
+    font-size: 26px;
+    text-align: center;
+}
+
+
+/*table part*/
+.tablePart{
+    width: 100%;
+    margin-top: 10px;
+}
+.tableTitle{
+    font-size: 24px;
+    font-family: 'Museo Slab 500';
+    color: #989898;
+    background-color: #d8d8d8;
+    /*padding: 15px 30px;*/
+}
+.tableTitle:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.titleTh{
+    float: left;
+    padding: 15px 30px;
+    width: 33%;
+}
+.tableContent{
+    font-size: 22px;
+    color: #000;
+    background-color: #efefef;
+}
+.tableContent:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.tableTr{
+    float: left;
+    padding: 15px 30px;
+    width: 33%;
+    border-top: 2px solid white;
+}
+/*.tableTr:last-child{
+    border-left: 1px solid #dbdbdb;
+}
+.titleTh:last-child{
+    border-left: 1px solid white;
+}*/
+
+.tableTr .fa-check{
+    font-size: 22px;
+    color: #ff7e00;
+}
+
+@media screen and (min-width:1466px) and (max-width: 1614px) {
+    .wholePage{
+        padding: 65px 10px;
+    }
+}
+@media screen and (max-width: 1466px) and (min-width: 760px) {
+    .wholePage{
+        padding: 65px 85px;
+    }
+    .plan {
+        width: 100%;
+    }
+    .plan:last-child{
+        margin-top: 20px;
+    }
+
+}
+@media screen and (max-width: 760px)
+{
+    .wholePage{
+        padding: 65px 10px;
+    }
+    .plan {
+        width: 100%;
+    }
+    .plan:last-child{
+        margin-top: 20px;
+    }
+
+}

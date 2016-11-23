@@ -1,7 +1,7 @@
 <div class="footer">
-    <div class="footer-inner">
+    {{--<div class="footer-inner">
         2014 &copy; Metronic by keenthemes.
-    </div>
+    </div>--}}
     <div class="footer-tools">
 		<span class="go-top">
 			<i class="fa fa-angle-up"></i>
