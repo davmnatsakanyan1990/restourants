@@ -373,7 +373,7 @@ button, button:active, button:focus{
 .titleTh{
     float: left;
     padding: 15px 30px;
-    width: 33%;
+    width: 33.3%;
 }
 .tableContent{
     font-size: 22px;
@@ -388,7 +388,7 @@ button, button:active, button:focus{
 .tableTr{
     float: left;
     padding: 15px 30px;
-    width: 33%;
+    width: 33.3%;
     border-top: 2px solid white;
 }
 /*.tableTr:last-child{
