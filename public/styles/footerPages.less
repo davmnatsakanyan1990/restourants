@@ -1,0 +1,172 @@
+.organizationContent{
+  color: #000;
+  background-color: white;
+  .special{
+    color: #ff7e00;
+  }
+  width: 100%;
+  margin-top: 40px;
+  .organization{
+    padding: 125px 150px 120px 150px;
+    .organizationTitle{
+      font-size: 65px;
+      font-family: 'Museo Slab 500';
+      color: #3d3d3d;
+    }
+    .subTitle{
+      margin-top: 65px;
+      font-size: 35px;
+      font-family: 'Museo Slab 500';
+      color: #3d3d3d;
+      border-bottom: 1px solid #dddddd;
+      width: auto;
+      display: inline-block;
+      .line{
+        height: 2px;
+        background-color: #ff7e00;
+        width: 90px;
+      }
+    }
+    .subContent{
+      font-size: 26px;
+      font-family: 'Source Sans Pro';
+      color: #3d3d3d;
+      margin-top: 26px;
+      font-weight: 600;
+      color: #716f6f;
+      text-align: justify;
+    }
+    .fourBlocks{
+      margin-top: 40px;
+      .block{
+        text-align: center;
+        .blockRound{
+          font-size: 42px;
+          color: #ff7e00;
+          border: 1px solid #dfdfdf;
+          display: inline-block;
+          padding: 7px 0 0 0;
+          text-align: center;
+          height: 60px;
+          width: 112px;
+          border-radius: 90px 90px 0 0;
+          -moz-border-radius: 90px 90px 0 0;
+          -webkit-border-radius: 90px 90px 0 0;
+          background: white;
+          border-bottom: none;
+          z-index: 22;
+          position: relative;
+        }
+        .blockRect{
+          border: 1px solid #dddddd;
+          position: relative;
+          top: -1px;
+          padding: 20px;
+          border-radius: 10px;
+          .rectTitle{
+            font-size: 22px;
+            font-family: 'Museo Slab 500';
+            color: #3d3f52;
+          }
+          .rectText{
+            font-size: 16px;
+            padding-top: 10px;
+            font-family: 'Source Sans Pro';
+            font-weight: 600;
+            color: #716f6f;
+          }
+        }
+      }
+    }
+    .buttonBlock{
+      font-family: 'Museo Slab 500';
+      text-align: center;
+      .buttonPart{
+        font-size: 22px;
+        color: #3d3f52;
+        border: 1px solid #ff7e00;
+        padding: 16px 18px;
+        background-color: white;
+        border-radius: 10px;
+        /*display: inline-block;*/
+        box-sizing: border-box;
+        margin: auto;
+        margin-top: 80px;
+        i{
+          margin-left: 27px;
+          color: #ff7e00;
+          transition: 0.3s;
+        }
+
+        &:hover{
+          i{
+            padding: 0 5px;
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+
+        }
+      }
+    }
+
+  }
+  footer{
+    color: white;
+    .row{
+      padding: 0 140px;
+    }
+    img{
+      height: 20px;
+    }
+    .footerText{
+      font-size: 18px;
+      text-transform: capitalize;
+      margin-top: 7px;
+      cursor: pointer;
+      &:hover{
+        color: #ff7e00;
+        a{
+          color: #ff7e00;
+        }
+      }
+      a{
+        color: white;
+
+      }
+    }
+    .footerExplane{
+      line-height: 16px;
+      margin-top: 7px;
+    }
+    .footerSocial{
+      margin-top: 10px;
+      i{
+        font-size: 16px;
+        margin-right: 10px;
+        cursor: pointer;
+        &:hover{
+          color: #ff7e00;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1260px) {
+  .organizationContent{
+    .organization {
+      padding: 125px 60px 120px 60px;
+    }
+    footer{
+      .row{
+        padding: 0 40px;
+      }
+    }
+  }
+  .block{
+    margin-top: 20px;
+  }
+
+}
