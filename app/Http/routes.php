@@ -141,7 +141,7 @@ Route::get('fill/support_ids', 'ApiController@fillSupportId');
 
 
 Route::get('run_cron', function(){
-    dd(rand(10000, 999999));
+    dd(Place::with('admin')->take(10)->get()->toArray());
 });
 
 

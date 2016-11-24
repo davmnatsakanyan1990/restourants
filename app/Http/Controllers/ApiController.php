@@ -301,7 +301,7 @@ class ApiController extends Controller
         $item = Place::where('support_id', $number)->get()->toArray();
 
         if(count($item) > 0){
-            $this->generateRandomNumber();
+            $this->generateUniqueRandomNumber();
         }
         else{
             return $number;

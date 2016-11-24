@@ -78,7 +78,7 @@ class AuthController extends Controller
 
     /**
      * Fire event after admin authentication
-     * 
+     *
      * @param $request
      * @param $user
      * @return \Illuminate\Http\RedirectResponse

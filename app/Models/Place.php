@@ -82,7 +82,7 @@ class Place extends Model
     }
     
     public function admin(){
-        return $this->hasOne('App\Models\Place');
+        return $this->belongsTo('App\Models\Place')->withTrashed();
     }
     
     public function payment(){
