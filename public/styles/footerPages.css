@@ -109,9 +109,51 @@
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
 }
+.organizationContent footer {
+  color: white;
+}
+.organizationContent footer .row {
+  padding: 0 140px;
+}
+.organizationContent footer img {
+  height: 20px;
+}
+.organizationContent footer .footerText {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.organizationContent footer .footerText:hover {
+  color: #ff7e00;
+}
+.organizationContent footer .footerText:hover a {
+  color: #ff7e00;
+}
+.organizationContent footer .footerText a {
+  color: white;
+}
+.organizationContent footer .footerExplane {
+  line-height: 16px;
+  margin-top: 7px;
+}
+.organizationContent footer .footerSocial {
+  margin-top: 10px;
+}
+.organizationContent footer .footerSocial i {
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.organizationContent footer .footerSocial i:hover {
+  color: #ff7e00;
+}
 @media screen and (max-width: 1260px) {
   .organizationContent .organization {
     padding: 125px 60px 120px 60px;
+  }
+  .organizationContent footer .row {
+    padding: 0 40px;
   }
   .block {
     margin-top: 20px;

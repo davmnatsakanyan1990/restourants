@@ -113,14 +113,60 @@
     }
 
   }
+  footer{
+    color: white;
+    .row{
+      padding: 0 140px;
+    }
+    img{
+      height: 20px;
+    }
+    .footerText{
+      font-size: 18px;
+      text-transform: capitalize;
+      margin-top: 7px;
+      cursor: pointer;
+      &:hover{
+        color: #ff7e00;
+        a{
+          color: #ff7e00;
+        }
+      }
+      a{
+        color: white;
+
+      }
+    }
+    .footerExplane{
+      line-height: 16px;
+      margin-top: 7px;
+    }
+    .footerSocial{
+      margin-top: 10px;
+      i{
+        font-size: 16px;
+        margin-right: 10px;
+        cursor: pointer;
+        &:hover{
+          color: #ff7e00;
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 1260px) {
   .organizationContent{
     .organization {
       padding: 125px 60px 120px 60px;
     }
+    footer{
+      .row{
+        padding: 0 40px;
+      }
+    }
   }
   .block{
     margin-top: 20px;
   }
+
 }
