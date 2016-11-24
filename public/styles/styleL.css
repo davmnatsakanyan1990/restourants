@@ -1167,6 +1167,11 @@ html body .capitalize {
 html body .uppercase {
   text-transform: uppercase;
 }
+.nothingFound {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+}
 @media screen and (max-width: 767px) {
   html body .restNav {
     display: none;

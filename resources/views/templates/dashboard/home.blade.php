@@ -255,7 +255,7 @@
                  </ul>
              </div>--}}
             <div class="cont">
-                <div ng-if="markers.length == 0">Nothing was found</div>
+                <div ng-if="markers.length == 0" class="nothingFound">Nothing was found</div>
                 <div class="infoContent" ng-if="markers.length>0">
                     <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                           ng-mouseenter="openInfoWindow($event, info)">
