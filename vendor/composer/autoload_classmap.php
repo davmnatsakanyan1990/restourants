@@ -8,10 +8,12 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddAdminIdPlacesTable' => $baseDir . '/database/migrations/2016_11_09_150229_add_admin_id_places_table.php',
     'AddDeletedAtToPlacesTable' => $baseDir . '/database/migrations/2016_11_16_081117_add_deleted_at_to_places_table.php',
+    'AddFirstLoginColumnPlacesTable' => $baseDir . '/database/migrations/2016_11_24_075555_add_first_login_column_places_table.php',
     'AddForeignKeyPlacesTable' => $baseDir . '/database/migrations/2016_10_28_134617_add_foreign_key_places_table.php',
     'AddRememberTokenColumnAdminsTable' => $baseDir . '/database/migrations/2016_10_24_132041_add_remember_token_column_admins_table.php',
     'AddRoleColumnToImagesTable' => $baseDir . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
     'AddSendedAtPlacesTable' => $baseDir . '/database/migrations/2016_11_16_104621_add_sended_at_places_table.php',
+    'AddSupportIdPlacesTable' => $baseDir . '/database/migrations/2016_11_24_082830_add_support_id_places_table.php',
     'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'CategoryTableSeeder' => $baseDir . '/database/seeds/CategoryTableSeeder.php',
     'CommentTableSeeder' => $baseDir . '/database/seeds/CommentTableSeeder.php',

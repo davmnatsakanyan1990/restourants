@@ -30,6 +30,7 @@ class Place extends Model
         'price_to',
         'wrk_hrs_from',
         'wrk_hrs_to',
+        'support_id'
     ];
     
     public function images(){
