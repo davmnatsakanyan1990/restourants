@@ -1007,7 +1007,7 @@ html body .content .pageSection .cont .infoContent .info .imageSection img {
 }
 html body .content .pageSection .cont .infoContent .info .textSection {
   float: left;
-  margin: 10px 0 0 10px;
+  margin: 5px 0 0 10px;
 }
 html body .content .pageSection .cont .infoContent .info .textSection .title {
   font-weight: 700;
@@ -1022,6 +1022,8 @@ html body .content .pageSection .cont .infoContent .info .textSection .text {
   color: #8e8e8e;
   max-width: 300px;
   font-size: 16px;
+  max-height: 115px;
+  overflow: hidden;
 }
 html body .content .pageSection .cont .infoContent .info .textSection .rate {
   color: #ff7e00;
@@ -1164,6 +1166,11 @@ html body .capitalize {
 }
 html body .uppercase {
   text-transform: uppercase;
+}
+.nothingFound {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
 }
 @media screen and (max-width: 767px) {
   html body .restNav {
