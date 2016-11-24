@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block col-sm-3">
+                    <div class="block col-md-3">
                         <div class="blockRound">4</div>
                         <div class="blockRect">
                             <div class="rectTitle">Lorem Ipsum</div>
