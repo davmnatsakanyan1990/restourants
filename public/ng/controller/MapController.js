@@ -49,7 +49,7 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
            if(window.innerWidth > 600){
                $scope.modeLoad = true;
                for(var a=0; a< response.data.filters.Mode.length; a++){
-                   $scope.category.push({'name' : response.data.filters.Mode[a].name, 'id' : response.data.filters.Mode[a].id, 'image' : '../images/foodImages/'+(a+1)+'.jpg'})
+                   $scope.category.push({'name' : response.data.filters.Mode[a].name, 'id' : response.data.filters.Mode[a].id, 'image' : '../images/foodImages/'+(a+1)+'.png'})
                }
            }else{
                $scope.modeLoad = false;
