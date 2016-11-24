@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\AdminDetails;
+use App\Models\Place;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,10 +14,20 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('admins')->insert([
-            'name' => 'Admin 1',
-            'email' => 'admin1@gmail.com',
-            'password' => bcrypt('123456')
-        ]);
+        $places = Place::where('admin_id', 1)->get();
+        foreach ($places as $place){
+            $password = str_random(8);
+
+            $admin_id = DB::table('admins')->insertGetId([
+                'name' => '',
+                'email' => '',
+                'password' => bcrypt($password)
+            ]);
+
+            AdminDetails::create(['admin_id' => $admin_id, 'password' => $password]);
+
+            Place::where('id', $place['id'])->update(['admin_id' => $admin_id]);
+        }
+
     }
 }

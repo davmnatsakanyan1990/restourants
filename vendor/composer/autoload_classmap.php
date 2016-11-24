@@ -17,6 +17,7 @@ return array(
     'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'CategoryTableSeeder' => $baseDir . '/database/seeds/CategoryTableSeeder.php',
     'CommentTableSeeder' => $baseDir . '/database/seeds/CommentTableSeeder.php',
+    'CreateAdminDetailsTable' => $baseDir . '/database/migrations/2016_11_24_131242_create_admin_details_table.php',
     'CreateAdminsTable' => $baseDir . '/database/migrations/2016_10_24_113702_create_admins_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2016_10_12_150131_create_categories_table.php',
     'CreateCitiesTable' => $baseDir . '/database/migrations/2016_10_13_142951_create_cities_table.php',

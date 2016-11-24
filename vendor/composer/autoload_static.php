@@ -338,6 +338,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'AdminTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminTableSeeder.php',
         'CategoryTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoryTableSeeder.php',
         'CommentTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentTableSeeder.php',
+        'CreateAdminDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_131242_create_admin_details_table.php',
         'CreateAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_113702_create_admins_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_12_150131_create_categories_table.php',
         'CreateCitiesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_142951_create_cities_table.php',
