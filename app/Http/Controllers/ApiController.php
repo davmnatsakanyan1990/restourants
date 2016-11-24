@@ -95,6 +95,8 @@ class ApiController extends Controller
 
             $data['site'] = 'site1.com';
             $data['cost'] = $cost;
+            $support_id = $this->generateUniqueRandomNumber();
+            $data['support_id'] = $support_id;
 
             //fill places table
             $place_id = DB::table('places')->insertGetId(
@@ -280,5 +282,30 @@ class ApiController extends Controller
                 PlaceType::firstOrCreate(['place_id' => $place_id, 'type_id' => $type_id ]);
             }
         }
+    }
+
+    public function fillSupportId(){
+        $places = Place::withTrashed()->whereNull('support_id')->get()->toArray();
+
+        foreach ($places as $place){
+            $support_id = $this->generateUniqueRandomNumber();
+            Place::withTrashed()->where('id', $place['id'])->update(['support_id' => $support_id]);
+        }
+        
+        echo 'All numbers have generated';
+    }
+
+    public function generateUniqueRandomNumber(){
+        $number = rand(100000, 999999);
+
+        $item = Place::where('support_id', $number)->get()->toArray();
+
+        if(count($item) > 0){
+            $this->generateRandomNumber();
+        }
+        else{
+            return $number;
+        }
+
     }
 }

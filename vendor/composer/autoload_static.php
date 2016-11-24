@@ -329,10 +329,12 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
     public static $classMap = array (
         'AddAdminIdPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_09_150229_add_admin_id_places_table.php',
         'AddDeletedAtToPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_081117_add_deleted_at_to_places_table.php',
+        'AddFirstLoginColumnPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_075555_add_first_login_column_places_table.php',
         'AddForeignKeyPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_134617_add_foreign_key_places_table.php',
         'AddRememberTokenColumnAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_132041_add_remember_token_column_admins_table.php',
         'AddRoleColumnToImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
         'AddSendedAtPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_104621_add_sended_at_places_table.php',
+        'AddSupportIdPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_082830_add_support_id_places_table.php',
         'AdminTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminTableSeeder.php',
         'CategoryTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoryTableSeeder.php',
         'CommentTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentTableSeeder.php',

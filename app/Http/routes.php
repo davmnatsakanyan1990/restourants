@@ -137,10 +137,11 @@ Route::get('fill/cuisines', 'ApiController@fillCuisines');
 Route::get('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
+Route::get('fill/support_ids', 'ApiController@fillSupportId');
 
 
 Route::get('run_cron', function(){
-    phpinfo();
+    dd(rand(10000, 999999));
 });
 
 

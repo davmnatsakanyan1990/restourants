@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+use App\Events\AdminLoginEvent;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -73,5 +74,17 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Fire event after admin authentication
+     * 
+     * @param $request
+     * @param $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function authenticated($request, $user){
+        event(new AdminLoginEvent($user));
+        return redirect()->intended($this->redirectPath());
     }
 }
