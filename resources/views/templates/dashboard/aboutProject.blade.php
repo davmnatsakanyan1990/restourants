@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="buttonBlock">
-            <button class="buttonPart">Add Organization <i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button class="buttonPart" data-toggle="modal" data-target="#myModalLocation">Add Organization <i class="fa fa-plus" aria-hidden="true"></i></button>
         </div>
 
     </div>
