@@ -28,13 +28,41 @@
                                     <textarea placeholder="Message"></textarea>
                                 </div>
                                 <div class="col-md-4">
-                                    <button></button>
+                                    <button>Send message</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="subTitle">Contact Info<div class="line"></div></div>
+                        <div class="inputs">
+                            <div class="row">
+                                <div class="col-md-12 contactText">
+                                    You can contact or visit in our office from
+                                    Monday to Friday from 8:00-17:00
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="contactInfo clearElement">
+                                        <i class="fa fa-map-marker elementLeft" aria-hidden="true"></i>
+                                        <div class="elementLeft">555 N Balashixa street, Khamovniki District, Moscow</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="contactInfo clearElement">
+                                        <i class="fa fa-phone elementLeft" aria-hidden="true"></i>
+                                        <div class="elementLeft">+7 703-654-4454</br>
+                                        +7 703-654-2568
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="contactInfo clearElement">
+                                        <i class="fa fa-envelope elementLeft" aria-hidden="true"></i>
+                                        <div class="elementLeft">restdviser.com</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
