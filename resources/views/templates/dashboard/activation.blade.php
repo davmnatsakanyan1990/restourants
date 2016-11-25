@@ -20,7 +20,7 @@
                     <div>Respond to user reviews</div>
                 </div>
             </div>
-            <button class="getButton" data-toggle="modal" data-target="#myModalGetAccess">get access</button>
+            <button class="getButton" data-toggle="modal" data-target="#myModalMaster">get access</button>
         </div>
     </div>
     <div class="sliderAbout">

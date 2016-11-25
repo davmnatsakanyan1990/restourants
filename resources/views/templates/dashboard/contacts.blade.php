@@ -12,10 +12,29 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-7">
-
+                        <div class="subTitle">Send us message<div class="line"></div></div>
+                        <div class="inputs">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Name"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Email"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Subject"/>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea placeholder="Message"></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <button></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-5">
-
+                        <div class="subTitle">Contact Info<div class="line"></div></div>
                     </div>
                 </div>
             </div>
