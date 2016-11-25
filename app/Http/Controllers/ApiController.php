@@ -176,7 +176,7 @@ class ApiController extends Controller
 
                     //Image::create(['name' => $comment['author_image'], 'imageable_id' => $author_id, 'imageable_type' => 'App\User', 'role' => 1]);
 
-                    $comm = Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => 0, 'commentable_id' => $author_id, 'commentable_type' => 'App\User']);
+                    $comm = Comment::create(['text' => $comment['text'], 'place_id' => $place_id, 'parent_id' => 0, 'commentable_id' => $author_id, 'commentable_type' => 'App\User',  'created_at' => $comment['date']]);
 
                     if (!is_null($comment['rate'])) {
                         Rate::create(['user_id' => $author_id, 'place_id' => $place_id, 'mark' => $comment['rate']]);

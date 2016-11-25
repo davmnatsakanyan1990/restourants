@@ -14,6 +14,7 @@ class Comment extends Model
         'parent_id',
         'commentable_id',
         'commentable_type',
+        'created_at'
     ];
     public function commentable(){
         return $this->morphTo();
