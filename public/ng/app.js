@@ -26,10 +26,10 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
                 templateUrl : "templates/dashboard/home",
                 controller : "MapCtrl"
             })
-            .when("/activation", {
+            /*.when("/activation", {
                 templateUrl : "templates/dashboard/activation",
                 controller : "MapCtrl"
-            })
+            })*/
             .when("/forOrganization", {
                 templateUrl : "templates/dashboard/forOrganization",
                 controller : ""

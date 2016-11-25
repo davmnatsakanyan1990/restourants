@@ -1088,6 +1088,9 @@ html body .content .pageSection .cont footer {
   color: #d2d1d1;
   padding: 20px;
 }
+html body .content .pageSection .cont footer .footerText {
+  font-size: 16px;
+}
 html body .content .pageSection .cont footer .footerText:after {
   content: '';
   display: table;
