@@ -15,21 +15,23 @@
                         <div class="subTitle">Send us message<div class="line"></div></div>
                         <div class="inputs">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <input type="text" placeholder="Name"/>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" placeholder="Email"/>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" placeholder="Subject"/>
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea placeholder="Message"></textarea>
-                                </div>
-                                <div class="col-md-4">
-                                    <button>Send message</button>
-                                </div>
+                                <form name="contactUs">
+                                    <div class="col-md-4">
+                                        <input type="text" placeholder="Name"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" placeholder="Email"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" placeholder="Subject"/>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button>Send message</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
