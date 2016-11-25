@@ -244,6 +244,45 @@
   margin-right: 15px;
   font-size: 20px;
 }
+.contacts footer {
+  color: white;
+}
+.contacts footer .row {
+  padding: 0 140px;
+}
+.contacts footer img {
+  height: 20px;
+}
+.contacts footer .footerText {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.contacts footer .footerText:hover {
+  color: #ff7e00;
+}
+.contacts footer .footerText:hover a {
+  color: #ff7e00;
+}
+.contacts footer .footerText a {
+  color: white;
+}
+.contacts footer .footerExplane {
+  line-height: 16px;
+  margin-top: 7px;
+}
+.contacts footer .footerSocial {
+  margin-top: 10px;
+}
+.contacts footer .footerSocial i {
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.contacts footer .footerSocial i:hover {
+  color: #ff7e00;
+}
 @media screen and (max-width: 1602px) and (min-width: 830px) {
   .contacts .topImage {
     background: url("../images/contacs.png") no-repeat;

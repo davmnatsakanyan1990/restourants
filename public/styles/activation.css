@@ -63,6 +63,46 @@
   max-width: 700px;
   height: 80%;
 }
+.activation footer {
+  color: white;
+  margin-top: 0;
+}
+.activation footer .row {
+  padding: 0 140px;
+}
+.activation footer img {
+  height: 20px;
+}
+.activation footer .footerText {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.activation footer .footerText:hover {
+  color: #ff7e00;
+}
+.activation footer .footerText:hover a {
+  color: #ff7e00;
+}
+.activation footer .footerText a {
+  color: white;
+}
+.activation footer .footerExplane {
+  line-height: 16px;
+  margin-top: 7px;
+}
+.activation footer .footerSocial {
+  margin-top: 10px;
+}
+.activation footer .footerSocial i {
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.activation footer .footerSocial i:hover {
+  color: #ff7e00;
+}
 .accessPopup {
   padding: 30px 15px;
 }
