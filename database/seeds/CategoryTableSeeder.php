@@ -12,13 +12,13 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            ['name' => 'breakfast'],
-            ['name' => 'lunch'],
-            ['name' => 'dine out'],
-            ['name' => 'delivery'],
-            ['name' => 'drinks and nightlife'],
-            ['name' => 'take away'],
-        ]);
+//        DB::table('categories')->insert([
+//            ['name' => 'breakfast'],
+//            ['name' => 'lunch'],
+//            ['name' => 'dine out'],
+//            ['name' => 'delivery'],
+//            ['name' => 'drinks and nightlife'],
+//            ['name' => 'take away'],
+//        ]);
     }
 }

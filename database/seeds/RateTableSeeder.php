@@ -12,11 +12,6 @@ class RateTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('rates')->insert([
-            ['user_id' => '1', 'place_id' => '1', 'mark' => '4'],
-            ['user_id' => '2', 'place_id' => '2', 'mark' => '4'],
-            ['user_id' => '3', 'place_id' => '3', 'mark' => '5'],
-            ['user_id' => '4', 'place_id' => '1', 'mark' => '5'],
-        ]);
+        
     }
 }

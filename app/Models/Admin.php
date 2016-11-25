@@ -33,4 +33,8 @@ class Admin extends Authenticatable
     public function place(){
        return $this->hasOne('App\Models\Place')->withTrashed();
     }
+
+    public function billing_details(){
+        return $this->hasOne(BillingDetails::class, 'admin_id');
+    }
 }

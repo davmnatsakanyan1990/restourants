@@ -10,11 +10,11 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -87,9 +87,11 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         ),
         'D' => 
         array (
+            'DougSisk\\CountryState\\' => 22,
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
         ),
         'C' => 
@@ -107,8 +109,8 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -238,6 +240,10 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
+        'DougSisk\\CountryState\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dougsisk/laravel-country-state/src',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
@@ -249,6 +255,10 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'Doctrine\\Common\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
         ),
         'Doctrine\\Common\\' => 
         array (
@@ -274,6 +284,14 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+            ),
+            'Phine\\Exception' => 
+            array (
+                0 => __DIR__ . '/..' . '/phine/exception/src/lib',
+            ),
+            'Phine\\Country' => 
+            array (
+                0 => __DIR__ . '/..' . '/phine/country/src/lib',
             ),
         ),
         'M' => 
@@ -312,10 +330,6 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
             ),
-            'Doctrine\\Common\\Annotations\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
-            ),
         ),
         'C' => 
         array (
@@ -331,6 +345,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'AddDeletedAtToPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_081117_add_deleted_at_to_places_table.php',
         'AddFirstLoginColumnPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_075555_add_first_login_column_places_table.php',
         'AddForeignKeyPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_134617_add_foreign_key_places_table.php',
+        'AddPlanPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_25_114952_add_plan_places_table.php',
         'AddRememberTokenColumnAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_132041_add_remember_token_column_admins_table.php',
         'AddRoleColumnToImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
         'AddSendedAtPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_104621_add_sended_at_places_table.php',
@@ -340,6 +355,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'CommentTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentTableSeeder.php',
         'CreateAdminDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_131242_create_admin_details_table.php',
         'CreateAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_113702_create_admins_table.php',
+        'CreateBillingDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_25_065603_create_billing_details_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_12_150131_create_categories_table.php',
         'CreateCitiesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_142951_create_cities_table.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_073445_create_comments_table.php',
@@ -355,9 +371,11 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'CreatePlaceHighlightsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_101225_create_place_highlights_table.php',
         'CreatePlaceTypesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_14_114324_create_place_types_table.php',
         'CreatePlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_05_101412_create_places_table.php',
+        'CreatePlansTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_25_113712_create_plans_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_10_110154_create_products_table.php',
         'CreateRatesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_06_102606_create_rates_table.php',
         'CreateSharesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_102457_create_shares_table.php',
+        'CreateSuperAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_25_124908_create_super_admins_table.php',
         'CreateTypesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_14_114156_create_types_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateWorkingHoursTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_065032_create_working_hours_table.php',
@@ -801,6 +819,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'PHP_Token_STRING' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_STRING_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_STRING_VARNAME' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PHP_Token_SUPER' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_SWITCH' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_Stream' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token/Stream.php',
         'PHP_Token_Stream_CachingFactory' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token/Stream/CachingFactory.php',
@@ -815,6 +834,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'PHP_Token_UNSET' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_UNSET_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_USE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PHP_Token_USE_FUNCTION' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_VAR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_VARIABLE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_WHERE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
@@ -834,6 +854,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PlaceServiceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/PlaceServiceTableSeeder.php',
         'PlaceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/PlaceTableSeeder.php',
+        'PlansTableSeeder' => __DIR__ . '/../..' . '/database/seeds/PlansTableSeeder.php',
         'ProductTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ProductTableSeeder.php',
         'RateTableSeeder' => __DIR__ . '/../..' . '/database/seeds/RateTableSeeder.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
@@ -874,6 +895,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'ServiceTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ServiceTableSeeder.php',
         'ShareTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ShareTableSeeder.php',
+        'SuperAdminTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SuperAdminTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'TypeTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TypeTableSeeder.php',

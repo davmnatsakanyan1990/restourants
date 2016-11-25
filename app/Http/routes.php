@@ -35,6 +35,21 @@ Route::group(['prefix' => 'templates'], function () {
 });
 
 /**
+ * Super admin route part
+ */
+Route::group([
+    'prefix' => 'super_admin',
+    'namespace' => 'SuperAdmin\Auth'
+],
+    function(){
+        Route::get('login', 'AuthController@showLoginForm');
+        Route::post('login', 'AuthController@login');
+        
+        Route::get('logout', 'AuthController@logout');
+    });
+
+
+/**
  * User route part
  */
 Route::group([
@@ -52,8 +67,6 @@ Route::group([
         Route::get('auth/{provider}/callback', 'AuthController@handleProviderCallback');
     });
 
-
-//Route::auth();
 
 /**
  * Admin route part
@@ -105,6 +118,15 @@ Route::group([
         Route::post('pay','PaymentController@pay');
     });
 
+Route::group([
+    'prefix' => 'admin/billing_details',
+    'namespace' => 'Admin',
+],
+    function(){
+        Route::get('edit', 'BillingDetailsController@edit');
+        Route::post('update','BillingDetailsController@update');
+    });
+
 /**
  * Comments route
  */
@@ -141,7 +163,9 @@ Route::get('fill/support_ids', 'ApiController@fillSupportId');
 
 
 Route::get('run_cron', function(){
-    dd(Place::with('admin')->take(10)->get()->toArray());
+//    $countries = CountryState::getCountries();
+//    $states = CountryState::getStates('AM');
+//    dd($states);
 });
 
 

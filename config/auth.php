@@ -51,9 +51,9 @@ return [
             'provider' => 'admins',
         ],
         
-        'user' => [
+        'super_admin' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'super_admins',
         ]
     ],
 
@@ -80,10 +80,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'super_admins' => [
+             'driver' => 'eloquent',
+             'table' => App\Models\SuperAdmin::class,
+         ],
         
         'admins' => [
             'driver' => 'eloquent',
