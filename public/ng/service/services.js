@@ -83,6 +83,12 @@ app.factory('RestaurantService', function($http) {
                 method: "GET",
                 url : "restaurants/category/" + JSON.stringify(data)+"?city="+city
             })
+        },
+        SearchRestaurant: function(data){
+            return $http ({
+                method: "GET",
+                url : "search?q=" + data
+            })
         }
 
 
