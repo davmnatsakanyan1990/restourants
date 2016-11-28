@@ -23,7 +23,13 @@ class PlaceController extends Controller
      */
     public function index($city){
 
-        $restaurants = $this->getRestaurants($city);
+        if(request('q')){
+            $restaurants = $this->getRestaurants($city, null, request('q'));
+        }
+        else{
+            $restaurants = $this->getRestaurants($city);
+        }
+
         $chunked = collect($restaurants)->values()->chunk(10)->toArray();
 
         if(count($chunked) < 2){
@@ -149,7 +155,7 @@ class PlaceController extends Controller
      * @param null $filters
      * @return array
      */
-    public function getRestaurants($city, $filters = null){
+    public function getRestaurants($city, $filters = null, $q = null){
 
         //get filter data
         if($filters) {

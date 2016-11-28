@@ -85,4 +85,8 @@ class PaymentController extends Controller
             return response()->json(['success' => 0,'message' => $e->getMessage()]);
         }
     }
+    
+    public function checkout(){
+        return view('admin/checkout');
+    }
 }
