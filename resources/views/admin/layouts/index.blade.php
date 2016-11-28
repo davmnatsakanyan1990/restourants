@@ -57,7 +57,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    @include('admin.layouts.sidebar')
+    {{--@include('admin.layouts.sidebar')--}}
     <!-- END SIDEBAR -->
 
     <!-- BEGIN CONTENT -->

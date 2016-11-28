@@ -414,6 +414,14 @@
             {{--</li>--}}
             {{--<!-- END TODO DROPDOWN -->--}}
             <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown">
+                    <a href="{{ url('admin/payment/subscribe') }}">
+                        <i class="fa fa-money" aria-hidden="true"></i>
+                        <span class="title">
+							Subscribe
+						</span>
+                    </a>
+                </li>
             <li class="dropdown user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                     <img alt="" height="30" src="{{ asset('admin/img/avatar.png') }}"/>
