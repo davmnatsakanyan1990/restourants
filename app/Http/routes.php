@@ -11,18 +11,6 @@
 |
 */
 
-/*Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/current', function () {
-    return view('current');
-});
-*/
-use App\Models\Place;
-use App\User;
-use Illuminate\Support\Facades\Auth;
-
 Route::get('/', function () {
     return view('layouts.main');
 });
@@ -44,10 +32,7 @@ Route::group([
     function(){
         Route::get('login', 'AuthController@showLoginForm');
         Route::post('login', 'AuthController@login');
-        
         Route::get('logout', 'AuthController@logout');
-        
-        Route::get('dashboard', 'HomeController@index');
     });
 
 Route::group([
@@ -55,10 +40,8 @@ Route::group([
     'namespace' => 'SuperAdmin'
 ],
     function(){
-        
         Route::get('dashboard', 'HomeController@index');
     });
-
 
 /**
  * User route part
@@ -71,18 +54,14 @@ Route::group([
         Route::post('login', 'AuthController@login');
         Route::post('register', 'AuthController@register');
         Route::get('logout', 'AuthController@logout');
-
         Route::get('is_auth', 'AuthController@isAuth');
-
         Route::get('auth/{provider}', 'AuthController@redirectToProvider');
         Route::get('auth/{provider}/callback', 'AuthController@handleProviderCallback');
     });
 
-
 /**
  * Admin route part
  */
-
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin\Auth',
@@ -127,6 +106,7 @@ Route::group([
     function(){
         Route::get('subscribe', 'PaymentController@subscribe');
         Route::post('pay','PaymentController@pay');
+        Route::get('checkout','PaymentController@checkout');
     });
 
 Route::group([
@@ -159,6 +139,7 @@ Route::get('products/{menu_id}', 'PlaceController@products');
 
 Route::get('comments', 'PlaceController@moreComments');
 Route::get('sendmail/{email}', 'UserController@sendMail');
+Route::post('add_organization', 'HomeController@addOrganization');
 
 
 /**
@@ -174,9 +155,7 @@ Route::get('fill/support_ids', 'ApiController@fillSupportId');
 
 
 Route::get('run_cron', function(){
-//    $countries = CountryState::getCountries();
-//    $states = CountryState::getStates('AM');
-//    dd($states);
+
 });
 
 

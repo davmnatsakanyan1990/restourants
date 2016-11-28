@@ -220,15 +220,60 @@ div.profile > div {
     background-color: #393d52 !important;
 }
 
+
+
+
 .header.navbar a.navbar-brand {
     padding: 0 !important;
     /*height: auto !important;*/
     height: 43px !important;
-    padding-top: 7px !important;
+    padding-top: 10px !important;
 }
 .header.navbar a.navbar-brand img{
     height: 30px;
 }
+.header .header-inner >ul {
+    display: none;
+}
+
+.header .header-inner ul li:first-child a i {
+    display: none;
+}
+
+.header .header-inner ul li:first-child {
+    margin: 0 20px 0 0;
+}
+
+.header .header-inner ul li:last-child i {
+    display: none !important;
+}
+
+.header .header-inner ul li:first-child > a:hover {
+    background-color: transparent !important;
+}
+
+.header .header-inner ul li:last-child > a:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.header .header-inner ul li:last-child > a > img,.header .header-inner ul li:last-child > a > span {
+    float: left;
+}
+
+.header .header-inner ul li:last-child > a > span {
+    display: block;
+    margin: 5px 0 0 10px;
+}
+
+.header .header-inner ul li a span {
+    font-size: 18px;
+    line-height: 18px;
+    color: #ffffff !important;
+    font-family: 'Source Sans Pro';
+}
+
 .addMore{
     line-height: 34px;
     color: #35aa47;

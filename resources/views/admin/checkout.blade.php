@@ -4,8 +4,8 @@
         <div class="page-content">
             <!-- Pick PAGE CONTENT-->
             <div class="wholePage">
-            <div class="topTitle">Pick a plan for your BigCommerce store</div>
-            <p class="littleIext">Grow sales and increase efficiency with powerful features that fit your business</p>
+                <div class="topTitle">Pick a plan for your BigCommerce store</div>
+                <p class="littleIext">Grow sales and increase efficiency with powerful features that fit your business</p>
 
                 <div class="plansPart clearElement">
                     <div class="plan elementLeft">
@@ -25,7 +25,7 @@
                                     </div>
                                 </div>
 
-                                <a href="{{ url('admin/payment/checkout') }}" class="choseButton elementRight">Select plan</a>
+                                <button class="choseButton elementRight">Select plan</button>
                             </div>
                         </div>
                     </div>

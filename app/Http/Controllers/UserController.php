@@ -15,6 +15,11 @@ class UserController extends Controller
         
     }
 
+    /**
+     * Send mail to the user after successfully registration
+     * 
+     * @param $email
+     */
     public function sendMail($email){
        // $user = Auth::guard('user')->user()->toArray();
 $user = '';

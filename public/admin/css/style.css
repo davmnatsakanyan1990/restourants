@@ -420,8 +420,8 @@ Header and header elements.
   border: 0px;
   padding: 0px; 
   box-shadow: none;
-  height: 42px; 
-  min-height: 42px;
+  height: 50px;
+  min-height: 50px;
 }
 
 .header.navbar.navbar-fixed-top {
@@ -502,7 +502,7 @@ Header and header elements.
 }
 
 .header.navbar .navbar-nav > li.dropdown.user .dropdown-toggle {
-  padding: 7px 0px 6px 6px;
+  padding: 10px 0px 6px 6px;
 }
 
 .header.navbar .navbar-nav > li.dropdown.user .dropdown-toggle:hover {
