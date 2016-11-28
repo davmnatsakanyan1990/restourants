@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
                     return redirect('admin/dashboard');
                     break;
                 case 'super_admin' :
-                    return redirect();//TODO
+                    return redirect('super_admin/dashboard');
                     break;
             }
         }

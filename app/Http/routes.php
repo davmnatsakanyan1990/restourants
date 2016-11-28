@@ -46,6 +46,17 @@ Route::group([
         Route::post('login', 'AuthController@login');
         
         Route::get('logout', 'AuthController@logout');
+        
+        Route::get('dashboard', 'HomeController@index');
+    });
+
+Route::group([
+    'prefix' => 'super_admin',
+    'namespace' => 'SuperAdmin'
+],
+    function(){
+        
+        Route::get('dashboard', 'HomeController@index');
     });
 
 

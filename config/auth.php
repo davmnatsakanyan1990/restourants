@@ -82,7 +82,7 @@ return [
 
          'super_admins' => [
              'driver' => 'eloquent',
-             'table' => App\Models\SuperAdmin::class,
+             'model' => App\Models\SuperAdmin::class,
          ],
         
         'admins' => [
