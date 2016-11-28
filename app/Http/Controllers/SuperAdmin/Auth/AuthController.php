@@ -31,11 +31,11 @@ class AuthController extends Controller
      * @var string
      */
 
-//    protected $loginView = 'admin/auth/login';
+    protected $loginView = 'super_admin/auth/login';
     protected $guard = 'super_admin';
     protected $username = 'username';
-//    protected $redirectTo = 'admin/dashboard';
-//    protected $redirectAfterLogout = 'admin/login';
+    protected $redirectTo = 'super_admin/dashboard';
+    protected $redirectAfterLogout = 'super_admin/login';
 
     /**
      * Create a new authentication controller instance.
