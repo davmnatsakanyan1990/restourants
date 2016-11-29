@@ -500,7 +500,7 @@
                 <!-- BEGIN PAGE LEVEL SCRIPTS -->
                 <script src="/admin/scripts/core/app.js"></script>
                 <script src="/admin/scripts/custom/components-dropdowns.js"></script>
-                <!-- END PAGE LEVEL SCRIPTS -->/admin
+                <!-- END PAGE LEVEL SCRIPTS -->
 
                 <script>
                     //var services = ["red", "green", "blue", "yellow", "pink"];
