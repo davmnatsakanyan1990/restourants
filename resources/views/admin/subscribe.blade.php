@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="callText2">The ultimate cloud ecommerce selling solution</div>
 
-                                <button class="choseButton elementRight" data-toggle="modal" data-target="#myModalLocation"><i class="fa fa-phone" aria-hidden="true"></i>1-855-884-6731</button>
+                                <button class="choseButton elementRight" data-toggle="modal" data-target="#myModalEnterprise"><i class="fa fa-phone" aria-hidden="true"></i>1-855-884-6731</button>
                             </div>
                         </div>
                     </div>
@@ -139,9 +139,8 @@
 
 
 <!--add location popup-->
-<div class="modal fade" id="myModalLocation" role="dialog">
+<div class="modal fade" id="myModalEnterprise" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header popupHeader">
