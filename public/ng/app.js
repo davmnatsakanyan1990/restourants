@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ["ngRoute"]);
+var app = angular.module("myApp", ["ngRoute", 'localytics.directives']);
 
 app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
     function ($interpolateProvider, $routeProvider,$locationProvider) {

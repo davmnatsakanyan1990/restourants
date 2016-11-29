@@ -3,6 +3,7 @@
 <script src="{{asset('lib/jquery-3.1.0.min.js')}}"></script>
 {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--}}
 <script src="{{asset('lib/fancybox/lib/jquery-1.10.1.min.js')}}"></script>
+<script src="{{asset('lib/chosen-js/chosen.jquery.js')}}"></script>
 
 <!-- Add mousewheel plugin (this is optional) -->
 <script type="text/javascript" src="{{asset('lib/fancybox/lib/jquery.mousewheel-3.0.6.pack.js')}}"></script>
@@ -18,6 +19,9 @@
 <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('lib/angular/angular.min.js')}}"></script>
 <script src="{{asset('lib/angular-route/angular-route.js')}}"></script>
+
+<script src="{{asset('lib/angular-chosen-localytics/dist/angular-chosen.min.js')}}"></script>
+
 
 <script src="{{asset('/ng/app.js')}}"></script>
 

@@ -12,7 +12,13 @@
         --}}{{--<div class="nav capitalize pointer" ng-click="toggleMenu('place')"><a class="pointer">Place <i class="fa fa-angle-down" aria-hidden="true"></i></a></div>--}}{{--
 
     </div>--}}
-    <div class="capitalize elementLeft searchMenuPart" style="width: calc(100% - 412px);">
+    <div class="elementLeft chosenStyles">
+        <select chosen
+                ng-model="state"
+                ng-options="s for s in states">
+        </select>
+    </div>
+    <div class="capitalize elementLeft searchMenuPart" style="width: calc(100% - 512px);">
         <div class="searchIcon">
             <form ng-submit="SearchRestaurantInfo(searchInfo)">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -31,6 +37,15 @@
 
     <div class="dropdownMenu" ng-show="shearchRestaurants" ng-class="{'secondPart': !first}">
         <div class="dropdownInner" ng-class="first ? 'first' : 'second'">
+            <i class="fa fa-times" aria-hidden="true" ng-click="shearchRestaurants = false"></i>
+            <div class="companyElement clearElement">
+                <div class="companies" ng-repeat="company in searcheInfo">
+                    <a href="">
+                        <div class="companyTitle" ng-bind="company.title">Name name anem name</div>
+                        <div class="companyAddress" ng-bind="company.address">address address address address</div>
+                    </a>
+                </div>
+            </div>
 
         </div>
     </div>
