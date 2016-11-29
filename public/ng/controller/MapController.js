@@ -174,14 +174,18 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         
         RestaurantService.getMoreRestaurant($scope.callData.page, city, filters)
             .then(function (response) {
+                debugger;
                 if(response.data.status && response.data.status == 'ended'){
                     $scope.noMoreInfoToShow = true;
                 }
                 var sum = 0;
+                $scope.markers = [];
                 angular.forEach(response.data.restaurants, function(value, key){
                     createMarker(value);
-                    $scope.restaurants.push(value);
+                    /*$scope.restaurants = [];*/
+                    /*$scope.restaurants.push(value);*/
                 });
+                $scope.restaurants = response.data.restaurants;
                 $scope.loading = false;
 
             });
