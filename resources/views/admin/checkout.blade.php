@@ -101,22 +101,113 @@
                                         <h2>Payment Method</h2>
 
                                         <div class="row">
-                                            <span>
+                                            <span class="col-md-6">
                                                 <input type="radio" checked="checked" id="option" name="pay" value="" class="pay-check">
-                                                <label for="option"></label>
-                                                <span>ACH (E-Check)</span>
+                                                <label class="last-lab" for="option">
+                                                    <label class="first-lab" for="option"></label>
+                                                    ACH (E-Check)
+                                                </label>
                                             </span>
 
-                                            <span>
+                                            <span class="col-md-6">
                                                 <input type="radio" id="option" name="pay" value="" class="pay-check">
-                                                <label for="option"></label>
-                                                <span>Credit Card</span>
+                                                <label class="last-lab" for="option">
+                                                    <label class="first-lab" for="option"></label>
+                                                    Credit Card
+                                                </label>
                                             </span>
+                                        </div>
+
+                                        <div class="credit-card">
+                                            <div class="top-line"></div>
+                                            <div class="block-content">
+                                                <h2>Credit Card</h2>
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="../img/visa-card-icon.png" alt="">
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="../img/mastercard-icon.png" alt="">
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="../img/american-express-icon.png" alt="">
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="../img/Diners-club-icon.png" alt="">
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="../img/discover-icon.png" alt="">
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+
+                                                <div class="row">
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="option" placeholder="Credit Card Number">
+                                                        <label for="option">
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="option" placeholder="Expires (MM/YY)">
+                                                        <label for="option">
+                                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="right-sitebar col-md-4"></div>
+                            <div class="right-sitebar col-md-4">
+                                <div class="top-line"></div>
+                                <div class="block-content">
+                                    <div class="row">
+                                        <h2>Order Summary</h2>
+                                        <button>Chenge plan</button>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <span>Plus</span>
+                                            <span>$ 20.55</span>
+                                        </li>
+                                        <li>
+                                            <span>Taxes</span>
+                                            <span>$ 0.00</span>
+                                        </li>
+                                        <li>
+                                            <span>Due taday</span>
+                                            <span>$ 0.00</span>
+                                        </li>
+                                    </ul>
+                                    <div class="order-block">
+                                        <p>Lorem Ipsum is simply dummy text of
+                                            the printing and typesetting industry.</p>
+
+                                        <label>
+                                            <input type="checkbox" class="checkbox" id="checkbox">
+                                            <label for="checkbox"></label>
+                                            <span>I have read and agree to the Teams of Service</span>
+                                        </label>
+
+                                        <button>Place Order</button>
+
+                                        <h2> Call us at </h2>
+                                        <h3><i class="fa fa-phone" aria-hidden="true"></i> 1-8885-556-894</h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

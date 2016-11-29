@@ -1,6 +1,7 @@
-body{
+body {
     background-color: #edf1f5 !important;
 }
+
 .main_content {
     padding-left: 100px;
     padding-right: 100px;
@@ -124,7 +125,7 @@ div.profile > div {
     margin: 0 auto;
 }
 
-.pick-page >h2 {
+.pick-page > h2 {
     margin: 0 0 20px 0;
 }
 
@@ -190,7 +191,7 @@ div.profile > div {
     text-align: center;
 }
 
-.card-button{
+.card-button {
     background-color: #4b71fc;
     border: 0;
     color: #ffffff;
@@ -200,28 +201,27 @@ div.profile > div {
     border-radius: 8px !important;
 }
 
-
-.elementsBlock{
+.elementsBlock {
     position: relative;
 }
-.elementsBlock .upDown{
+
+.elementsBlock .upDown {
     float: left;
     position: absolute;
     right: 13px;
 }
-.elementsBlock .upDown i{
+
+.elementsBlock .upDown i {
     display: block;
 }
-.margin5{
+
+.margin5 {
     margin-top: 5px;
 }
 
-.header{
+.header {
     background-color: #393d52 !important;
 }
-
-
-
 
 .header.navbar a.navbar-brand {
     padding: 0 !important;
@@ -229,15 +229,17 @@ div.profile > div {
     height: 43px !important;
     padding-top: 10px !important;
 }
-.header.navbar a.navbar-brand img{
+
+.header.navbar a.navbar-brand img {
     height: 30px;
 }
-.header .header-inner >ul {
+
+.header .header-inner > ul {
     display: none;
 }
 
 .header .header-inner ul li:first-child a i {
-    display: none;
+    display: none !important;
 }
 
 .header .header-inner ul li:first-child {
@@ -258,7 +260,7 @@ div.profile > div {
     clear: both;
 }
 
-.header .header-inner ul li:last-child > a > img,.header .header-inner ul li:last-child > a > span {
+.header .header-inner ul li:last-child > a > img, .header .header-inner ul li:last-child > a > span {
     float: left;
 }
 
@@ -274,7 +276,7 @@ div.profile > div {
     font-family: 'Source Sans Pro';
 }
 
-.addMore{
+.addMore {
     line-height: 34px;
     color: #35aa47;
     cursor: pointer;
@@ -284,50 +286,55 @@ div.profile > div {
     margin: 10px 0 0 74px;
 }
 
-
-
-
 /*upgrade page*/
-button, button:active, button:focus{
+button, button:active, button:focus {
     outline: none;
 }
-.elementLeft{
+
+.elementLeft {
     float: left;
 }
-.elementRight{
+
+.elementRight {
     float: right;
 }
-.clearElement:after{
-     content: '';
-     display: table;
-     clear: both;
+
+.clearElement:after {
+    content: '';
+    display: table;
+    clear: both;
 }
 
-.wholePage{
+.wholePage {
     padding: 65px 85px;
     font-family: 'Source Sans Pro';
 }
-.topTitle{
+
+.topTitle {
     font-size: 32px;
     color: #3d3d3d;
     font-family: 'Museo Slab 500';
 }
-.littleIext{
+
+.littleIext {
     font-family: 'Museo Slab 500';
     color: #a9a9a9;
     font-size: 18px;
     font-style: italic;
 }
-.plansPart{
+
+.plansPart {
     margin-top: 55px;
     margin-bottom: 40px;
     width: 100%;
 }
-.plan{
+
+.plan {
     width: 48%
 
 }
-.planTitle{
+
+.planTitle {
     font-size: 24px;
     width: 100%;
     color: white;
@@ -335,37 +342,46 @@ button, button:active, button:focus{
     padding: 15px 28px;
     font-family: 'Museo Slab 500';
 }
-.planContent{
+
+.planContent {
     border: 1px solid #ff7e00;
     padding: 23px;
     margin-top: 2px;
 }
-.price{
+
+.price {
     color: #ff7e00;
     position: relative;
     font-family: 'Museo Slab 500';
 }
-.priceSign i{
+
+.priceSign i {
     font-size: 25px;
 }
-.priceSign{
+
+.priceSign {
     position: absolute;
     top: 27px;
     left: -17px;
 }
+
 .priceMore {
 
 }
-.priceMore span{
+
+.priceMore span {
     color: #ff7e00;
 }
-.bigPrice{
+
+.bigPrice {
     font-size: 78px;
 }
-.smallPrice{
+
+.smallPrice {
     font-size: 31px;
 }
-.choseButton{
+
+.choseButton {
     font-family: 'Museo Slab 500';
     font-size: 18px;
     color: #ff7e00;
@@ -374,75 +390,88 @@ button, button:active, button:focus{
     padding: 10px 34px;
     margin-top: 25px;
 }
-.choseButton:hover{
+
+.choseButton:hover {
     color: white;
     background-color: #ff7e00;
 }
-.choseButton .fa-phone{
+
+.choseButton .fa-phone {
     font-size: 18px;
     margin-right: 10px;
 }
-.text{
+
+.text {
     font-size: 26px;
     color: #292929;
     margin-top: 20px;
 }
-.pricePlace{
+
+.pricePlace {
     margin-top: 30px;
 }
-.callText{
+
+.callText {
     font-size: 26px;
     text-align: center;
     padding: 0 100px;
 }
-.callText span{
+
+.callText span {
     color: #ff7e00;
 }
-.callText2{
+
+.callText2 {
     margin-top: 28px;
     font-size: 26px;
     text-align: center;
 }
 
-
 /*table part*/
-.tablePart{
+.tablePart {
     width: 100%;
     margin-top: 10px;
 }
-.tableTitle{
+
+.tableTitle {
     font-size: 24px;
     font-family: 'Museo Slab 500';
     color: #989898;
     background-color: #d8d8d8;
     /*padding: 15px 30px;*/
 }
-.tableTitle:after{
+
+.tableTitle:after {
     content: '';
     display: table;
     clear: both;
 }
-.titleTh{
+
+.titleTh {
     float: left;
     padding: 15px 30px;
     width: 33.3%;
 }
-.tableContent{
+
+.tableContent {
     font-size: 22px;
     color: #000;
     background-color: #efefef;
 }
-.tableContent:after{
+
+.tableContent:after {
     content: '';
     display: table;
     clear: both;
 }
-.tableTr{
+
+.tableTr {
     float: left;
     padding: 15px 30px;
     width: 33.3%;
     border-top: 2px solid white;
 }
+
 /*.tableTr:last-child{
     border-left: 1px solid #dbdbdb;
 }
@@ -450,11 +479,10 @@ button, button:active, button:focus{
     border-left: 1px solid white;
 }*/
 
-.tableTr .fa-check{
+.tableTr .fa-check {
     font-size: 22px;
     color: #ff7e00;
 }
-
 
 /*Checkout page*/
 .checkout-page .cont > div {
@@ -465,7 +493,7 @@ button, button:active, button:focus{
     margin: 0;
 }
 
-.checkout-page .cont .top-block .top-line{
+.checkout-page .cont .top-block .top-line {
     height: 3px;
     background-color: #ff7e00;
 }
@@ -476,7 +504,7 @@ button, button:active, button:focus{
     padding: 12px 42px 30px;
 }
 
-.checkout-page .cont .top-block .block-content h2{
+.checkout-page .cont .top-block .block-content h2 {
     font-size: 24px;
     line-height: 24px;
     color: #3d3d3d;
@@ -485,7 +513,7 @@ button, button:active, button:focus{
     padding: 0;
 }
 
-.checkout-page .cont .top-block .block-content > span{
+.checkout-page .cont .top-block .block-content > span {
     display: block;
     margin: 30px 0 0 0;
 }
@@ -496,7 +524,7 @@ button, button:active, button:focus{
     clear: both;
 }
 
-.checkout-page .cont .top-block .block-content span .top-check{
+.checkout-page .cont .top-block .block-content span .top-check {
     cursor: pointer;
     margin: 0;
     width: 24px;
@@ -512,7 +540,7 @@ button, button:active, button:focus{
     border: 2px solid #c8c8c8;
 }
 
-.checkout-page .cont .top-block .block-content span .top-check:checked+label {
+.checkout-page .cont .top-block .block-content span .top-check:checked + label {
     background: url(../img/Ellipse-3.png) !important;
     border: 2px solid #ff7e00;
     background-size: 14px 14px !important;
@@ -520,7 +548,7 @@ button, button:active, button:focus{
     background-position: center !important;
 }
 
-.checkout-page .cont .top-block .block-content span label{
+.checkout-page .cont .top-block .block-content span label {
     cursor: pointer;
     margin: 0;
     width: 24px;
@@ -545,8 +573,7 @@ button, button:active, button:focus{
     font-family: 'Source Sans Pro'
 }
 
-
-.checkout-page .cont .billing-contact-details .top-line{
+.checkout-page .cont .billing-contact-details .top-line {
     height: 3px;
     background-color: #ff7e00;
 }
@@ -557,7 +584,7 @@ button, button:active, button:focus{
     padding: 30px 42px 30px;
 }
 
-.checkout-page .cont .billing-contact-details .block-content h2{
+.checkout-page .cont .billing-contact-details .block-content h2 {
     font-size: 24px;
     line-height: 24px;
     color: #3d3d3d;
@@ -565,8 +592,6 @@ button, button:active, button:focus{
     margin: 0 0 50px 0;
     padding: 0;
 }
-
-
 
 .checkout-page .cont .billing-contact-details .block-content .row li {
     display: block;
@@ -592,7 +617,7 @@ button, button:active, button:focus{
     outline: none;
 }
 
-.checkout-page .cont .billing-contact-details .block-content .row li input:focus+label {
+.checkout-page .cont .billing-contact-details .block-content .row li input:focus + label {
     display: none;
 }
 
@@ -620,7 +645,7 @@ button, button:active, button:focus{
     font-size: 20px;
 }
 
-.checkout-page .cont .payment-method .top-line{
+.checkout-page .cont .payment-method .top-line {
     height: 3px;
     background-color: #ff7e00;
 }
@@ -631,7 +656,7 @@ button, button:active, button:focus{
     padding: 25px 30px 30px;
 }
 
-.checkout-page .cont .payment-method .block-content h2{
+.checkout-page .cont .payment-method .block-content h2 {
     font-size: 24px;
     line-height: 24px;
     color: #3d3d3d;
@@ -640,12 +665,13 @@ button, button:active, button:focus{
     padding: 0;
 }
 
-
-
+.checkout-page .cont .payment-method .block-content .row > span {
+    display: block;
+}
 
 .checkout-page .cont .payment-method .block-content .row .pay-check {
     cursor: pointer;
-    margin: 0;
+    margin: -50px -3px 0 0;
     width: 24px;
     height: 24px;
     border: 2px solid #ff7e00;
@@ -654,72 +680,383 @@ button, button:active, button:focus{
 
 }
 
-.checkout-page .cont .payment-method .block-content .row .pay-check :checked {
-
+.checkout-page .cont .payment-method .block-content .row .pay-check:checked {
     border: 2px solid #c8c8c8;
 }
 
-.checkout-page .cont .payment-method .block-content .row .pay-check :checked+label {
+.checkout-page .cont .payment-method .block-content .row .pay-check:checked + .last-lab {
+    color: #ff7e00;
+}
+
+.checkout-page .cont .payment-method .block-content .row .pay-check:checked + .last-lab > label {
     background: url(../img/Ellipse-3.png) !important;
     border: 2px solid #ff7e00;
     background-size: 14px 14px !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
+
 }
 
-.checkout-page .cont .payment-method .block-content .row > span  label{
+.checkout-page .cont .payment-method .block-content .row > span .first-lab {
     cursor: pointer;
-    margin: 0;
+    margin: 0 28px 0 0;
     width: 24px;
     height: 24px;
     border: 2px solid #c8c8c8;
-    display: inline-block;
+    display: block;
+    float: left;
     border-radius: 100px;
-    margin-left: -24px;
     background: url(../img/Ellipse-3-c.png) !important;
     background-size: 14px 14px !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
 }
 
-.checkout-page .cont .payment-method .block-content .row > > span {
+.checkout-page .cont .payment-method .block-content .row > span > .last-lab {
     vertical-align: super;
     display: inline-block;
-    margin: 0 0 0 30px;
+    margin: 0 0 0 -24px;
     font-size: 24px;
     line-height: 24px;
     color: #3d3d3d;
     font-family: 'Source Sans Pro'
 }
 
+.checkout-page .cont .payment-method .block-content .row > span > .last-lab:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.checkout-page .cont .credit-card {
+    margin: 50px 0 0 0;
+}
+
+.checkout-page .cont .credit-card .top-line {
+    height: 3px;
+    background-color: #ff7e00;
+}
+
+.checkout-page .cont .credit-card .block-content {
+    margin: 3px 0 0 0;
+    background-color: #f6f8fa;
+    padding: 40px 33px 60px;
+}
+
+.checkout-page .cont .credit-card .block-content h2 {
+    font-size: 24px;
+    line-height: 24px;
+    color: #3d3d3d;
+    font-family: 'Museo Slab 500';
+    margin: 0 0 30px 0;
+    padding: 0;
+}
+
+.checkout-page .cont .credit-card .block-content ul {
+    padding: 0;
+    margin: 0 0 28px 0;
+}
+
+.checkout-page .cont .credit-card .block-content ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.checkout-page .cont .credit-card .block-content ul li {
+    display: block;
+    list-style: none;
+    float: left;
+    margin: 0 0 0 10px;
+}
+
+.checkout-page .cont .credit-card .block-content ul li:first-child {
+    margin: 0;
+}
+
+.checkout-page .cont .credit-card .block-content .row li {
+    display: block;
+    list-style: none;
+    margin: 0 0 15px 0;
+    position: relative;
+}
+
+.checkout-page .cont .credit-card .block-content .row li input {
+    display: block;
+    width: 100%;
+    height: 42px;
+    border: 1px solid #d9d9d9;
+    color: #5e5e5e;
+    font-size: 16px;
+    font-family: 'Source Sans Pro';
+    padding: 0 0 0 47px;
+}
+
+.checkout-page .cont .credit-card .block-content .row li input:focus {
+    padding: 0 0 0 17px;
+    border: 1px solid #ff7e00;
+    outline: none;
+}
+
+.checkout-page .cont .credit-card .block-content .row li input:focus + label {
+    display: none;
+}
+
+.checkout-page .cont .credit-card .block-content .row li label {
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    border-right: 1px solid #d9d9d9;
+}
+
+.checkout-page .cont .credit-card .block-content .row li label {
+    color: #b9b9b9;
+    left: 15px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 42px;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    border-right: 1px solid #d9d9d9;
+}
+
+.checkout-page .cont .credit-card .block-content .row li i {
+    font-size: 20px;
+}
+
+.checkout-page .right-sitebar .top-line {
+    height: 3px;
+    background-color: #ff7e00;
+}
+
+.checkout-page .right-sitebar .block-content {
+    margin: 3px 0 0 0;
+    background-color: #ffffff;
+    padding: 10px 0 40px;
+}
+
+.checkout-page .right-sitebar .block-content .row {
+    padding: 0 30px;
+}
+
+.checkout-page .right-sitebar .block-content .row h2 {
+    font-size: 24px;
+    line-height: 24px;
+    color: #3d3d3d;
+    font-family: 'Museo Slab 500';
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.checkout-page .right-sitebar .block-content .row button {
+    float: right;
+    width: 156px;
+    height: 31px;
+    border: 1px solid #ff7e00;
+    color: #ff7e00;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.checkout-page .right-sitebar .block-content ul {
+    margin: 0;
+    padding: 0;
+}
+
+.checkout-page .right-sitebar .block-content ul li {
+    display: block;
+    list-style: none;
+    padding: 0 30px;
+    width: 100%;
+    height: 87px;
+    border-bottom: 1px solid #d9d9d9;
+    line-height: 87px;
+}
+
+.checkout-page .right-sitebar .block-content ul li:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.checkout-page .right-sitebar .block-content ul li span {
+    font-size: 24px;
+    color: #292929;
+    font-family: 'Source Sans Pro';
+    display: block;
+}
+
+.checkout-page .right-sitebar .block-content ul li span:first-child {
+    float: left;
+}
+
+.checkout-page .right-sitebar .block-content ul li span:last-child {
+    float: right;
+}
+
+.checkout-page .right-sitebar .block-content ul li:last-child span:last-child {
+    color: #ff7e00;
+}
+
+.checkout-page .right-sitebar .block-content .order-block {
+    margin: 20px 0 0 0;
+    padding: 0 27px;
+}
+
+.checkout-page .right-sitebar .block-content .order-block p {
+    font-size: 20px;
+    color: #292929;
+    font-family: 'Source Sans Pro';
+    display: block;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label {
+    display: block;
+    margin: 48px 0 0 0;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label > input[type="checkbox"] {
+    float: left;
+    background-color: #ffffff;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label > input[type="checkbox"]:checked + label {
+    position: relative;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label > input[type="checkbox"]:checked + label {
+    position: relative;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label > input[type="checkbox"]:checked + label:after {
+    position: absolute;
+    top: -5px;
+    left: 2px;
+    content: '✔';
+    font-size: 25px;
+    color: #ff7e00;
+
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label >label {
+    float: left;
+    cursor: pointer;
+    margin: 0 0 0 -25px;
+    width: 25px;
+    height: 25px;
+    background-color: #ffffff;
+    display: inline-block;
+    border: 1px solid #ff7e00;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label > span {
+    float: left;
+    font-size: 20px;
+    color: #292929;
+    margin: -4px 0 0 12px;
+    font-family: 'Source Sans Pro';
+    display: block;
+    position: relative;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > label > span:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ff7e00;
+}
+
+.checkout-page .right-sitebar .block-content .order-block > button {
+    width: 238px;
+    height: 35px;
+    display: block;
+    margin: 38px auto 0;
+    background-color: #ff7e00;
+    font-family: 'Source Sans Pro';
+    color: #ffffff;
+    border: 0;
+    font-size: 20px;
+}
+
+.checkout-page .right-sitebar .block-content .order-block h2 {
+    width: 100%;
+    margin: 48px 0 0 0;
+    padding: 0;
+    text-align: center;
+    font-size: 20px;
+    color: #292929;
+    font-family: 'Source Sans Pro';
+    display: block;
+}
+
+.checkout-page .right-sitebar .block-content .order-block h3 {
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 0;
+    text-align: center;
+    font-size: 23px;
+    color: #ff7e00;
+    font-family: 'Source Sans Pro';
+    display: block;
+}
+
+.checkout-page .right-sitebar .block-content .order-block h3 i {
+    font-size: 23px;
+}
+
 /*Checkout page End*/
 
-@media screen and (min-width:1466px) and (max-width: 1614px) {
-    .wholePage{
+@media screen and (min-width: 1466px) and (max-width: 1614px) {
+    .wholePage {
         padding: 65px 10px;
     }
 }
+
 @media screen and (max-width: 1466px) and (min-width: 760px) {
-    .wholePage{
+    .wholePage {
         padding: 65px 85px;
     }
+
     .plan {
         width: 100%;
     }
-    .plan:last-child{
+
+    .plan:last-child {
         margin-top: 20px;
     }
 
 }
-@media screen and (max-width: 760px)
-{
-    .wholePage{
+
+@media screen and (max-width: 760px) {
+    .wholePage {
         padding: 65px 10px;
     }
+
     .plan {
         width: 100%;
     }
-    .plan:last-child{
+
+    .plan:last-child {
         margin-top: 20px;
     }
 
