@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Payment;
 use App\Models\Place;
+use App\Models\Plan;
+use CountryState;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -87,6 +89,18 @@ class PaymentController extends Controller
     }
     
     public function checkout(){
-        return view('admin/checkout');
+        $plan_id = request('plan');
+        $plan = Plan::find($plan_id);
+
+        $billing_details = Auth::guard('admin')->user()->billing_details;
+
+        $countries = CountryState::getCountries();
+        if($billing_details->country)
+            $states = CountryState::getStates($billing_details->country);
+        else
+            $states = [];
+
+
+        return view('admin/checkout', compact('plan', 'billing_details', 'countries', 'states'));
     }
 }
