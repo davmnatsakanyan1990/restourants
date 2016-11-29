@@ -15,7 +15,7 @@
                                         <span>
                                         {{--<input type="checkbox" id="option" name="" value="" class="top-check">--}}
                                         {{--<label for="option"></label>--}}
-                                        <span>$ 80.20 USD yearly</span>
+                                        <span>$ {{ $plan->price }} USD yearly</span>
                                     </span>
                                     </div>
                                 </div>
@@ -79,14 +79,14 @@
                                             </li>
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Phone">
+                                                <input type="text" id="option" placeholder="Phone" value="{{ $billing_details->phone ? $billing_details->phone : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                                 </label>
                                             </li>
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="E-mail">
+                                                <input type="text" id="option" placeholder="E-mail" value="{{ $billing_details->email ? $billing_details->email : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                                 </label>

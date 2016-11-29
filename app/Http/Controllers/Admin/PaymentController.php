@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Lib\Twocheckout\TwocheckoutCharge;
 use App\Http\Controllers\Admin\Lib\Twocheckout;
 use App\Http\Controllers\Admin\Lib\Twocheckout\Api\TwocheckoutError;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -39,6 +40,7 @@ class PaymentController extends Controller
 
     public function pay(Request $request)
     {
+        $plan = Plan::find($request->plan);
         Twocheckout::privateKey('0ED56256-9BBD-4363-B476-F51BC23ED009');
         Twocheckout::sellerId('901332804');
 
@@ -49,13 +51,13 @@ class PaymentController extends Controller
 
         try {
             $charge = TwocheckoutCharge::auth(array(
-                "sellerId" => "901332804",
-                "merchantOrderId" => "123",
+                "sellerId" => env('2CHECKOUT_SELLER_ID'),
+                "merchantOrderId" => request('plan'),
                 "token" => $token,
                 "currency" => 'USD',
-                "total" => '10.00',
+                "total" => $plan->price,
                 "billingAddr" => array(
-                    "name" => 'Joe Flagster',
+                    "name" => $request->first_name.' '.$request->last_name,
                     "addrLine1" => '123 Main Street',
                     "city" => 'Townsville',
                     "state" => 'Ohio',
@@ -102,5 +104,16 @@ class PaymentController extends Controller
 
 
         return view('admin/checkout', compact('plan', 'billing_details', 'countries', 'states'));
+    }
+    
+    public function sendMail(Request $request){
+        $data = $request->all();
+        Mail::send('emails.enterprise', ['data' => $data], function ($m) use ($data) {
+            $m->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
+
+            $m->to('lookrestaurants@gmail.com')->subject('Enterprise');
+        });
+        
+        return redirect()->back()->with('message', 'Your message was successfully sent');
     }
 }
