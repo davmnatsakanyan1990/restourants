@@ -13,9 +13,9 @@
                                     <div class="block-content">
                                         <h2>Billing Frequency</h2>
                                         <span>
-                                        <input type="checkbox" id="option" name="" value="" class="top-check">
-                                        <label for="option"></label>
-                                        <span>Pay $ 80.20 USD monthly</span>
+                                        {{--<input type="checkbox" id="option" name="" value="" class="top-check">--}}
+                                        {{--<label for="option"></label>--}}
+                                        <span>$ 80.20 USD yearly</span>
                                     </span>
                                     </div>
                                 </div>
@@ -26,40 +26,40 @@
                                         <h2>Billing Contact Details</h2>
                                         <div class="row">
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Name">
+                                                <input type="text" id="option" placeholder="Name" value="{{ $billing_details->first_name ? $billing_details->first_name : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Last Name">
+                                                <input type="text" id="option" placeholder="Last Name" value="{{ $billing_details->last_name ? $billing_details->last_name : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-12">
-                                                <input type="text" id="option" placeholder="Address line 1">
+                                                <input type="text" id="option" placeholder="Address line 1" value="{{ $billing_details->address_1 ? $billing_details->address_1 : '' }}">
                                                 <label for="option">
-                                                    <i class="fa fa-map-marker" aria-hidden="true"></i
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                 </label>
                                             </li>
 
                                             <li class="col-md-12">
-                                                <input type="text" id="option" placeholder="Address line 2">
+                                                <input type="text" id="option" placeholder="Address line 2" value="{{ $billing_details->address_2 ? $billing_details->address_2 : '' }}">
                                                 <label for="option">
-                                                    <i class="fa fa-map-marker" aria-hidden="true"></i
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                 </label>
                                             </li>
 
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="City">
+                                                <input type="text" id="option" placeholder="City" value="{{ $billing_details->city ? $billing_details->city : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-globe" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Zip/Postcode">
+                                                <input type="text" id="option" placeholder="Zip/Postcode" value="{{ $billing_details->postal_code ? $billing_details->postal_code : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                                                 </label>
@@ -130,29 +130,29 @@
                                                 <h2>Credit Card</h2>
                                                 <ul>
                                                     <li>
-                                                        <a href="#">
+
                                                             <img src="../img/visa-card-icon.png" alt="">
-                                                        </a>
+
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+
                                                             <img src="../img/mastercard-icon.png" alt="">
-                                                        </a>
+
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+
                                                             <img src="../img/american-express-icon.png" alt="">
-                                                        </a>
+
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+
                                                             <img src="../img/Diners-club-icon.png" alt="">
-                                                        </a>
+
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+
                                                             <img src="../img/discover-icon.png" alt="">
-                                                        </a>
+
                                                     </li>
 
                                                 </ul>

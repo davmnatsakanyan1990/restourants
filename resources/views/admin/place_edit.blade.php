@@ -4,7 +4,7 @@
         <div class="page-content">
             <!-- BEGIN PAGE CONTENT-->
             <div class="row profile">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     @if(session('message'))
                         <div class="alert alert-success">
                             <p>{{ session('message') }}</p>
@@ -13,7 +13,7 @@
                     <h2>Restaurant Info</h2>
                     <!--BEGIN TABS-->
                     <div class="tabbable tabbable-custom tabbable-full-width">
-                        <div class="tab-content">
+                        <div class="tab-content" style="padding: 15px;">
                             <!--tab_1_2-->
                             <div class="tab-pane active" id="tab_1_3">
                                 <div class="row profile-account">
@@ -500,7 +500,7 @@
                 <!-- BEGIN PAGE LEVEL SCRIPTS -->
                 <script src="/admin/scripts/core/app.js"></script>
                 <script src="/admin/scripts/custom/components-dropdowns.js"></script>
-                <!-- END PAGE LEVEL SCRIPTS -->/admin
+                <!-- END PAGE LEVEL SCRIPTS -->
 
                 <script>
                     //var services = ["red", "green", "blue", "yellow", "pink"];

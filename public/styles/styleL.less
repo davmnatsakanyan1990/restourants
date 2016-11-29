@@ -668,6 +668,7 @@ html{
         border-top: 1px solid #363749;
         box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
         .dropdownInner{
+          position: relative;
           padding: 20px;
           width: 100%;
           height: 400px;
@@ -744,6 +745,30 @@ html{
               float: left;
               margin-right: 7px;
             }
+          }
+
+          .companyElement{
+            .companies{
+              float: left;
+              margin: 0 10px 10px 10px;
+              cursor: pointer;
+              .companyTitle{
+                font-weight: 600;
+                font-family: robotobold,Arial;
+                font-size: 18px;
+                color: #23527c;
+              }
+              .companyAddress{
+                color: #8e8e8e;
+                font-size: 14px;
+              }
+            }
+          }
+          .fa-times{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
           }
         }
 

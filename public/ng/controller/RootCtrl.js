@@ -45,14 +45,16 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         console.log($scope.first)
     };*/
 
+    $scope.states = ['state1', 'state2', 'state3', 'state4', 'state5', 'state6'];
+
+
 
     $scope.SearchRestaurantInfo = function (value) {
         console.log(value);
-        console.log(request);
         $scope.shearchRestaurants = true;
         RestaurantService.SearchRestaurant(value)
             .then(function (response) {
-                
+                $scope.searcheInfo = response.data;
             });
     };
 

@@ -1,0 +1,15 @@
+.chosenStyles {
+  line-height: 40px;
+}
+.chosenStyles .chosen-container {
+  width: 150px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+.chosenStyles .chosen-container .chosen-single {
+  height: 40px !important;
+  line-height: 40px !important;
+}
+.chosenStyles .chosen-container .chosen-single div {
+  top: 8px !important;
+}
