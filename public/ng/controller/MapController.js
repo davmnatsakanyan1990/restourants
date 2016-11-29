@@ -174,7 +174,6 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
         
         RestaurantService.getMoreRestaurant($scope.callData.page, city, filters)
             .then(function (response) {
-                debugger;
                 if(response.data.status && response.data.status == 'ended'){
                     $scope.noMoreInfoToShow = true;
                 }
