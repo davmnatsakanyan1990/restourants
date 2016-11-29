@@ -4,128 +4,122 @@
         <div class="page-content">
             <!-- Pick PAGE CONTENT-->
             <div class="wholePage">
-                <div class="topTitle">Pick a plan for your BigCommerce store</div>
-                <p class="littleIext">Grow sales and increase efficiency with powerful features that fit your business</p>
+                <div class="checkout-page">
+                    <form action="">
+                        <div class="row">
+                            <div class="cont col-md-8">
+                                <div class="top-block">
+                                    <div class="top-line"></div>
+                                    <div class="block-content">
+                                        <h2>Billing Frequency</h2>
+                                        <span>
+                                        <input type="checkbox" id="option" name="" value="" class="top-check">
+                                        <label for="option"></label>
+                                        <span>Pay $ 80.20 USD monthly</span>
+                                    </span>
+                                    </div>
+                                </div>
 
-                <div class="plansPart clearElement">
-                    <div class="plan elementLeft">
-                        <div class="planTitle">Standard</div>
-                        <div class="planContent">
-                            <div class="textPart clearElement">
-                                <div class="pricePlace clearElement">
-                                    <div class="text elementLeft">A full-featured online store</div>
-                                    <div class="price elementRight">
-                                        <div class="priceSign"><i class="fa fa-usd" aria-hidden="true"></i></div>
-                                        <div class="priceMore">
-                                            <span class="bigPrice">29</span>
-                                            <span>.</span>
-                                            <span class="smallPrice">95</span>
-                                            <span class="smallPrice">/mo</span>
+                                <div class="billing-contact-details">
+                                    <div class="top-line"></div>
+                                    <div class="block-content">
+                                        <h2>Billing Contact Details</h2>
+                                        <div class="row">
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="Name">
+                                                <label for="option">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="Last Name">
+                                                <label for="option">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
+                                            <li class="col-md-12">
+                                                <input type="text" id="option" placeholder="Address line 1">
+                                                <label for="option">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i
+                                                </label>
+                                            </li>
+
+                                            <li class="col-md-12">
+                                                <input type="text" id="option" placeholder="Address line 2">
+                                                <label for="option">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i
+                                                </label>
+                                            </li>
+
+
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="City">
+                                                <label for="option">
+                                                    <i class="fa fa-globe" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="Zip/Postcode">
+                                                <label for="option">
+                                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
+
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="State">
+                                                <label for="option">
+                                                    <i class="fa fa-flag" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="Country">
+                                                <label for="option">
+                                                    <i class="fa fa-flag" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
+
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="Phone">
+                                                <label for="option">
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
+
+                                            <li class="col-md-6">
+                                                <input type="text" id="option" placeholder="E-mail">
+                                                <label for="option">
+                                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                                </label>
+                                            </li>
                                         </div>
                                     </div>
                                 </div>
 
-                                <button class="choseButton elementRight">Select plan</button>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="payment-method">
+                                    <div class="top-line"></div>
+                                    <div class="block-content">
+                                        <h2>Payment Method</h2>
 
-                    <div class="plan elementRight">
-                        <div class="planTitle">Enterprise</div>
-                        <div class="planContent">
-                            <div class="textPart clearElement">
-                                <div class="callText">
-                                    Call <span> 1-855-884-6731 </span>for pricing
-                                    tailored to your business
+                                        <div class="row">
+                                            <span>
+                                                <input type="radio" checked="checked" id="option" name="pay" value="" class="pay-check">
+                                                <label for="option"></label>
+                                                <span>ACH (E-Check)</span>
+                                            </span>
+
+                                            <span>
+                                                <input type="radio" id="option" name="pay" value="" class="pay-check">
+                                                <label for="option"></label>
+                                                <span>Credit Card</span>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="callText2">The ultimate cloud ecommerce selling solution</div>
-
-                                <button class="choseButton elementRight"><i class="fa fa-phone" aria-hidden="true"></i>1-855-884-6731</button>
                             </div>
+                            <div class="right-sitebar col-md-4"></div>
                         </div>
-                    </div>
-
-
+                    </form>
                 </div>
-                <div class="customTable">
-                    <div class="tablePart">
-                        <div class="tableTitle">
-                            <div class="titleTh">Get access to these features</div>
-                            <div class="titleTh">Standard</div>
-                            <div class="titleTh">Enterprise</div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Transaction Fees</div>
-                            <div class="tableTr">0 %</div>
-                            <div class="tableTr">0 %</div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Products, file storage, and bandwidth</div>
-                            <div class="tableTr">Unlimited</div>
-                            <div class="tableTr">Unlimited</div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Staff accounts</div>
-                            <div class="tableTr">Unlimited</div>
-                            <div class="tableTr">Unlimited</div>
-                        </div>
-                    </div>
-                    <div class="tablePart">
-                        <div class="tableTitle">
-                            <div class="titleTh">Sales Channels</div>
-                            <div class="titleTh"></div>
-                            <div class="titleTh"></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Branded Online Store</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Point of sale (Square)</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Facebook</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Pinterest</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Google Trusted Stores</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-                    <div class="tablePart">
-                        <div class="tableTitle">
-                            <div class="titleTh">Get access to these features</div>
-                            <div class="titleTh"></div>
-                            <div class="titleTh"></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Transaction Fees</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Products, file storage, and bandwidth</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="tableContent">
-                            <div class="tableTr">Staff accounts</div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                            <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <!-- END PAGE CONTENT-->
         </div>

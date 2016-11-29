@@ -1,8 +1,10 @@
 
-app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, RestaurantService) {
+app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, $route, RestaurantService) {
+    var request = $route;
     $scope.showModal = false;
     $scope.search = true;
-    $scope.custom = false;
+   /* $scope.custom = false;*/
+    $scope.shearchRestaurants = false;
     $scope.docLoader = true;
     $scope.animateTopMenuVar = false;
     $scope.openLogOut = false;
@@ -11,7 +13,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     if(userName){
         $scope.userFirstLetter = userName.substring(0,1);
     }
-    $scope.toggleMenu = function(menu) {
+    /*$scope.toggleMenu = function(menu) {
         if(menu == 'home'){
             //$scope.first = true;
             if($scope.custom && $scope.first){
@@ -41,7 +43,20 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         }
 
         console.log($scope.first)
+    };*/
+
+
+    $scope.SearchRestaurantInfo = function (value) {
+        console.log(value);
+        console.log(request);
+        $scope.shearchRestaurants = true;
+        RestaurantService.SearchRestaurant(value)
+            .then(function (response) {
+                
+            });
     };
+
+
 
 
     $scope.$watch(
