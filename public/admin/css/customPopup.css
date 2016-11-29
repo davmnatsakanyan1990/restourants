@@ -1,0 +1,100 @@
+html body .popupButton {
+    width: 45%;
+}
+html body .popupButton:first-child {
+    float: left;
+}
+html body .popupButton:last-child {
+    float: right;
+}
+html body .popupBody {
+    text-align: center;
+    padding: 15px 40px;
+    padding-bottom: 30px;
+}
+html body .popupBody.leftContent {
+    text-align: left;
+}
+html body .popupBody.littleInputs .inputsBlocks {
+    max-width: 400px;
+    margin: 0 auto;
+    color: #1f2029;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock:first-child > .titleInput {
+    margin-top: 0;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock input {
+    margin: 0;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock .titleInput {
+    margin: 10px 0 5px 0;
+    text-transform: capitalize;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock .genderInputs .genderSection {
+    display: table;
+    float: left;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock .genderInputs .genderSection span {
+    display: table-cell;
+    color: #7777a1;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock .genderInputs .genderSection input[type=radio] {
+    width: auto;
+    display: table-cell;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock .genderInputs .genderSection:first-child {
+    margin-right: 10px;
+}
+html body .popupBody.littleInputs .inputsBlocks .inputBlock:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+html body .popupBody.littleInputs .inputsBlocks textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+html body .popupBody input {
+    margin-top: 10px;
+}
+html body .popupBody input:first-child {
+    margin: 0;
+}
+html body .popupHeader {
+    text-align: center;
+}
+html body .popupFooter {
+    padding: 10px 40px 15px 40px;
+    border: 0;
+}
+html body .popupFooter .leftButtonsArea {
+    float: right;
+    margin-right: 10%;
+}
+html body .popupFooter .leftButtonsArea .greyButton {
+    float: left;
+}
+html body .popupFooter .leftButtonsArea .greyButton:first-child {
+    margin-right: 10px;
+}
+html body .popupFooter .leftButtonsArea .fixedPopupContent {
+    max-height: 500px;
+    overflow: auto;
+}
+.lightInput {
+    background-color: white;
+    border: 1px solid #9e9e9e;
+    padding: 8px 20px;
+    height: inherit;
+    width: 100%;
+}
+.greyButton {
+    color: white;
+    background-color: #9e9e9e;
+    border: none;
+    padding: 5px;
+    width: 100px;
+}
