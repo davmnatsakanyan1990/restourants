@@ -152,30 +152,30 @@
                 <div class="inputsBlocks">
                     <div class="inputBlock">
                         <div class="titleInput">first name</div>
-                        <input class="capitalize lightInput" type="text" placeholder="firstName"/>
+                        <input class="capitalize lightInput" type="text"/>
                     </div>
                     <div class="inputBlock">
                         <div class="titleInput">last name</div>
-                        <input class="capitalize lightInput" type="text" placeholder="lastName"/>
+                        <input class="capitalize lightInput" type="text"/>
                     </div>
                     <div class="inputBlock">
                         <div class="titleInput">e-mail</div>
-                        <input class="capitalize lightInput" type="text" placeholder="e-mail"/>
+                        <input class="capitalize lightInput" type="text"/>
                     </div>
                     <div class="inputBlock">
                         <div class="titleInput">phone number</div>
-                        <input class="capitalize lightInput" type="text" placeholder="phone number"/>
+                        <input class="capitalize lightInput" type="text"/>
                     </div>
                     <div class="inputBlock">
                         <div class="titleInput">description</div>
-                        <textarea placeholder="description"></textarea>
+                        <textarea></textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer popupFooter">
                 <div class="leftButtonsArea">
                     <button type="button" class="capitalize greyButton" data-dismiss="modal">cancel</button>
-                    <button type="button" class="capitalize greyButton">ok</button>
+                    <button type="button" class="capitalize greyButton greenButton">ok</button>
                 </div>
             </div>
         </div>
