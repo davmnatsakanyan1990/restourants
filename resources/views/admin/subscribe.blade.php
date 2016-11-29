@@ -142,43 +142,44 @@
 <div class="modal fade" id="myModalEnterprise" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header popupHeader">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title capitalize">Enterprise</h4>
-            </div>
-            <div class="modal-body popupBody leftContent littleInputs">
-                <div class="inputsBlocks">
-                    <div class="inputBlock">
-                        <div class="titleInput">first name</div>
-                        <input class="capitalize lightInput" type="text"/>
+        <form name="enterprise">
+            <div class="modal-content">
+                <div class="modal-header popupHeader">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title capitalize">Enterprise</h4>
+                </div>
+                <div class="modal-body popupBody leftContent littleInputs">
+                    <div class="inputsBlocks">
+                        <div class="inputBlock">
+                            <div class="titleInput">first name</div>
+                            <input class="capitalize lightInput" type="text"/>
+                        </div>
+                        <div class="inputBlock">
+                            <div class="titleInput">last name</div>
+                            <input class="capitalize lightInput" type="text"/>
+                        </div>
+                        <div class="inputBlock">
+                            <div class="titleInput">e-mail</div>
+                            <input class="capitalize lightInput" type="text"/>
+                        </div>
+                        <div class="inputBlock">
+                            <div class="titleInput">phone number</div>
+                            <input class="capitalize lightInput" type="text"/>
+                        </div>
+                        <div class="inputBlock">
+                            <div class="titleInput">description</div>
+                            <textarea></textarea>
+                        </div>
                     </div>
-                    <div class="inputBlock">
-                        <div class="titleInput">last name</div>
-                        <input class="capitalize lightInput" type="text"/>
-                    </div>
-                    <div class="inputBlock">
-                        <div class="titleInput">e-mail</div>
-                        <input class="capitalize lightInput" type="text"/>
-                    </div>
-                    <div class="inputBlock">
-                        <div class="titleInput">phone number</div>
-                        <input class="capitalize lightInput" type="text"/>
-                    </div>
-                    <div class="inputBlock">
-                        <div class="titleInput">description</div>
-                        <textarea></textarea>
+                </div>
+                <div class="modal-footer popupFooter">
+                    <div class="leftButtonsArea">
+                        <button type="button" class="capitalize greyButton" data-dismiss="modal">cancel</button>
+                        <button type="button" class="capitalize greyButton greenButton">ok</button>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer popupFooter">
-                <div class="leftButtonsArea">
-                    <button type="button" class="capitalize greyButton" data-dismiss="modal">cancel</button>
-                    <button type="button" class="capitalize greyButton greenButton">ok</button>
-                </div>
-            </div>
-        </div>
-
+        </form>
     </div>
 </div>
 <!---->
