@@ -66,13 +66,19 @@
                                             </li>
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="State">
+                                                {{--<input type="text" id="option" placeholder="State">--}}
+                                                <select name="" id="option" placeholder="State">
+                                                      <option value="" disabled selected>State</option>
+                                                </select>
                                                 <label for="option">
                                                     <i class="fa fa-flag" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Country">
+                                                {{--<input type="text" id="option" placeholder="Country">--}}
+                                                <select name="" id="option" placeholder="Country">
+                                                      <option value="" disabled selected>Country</option>
+                                                </select>
                                                 <label for="option">
                                                     <i class="fa fa-flag" aria-hidden="true"></i>
                                                 </label>
