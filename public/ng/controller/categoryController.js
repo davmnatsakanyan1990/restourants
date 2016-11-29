@@ -93,7 +93,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
     $scope.addMorePoints = function(){
         $scope.loading = true;
         $scope.callData.page++;
-        RestaurantService.getMoreRestaurant($scope.callData)
+        RestaurantService.getMoreRestaurant($scope.callData.page, $scope.callData.city, $scope.callData.filters)
             .then(function (response) {
                 if(response.data.status && response.data.status == 'ended'){
                     $scope.noMoreInfoToShow = true;
@@ -330,17 +330,21 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                         }
 
                         $scope.restaurants = response.data.restaurants;
+                        if(response.data.restaurants.length > 0) {
+                            $scope.initMap({
+                                zoom: 12,
+                                center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016),
+                                scrollwheel: false,
+                                mapTypeId: google.maps.MapTypeId.TERRAIN
+                            });
 
-                        $scope.initMap({
-                            zoom: 12,
-                            center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.016),
-                            scrollwheel: false,
-                            mapTypeId: google.maps.MapTypeId.TERRAIN
-                        });
 
-
-                        for (i = 0; i < $scope.restaurants.length; i++) {
-                            createMarker($scope.restaurants[i]);
+                            for (i = 0; i < $scope.restaurants.length; i++) {
+                                createMarker($scope.restaurants[i]);
+                            }
+                        }
+                        else{
+                            $scope.markers = [];
                         }
                     }
                     else {

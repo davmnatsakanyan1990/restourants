@@ -144,15 +144,20 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                 $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
             }
 
-            $scope.initMap({
-                zoom: 12,
-                center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.016),
-                scrollwheel: false,
-                mapTypeId: google.maps.MapTypeId.TERRAIN
-            });
+            if(response.data.restaurants.length > 0) {
+                $scope.initMap({
+                    zoom: 12,
+                    center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016),
+                    scrollwheel: false,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
+                });
 
-            for (i = 0; i < $scope.restaurants.length; i++){
-                createMarker($scope.restaurants[i]);
+                for (i = 0; i < $scope.restaurants.length; i++) {
+                    createMarker($scope.restaurants[i]);
+                }
+            }
+            else{
+                $scope.markers = [];
             }
 
             $scope.$parent.docLoader = false;
@@ -445,17 +450,21 @@ app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,
                         }
 
                         $scope.restaurants = response.data.restaurants;
+                        if(response.data.restaurants.length > 0) {
+                            $scope.initMap({
+                                zoom: 12,
+                                center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016),
+                                scrollwheel: false,
+                                mapTypeId: google.maps.MapTypeId.TERRAIN
+                            });
 
-                        $scope.initMap({
-                            zoom: 12,
-                            center: new google.maps.LatLng($scope.restaurants[0].lat*1 + 0.003, $scope.restaurants[0].long*1 -0.016),
-                            scrollwheel: false,
-                            mapTypeId: google.maps.MapTypeId.TERRAIN
-                        });
 
-
-                        for (i = 0; i < $scope.restaurants.length; i++) {
-                            createMarker($scope.restaurants[i]);
+                            for (i = 0; i < $scope.restaurants.length; i++) {
+                                createMarker($scope.restaurants[i]);
+                            }
+                        }
+                        else{
+                            $scope.markers = [];
                         }
                     }
                     else {
