@@ -34,7 +34,7 @@
                                     <div class="panel-body">
                                         <div class="user-block">
                                             <div class="image-block">
-                                                <img src="img/user-image-1.png" alt="">
+                                              <h2>A</h2>
                                             </div>
                                             <div class="text-block">
                                                 <h3>Account : {{ Auth::guard('admin')->user()->name }}</h3>

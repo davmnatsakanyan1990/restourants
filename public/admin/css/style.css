@@ -612,6 +612,7 @@ Page container
   margin: 0px;
   padding: 0px;
   position: relative;
+  min-height: 100vh;
 }
 
 .page-container:before,
