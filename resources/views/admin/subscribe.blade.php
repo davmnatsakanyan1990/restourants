@@ -7,6 +7,20 @@
             @endif
             <!-- Pick PAGE CONTENT-->
             <div class="wholePage">
+                <div class="curent-plan-block">
+                    <div class="block">
+                        <h2>Your current plan:Free Trial</h2>
+                        <div class="caunter">
+                            <div>
+                                <span class="num-block first-num">0</span>
+                                <span>:</span>
+                                <span class="num-block last-num">0</span>
+                                <span>Days remaing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             <div class="topTitle">Pick a plan for your BigCommerce store</div>
             <p class="littleIext">Grow sales and increase efficiency with powerful features that fit your business</p>
 

@@ -42,31 +42,32 @@
                                                 <i class="fa fa-cog" aria-hidden="true"></i>
                                                 Account Setting
                                             </a>
+
                                         </div>
+                                        <h4>Your restaurants</h4>
+                                        <table>
+                                            <tr>
+                                                <td><span class="rest_name">{{ $place->name }}</span></td>
+                                                <td></td>
+                                                <td><a href="{{ url('admin/place/edit') }}">Edit</a></td>
+                                            </tr>
+                                        </table>
                                     </div>
-                                    <h4>Your restaurants</h4>
-                                    <table>
-                                        <tr>
-                                            <td><span class="rest_name">{{ $place->name }}</span></td>
-                                            <td></td>
-                                            <td><a href="{{ url('admin/place/edit') }}">Edit</a></td>
-                                        </tr>
-                                    </table>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="top-line"></div>
-                            <div class="panel custom_panel panel2 right-panel">
-                                <div class="panel-body">
-                                    <h3>Primary Contact</h3>
-                                    <p><a href="{{ url('admin/profile/edit') }}">Update account details</a></p>
-                                    <p><a href="#">Update billing details</a></p>
+
+                            <div class="col-md-3">
+                                <div class="top-line"></div>
+                                <div class="panel custom_panel panel2 right-panel">
+                                    <div class="panel-body">
+                                        <h3>Primary Contact</h3>
+                                        <p><a href="{{ url('admin/profile/edit') }}">Update account details</a></p>
+                                        <p><a href="#">Update billing details</a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
 
     </div>
