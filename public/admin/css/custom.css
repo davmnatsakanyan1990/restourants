@@ -1051,9 +1051,9 @@ button, button:active, button:focus {
     margin: 50px 0 0 0;
 }
 
-.checkout-page .cont .credit-card > .block {
+/*.checkout-page .cont .credit-card > .block {
     display: none;
-}
+}*/
 
 .checkout-page .cont .credit-card .top-line {
     height: 3px;
