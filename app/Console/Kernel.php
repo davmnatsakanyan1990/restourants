@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $places = Place::with('payment')->whereNotNull('sent_at')->where('first_login', 1)->has('payment', '==', null)->get()->toArray();
+            $places = Place::with('payment')->whereNotNull('first_login')->has('payment', '==', null)->get()->toArray();
 
             // get current date time in Unix format
             $now = strtotime(date("Y-m-d H:i:s"));
@@ -34,10 +34,10 @@ class Kernel extends ConsoleKernel
             foreach($places as $place){
 
                 //get email sent time in Unix format
-                $email_sent_time = strtotime($place['sent_at']);
+                $activation_date = strtotime($place['first_login']);
 
                 // deactivate place after 5 day
-                if($now > $email_sent_time + 432000){
+                if($now > $activation_date + 432000){
                     Place::where('id', $place['id'])->delete();
                 }
             }

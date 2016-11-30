@@ -13,7 +13,8 @@ class PlansTableSeeder extends Seeder
     public function run()
     {
         DB::table('plans')->insert([
-           ['name' => 'Standard', 'price' => '29.95'],
+           ['name' => 'Free Trial', 'price' => 0],
+           ['name' => 'Standard', 'price' => 29.95],
         ]);
     }
 }

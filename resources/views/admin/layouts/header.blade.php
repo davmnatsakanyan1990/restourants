@@ -836,7 +836,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                     <img alt="" height="30" src="{{ asset('admin/img/avatar.png') }}"/>
 					<span class="username">
-						 {{ Auth::guard('admin')->user()->name }}
+						 {{ $admin->name }}
 					</span>
                     <i class="fa fa-angle-down"></i>
                 </a>
@@ -889,8 +889,8 @@
             <!-- END USER LOGIN DROPDOWN -->
         </ul>
         <div class="curent-plan-header pull-right">
-            <h2>Your current plan</h2>
-            <span>254812</span>
+            <h2>Your support pin</h2>
+            <span>{{ $admin->place->support_id }}</span>
         </div>
         <!-- END TOP NAVIGATION MENU -->
     </div>

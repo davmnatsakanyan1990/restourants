@@ -28,9 +28,8 @@ class AdminLoginListener
     public function handle(AdminLoginEvent $event)
     {
         $place = $event->admin->place;
-        
         if(!is_null($place->sent_at)){
-            Place::where('id', $place->id)->update(['first_login' => 1]);
+            Place::where('id', $place->id)->update(['first_login' => date("Y-m-d H:i:s")]);
         }
     }
 }
