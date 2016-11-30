@@ -7,7 +7,7 @@ $( document ).ready(function() {
         }
     }
 
-    function creditCardTab() {
+  /*  function creditCardTab() {
         $( ".pay-check" ).each(function() {
             var itemIndex = $(this).parent().index();
             if ($(this).prop("checked")) {
@@ -16,9 +16,9 @@ $( document ).ready(function() {
                 $(".checkout-page .cont .credit-card > .block").eq(itemIndex).css("display", "none")
             }
         });
-    }
+    }*/
 
-    creditCardTab();
+   /* creditCardTab();*/
 
     toggleCheckbox();
 
@@ -26,9 +26,9 @@ $( document ).ready(function() {
         toggleCheckbox();
     });
 
-    $(".pay-check").on("click", function () {
+    /*$(".pay-check").on("click", function () {
         creditCardTab();
-    });
+    });*/
 
 
 });

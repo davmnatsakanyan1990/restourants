@@ -262,6 +262,8 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
+
                             <div class="right-sitebar col-md-4">
                                 <div class="top-line"></div>
                                 <div class="block-content">
@@ -300,7 +302,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
