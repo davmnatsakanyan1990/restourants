@@ -105,7 +105,7 @@ Route::group([
 ],
     function(){
         Route::get('subscribe', 'PaymentController@subscribe');
-        Route::post('pay','PaymentController@pay');
+        Route::post('place_order','PaymentController@placeOrder');
         Route::get('checkout','PaymentController@checkout');
         Route::post('enterprise/sendmail','PaymentController@sendMail');
         Route::get('{country}/states','PaymentController@getStates');

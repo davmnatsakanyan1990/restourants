@@ -25,7 +25,7 @@
                     </div>
                 @endif
                 <div class="checkout-page">
-                    <form action="">
+                    <form action="{{ url('admin/payment/place_order') }}" method="post">
                         <div class="row">
                             <div class="cont col-md-8">
                                 <div class="top-block">
@@ -41,6 +41,15 @@
                                 </div>
 
                                 <div class="billing-contact-details">
+                                    @if(count($errors) > 0)
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <div class="top-line"></div>
                                     <div class="block-content">
                                         <h2>Billing Contact Details</h2>
@@ -131,7 +140,7 @@
 
                                         <div class="row">
                                             <span class="col-md-6">
-                                                <input type="radio" checked="checked" id="option" name="pay" value="" class="pay-check pay-check-1 active">
+                                                <input type="radio" checked="checked" id="option" name="payment_method" value="ACH" class="pay-check pay-check-1 active">
                                                 <label class="last-lab" for="option">
                                                     <label class="first-lab" for="option"></label>
                                                     ACH (E-Check)
@@ -139,7 +148,7 @@
                                             </span>
 
                                             <span class="col-md-6">
-                                                <input type="radio" id="option" name="pay" value="" class="pay-check pay-check-2">
+                                                <input type="radio" id="option" name="payment_method" value="credit_card" class="pay-check pay-check-2">
                                                 <label class="last-lab" for="option">
                                                     <label class="first-lab" for="option"></label>
                                                     Credit Card
@@ -177,6 +186,7 @@
 
                                                             <img src="../img/discover-icon.png" alt="">
 
+<<<<<<< HEAD
                                                         </li>
 
                                                     </ul>
@@ -209,6 +219,39 @@
                                                             </label>
                                                         </li>
                                                     </div>
+=======
+                                                    </li>
+
+                                                </ul>
+
+                                                <div class="row">
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="ccNo" name="card_number" placeholder="Credit Card Number">
+                                                        <label for="option">
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="option" name="expires" placeholder="Expires (MM/YY)">
+                                                        <label for="option">
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="option" placeholder="Name on Card">
+                                                        <label for="option">
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="option" placeholder="CVV">
+                                                        <label for="option">
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+>>>>>>> fd43198bb0f537505ffd82d0a956919ca325c313
                                                 </div>
                                             </div>
 
@@ -275,12 +318,17 @@
 
             $('select[name="country"] option:selected').each(function() {
                 var country = $( this ).val();
+                if(country === '') {
+                    $('select[name="state"]').html('');
+                }
                 $.ajax({
                     url: BASE_URL+'/admin/payment/'+country+'/states',
                     type: 'get',
                     success: function(response){
+                        $('select[name="state"]').html('');
                         $.each(response, function(index, value){
-                            console.log(value)
+                            $('select[name="state"]').append('' +
+                                    '<option value="'+index+'">'+value+'</option>')
                         });
                     }
                 })
