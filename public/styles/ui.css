@@ -9,7 +9,88 @@
 .chosenStyles .chosen-container .chosen-single {
   height: 40px !important;
   line-height: 40px !important;
+  background-image: none;
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+.chosenStyles .chosen-container .chosen-single:focus,
+.chosenStyles .chosen-container .chosen-single:active {
+  background-image: none;
+  outline: none;
 }
 .chosenStyles .chosen-container .chosen-single div {
   top: 8px !important;
+}
+.chosenStyles .chosen-container .chosen-drop {
+  background: #3d3f52;
+  color: white;
+}
+.chosenStyles .chosen-container .chosen-results {
+  color: white;
+}
+.chosenStyles .chosen-container-single {
+  width: 150px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+.chosenStyles .chosen-container-single .chosen-single {
+  height: 40px !important;
+  line-height: 40px !important;
+  background-image: none !important;
+  border: none;
+  outline: none;
+}
+.chosenStyles .chosen-container-single .chosen-single:focus,
+.chosenStyles .chosen-container-single .chosen-single:active {
+  background-image: none;
+  outline: none;
+}
+.chosenStyles .chosen-container-single .chosen-single div {
+  top: 8px !important;
+}
+.chosenStyles .chosen-container-single .chosen-single div b {
+  background: none;
+}
+.chosenStyles .chosen-container-single .chosen-single div b:before {
+  content: "\f077";
+  font-family: FontAwesome;
+  left: -5px;
+  position: absolute;
+  top: -7px;
+  color: white;
+}
+.chosenStyles .chosen-container-single .chosen-default {
+  color: white;
+}
+.chosenStyles .chosen-container-active {
+  width: 150px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single {
+  height: 40px !important;
+  line-height: 40px !important;
+  background-image: none !important;
+  border: 1px solid white;
+  outline: none;
+}
+.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single:focus,
+.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single:active {
+  background-image: none;
+  outline: none;
+}
+.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single div {
+  top: 8px !important;
+}
+.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single div b {
+  background: none;
+}
+.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single div b:before {
+  content: "\f078";
+  font-family: FontAwesome;
+  left: -5px;
+  position: absolute;
+  top: -7px;
+  color: white;
 }
