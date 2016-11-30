@@ -18,7 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer(
             '*', 'App\Http\ViewComposers\AdminComposer'
         );
-        
+
     }
 
     /**
