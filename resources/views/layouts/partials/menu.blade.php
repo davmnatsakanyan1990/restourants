@@ -14,7 +14,8 @@
     </div>--}}
     <div class="elementLeft chosenStyles">
         <select chosen
-                ng-model="state"
+                ng-model="city"
+                ng-init="city"
                 ng-options="s for s in states">
         </select>
     </div>

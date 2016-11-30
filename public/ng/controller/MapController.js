@@ -1,4 +1,4 @@
-app.controller('MapCtrl', function ($scope, $http, $document, $window, $timeout,$route, RestaurantService) {
+app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $window, $timeout,$route, RestaurantService) {
     var request = $route.current.params;
     $scope.custom = false;
     $scope.openDropMenu = false;
