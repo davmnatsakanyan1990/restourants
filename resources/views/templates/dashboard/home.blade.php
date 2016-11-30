@@ -95,7 +95,9 @@
                                 <div class="filtersAll">
                                     <p ng-repeat="mode in drowMode track by $index">
 
-                                        <input type="checkbox" id="test<% $index %>" ng-model="checkboxModel.checkboxModelF1[mode.pass.id][mode.pass.name]"/>
+                                        <input type="checkbox" id="test<% $index %>" ng-model="checkboxModel.checkboxModelF1[mode.pass.id][mode.pass.name]"
+                                        ng-checked = "id == mode.display.id ?'checked':''"
+                                        />
                                         <label for="test<% $index %>" ng-bind="mode.display.name"></label>
                                     </p>
                                 </div>
