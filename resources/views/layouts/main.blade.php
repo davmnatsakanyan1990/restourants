@@ -46,7 +46,7 @@
             <div class="modal-content">
                 <div class="modal-header popupHeader">
                     <button type="button" class="close" data-dismiss="modal" ng-click="reset()">&times;</button>
-                    <h4 class="modal-title capitalize">log in or register</h4>
+                    <h4 class="modal-title">Log in or Sign up</h4>
                 </div>
                 <div class="modal-body popupBody registerPopup littleInputs">
                     <div class="clearElement">
@@ -54,7 +54,7 @@
 							<form name="loginForm" class="css-form" novalidate>
 
 								<div class="loginRegister">
-                                    log in
+                                    Log in
 								</div>
                                 <div class="loginUsing facebook" ng-click="loginFacebook()">
                                     <div class="elementLeft"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -84,7 +84,7 @@
 
 								</div>
 
-								<button class="loginUsingBut" ng-click="loginUser(user)" data-dismiss="modal">log in</button>
+								<button class="loginUsingBut" ng-click="loginUser(user)" data-dismiss="modal">Log in</button>
 
                                 {{--<div class="loginusingSistem capitalize">
                                     log in
@@ -139,7 +139,7 @@
                                     </div>
                                 </div>
 
-								<button class="loginUsing googlePlus marginTop10" ng-click = "register(currentUser)" data-dismiss="modal">register</button>
+								<button class="loginUsing googlePlus marginTop10" ng-click = "register(currentUser)" data-dismiss="modal">Sign up</button>
 							</form>
                            
                         </div>

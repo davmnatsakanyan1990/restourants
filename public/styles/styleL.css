@@ -260,7 +260,6 @@ html body .registerPopup .loginPart .loginUsingBut {
   color: white;
   font-size: 14px;
   border: none;
-  text-transform: uppercase;
 }
 html body .registerPopup .loginPart .loginUsing {
   color: #3d3f52;
@@ -365,7 +364,6 @@ html body .registerPopup .registerPart .loginUsing {
   color: white;
   font-size: 14px;
   border: none;
-  text-transform: uppercase;
 }
 html body .clear {
   content: '';
