@@ -1051,6 +1051,10 @@ button, button:active, button:focus {
     margin: 50px 0 0 0;
 }
 
+/*.checkout-page .cont .credit-card > .block {
+    display: none;
+}*/
+
 .checkout-page .cont .credit-card .top-line {
     height: 3px;
     background-color: #ff7e00;
@@ -1170,6 +1174,7 @@ button, button:active, button:focus {
     float: left;
 }
 
+/*
 .checkout-page .right-sitebar .block-content .row button {
     float: right;
     width: 156px;
@@ -1179,6 +1184,7 @@ button, button:active, button:focus {
     font-size: 16px;
     background-color: transparent;
 }
+*/
 
 .checkout-page .right-sitebar .block-content ul {
     margin: 0;
@@ -1315,6 +1321,7 @@ button, button:active, button:focus {
     color: #ffffff;
     border: 0;
     font-size: 20px;
+    pointer-events: none;
 }
 
 .checkout-page .right-sitebar .block-content .order-block h2 {
