@@ -11,14 +11,28 @@
       line-height: 40px !important;
       background-image: none;
       border-radius: 0;
-      border: none;
       outline: none;
+      color: #9c9da8;
+      box-shadow: none;
+      border-left: 1px solid #9c9da8;
+      border-right: 1px solid #9c9da8;
       &:focus, &:active{
         background-image: none;
         outline: none;
       }
       div{
         top: 8px !important;
+        b{
+          background: none;
+          &:before{
+            content: "\f106";
+            font-family: FontAwesome;
+            left:-5px;
+            position:absolute;
+            top: -7px;
+            color: white;
+          }
+        }
       }
     }
     .chosen-drop{
@@ -39,6 +53,9 @@
       background-image: none !important;
       border: none;
       outline: none;
+      box-shadow: none;
+      border-left: 1px solid #9c9da8;
+      border-right: 1px solid #9c9da8;
         &:focus, &:active{
           background-image: none;
           outline: none;
@@ -48,7 +65,7 @@
           b{
             background: none;
             &:before{
-              content: "\f077";
+              content: "\f107";
               font-family: FontAwesome;
               left:-5px;
               position:absolute;
@@ -67,34 +84,65 @@
     width: 150px !important;
     height: 40px !important;
     line-height: 40px !important;
-    .chosen-with-drop{
-      .chosen-single{
-        height: 40px !important;
-        line-height: 40px !important;
-        background-image: none !important;
-        border: 1px solid white;
+    .chosen-single{
+      height: 40px !important;
+      line-height: 40px !important;
+      background-image: none !important;
+      /*border: 1px solid white;*/
+      outline: none;
+      box-shadow: none;
+      border-left: 1px solid #9c9da8;
+      border-right: 1px solid #9c9da8;
+      &:focus, &:active{
+        background-image: none;
         outline: none;
-        &:focus, &:active{
-          background-image: none;
-          outline: none;
-        }
-        div{
-          top: 8px !important;
-          b{
-            background: none;
-            &:before{
-              content: "\f078";
-              font-family: FontAwesome;
-              left:-5px;
-              position:absolute;
-              top: -7px;
-              color: white;
-            }
+      }
+      div{
+        top: 8px !important;
+        b{
+          background: none;
+          &:before{
+            content: "\f107";
+            font-family: FontAwesome;
+            left:-5px;
+            position:absolute;
+            top: -7px;
+            color: white;
           }
         }
       }
     }
+  }
 
+  .chosen-with-drop{
+    .chosen-single{
+      height: 40px !important;
+      line-height: 40px !important;
+      background-image: none !important;
+      border: 1px solid white;
+      outline: none;
+      box-shadow: none;
+      border-left: 1px solid #9c9da8;
+      border-right: 1px solid #9c9da8;
+      &:focus, &:active{
+        background-image: none;
+        outline: none;
+      }
+      div{
+        top: 8px !important;
+        b{
+          background: none;
+          &:before{
+            content: "\f106";
+            font-family: FontAwesome;
+            left:-5px;
+            position:absolute;
+            top: -7px;
+            color: white;
+          }
+        }
+      }
+    }
   }
 
 }
