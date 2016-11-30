@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\BillingDetails;
 use App\Models\Payment;
 use App\Models\Place;
 use App\Models\Plan;
@@ -36,9 +37,62 @@ class PaymentController extends Controller
         return view('admin.subscribe', compact('is_subscribed', 'plans'));
     }
 
-    public function pay(Request $request)
+    public function placeOrder(Request $request)
     {
-        $plan = Plan::find($request->plan);
+        $this->validate($request, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address_1' => 'required',
+            'city' => 'required',
+            'postal_code' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'terms' => 'required',
+        ]);
+
+        if($request->payment_method == 'credit_card'){
+            $this->validate($request, [
+                'card_number' => 'required',
+                'expires' => 'required'
+            ]);
+        }
+
+        // Update billing details
+        $details = BillingDetails::where('admin_id', $this->place->admin->id)->get()->toArray();
+        if(count($details) > 0) {
+            BillingDetails::where('admin_id', $this->place->admin->id)->update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'address_1' => $request->address_1,
+                'address_2' => $request->address_2,
+                'city' => $request->city,
+                'postal_code' => $request->postal_code,
+                'state' => $request->state,
+                'country' => $request->country,
+                'phone' => $request->phone,
+                'email' => $request->email
+            ]);
+        }
+        else{
+            BillingDetails::create([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'address_1' => $request->address_1,
+                'address_2' => $request->address_2,
+                'city' => $request->city,
+                'postal_code' => $request->postal_code,
+                'state' => $request->state,
+                'country' => $request->country,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'admin_id' => $this->place->admin->id
+            ]);
+        }
+
+
+        $plan = Plan::find($request->plan_id);
         Twocheckout::privateKey('0ED56256-9BBD-4363-B476-F51BC23ED009');
         Twocheckout::sellerId(env('2CHECKOUT_SELLER_ID'));
 
@@ -50,19 +104,19 @@ class PaymentController extends Controller
         try {
             $charge = TwocheckoutCharge::auth(array(
                 "sellerId" => env('2CHECKOUT_SELLER_ID'),
-                "merchantOrderId" => request('plan'),
+                "merchantOrderId" => $request->plan_id,
                 "token" => $token,
                 "currency" => 'USD',
                 "total" => $plan->price,
                 "billingAddr" => array(
                     "name" => $request->first_name.' '.$request->last_name,
-                    "addrLine1" => '123 Main Street',
-                    "city" => 'Townsville',
-                    "state" => 'Ohio',
-                    "zipCode" => '43206',
-                    "country" => 'USA',
-                    "email" => 'testingtester@2co.com',
-                    "phoneNumber" => '555-555-5555'
+                    "addrLine1" => $request->address_1,
+                    "city" => $request->city,
+                    "state" => $request->state,
+                    "zipCode" => $request->postal_code,
+                    "country" => $request->country,
+                    "email" => $request->email,
+                    "phoneNumber" => $request->phone
                 ),
                 "shippingAddr" => array(
                     "name" => 'Joe Flagster',
@@ -76,7 +130,7 @@ class PaymentController extends Controller
                 )
             ));
             if ($charge['response']['responseCode'] == 'APPROVED') {
-                Payment::create(['place_id' => $this->place->id, 'amount' => 10]);
+                Payment::create(['place_id' => $this->place->id, 'amount' => $plan->price]);
 
                 if($this->place->trashed()){
                     $this->place->restore();
@@ -118,7 +172,13 @@ class PaymentController extends Controller
         
         return redirect()->back()->with('message', 'Your message was successfully sent');
     }
-    
+
+    /**
+     * Get states for given country
+     *
+     * @param $country
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getStates($country){
         $states = CountryState::getStates($country);
         return response()->json($states);
