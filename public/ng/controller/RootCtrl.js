@@ -1,6 +1,6 @@
 
 app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, $route, RestaurantService) {
-    var request = $route;
+    var request = $route.current;
     $scope.showModal = false;
     $scope.search = true;
    /* $scope.custom = false;*/
@@ -44,22 +44,22 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
         console.log($scope.first)
     };*/
+   /* var path = window.location.pathname;*/
 
-    $scope.states = ['state1', 'state2', 'state3', 'state4', 'state5', 'state6'];
-
-
+    $scope.city = window.location.hash.split('/')[1].replace(/%20/gi, ' ');
+    $scope.states = ['New york city', 'state2', 'state3', 'state4', 'salt lake city', 'state6'];
 
     $scope.SearchRestaurantInfo = function (value) {
-        console.log(value);
+        var data = {
+            city: $scope.city,
+            restaurant: value
+        };
         $scope.shearchRestaurants = true;
-        RestaurantService.SearchRestaurant(value)
+        RestaurantService.SearchRestaurant(data)
             .then(function (response) {
                 $scope.searcheInfo = response.data;
             });
     };
-
-
-
 
     $scope.$watch(
         function(){
@@ -83,7 +83,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     };
 
 
-    $scope.categories = {
+    /*$scope.categories = {
         f1: {
             title: 'The place where be the restaurant',
             text: 'text text text text text text text text text text text text'
@@ -112,7 +112,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             title: 'The place where be the restaurant',
             text: 'text text text text text text text text text text text text'
         }
-    };
+    };*/
 
     $scope.places = [
         ['Abanda',  'Abbeville', 'Abbotsford', 'Abbott', 'Abbottstown', 'Abbyville', 'Abercrombie', 'Aberdeen', 'Aberdeen', 'Gardens'],
@@ -249,7 +249,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     $scope.loginFacebook = function () {
        // RestaurantService.loginUsingFacebook();
         window.location = BASE_URL+'/user/auth/facebook';
-    }
+    };
 
     $scope.loginGoogle = function () {
         // RestaurantService.loginUsingFacebook();
