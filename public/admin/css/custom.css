@@ -1170,6 +1170,7 @@ button, button:active, button:focus {
     float: left;
 }
 
+/*
 .checkout-page .right-sitebar .block-content .row button {
     float: right;
     width: 156px;
@@ -1179,6 +1180,7 @@ button, button:active, button:focus {
     font-size: 16px;
     background-color: transparent;
 }
+*/
 
 .checkout-page .right-sitebar .block-content ul {
     margin: 0;
@@ -1315,6 +1317,7 @@ button, button:active, button:focus {
     color: #ffffff;
     border: 0;
     font-size: 20px;
+    pointer-events: none;
 }
 
 .checkout-page .right-sitebar .block-content .order-block h2 {

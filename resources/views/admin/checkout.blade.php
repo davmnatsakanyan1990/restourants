@@ -131,7 +131,7 @@
 
                                         <div class="row">
                                             <span class="col-md-6">
-                                                <input type="radio" checked="checked" id="option" name="pay" value="" class="pay-check">
+                                                <input type="radio" checked="checked" id="option" name="pay" value="" class="pay-check pay-check-1 active">
                                                 <label class="last-lab" for="option">
                                                     <label class="first-lab" for="option"></label>
                                                     ACH (E-Check)
@@ -139,7 +139,7 @@
                                             </span>
 
                                             <span class="col-md-6">
-                                                <input type="radio" id="option" name="pay" value="" class="pay-check">
+                                                <input type="radio" id="option" name="pay" value="" class="pay-check pay-check-2">
                                                 <label class="last-lab" for="option">
                                                     <label class="first-lab" for="option"></label>
                                                     Credit Card
@@ -147,7 +147,7 @@
                                             </span>
                                         </div>
 
-                                        <div class="credit-card">
+                                        <div class="credit-card credit-card-1 active">
                                             <div class="top-line"></div>
                                             <div class="block-content">
                                                 <h2>Credit Card</h2>
@@ -190,7 +190,21 @@
                                                     <li class="col-md-6">
                                                         <input type="text" id="option" placeholder="Expires (MM/YY)">
                                                         <label for="option">
-                                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="option" placeholder="Name on Card">
+                                                        <label for="option">
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                        </label>
+                                                    </li>
+
+                                                    <li class="col-md-6">
+                                                        <input type="text" id="option" placeholder="CVV">
+                                                        <label for="option">
+                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
                                                         </label>
                                                     </li>
                                                 </div>
@@ -204,7 +218,7 @@
                                 <div class="block-content">
                                     <div class="row">
                                         <h2>Order Summary</h2>
-                                        <button>Chenge plan</button>
+                                        {{--<button>Chenge plan</button>--}}
                                     </div>
                                     <ul>
                                         <li>
@@ -249,6 +263,7 @@
 @section('scripts')
     <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
     <script src="{{ url('js/payment.js') }}" type="text/javascript"></script>
+    <script src="{{ url('admin/scripts/custom/checkout.js') }}" type="text/javascript"></script>
     <script>
         $(document).find('select[name="country"]').change(function(){
 
