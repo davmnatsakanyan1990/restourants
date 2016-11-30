@@ -2,6 +2,7 @@
 @secondColor:white;
 .chosenStyles{
   line-height: 40px;
+  color: #9c9da8;
   .chosen-container{
     width: 150px !important;
     height: 40px !important;
@@ -30,19 +31,28 @@
             left:-5px;
             position:absolute;
             top: -7px;
-            color: white;
+            color: #9c9da8;
           }
         }
       }
     }
     .chosen-drop{
       background: #3d3f52;
-      color: white;
+      color: #9c9da8;
+
     }
     .chosen-results{
-      color: white;
+      color: #9c9da8;
+      li{
+        &.highlighted{
+          background-color: white;
+          color: #3d3f52;
+          background-image: none;
+        }
+      }
     }
   }
+
   .chosen-container-single{
     width: 150px !important;
     height: 40px !important;
@@ -70,13 +80,13 @@
               left:-5px;
               position:absolute;
               top: -7px;
-              color: white;
+              color: #9c9da8;
             }
           }
         }
       }
     .chosen-default{
-      color: white;
+      color: #9c9da8;
     }
   }
 
@@ -84,10 +94,16 @@
     width: 150px !important;
     height: 40px !important;
     line-height: 40px !important;
+    &.chosen-with-drop{
+      .chosen-single{
+        border-top: none !important;
+      }
+    }
     .chosen-single{
       height: 40px !important;
       line-height: 40px !important;
       background-image: none !important;
+      color: #9c9da8;
       /*border: 1px solid white;*/
       outline: none;
       box-shadow: none;
@@ -107,7 +123,7 @@
             left:-5px;
             position:absolute;
             top: -7px;
-            color: white;
+            color: #9c9da8;
           }
         }
       }
@@ -119,14 +135,16 @@
       height: 40px !important;
       line-height: 40px !important;
       background-image: none !important;
-      border: 1px solid white;
+      border: none;
       outline: none;
       box-shadow: none;
       border-left: 1px solid #9c9da8;
       border-right: 1px solid #9c9da8;
+      color: #9c9da8;
       &:focus, &:active{
         background-image: none;
         outline: none;
+        box-shadow: none;
       }
       div{
         top: 8px !important;
@@ -138,7 +156,7 @@
             left:-5px;
             position:absolute;
             top: -7px;
-            color: white;
+            color: #9c9da8;
           }
         }
       }

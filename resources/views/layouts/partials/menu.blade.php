@@ -14,7 +14,8 @@
     </div>--}}
     <div class="elementLeft chosenStyles">
         <select chosen
-                ng-model="state"
+                ng-model="city"
+                ng-init="city"
                 ng-options="s for s in states">
         </select>
     </div>
@@ -40,7 +41,7 @@
             <i class="fa fa-times" aria-hidden="true" ng-click="shearchRestaurants = false"></i>
             <div class="companyElement clearElement">
                 <div class="companies" ng-repeat="company in searcheInfo">
-                    <a href="">
+                    <a href="#/<% city %>/<% company.name %>/<% company.id %>">
                         <div class="companyTitle" ng-bind="company.title">Name name anem name</div>
                         <div class="companyAddress" ng-bind="company.address">address address address address</div>
                     </a>

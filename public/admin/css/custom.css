@@ -43,9 +43,17 @@ body {
     border: 1px solid #ff7e00;
 }
 
-.wholePage .custom_panel .panel-body .user-block .image-block img {
+.wholePage .custom_panel .panel-body .user-block .image-block h2 {
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: block;
+    text-align: center;
+    line-height: 59px;
+    color: #ff7e00;
+    font-size: 35px;
+    font-family: 'Museo Slab 500';
+    margin: 0;
+    padding: 0;
 }
 
 .wholePage .custom_panel .panel-body .user-block .text-block {
@@ -1162,6 +1170,7 @@ button, button:active, button:focus {
     float: left;
 }
 
+/*
 .checkout-page .right-sitebar .block-content .row button {
     float: right;
     width: 156px;
@@ -1171,6 +1180,7 @@ button, button:active, button:focus {
     font-size: 16px;
     background-color: transparent;
 }
+*/
 
 .checkout-page .right-sitebar .block-content ul {
     margin: 0;
@@ -1307,6 +1317,7 @@ button, button:active, button:focus {
     color: #ffffff;
     border: 0;
     font-size: 20px;
+    pointer-events: none;
 }
 
 .checkout-page .right-sitebar .block-content .order-block h2 {
@@ -1340,6 +1351,9 @@ button, button:active, button:focus {
 /*Footer style*/
 .footer{
     height: 40px !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 .footer:after {
     content: "";

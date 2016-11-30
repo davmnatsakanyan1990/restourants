@@ -7,20 +7,26 @@
             @endif
             <!-- Pick PAGE CONTENT-->
             <div class="wholePage">
-                <div class="curent-plan-block">
-                    <div class="block">
-                        <h2>Your current plan:Free Trial</h2>
-                        <div class="caunter">
-                            <div>
-                                <span class="num-block first-num">0</span>
-                                <span>:</span>
-                                <span class="num-block last-num">0</span>
-                                <span>Days remaing</span>
+                @if($admin->place->plan->id == 1)
+                    <div class="curent-plan-block">
+                        <div class="block">
+                            @if($days_remaining)
+                                <h2>Your current plan:Free Trial</h2>
+                            @else
+                                <h2>Your plan is expired</h2>
+                            @endif
+                            <div class="caunter">
+                                <div>
+                                    <span class="num-block first-num {{ $days_remaining ? 'color-1' : 'color-2' }}">{{ $days_remaining }}</span>
+                                    {{--<span>:</span>--}}
+                                    {{--<span class="num-block last-num">0</span>--}}
+                                    <span>Days remaing</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                @endif
             <div class="topTitle">Pick a plan for your BigCommerce store</div>
             <p class="littleIext">Grow sales and increase efficiency with powerful features that fit your business</p>
 
