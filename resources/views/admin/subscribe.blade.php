@@ -26,7 +26,7 @@
 
                 <div class="plansPart clearElement">
                     <div class="plan elementLeft">
-                        <div class="planTitle">Standard</div>
+                        <div class="planTitle">{{ $plans[1]['name'] }}</div>
                         <div class="planContent">
                             <div class="textPart clearElement">
                                 <div class="pricePlace clearElement">
@@ -34,10 +34,10 @@
                                     <div class="price elementRight">
                                         <div class="priceSign"><i class="fa fa-usd" aria-hidden="true"></i></div>
                                         <div class="priceMore">
-                                            <span class="bigPrice">29</span>
+                                            <span class="bigPrice">{{ explode('.', $plans[1]['price'])[0] }}</span>
                                             <span>.</span>
-                                            <span class="smallPrice">95</span>
-                                            <span class="smallPrice">/mo</span>
+                                            <span class="smallPrice">{{ explode('.', $plans[1]['price'])[1] }}</span>
+                                            <span class="smallPrice">/year</span>
                                         </div>
                                     </div>
                                 </div>

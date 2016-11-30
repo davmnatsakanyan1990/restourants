@@ -11,8 +11,11 @@
   line-height: 40px !important;
   background-image: none;
   border-radius: 0;
-  border: none;
   outline: none;
+  color: #9c9da8;
+  box-shadow: none;
+  border-left: 1px solid #9c9da8;
+  border-right: 1px solid #9c9da8;
 }
 .chosenStyles .chosen-container .chosen-single:focus,
 .chosenStyles .chosen-container .chosen-single:active {
@@ -21,6 +24,17 @@
 }
 .chosenStyles .chosen-container .chosen-single div {
   top: 8px !important;
+}
+.chosenStyles .chosen-container .chosen-single div b {
+  background: none;
+}
+.chosenStyles .chosen-container .chosen-single div b:before {
+  content: "\f106";
+  font-family: FontAwesome;
+  left: -5px;
+  position: absolute;
+  top: -7px;
+  color: white;
 }
 .chosenStyles .chosen-container .chosen-drop {
   background: #3d3f52;
@@ -40,6 +54,9 @@
   background-image: none !important;
   border: none;
   outline: none;
+  box-shadow: none;
+  border-left: 1px solid #9c9da8;
+  border-right: 1px solid #9c9da8;
 }
 .chosenStyles .chosen-container-single .chosen-single:focus,
 .chosenStyles .chosen-container-single .chosen-single:active {
@@ -53,7 +70,7 @@
   background: none;
 }
 .chosenStyles .chosen-container-single .chosen-single div b:before {
-  content: "\f077";
+  content: "\f107";
   font-family: FontAwesome;
   left: -5px;
   position: absolute;
@@ -68,26 +85,58 @@
   height: 40px !important;
   line-height: 40px !important;
 }
-.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single {
+.chosenStyles .chosen-container-active .chosen-single {
+  height: 40px !important;
+  line-height: 40px !important;
+  background-image: none !important;
+  /*border: 1px solid white;*/
+  outline: none;
+  box-shadow: none;
+  border-left: 1px solid #9c9da8;
+  border-right: 1px solid #9c9da8;
+}
+.chosenStyles .chosen-container-active .chosen-single:focus,
+.chosenStyles .chosen-container-active .chosen-single:active {
+  background-image: none;
+  outline: none;
+}
+.chosenStyles .chosen-container-active .chosen-single div {
+  top: 8px !important;
+}
+.chosenStyles .chosen-container-active .chosen-single div b {
+  background: none;
+}
+.chosenStyles .chosen-container-active .chosen-single div b:before {
+  content: "\f107";
+  font-family: FontAwesome;
+  left: -5px;
+  position: absolute;
+  top: -7px;
+  color: white;
+}
+.chosenStyles .chosen-with-drop .chosen-single {
   height: 40px !important;
   line-height: 40px !important;
   background-image: none !important;
   border: 1px solid white;
   outline: none;
+  box-shadow: none;
+  border-left: 1px solid #9c9da8;
+  border-right: 1px solid #9c9da8;
 }
-.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single:focus,
-.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single:active {
+.chosenStyles .chosen-with-drop .chosen-single:focus,
+.chosenStyles .chosen-with-drop .chosen-single:active {
   background-image: none;
   outline: none;
 }
-.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single div {
+.chosenStyles .chosen-with-drop .chosen-single div {
   top: 8px !important;
 }
-.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single div b {
+.chosenStyles .chosen-with-drop .chosen-single div b {
   background: none;
 }
-.chosenStyles .chosen-container-active .chosen-with-drop .chosen-single div b:before {
-  content: "\f078";
+.chosenStyles .chosen-with-drop .chosen-single div b:before {
+  content: "\f106";
   font-family: FontAwesome;
   left: -5px;
   position: absolute;

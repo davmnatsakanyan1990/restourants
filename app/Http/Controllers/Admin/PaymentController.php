@@ -31,18 +31,16 @@ class PaymentController extends Controller
     }
 
     public function subscribe(){
-        $is_subscribed = true;
-        if(is_null($this->place->payment)){
-            $is_subscribed = false;
-        }
-        return view('admin.subscribe', compact('is_subscribed'));
+        $plans = Plan::all()->toArray();
+
+        return view('admin.subscribe', compact('is_subscribed', 'plans'));
     }
 
     public function pay(Request $request)
     {
         $plan = Plan::find($request->plan);
         Twocheckout::privateKey('0ED56256-9BBD-4363-B476-F51BC23ED009');
-        Twocheckout::sellerId('901332804');
+        Twocheckout::sellerId(env('2CHECKOUT_SELLER_ID'));
 
         $token = $request->token;
         
