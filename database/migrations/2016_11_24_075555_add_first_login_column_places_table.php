@@ -13,7 +13,7 @@ class AddFirstLoginColumnPlacesTable extends Migration
     public function up()
     {
         Schema::table('places', function (Blueprint $table) {
-            $table->enum('first_login', [0,1])->default(0);
+            $table->timestamp('first_login')->nullable();
         });
     }
 

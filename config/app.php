@@ -158,6 +158,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
 
         DougSisk\CountryState\CountryStateServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 

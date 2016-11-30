@@ -498,14 +498,14 @@ div.profile > div {
     width: 354px;
     height: 84px;
     border: 1px solid #ff7e00;
-    padding: 13px 15px 0 0;
+    padding: 13px 0 0 0;
     float: right;
 }
 
 .curent-plan-block .block h2 {
     font-size: 26px;
     color: #3d3d3d;
-    text-align: right;
+    text-align: center;
     font-family: 'Source Sans Pro';
     margin: 0;
     padding: 0;
@@ -555,6 +555,14 @@ div.profile > div {
     color: #ffffff;
     line-height: 25px;
     font-family: 'Source Sans Pro';
+}
+
+.curent-plan-block .block .caunter > div .color-1 {
+    background-color: #ff7e00;
+}
+
+.curent-plan-block .block .caunter > div .color-2 {
+    background-color: #cad1d7;
 }
 
 .curent-plan-block .block .caunter > div .num-block:after {

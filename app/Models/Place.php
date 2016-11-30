@@ -22,15 +22,16 @@ class Place extends Model
         'name',
         'intro',
         'address',
-        'city',
+        'location_id',
         'lat',
         'lon',
         'site',
-        'price_from',
-        'price_to',
-        'wrk_hrs_from',
-        'wrk_hrs_to',
-        'support_id'
+        'cost',
+        'admin_id',
+        'sent_at',
+        'first_login',
+        'support_id',
+        'plan_id',
     ];
     
     public function images(){
@@ -87,5 +88,9 @@ class Place extends Model
     
     public function payment(){
         return $this->hasOne(Payment::class);
+    }
+
+    public function plan(){
+        return $this->belongsTo(Plan::class);
     }
 }

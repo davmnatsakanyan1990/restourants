@@ -1,35 +1,33 @@
 @extends('admin.layouts.index')
 @section('styles')
 
-    @endsection
+@endsection
 @section('content')
     <div class="page-content-wrapper">
         <div class="page-content">
+            @if($admin->place->plan->id == 1)
             <div class="curent-plan-block">
                 <div class="block">
-                    <h2>Your current plan:Free Trial</h2>
+                    @if($days_remaining)
+                        <h2>Your current plan:Free Trial</h2>
+                    @else
+                        <h2>Your plan is expired</h2>
+                    @endif
                     <div class="caunter">
                        <div>
-                           <span class="num-block first-num">0</span>
-                           <span>:</span>
-                           <span class="num-block last-num">0</span>
+                           <span class="num-block first-num">{{ $days_remaining }}</span>
+                           {{--<span>:</span>--}}
+                           {{--<span class="num-block last-num">0</span>--}}
                            <span>Days remaing</span>
                        </div>
                     </div>
                 </div>
 
             </div>
+            @endif
 
                 <div class="row">
                     <div class="main_content">
-                        @if($is_blocked)
-                            <div class="alert alert-danger">
-                                Your restaurant was blocked and removed from list. <a href="{{ url('admin/payment/subscribe') }}">Subscribe</a>
-                            </div>
-                        @endif
-
-
-
                         <div class="col-md-9">
                             <div class="top-line"></div>
                             <div class="panel custom_panel panel1">
