@@ -18,8 +18,10 @@ class AdminComposer
     public function __construct()
     {
         // Dependencies automatically resolved by service container...
-        $this->admin = Auth::guard('admin')->user();
-        $this->days_remaining = $this->getRemainingTime();
+        if(Auth::guard('admin')->check()){
+            $this->admin = Auth::guard('admin')->user();
+            $this->days_remaining = $this->getRemainingTime();
+        }
     }
 
     /**

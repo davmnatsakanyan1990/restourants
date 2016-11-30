@@ -26,26 +26,26 @@
                                         <h2>Billing Contact Details</h2>
                                         <div class="row">
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Name" value="{{ $billing_details->first_name ? $billing_details->first_name : '' }}">
+                                                <input type="text" id="option" placeholder="Name" value="{{ $billing_details && $billing_details->first_name ? $billing_details->first_name : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Last Name" value="{{ $billing_details->last_name ? $billing_details->last_name : '' }}">
+                                                <input type="text" id="option" placeholder="Last Name" value="{{ $billing_details && $billing_details->last_name ? $billing_details->last_name : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-12">
-                                                <input type="text" id="option" placeholder="Address line 1" value="{{ $billing_details->address_1 ? $billing_details->address_1 : '' }}">
+                                                <input type="text" id="option" placeholder="Address line 1" value="{{ $billing_details && $billing_details->address_1 ? $billing_details->address_1 : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                 </label>
                                             </li>
 
                                             <li class="col-md-12">
-                                                <input type="text" id="option" placeholder="Address line 2" value="{{ $billing_details->address_2 ? $billing_details->address_2 : '' }}">
+                                                <input type="text" id="option" placeholder="Address line 2" value="{{ $billing_details && $billing_details->address_2 ? $billing_details->address_2 : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                 </label>
@@ -53,13 +53,13 @@
 
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="City" value="{{ $billing_details->city ? $billing_details->city : '' }}">
+                                                <input type="text" id="option" placeholder="City" value="{{ $billing_details && $billing_details->city ? $billing_details->city : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-globe" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Zip/Postcode" value="{{ $billing_details->postal_code ? $billing_details->postal_code : '' }}">
+                                                <input type="text" id="option" placeholder="Zip/Postcode" value="{{ $billing_details && $billing_details->postal_code ? $billing_details->postal_code : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                                                 </label>
@@ -76,8 +76,11 @@
                                             </li>
                                             <li class="col-md-6">
                                                 {{--<input type="text" id="option" placeholder="Country">--}}
-                                                <select name="" id="option" placeholder="Country">
-                                                      <option value="" disabled selected>Country</option>
+                                                <select name="country" id="option" placeholder="Country">
+                                                    <option value="" {{ !$billing_details || !$billing_details->country ? 'selected' : '' }}>Select country</option>
+                                                    @foreach($countries as $index => $country)
+                                                        <option  value="{{ $index }}" {{ $billing_details && $billing_details->country && $billing_details->country==$index ? 'selected' : ''  }} >{{ $country }}</option>
+                                                    @endforeach
                                                 </select>
                                                 <label for="option">
                                                     <i class="fa fa-flag" aria-hidden="true"></i>
@@ -85,14 +88,14 @@
                                             </li>
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Phone" value="{{ $billing_details->phone ? $billing_details->phone : '' }}">
+                                                <input type="text" id="option" placeholder="Phone" value="{{ $billing_details && $billing_details->phone ? $billing_details->phone : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                                 </label>
                                             </li>
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="E-mail" value="{{ $billing_details->email ? $billing_details->email : '' }}">
+                                                <input type="text" id="option" placeholder="E-mail" value="{{ $billing_details && $billing_details->email ? $billing_details->email : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                                 </label>
@@ -186,7 +189,7 @@
                                     <ul>
                                         <li>
                                             <span>Plus</span>
-                                            <span>$ 20.55</span>
+                                            <span>$ {{ $plan->price }}</span>
                                         </li>
                                         <li>
                                             <span>Taxes</span>
@@ -194,7 +197,7 @@
                                         </li>
                                         <li>
                                             <span>Due taday</span>
-                                            <span>$ 0.00</span>
+                                            <span>$ {{ $plan->price }}</span>
                                         </li>
                                     </ul>
                                     <div class="order-block">
@@ -226,4 +229,21 @@
 @section('scripts')
     <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
     <script src="{{ url('js/payment.js') }}" type="text/javascript"></script>
+    <script>
+        $(document).find('select[name="country"]').change(function(){
+
+            $('select[name="country"] option:selected').each(function() {
+                var country = $( this ).val();
+                $.ajax({
+                    url: BASE_URL+'/admin/payment/'+country+'/states',
+                    type: 'get',
+                    success: function(response){
+                        $.each(response, function(index, value){
+                            console.log(value)
+                        });
+                    }
+                })
+            });
+        });
+    </script>
 @endsection

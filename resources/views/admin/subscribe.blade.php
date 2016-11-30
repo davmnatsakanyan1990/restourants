@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
 
-                                <a href="{{ url('admin/payment/checkout?plan=1') }}" class="choseButton elementRight">Select plan</a>
+                                <a href="{{ url('admin/payment/checkout?plan=2') }}" class="choseButton elementRight">Select plan</a>
                             </div>
                         </div>
                     </div>

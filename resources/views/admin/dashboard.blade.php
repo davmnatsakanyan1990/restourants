@@ -15,7 +15,7 @@
                     @endif
                     <div class="caunter">
                        <div>
-                           <span class="num-block first-num">{{ $days_remaining }}</span>
+                           <span class="num-block first-num {{ $days_remaining ? 'color-1' : 'color-2' }}">{{ $days_remaining }}</span>
                            {{--<span>:</span>--}}
                            {{--<span class="num-block last-num">0</span>--}}
                            <span>Days remaing</span>
