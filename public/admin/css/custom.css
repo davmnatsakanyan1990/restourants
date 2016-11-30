@@ -1332,6 +1332,9 @@ button, button:active, button:focus {
 /*Checkout page End*/
 
 /*Footer style*/
+.footer{
+    height: 40px !important;
+}
 .footer:after {
     content: "";
     display: table;
