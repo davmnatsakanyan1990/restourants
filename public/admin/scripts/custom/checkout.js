@@ -7,16 +7,28 @@ $( document ).ready(function() {
         }
     }
 
+    function creditCardTab() {
+        $( ".pay-check" ).each(function() {
+            var itemIndex = $(this).parent().index();
+            if ($(this).prop("checked")) {
+                $(".checkout-page .cont .credit-card > .block").eq(itemIndex).css("display", "block")
+            }else{
+                $(".checkout-page .cont .credit-card > .block").eq(itemIndex).css("display", "none")
+            }
+        });
+    }
+
+    creditCardTab();
+
     toggleCheckbox();
 
     $(".order-block > label > input").on("click", function () {
         toggleCheckbox();
     });
 
-   /* $(".pay-check").on("click", function () {
-        var itemIndex = $(this).parent().index();
-        alert(itemIndex);
-    });*/
+    $(".pay-check").on("click", function () {
+        creditCardTab();
+    });
 
 
 });
