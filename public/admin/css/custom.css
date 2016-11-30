@@ -7,14 +7,113 @@ body {
     padding-right: 100px;
 }
 
+.main_content:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main_content > div > .top-line {
+    height: 3px;
+    background-color: #ff7e00;
+}
+
 .main_content .custom_panel {
     background-color: #f4f8f9;
-    border-radius: 5px !important;
+    border-radius: 0px !important;
+    margin: 3px 0 0 0;
+}
+
+.main_content .custom_panel .panel-body {
+    padding: 25px 80px 50px 25px;
+}
+
+.main_content .custom_panel .panel-body .user-block:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main_content .custom_panel .panel-body .user-block .image-block {
+    float: left;
+    width: 59px;
+    height: 59px;
+    border-radius: 100px !important;
+    overflow: hidden;
+    border: 1px solid #ff7e00;
+}
+
+.main_content .custom_panel .panel-body .user-block .image-block img {
+    width: 100%;
+    height: auto;
+}
+
+.main_content .custom_panel .panel-body .user-block .text-block {
+    float: left;
+    margin: 6px 0 0 17px;
+}
+
+.main_content .custom_panel .panel-body .user-block .text-block h3 {
+    margin: 0;
+    padding: 0;
+    color: #ff7e00;
+    font-size: 20px;
+    font-family: 'Museo Slab 500';
+}
+
+.main_content .custom_panel .panel-body .user-block .text-block a {
+    padding: 0;
+    color: #292929;
+    font-size: 18px;
+    font-family: 'Source Sans Pro';
+    margin: 5px 0 0 0;
+    display: block;
+    text-decoration: none;
+}
+
+.main_content .custom_panel .panel-body h4 {
+    padding: 0;
+    color: #292929;
+    font-size: 18px;
+    font-family: 'Source Sans Pro';
+    margin: 45px 0 0 0;
+    display: block;
+}
+
+.main_content .custom_panel .panel-body .user-block .text-block a i {
+    margin: 0 5px 0 0;
+    color: #d7dfe7;
+    font-size: 18px;
 }
 
 .main_content .custom_panel h3 {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 25px 80px 0 25px;
+    color: #3d3d3d;
+    font-size: 24px;
+    font-family: 'Museo Slab 500';
+}
+
+.main_content .right-panel .panel-body {
+    padding: 0 !important;
+}
+
+.main_content .right-panel .panel-body p {
+    width: 100%;
+    height: 84px;
+    line-height: 84px;
+    padding: 0 0 0 33px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.main_content .right-panel .panel-body p a {
+    color: #ff7e00;
+    font-family: 'Source Sans Pro';
+    font-size: 18px;
+}
+
+.main_content .right-panel .panel-body p:last-child {
+    border-bottom: 0;
 }
 
 .main_content .custom_panel h4 {
@@ -26,9 +125,23 @@ body {
 }
 
 .main_content .rest_name {
-    font-weight: bold !important;
-    color: #00abc9;
-    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    color: #3d3d3d;
+    font-size: 24px;
+    font-family: 'Museo Slab 500';
+}
+
+.main_content .custom_panel table a {
+    width: 121px;
+    height: 31px;
+    border: 1px solid #ff7e00;
+    color: #ff7e00;
+    font-size: 18px;
+    line-height: 31px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
 }
 
 .main_content .custom_panel table {
@@ -223,6 +336,85 @@ div.profile > div {
     background-color: #393d52 !important;
 }
 
+.header .curent-plan-header {
+    margin: 0 55px 0 0;
+    height: 50px;
+}
+
+.header .curent-plan-header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.header .curent-plan-header h2 {
+    float: left;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #ffffff;
+    height: 100%;
+    line-height: 50px;
+    font-family: 'Source Sans Pro';
+}
+
+.header .curent-plan-header span {
+    display: block;
+    width: 90px;
+    height: 25px;
+    border: 1px solid #ffffff;
+    margin: 12px 0 0 26px;
+    float: left;
+    padding: 0;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Source Sans Pro';
+    text-align: center;
+    line-height: 25px;
+}
+
+.site-curent-menu li {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 18px !important;
+    position: relative;
+}
+
+.site-curent-menu li:last-child:after {
+    display: none;
+}
+
+.site-curent-menu li:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 36px;
+    background-color: #ffffff;
+    right: -2px;
+    top: 6px;
+}
+
+.site-curent-menu li a span {
+    font-size: 18px;
+    line-height: 18px;
+    margin: 0 !important;
+    color: #ffffff !important;
+    font-family: 'Source Sans Pro';
+}
+
+.site-curent-menu li a span:hover {
+    color: #ff7e00 !important;
+}
+
+.site-curent-menu li a:hover,.site-curent-menu li a:active,.site-curent-menu li a:focus {
+    background-color: transparent !important;
+}
+
+
+
+
+
 .header.navbar a.navbar-brand {
     padding: 0 !important;
     /*height: auto !important;*/
@@ -238,38 +430,35 @@ div.profile > div {
     display: none;
 }
 
-.header .header-inner ul li:first-child a i {
+.header .header-inner ul.pull-right li:first-child a i {
     display: none !important;
 }
 
-.header .header-inner ul li:first-child {
-    margin: 0 20px 0 0;
-}
 
-.header .header-inner ul li:last-child i {
+.header .header-inner ul.pull-right li:last-child i {
     display: none !important;
 }
 
-.header .header-inner ul li:first-child > a:hover {
+.header .header-inner ul.pull-right li:first-child > a:hover {
     background-color: transparent !important;
 }
 
-.header .header-inner ul li:last-child > a:after {
+.header .header-inner ul.pull-right li:last-child > a:after {
     content: "";
     display: table;
     clear: both;
 }
 
-.header .header-inner ul li:last-child > a > img, .header .header-inner ul li:last-child > a > span {
+.header .header-inner ul.pull-right li:last-child > a > img, .header .header-inner ul li:last-child > a > span {
     float: left;
 }
 
-.header .header-inner ul li:last-child > a > span {
+.header .header-inner ul.pull-right li:last-child > a > span {
     display: block;
     margin: 5px 0 0 10px;
 }
 
-.header .header-inner ul li a span {
+.header .header-inner ul.pull-right li a span {
     font-size: 18px;
     line-height: 18px;
     color: #ffffff !important;
@@ -285,6 +474,100 @@ div.profile > div {
 .customMargin {
     margin: 10px 0 0 74px;
 }
+
+
+/*Curent plan block*/
+
+
+
+.curent-plan-block {
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin: 0 0 44px 0;
+}
+
+.curent-plan-block:after {
+    content: "";
+    display: table;
+    clear: both;
+
+}
+
+.curent-plan-block .block {
+    width: 354px;
+    height: 84px;
+    border: 1px solid #ff7e00;
+    padding: 13px 15px 0 0;
+    float: right;
+}
+
+.curent-plan-block .block h2 {
+    font-size: 26px;
+    color: #3d3d3d;
+    text-align: right;
+    font-family: 'Source Sans Pro';
+    margin: 0;
+    padding: 0;
+}
+
+.curent-plan-block .block .caunter {
+   width: 100%;
+    text-align: center;
+
+}
+
+.curent-plan-block .block .caunter > div {
+    display: inline-block;
+    margin: 8px 0 0 0;
+}
+
+.curent-plan-block .block .caunter > div:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.curent-plan-block .block .caunter > div span {
+    display: block;
+    float: left;
+}
+
+.curent-plan-block .block .caunter > div span:nth-of-type(2) {
+    color: #ff7e00;
+    margin: -3px 2px 0;
+    font-size: 20px;
+}
+
+.curent-plan-block .block .caunter > div span:last-child {
+    color: #3d3d3d;
+    font-size: 17px;
+    margin: 0 0 0 10px;
+    font-family: 'Source Sans Pro';
+}
+
+.curent-plan-block .block .caunter > div .num-block {
+    width: 19px;
+    height: 25px;
+    background-color: #ff7e00;
+    position: relative;
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 25px;
+    font-family: 'Source Sans Pro';
+}
+
+.curent-plan-block .block .caunter > div .num-block:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+/*Curent plan block End*/
 
 /*upgrade page*/
 button, button:active, button:focus {
@@ -610,6 +893,27 @@ button, button:active, button:focus {
     font-size: 16px;
     font-family: 'Source Sans Pro';
     padding: 0 0 0 47px;
+}
+
+.checkout-page .cont .billing-contact-details .block-content .row li select {
+    display: block;
+    width: 100%;
+    height: 42px;
+    border: 1px solid #d9d9d9;
+    color: #5e5e5e;
+    font-size: 16px;
+    font-family: 'Source Sans Pro';
+    padding: 0 0 0 47px;
+}
+
+.checkout-page .cont .billing-contact-details .block-content .row li select:focus {
+    padding: 0 0 0 17px;
+    border: 1px solid #ff7e00;
+    outline: none;
+}
+
+.checkout-page .cont .billing-contact-details .block-content .row li select:focus + label {
+    display: none;
 }
 
 .checkout-page .cont .billing-contact-details .block-content .row li input:focus {
@@ -958,7 +1262,7 @@ button, button:active, button:focus {
 
 }
 
-.checkout-page .right-sitebar .block-content .order-block > label >label {
+.checkout-page .right-sitebar .block-content .order-block > label > label {
     float: left;
     cursor: pointer;
     margin: 0 0 0 -25px;
@@ -1026,6 +1330,58 @@ button, button:active, button:focus {
 }
 
 /*Checkout page End*/
+
+/*Footer style*/
+.footer:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.footer ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.footer ul {
+    float: left;
+    display: block;
+    height: 100%;
+}
+
+.footer ul li {
+    float: left;
+    height: 100%;
+    padding: 0 10px;
+    list-style: none;
+    position: relative;
+}
+
+.footer ul li a {
+    display: block;
+    color: #ffffff;
+    font-size: 16px;
+    position: relative;
+    font-family: 'Source Sans Pro';
+}
+
+.footer ul li a:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 19px;
+    background-color: #ffffff;
+    right: -10px;
+    top: 2px;
+}
+
+.footer ul li:last-child a:after {
+    display: none;
+}
+
+/*Footer style End*/
 
 @media screen and (min-width: 1466px) and (max-width: 1614px) {
     .wholePage {

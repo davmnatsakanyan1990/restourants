@@ -5,6 +5,20 @@
 @section('content')
     <div class="page-content-wrapper">
         <div class="page-content">
+            <div class="curent-plan-block">
+                <div class="block">
+                    <h2>Your current plan:Free Trial</h2>
+                    <div class="caunter">
+                       <div>
+                           <span class="num-block first-num">0</span>
+                           <span>:</span>
+                           <span class="num-block last-num">0</span>
+                           <span>Days remaing</span>
+                       </div>
+                    </div>
+                </div>
+
+            </div>
 
                 <div class="row">
                     <div class="main_content">
@@ -14,10 +28,24 @@
                             </div>
                         @endif
 
+
+
                         <div class="col-md-9">
+                            <div class="top-line"></div>
                             <div class="panel custom_panel panel1">
                                 <div class="panel-body">
-                                    <h3>Account : {{ Auth::guard('admin')->user()->name }}</h3>
+                                    <div class="user-block">
+                                        <div class="image-block">
+                                            <img src="img/user-image-1.png" alt="">
+                                        </div>
+                                        <div class="text-block">
+                                            <h3>Account : {{ Auth::guard('admin')->user()->name }}</h3>
+                                            <a href="">
+                                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                                Account Setting
+                                            </a>
+                                        </div>
+                                    </div>
                                     <h4>Your restaurants</h4>
                                     <table>
                                         <tr>
@@ -30,7 +58,8 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="panel custom_panel panel2">
+                            <div class="top-line"></div>
+                            <div class="panel custom_panel panel2 right-panel">
                                 <div class="panel-body">
                                     <h3>Primary Contact</h3>
                                     <p><a href="{{ url('admin/profile/edit') }}">Update account details</a></p>
