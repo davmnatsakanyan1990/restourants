@@ -3,9 +3,9 @@
         <div class="topImage">
             <div class="contactText">
                 <div class="contactTitle">Contact Us</div>
-                <div class="contactContent">We Are so happy to get in touch with you so we can talk about the new opportunities.
-                    Quickly maximize timely deliverables for real-time schemas. Dramatically maintain
-                    clicks-and-mortar solutions without functional solutions.</div>
+                <div class="contactContent">We are here to answer the questions you may have and provide you
+                    with the information you may need. We are extremely responsive to your requests and questions,
+                    and value your opinion. Let’s create an effective solution in any situation together. </div>
             </div>
         </div>
         <div class="infoPart">
