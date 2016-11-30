@@ -2,14 +2,14 @@
     <div class="organization">
         <div class="organizationTitle">For Company</div>
         <div class="subTitle">About Restadviser<div class="line"></div></div>
-        <div class="subContent">We believe in building to positively impact communities, infrastructure, the economy, opportunity and employment.
-            We take great pride in being proactive with our approach to projects, while ensuring that the best interests of the
-            stakeholders are represented at every stage. We are serious about our values. And in the context of those values we
-            can tackle your whole project in a comprehensive customer focused way or a portion thereof
-            We believe in building to positively impact communities, infrastructure, the economy, opportunity and employment.
-            We take great pride in being proactive with our approach to projects, while ensuring that the best interests of the
-            stakeholders are represented at every stage. We are serious about our values. And in the context of those values we
-            can tackle your whole project in a comprehensive customer focused way or a portion thereof
+        <div class="subContent">In a huge and diverse country like the US the search
+            for a good restaurant is never complete. Whether you are feeling fine dining in a
+            small charming restaurant or at a classy haunt, we’ll help you find your snazzy venue in your city.</br>
+            We have created a list of the finest US restaurants, regularly refreshed for your reading,
+            visiting and pleasure.  The selection is made from various categories to help you choose the
+            place that perfectly matches to your needs.</br>
+            All kinds of dining experiences are waiting to be discovered. Check out the best US restaurants now.
+
         </div>
         <div class="subTitle">Com
             pany Pages<div class="line"></div></div>
