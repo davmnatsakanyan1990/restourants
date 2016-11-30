@@ -90,12 +90,16 @@ class PaymentController extends Controller
     
     public function checkout(){
         $plan_id = request('plan');
+        //TODO //will make some changes
+        if($plan_id !=2){
+            return redirect('admin/payment/subscribe');
+        }
         $plan = Plan::find($plan_id);
 
         $billing_details = Auth::guard('admin')->user()->billing_details;
 
         $countries = CountryState::getCountries();
-        if($billing_details->country)
+        if($billing_details)
             $states = CountryState::getStates($billing_details->country);
         else
             $states = [];
@@ -113,5 +117,10 @@ class PaymentController extends Controller
         });
         
         return redirect()->back()->with('message', 'Your message was successfully sent');
+    }
+    
+    public function getStates($country){
+        $states = CountryState::getStates($country);
+        return response()->json($states);
     }
 }
