@@ -424,5 +424,25 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
                 }
             });
-    }
+    };
+
+
+
+  setTimeout(function() {
+        console.log(document.readyState );
+        if(document.readyState === 'complete') {
+
+            window.scroll(0, 320);
+            var element1 = document.getElementById('f1');
+            console.log(element1);
+            element1.classList.remove('displayNone');
+            element1.classList.add('displayBlock');
+        }
+    }, 500);
+
+
+
+
+
+
 });
