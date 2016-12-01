@@ -89,6 +89,12 @@ app.factory('RestaurantService', function($http) {
                 method: "GET",
                 url : "search?cityName=" + data.city + "?value=" + data.restaurant
             })
+        },
+        rootData: function(){
+            return $http ({
+                method: "GET",
+                url : "root/data"
+            })
         }
 
 

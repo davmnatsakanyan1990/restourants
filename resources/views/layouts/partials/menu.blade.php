@@ -16,7 +16,7 @@
         <select chosen
                 ng-model="city"
                 ng-init="city"
-                ng-options="s for s in states">
+                ng-options="item as item.name for item in cities">
         </select>
     </div>
     <div class="capitalize elementLeft searchMenuPart" style="width: calc(100% - 512px);">
