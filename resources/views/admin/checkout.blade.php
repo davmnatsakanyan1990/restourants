@@ -159,6 +159,10 @@
                                         <div class="credit-card">
                                             <div class="block credit-card-1 active">
                                                 <div class="top-line"></div>
+                                                <div class="block-content"></div>
+                                            </div>
+                                            <div class="block credit-card-2">
+                                                <div class="top-line"></div>
                                                 <div class="block-content">
                                                     <h2>Credit Card</h2>
                                                     <ul>
@@ -217,10 +221,6 @@
                                                         </li>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="block credit-card-2">
-                                                <div class="top-line"></div>
-                                                <div class="block-content"></div>
                                             </div>
                                     </div>
                                 </div>
