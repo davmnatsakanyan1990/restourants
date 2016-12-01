@@ -164,9 +164,10 @@ button:focus {
 }
 .restPageContainer .pageContainer .containerTop .titlePart {
   font-size: 30px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   font-weight: 500;
   color: #ff7e00;
+  float: left;
 }
 .restPageContainer .pageContainer .containerTop .positioningCall {
   position: relative;
