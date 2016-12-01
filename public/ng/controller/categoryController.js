@@ -7,7 +7,8 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
     $scope.activePage = 'page1';
     $scope.FixedRestMenu = false;
     $scope.noMoreInfoToShow = false;
-
+    $scope.id =request.id;
+    /*var name = request.name;*/
     $scope.checkboxModel = {
         checkboxModelF1: [],
         checkboxModelF2: [],
@@ -16,12 +17,16 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
         checkboxModelF5: [],
         checkboxModelF6: []
     };
+    $scope.checkboxModel.checkboxModelF1[0] = {};
+    $scope.checkboxModel.checkboxModelF1[0][request.name] = true;
+
     $scope.filters = {};
     $scope.callData = {
         page: 1,
         city: request.city,
         filters: {'Mode': [request.id] }
     };
+
     $scope.modeLoad = false;
     // if(request.page)
     //     var slidePage = request.page;
@@ -88,6 +93,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             }
 
             $scope.$parent.docLoader = false;
+
         });
 
     $scope.addMorePoints = function(){
@@ -95,7 +101,6 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
         $scope.callData.page++;
         RestaurantService.getMoreRestaurant($scope.callData.page, $scope.callData.city, $scope.callData.filters)
             .then(function (response) {
-                debugger;
                 if(response.data.status && response.data.status == 'ended'){
                     $scope.noMoreInfoToShow = true;
                 }
@@ -419,5 +424,25 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
                 }
             });
-    }
+    };
+
+
+
+  setTimeout(function() {
+        console.log(document.readyState );
+        if(document.readyState === 'complete') {
+
+            window.scroll(0, 320);
+            var element1 = document.getElementById('f1');
+            console.log(element1);
+            element1.classList.remove('displayNone');
+            element1.classList.add('displayBlock');
+        }
+    }, 500);
+
+
+
+
+
+
 });
