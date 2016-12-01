@@ -52,15 +52,6 @@ class PaymentController extends Controller
             'terms' => 'required',
         ]);
 
-        if($request->payment_method == 'credit_card'){
-            $this->validate($request, [
-                'card_number' => 'required',
-                'expires' => 'required',
-                'name_on_card' => 'required',
-                'CVV' => 'required'
-            ]);
-        }
-
         // Update billing details
         $details = BillingDetails::where('admin_id', $this->place->admin->id)->get()->toArray();
         if(count($details) > 0) {
@@ -95,7 +86,7 @@ class PaymentController extends Controller
 
 
         $plan = Plan::find($request->plan_id);
-        Twocheckout::privateKey('0ED56256-9BBD-4363-B476-F51BC23ED009');
+        Twocheckout::privateKey(env('2CHECKOUT_PRIVATE_KEY'));
         Twocheckout::sellerId(env('2CHECKOUT_SELLER_ID'));
 
         $token = $request->token;
@@ -120,24 +111,16 @@ class PaymentController extends Controller
                     "email" => $request->email,
                     "phoneNumber" => $request->phone
                 ),
-                "shippingAddr" => array(
-                    "name" => 'Joe Flagster',
-                    "addrLine1" => '123 Main Street ',
-                    "city" => 'Townsville',
-                    "state" => 'Ohio',
-                    "zipCode" => '43206',
-                    "country" => 'USA',
-                    "email" => 'testingtester@2co.com',
-                    "phoneNumber" => '555-555-5555'
-                )
             ));
             if ($charge['response']['responseCode'] == 'APPROVED') {
                 Payment::create(['place_id' => $this->place->id, 'amount' => $plan->price]);
+                $this->place->update(['plan_id' => $plan->id]);
 
                 if($this->place->trashed()){
                     $this->place->restore();
                 }
-                return response()->json(['success' => 1,'message' => 'Thanks for Subscribing!']);
+//                return response()->json(['success' => 1,'message' => 'Thanks for Subscribing!']);
+                return redirect()->back()->with('message', 'Thanks for Subscribing!');
             }
         } catch (TwocheckoutError $e) {
             return response()->json(['success' => 0,'message' => $e->getMessage()]);

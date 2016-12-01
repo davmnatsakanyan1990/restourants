@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Place;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -25,5 +26,11 @@ class HomeController extends Controller
 
             $m->to('lookrestaurants@gmail.com')->subject('Add Organization');
         });
+    }
+    
+    public function getRootData(){
+        $cities = City::select(['id', 'name'])->get();
+        $data['cities'] = $cities;
+        return $data;
     }
 }

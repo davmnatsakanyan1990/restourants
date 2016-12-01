@@ -134,6 +134,7 @@ Route::group([
 
 
 Route::get('{city}/restaurants', 'PlaceController@index');
+Route::get('root/data', 'HomeController@getRootData');
 Route::get('{city}/restaurants/more', 'PlaceController@loadMore');
 Route::get('{city}/restaurants/filter', 'PlaceController@filter');
 Route::get('restaurants/category/{data}', 'PlaceController@getCategoryProducts');
