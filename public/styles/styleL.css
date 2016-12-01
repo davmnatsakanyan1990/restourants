@@ -23,7 +23,9 @@
   text-align: center;
 }
 .loading img {
-  margin-right: 5px;
+  /* margin-right: 5px;*/
+  width: 64px;
+  height: 64px;
 }
 .forBefore {
   position: absolute;
