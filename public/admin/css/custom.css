@@ -1093,6 +1093,25 @@ button, button:active, button:focus {
     margin: 0 0 0 10px;
 }
 
+.checkout-page .cont .credit-card .block-content li.expires-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.checkout-page .cont .credit-card .block-content li.expires-row > span {
+    display: block;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    width: 50% !important;
+}
+.checkout-page .cont .credit-card .block-content li.expires-row > span > label {
+    left: 0;
+}
+
+
 .checkout-page .cont .credit-card .block-content ul li:first-child {
     margin: 0;
 }
@@ -1311,12 +1330,20 @@ button, button:active, button:focus {
     background-color: #ff7e00;
 }
 
-.checkout-page .right-sitebar .block-content .order-block > button {
+.checkout-page .right-sitebar .block-content .order-block .butt-block {
     width: 238px;
     height: 35px;
     display: block;
     margin: 38px auto 0;
-    background-color: #ff7e00;
+    cursor: not-allowed;
+}
+
+.checkout-page .right-sitebar .block-content .order-block .butt-block > button {
+    width: 238px;
+    height: 35px;
+    display: block;
+    margin: 0 auto 0;
+    background-color: #e9eaea;
     font-family: 'Source Sans Pro';
     color: #ffffff;
     border: 0;

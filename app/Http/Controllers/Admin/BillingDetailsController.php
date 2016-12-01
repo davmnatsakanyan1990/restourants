@@ -31,8 +31,8 @@ class BillingDetailsController extends Controller
      */
     public function edit(){
         $billing_details = $this->admin->billing_details;
-        dd($billing_details);
-        return view('billing_details');
+        //dd($billing_details);
+        return view('admin.update_billing_details');
     }
 
     /**

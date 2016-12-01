@@ -1,9 +1,9 @@
 $( document ).ready(function() {
     function toggleCheckbox() {
         if ($(".order-block > label > input").prop("checked")) {
-            $(".checkout-page .right-sitebar .block-content .order-block > button").css("pointer-events", "all");
+            $(".checkout-page .right-sitebar .block-content .order-block .butt-block > button").css({"background-color": "#ff7e00", "pointer-events": "all"});
         }else{
-            $(".checkout-page .right-sitebar .block-content .order-block > button").css("pointer-events", "none");
+            $(".checkout-page .right-sitebar .block-content .order-block .butt-block > button").css({"background-color": "#e9eaea", "pointer-events": "none"});
         }
     }
 

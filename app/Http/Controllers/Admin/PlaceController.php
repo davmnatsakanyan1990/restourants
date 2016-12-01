@@ -84,7 +84,7 @@ class PlaceController extends Controller
                 }
             }
             else{
-                $d[$k] = 'closed';
+                $d[$k] = 'Closed';
             }
         }
         
@@ -160,7 +160,7 @@ class PlaceController extends Controller
             }
         }
         else{
-            $working_hours['mon'] = 'closed';
+            $working_hours['mon'] = 'Closed';
         }
 
         // tuesday
@@ -185,7 +185,7 @@ class PlaceController extends Controller
             }
         }
         else{
-            $working_hours['tue'] = 'closed';
+            $working_hours['tue'] = 'Closed';
         }
 
         //wednesday
@@ -210,7 +210,7 @@ class PlaceController extends Controller
             }
         }
         else{
-            $working_hours['wed'] = 'closed';
+            $working_hours['wed'] = 'Closed';
         }
 
         // thuesday
@@ -235,7 +235,7 @@ class PlaceController extends Controller
             }
         }
         else{
-            $working_hours['thu'] = 'closed';
+            $working_hours['thu'] = 'Closed';
         }
 
         // friday
@@ -260,7 +260,7 @@ class PlaceController extends Controller
             }
         }
         else{
-            $working_hours['fri'] = 'closed';
+            $working_hours['fri'] = 'Closed';
         }
 
         // saturday
@@ -285,7 +285,7 @@ class PlaceController extends Controller
             }
         }
         else{
-            $working_hours['sat'] = 'closed';
+            $working_hours['sat'] = 'Closed';
         }
 
         if(isset($request->sun['index'])){
@@ -309,7 +309,7 @@ class PlaceController extends Controller
             }
         }
         else{
-            $working_hours['sun'] = 'closed';
+            $working_hours['sun'] = 'Closed';
         }
 
         WorkingHour::where('place_id', $this->place->id)->update($working_hours);
