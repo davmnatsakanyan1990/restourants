@@ -75,14 +75,14 @@
                     <option value="t16">24:00</option>
                 </select>--}}
 
-                <div class='rating' style="margin-left: 0; " ng-if="haveData">
+                {{--<div class='rating' style="margin-left: 0; " ng-if="haveData">
 
                     <div class="lead">
-                        {{--<div class="starrr" ></div>--}}
+                        --}}{{--<div class="starrr" ></div>--}}{{--
                         <div id="some" star-rating ng-model="rating1" max="5" on-rating-select="rateFunction(rating)" ></div>
 
                     </div>
-                </div>
+                </div>--}}
                {{-- <div class="rating">
                     <span  ng-bind="currentRestaurant.comment"></span>
                     <span>comments</span>
