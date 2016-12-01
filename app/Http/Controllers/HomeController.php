@@ -31,6 +31,7 @@ class HomeController extends Controller
     public function getRootData(){
         $cities = City::select(['id', 'name'])->get();
         $data['cities'] = $cities;
+        $data['current_city'] = City::where('id', 1)->select(['id', 'name'])->first(); //TODO change city by location
         return $data;
     }
 }
