@@ -11,6 +11,8 @@
 |
 */
 
+use App\Models\Place;
+
 Route::get('/', function () {
     return view('layouts.main');
 });
@@ -159,7 +161,21 @@ Route::get('fill/support_ids', 'ApiController@fillSupportId');
 
 
 Route::get('run_cron', function(){
+    $places = Place::whereNotNull('first_login')->where('plan_id', 1)->get()->toArray();
 
+    // get current date time in Unix format
+    $now = strtotime(date("Y-m-d H:i:s"));
+
+    foreach($places as $place){
+
+        //get email sent time in Unix format
+        $activation_date = strtotime($place['first_login']);
+
+        // deactivate place after 5 day
+        if($now > $activation_date + 432000){
+            Place::where('id', $place['id'])->delete();
+        }
+    }
 });
 
 
