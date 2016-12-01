@@ -23,7 +23,9 @@
   text-align: center;
 }
 .loading img {
-  margin-right: 5px;
+  /* margin-right: 5px;*/
+  width: 45px;
+  height: 45px;
 }
 .forBefore {
   position: absolute;
@@ -548,9 +550,15 @@ html body .navigation .navIco {
   line-height: 45px;
   padding-left: 25px;
   margin-right: 50px;
+  height: 100%;
 }
-html body .navigation .navIco img {
-  height: 30px;
+html body .navigation .navIco a {
+  display: block;
+  height: 45px;
+}
+html body .navigation .navIco a img {
+  height: 45px;
+  vertical-align: inherit;
 }
 html body .navigation .menuLeft {
   float: left;
