@@ -56,17 +56,8 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     //get cities
     RestaurantService.rootData()
         .then(function (response) {
-            $scope.city = window.location.hash.split('/')[1].replace(/%20/gi, ' ');
-            $scope.city = capitalize_Words($scope.city);
-
-
-            $scope.demostrateCity = response.data.current_city;
-
-            console.log($scope.demostrateCity.name);
-            /*$scope.cities = ['Salt Lake City', 'some other', 'else other'];*/
+            $scope.city = response.data.current_city.name;
             $scope.cities = response.data.cities;
-
-            console.log($scope.cities);
         });
 
     //search restaurant in system
