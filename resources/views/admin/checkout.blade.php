@@ -199,11 +199,21 @@
                                                                 <i class="fa fa-credit-card" aria-hidden="true"></i>
                                                             </label>
                                                         </li>
-                                                        <li class="col-md-6">
-                                                            <input type="text" id="option" placeholder="Expires (MM/YY)">
-                                                            <label for="option">
-                                                                <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                            </label>
+
+                                                        <li class="col-md-6 expires-row">
+                                                            <span>
+                                                                <input type="text" id="option" placeholder="Expires (MM)">
+                                                                <label for="option">
+                                                                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                                </label>
+                                                            </span>
+
+                                                            <span>
+                                                                <input type="text" id="option" placeholder="Expires (YY)">
+                                                                <label for="option">
+                                                                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                                </label>
+                                                            </span>
                                                         </li>
 
                                                         <li class="col-md-6">
@@ -257,8 +267,9 @@
                                             <label for="checkbox"></label>
                                             <span>I have read and agree to the Teams of Service</span>
                                         </label>
-
-                                        <button>Place Order</button>
+                                        <div class="butt-block">
+                                            <button>Place Order</button>
+                                        </div>
 
                                         <h2> Call us at </h2>
                                         <h3><i class="fa fa-phone" aria-hidden="true"></i> 1-8885-556-894</h3>
