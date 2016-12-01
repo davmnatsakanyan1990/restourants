@@ -185,12 +185,9 @@
                                                         <li>
 
                                                             <img src="../img/discover-icon.png" alt="">
-
-<<<<<<< HEAD
                                                         </li>
 
                                                     </ul>
-
                                                     <div class="row">
                                                         <li class="col-md-6">
                                                             <input type="text" id="option" placeholder="Credit Card Number">
@@ -219,46 +216,12 @@
                                                             </label>
                                                         </li>
                                                     </div>
-=======
-                                                    </li>
-
-                                                </ul>
-
-                                                <div class="row">
-                                                    <li class="col-md-6">
-                                                        <input type="text" id="ccNo" name="card_number" placeholder="Credit Card Number">
-                                                        <label for="option">
-                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                        </label>
-                                                    </li>
-                                                    <li class="col-md-6">
-                                                        <input type="text" id="option" name="expires" placeholder="Expires (MM/YY)">
-                                                        <label for="option">
-                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                        </label>
-                                                    </li>
-
-                                                    <li class="col-md-6">
-                                                        <input type="text" id="option" placeholder="Name on Card">
-                                                        <label for="option">
-                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                        </label>
-                                                    </li>
-
-                                                    <li class="col-md-6">
-                                                        <input type="text" id="option" placeholder="CVV">
-                                                        <label for="option">
-                                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                        </label>
-                                                    </li>
->>>>>>> fd43198bb0f537505ffd82d0a956919ca325c313
                                                 </div>
                                             </div>
-
                                             <div class="block credit-card-2">
                                                 <div class="top-line"></div>
+                                                <div class="block-content"></div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
