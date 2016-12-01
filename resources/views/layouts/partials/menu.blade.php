@@ -14,6 +14,7 @@
     </div>--}}
     <div class="elementLeft chosenStyles">
         <select chosen
+                data-placeholder-text-single="'Select some city'"
                 ng-model="city"
                 ng-init="city"
                 ng-options="item as item.name for item in cities">
