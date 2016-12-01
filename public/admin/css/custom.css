@@ -1379,6 +1379,103 @@ button, button:active, button:focus {
 
 /*Checkout page End*/
 
+
+/*Update billing page*/
+.update-billing-page {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.update-billing-page ul li:first-child {
+    margin: 0;
+}
+
+.update-billing-page .row li {
+    display: block;
+    list-style: none;
+    margin: 0 0 15px 0;
+    position: relative;
+}
+
+.update-billing-page .row li input,.update-billing-page .row li select {
+    display: block;
+    width: 100%;
+    height: 42px;
+    border: 1px solid #d9d9d9;
+    color: #5e5e5e;
+    font-size: 16px;
+    font-family: 'Source Sans Pro';
+    padding: 0 0 0 47px;
+}
+
+.update-billing-page .row li input:focus,.update-billing-page .row li select:focus {
+    padding: 0 0 0 17px;
+    border: 1px solid #ff7e00;
+    outline: none;
+}
+
+.update-billing-page .row li input:focus + label,.update-billing-page .row li select:focus + label {
+    display: none;
+}
+
+.update-billing-page .row li label {
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    border-right: 1px solid #d9d9d9;
+}
+
+.update-billing-page .row li label {
+    color: #b9b9b9;
+    left: 15px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 42px;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    border-right: 1px solid #d9d9d9;
+}
+
+.update-billing-page .row li i {
+    font-size: 20px;
+}
+
+.update-billing-page .row .butt-block {
+    padding: 0 15px 0 0;
+}
+
+.update-billing-page .row .butt-block:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.update-billing-page .row .butt-block button {
+    float: left;
+    display: block;
+    margin: 0 auto 0;
+    background-color: #ff7e00;
+    font-family: 'Source Sans Pro';
+    color: #ffffff;
+    border: 0;
+    font-size: 20px;
+}
+
+.update-billing-page .row .butt-block button:last-child {
+    width: 185px;
+    height: 35px;
+}
+
+.update-billing-page .row .butt-block button:first-child {
+    width: 110px;
+    height: 35px;
+    background-color: #cac4bf;
+    margin: 0 10px 0 0;
+}
+/*Update billing page End*/
+
 /*Footer style*/
 .footer{
     height: 40px !important;
