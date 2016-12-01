@@ -63,7 +63,7 @@
                                     <div class="panel-body">
                                         <h3>Primary Contact</h3>
                                         <p><a href="{{ url('admin/profile/edit') }}">Update account details</a></p>
-                                        <p><a href="#">Update billing details</a></p>
+                                        <p><a href="{{ url('admin/billing_details/edit') }}">Update billing details</a></p>
                                     </div>
                                 </div>
                             </div>

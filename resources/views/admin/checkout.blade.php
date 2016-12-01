@@ -202,14 +202,14 @@
 
                                                         <li class="col-md-6 expires-row">
                                                             <span>
-                                                                <input type="text" id="option" placeholder="Expires (MM)">
+                                                                <input type="text" id="option" size="2" placeholder="Expires (MM)">
                                                                 <label for="option">
                                                                     <i class="fa fa-credit-card" aria-hidden="true"></i>
                                                                 </label>
                                                             </span>
 
                                                             <span>
-                                                                <input type="text" id="option" placeholder="Expires (YY)">
+                                                                <input type="text" id="option" size="4" placeholder="Expires (YYYY)">
                                                                 <label for="option">
                                                                     <i class="fa fa-credit-card" aria-hidden="true"></i>
                                                                 </label>
@@ -278,7 +278,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </form>
+
                 </div>
             </div>
             <!-- END PAGE CONTENT-->
