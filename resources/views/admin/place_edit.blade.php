@@ -128,9 +128,9 @@
                                                             @foreach($d as $wk_day => $value)
                                                             <li>
                                                                 <label for="">{{ $wk_day }}:</label>
-                                                                <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" {{ ($value != 'closed' && $value != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" {{ ($value != 'Closed' && $value != '') ? 'checked' : '' }}/>
 
-                                                                @if($value == 'closed' || $value == '')
+                                                                @if($value == 'Closed' || $value == '')
                                                                 <div class="addingElement">
                                                                     <div class="counters">
                                                                         <div class="elementsBlock">

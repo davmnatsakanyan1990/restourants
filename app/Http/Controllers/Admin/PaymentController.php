@@ -55,7 +55,9 @@ class PaymentController extends Controller
         if($request->payment_method == 'credit_card'){
             $this->validate($request, [
                 'card_number' => 'required',
-                'expires' => 'required'
+                'expires' => 'required',
+                'name_on_card' => 'required',
+                'CVV' => 'required'
             ]);
         }
 

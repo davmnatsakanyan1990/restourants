@@ -55,26 +55,26 @@
                                         <h2>Billing Contact Details</h2>
                                         <div class="row">
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Name" value="{{ $billing_details && $billing_details->first_name ? $billing_details->first_name : '' }}">
+                                                <input type="text" name="first_name" id="option" placeholder="Name" value="{{ $billing_details && $billing_details->first_name ? $billing_details->first_name : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Last Name" value="{{ $billing_details && $billing_details->last_name ? $billing_details->last_name : '' }}">
+                                                <input type="text" name="last_name" id="option" placeholder="Last Name" value="{{ $billing_details && $billing_details->last_name ? $billing_details->last_name : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-12">
-                                                <input type="text" id="option" placeholder="Address line 1" value="{{ $billing_details && $billing_details->address_1 ? $billing_details->address_1 : '' }}">
+                                                <input type="text" name="address_1" id="option" placeholder="Address line 1" value="{{ $billing_details && $billing_details->address_1 ? $billing_details->address_1 : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                 </label>
                                             </li>
 
                                             <li class="col-md-12">
-                                                <input type="text" id="option" placeholder="Address line 2" value="{{ $billing_details && $billing_details->address_2 ? $billing_details->address_2 : '' }}">
+                                                <input type="text" nmae="address_2" id="option" placeholder="Address line 2" value="{{ $billing_details && $billing_details->address_2 ? $billing_details->address_2 : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                 </label>
@@ -82,13 +82,13 @@
 
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="City" value="{{ $billing_details && $billing_details->city ? $billing_details->city : '' }}">
+                                                <input type="text" name="city" id="option" placeholder="City" value="{{ $billing_details && $billing_details->city ? $billing_details->city : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-globe" aria-hidden="true"></i>
                                                 </label>
                                             </li>
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Zip/Postcode" value="{{ $billing_details && $billing_details->postal_code ? $billing_details->postal_code : '' }}">
+                                                <input type="text" name="postal_code" id="option" placeholder="Zip/Postcode" value="{{ $billing_details && $billing_details->postal_code ? $billing_details->postal_code : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                                                 </label>
@@ -96,8 +96,14 @@
 
                                             <li class="col-md-6">
                                                 {{--<input type="text" id="option" placeholder="State">--}}
-                                                <select name="" id="option" placeholder="State">
-                                                      <option value="" disabled selected>State</option>
+                                                <select name="state" id="option" placeholder="State">
+                                                    @if(count($states) > 0)
+                                                      @foreach($states as $index => $state)
+                                                            <option value="{{ $index }}" {{ $index == $billing_details->state ? 'selected' : '' }}>{{ $state }}</option>
+                                                      @endforeach
+                                                    @else
+                                                        <option value="" disabled selected>State</option>
+                                                    @endif
                                                 </select>
                                                 <label for="option">
                                                     <i class="fa fa-flag" aria-hidden="true"></i>
@@ -117,14 +123,14 @@
                                             </li>
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="Phone" value="{{ $billing_details && $billing_details->phone ? $billing_details->phone : '' }}">
+                                                <input type="text" name="phone" id="option" placeholder="Phone" value="{{ $billing_details && $billing_details->phone ? $billing_details->phone : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                                 </label>
                                             </li>
 
                                             <li class="col-md-6">
-                                                <input type="text" id="option" placeholder="E-mail" value="{{ $billing_details && $billing_details->email ? $billing_details->email : '' }}">
+                                                <input type="text" name="email" id="option" placeholder="E-mail" value="{{ $billing_details && $billing_details->email ? $billing_details->email : '' }}">
                                                 <label for="option">
                                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                                 </label>
@@ -194,27 +200,27 @@
                                                     </ul>
                                                     <div class="row">
                                                         <li class="col-md-6">
-                                                            <input type="text" id="option" placeholder="Credit Card Number">
+                                                            <input type="text" name="card_number" id="ccNo" placeholder="Credit Card Number">
                                                             <label for="option">
                                                                 <i class="fa fa-credit-card" aria-hidden="true"></i>
                                                             </label>
                                                         </li>
                                                         <li class="col-md-6">
-                                                            <input type="text" id="option" placeholder="Expires (MM/YY)">
-                                                            <label for="option">
-                                                                <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                            </label>
-                                                        </li>
-
-                                                        <li class="col-md-6">
-                                                            <input type="text" id="option" placeholder="Name on Card">
+                                                            <input type="text" name="expire_time" id="ex_date" placeholder="Expires (MM/YY)">
                                                             <label for="option">
                                                                 <i class="fa fa-credit-card" aria-hidden="true"></i>
                                                             </label>
                                                         </li>
 
                                                         <li class="col-md-6">
-                                                            <input type="text" id="option" placeholder="CVV">
+                                                            <input type="text" nmae="name_on_card" id="option" placeholder="Name on Card">
+                                                            <label for="option">
+                                                                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                            </label>
+                                                        </li>
+
+                                                        <li class="col-md-6">
+                                                            <input type="text" name="CVV" id="cvv" placeholder="CVV">
                                                             <label for="option">
                                                                 <i class="fa fa-credit-card" aria-hidden="true"></i>
                                                             </label>
@@ -253,12 +259,13 @@
                                             the printing and typesetting industry.</p>
 
                                         <label>
-                                            <input type="checkbox" class="checkbox" id="checkbox">
+                                            <input type="checkbox" name="terms" class="checkbox" id="checkbox">
                                             <label for="checkbox"></label>
                                             <span>I have read and agree to the Teams of Service</span>
                                         </label>
+                                        <input type="hidden" name="plan_id" value="{{ $plan->id }}">
 
-                                        <button>Place Order</button>
+                                        <button id="submit" type="submit">Place Order</button>
 
                                         <h2> Call us at </h2>
                                         <h3><i class="fa fa-phone" aria-hidden="true"></i> 1-8885-556-894</h3>

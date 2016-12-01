@@ -1,4 +1,4 @@
-$('#submit1').on('click',function(){
+$('#submit').on('click',function(){
     var args = {
         sellerId: "901332804",
         publishableKey: "5325EC5F-466D-4DF2-9C97-5F3B45937583",
