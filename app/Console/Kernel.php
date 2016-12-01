@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $places = Place::with('payment')->whereNotNull('first_login')->has('payment', '==', null)->get()->toArray();
+            $places = Place::whereNotNull('first_login')->where('plan_id', 1)->get()->toArray();
 
             // get current date time in Unix format
             $now = strtotime(date("Y-m-d H:i:s"));
