@@ -185,7 +185,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                     /*$scope.restaurants.push(value);*/
                 });
                 $scope.restaurants = response.data.restaurants;
-                /*$scope.loading = false;*/
+                $scope.loading = false;
 
             });
     };
