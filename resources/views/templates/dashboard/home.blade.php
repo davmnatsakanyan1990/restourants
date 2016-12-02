@@ -318,7 +318,7 @@
                             <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location
                             </div>
                             <div class="footerText" data-toggle="modal" data-target="#myModalMaster">register owner</div>
-                            <div class="footerText"><a href="#forOrganization">for organization</a></div>
+                            <div class="footerText"><a href="#forOrganization">For Restaurant</a></div>
                         </div>
                         <div class="footerSec">
                             <div class="footerText"><a href="#contacts">contacts</a></div>
