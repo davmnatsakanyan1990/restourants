@@ -145,7 +145,7 @@
                                     <div class="block-content">
                                         <h2>Payment Method</h2>
 
-                                        <div class="row">
+                                        {{--<div class="row">
                                             <span class="col-md-6">
                                                 <input type="radio"  id="option11" name="payment_method" value="ACH" class="pay-check pay-check-1">
                                                 <label class="last-lab" for="option11">
@@ -161,14 +161,14 @@
                                                     Credit Card
                                                 </label>
                                             </span>
-                                        </div>
+                                        </div>--}}
 
                                         <div class="credit-card">
-                                            <div class="block credit-card-1 ">
+                                            {{--<div class="block credit-card-1 ">
                                                 <div class="top-line"></div>
                                                 <div class="block-content"></div>
-                                            </div>
-                                            <div class="block credit-card-2 active">
+                                            </div>--}}
+                                            <div class="">
                                                 <div class="top-line"></div>
                                                 <div class="block-content">
                                                     <h2>Credit Card</h2>
