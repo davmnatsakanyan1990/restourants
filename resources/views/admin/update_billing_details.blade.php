@@ -106,8 +106,8 @@
                         </div>
                         <div class="row">
                             <div class="butt-block pull-right">
-                                <button>Cancel</button>
-                                <button>Update contact</button>
+                                <a href="{{ url('admin/dashboard') }}"> <button type="button">Cancel</button></a>
+                                <button type="submit">Update contact</button>
                             </div>
                         </div>
                     </form>

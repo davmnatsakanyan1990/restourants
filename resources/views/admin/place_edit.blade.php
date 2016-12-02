@@ -128,7 +128,7 @@
                                                             @foreach($d as $wk_day => $value)
                                                             <li>
                                                                 <label for="">{{ $wk_day }}:</label>
-                                                                <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" {{ ($value != 'Closed' && $value != '') ? 'checked' : '' }}/>
+                                                                <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" {{ ($value != 'losed' && $value != '') ? 'checked' : '' }}/>
 
                                                                 @if($value == 'Closed' || $value == '')
                                                                 <div class="addingElement">
@@ -479,9 +479,9 @@
                                                         <button type="submit" class="btn green">
                                                             Save Changes
                                                         </button>
-                                                        <button class="btn default">
+                                                        <a href="{{ url('admin/dashboard') }}"> <button type="button" class="btn default">
                                                             Cancel
-                                                        </button>
+                                                        </button></a>
                                                     </div>
                                                 </form>
                                             </div>
