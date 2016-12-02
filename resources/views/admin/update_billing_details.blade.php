@@ -113,7 +113,10 @@
                                 </label>
                             </li>
                             <li class="col-md-12">
-                                <input name="time_zone" id="time_zone" placeholder="Time Zone" value="{{ $billing_details ? $billing_details->time_zone : old('time_zone') }}">
+                                {{--<select name="time_zone" id="time_zone" placeholder="Time Zone">--}}
+                                    {{--<option value=""></option>--}}
+                                {{--</select>--}}
+                                {!!   $timezone_form !!}
                                 <label for="time_zone">
                                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                                 </label>

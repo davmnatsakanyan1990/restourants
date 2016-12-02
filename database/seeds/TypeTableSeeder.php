@@ -23,6 +23,8 @@ class TypeTableSeeder extends Seeder
 //           ['name' => 'fast food'],
 //           ['name' => 'bar'],
 //           ['name' => 'fast casual'],
+//           ['name' => 'delis'],
+//           ['name' => 'pizzeria'],
 //        ]);
     }
 }

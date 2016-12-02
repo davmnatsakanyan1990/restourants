@@ -160,6 +160,8 @@ return [
         DougSisk\CountryState\CountryStateServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
 
+        Camroncade\Timezone\TimezoneServiceProvider::class,
+
     ],
 
     /*

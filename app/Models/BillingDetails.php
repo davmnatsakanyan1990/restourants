@@ -16,6 +16,7 @@ class BillingDetails extends Model
         'state',
         'country',
         'phone',
+        'time_zone',
         'email',
         'admin_id'
     ];
