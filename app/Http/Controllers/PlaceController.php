@@ -8,6 +8,7 @@ use App\Models\Location;
 use App\Models\Place;
 use App\Models\Product;
 use App\Models\Type;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Cuisin;
@@ -561,6 +562,21 @@ class PlaceController extends Controller
     public function products($menu_id){
         $products = Product::where('menu_id', $menu_id)->select(['title', 'description', 'price'])->get()->toArray();
         return $products;
+    }
+
+    /**
+     * get places by search
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function search(Request $request){
+
+        $city_locations = Location::where('city_id', $request->id)->lists('id')->toArray();
+
+        $places = Place::whereIn('location_id', $city_locations)->where('name', 'like', '%'.$request->value.'%')->select(['id', 'name', 'address'])->get()->toArray();
+
+        return $places;
     }
 
 

@@ -142,6 +142,7 @@ Route::get('{city}/restaurants/filter', 'PlaceController@filter');
 Route::get('restaurants/category/{data}', 'PlaceController@getCategoryProducts');
 Route::get('show/{id}', 'PlaceController@show');
 Route::get('products/{menu_id}', 'PlaceController@products');
+Route::get('search', 'PlaceController@search');
 
 Route::get('comments', 'PlaceController@moreComments');
 Route::get('sendmail/{email}', 'UserController@sendMail');
