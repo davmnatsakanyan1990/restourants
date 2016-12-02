@@ -115,7 +115,7 @@
                                                 <select name="country" id="option8" placeholder="Country">
                                                     <option value="" {{ !$billing_details || !$billing_details->country ? 'selected' : '' }}>Select country</option>
                                                     @foreach($countries as $index => $country)
-                                                        <option  value="{{ $index }}" {{ $billing_details && $billing_details->country && $billing_details->country==$index ? 'selected' : old('country') == $index ? 'selected' : ''  }} >{{ $country }}</option>
+                                                        <option  value="{{ $index }}" {{ $billing_details && $billing_details->country && $billing_details->country==$index ? 'selected' : ''  }} >{{ $country }}</option>
                                                     @endforeach
                                                 </select>
                                                 <label for="option8">
