@@ -188,6 +188,9 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         var userName = JSON.stringify(un);
                         localStorage.setItem('userName',userName);
                         $scope.reset();
+                        animate($(".confirmLogin"));
+                    }else if(response.data.status == "error"){
+                        animate($(".errorLogin"));
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
@@ -196,6 +199,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                             }
                         });
                 }, function(error){
+                    animate($(".errorLogin"));
                     console.log(error.data)
                 });
         }else{

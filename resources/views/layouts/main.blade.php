@@ -8,12 +8,21 @@
 {{--<div class="home-loader" ng-show="docLoader"><img src="/images/loader2.gif" width="100" height="100"></div>--}}
     @include("layouts.partials.menu")
     <ng-view></ng-view>
-
+{{--registeration tooltips--}}
     <div class="confirmation confirm">
         <i class="fa fa-check" aria-hidden="true"></i>
         <div class="text">Your registration is success</div>
     </div>
     <div class="confirmation error" id="error">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <div class="text">Something went wrong</div>
+    </div>
+{{--login tooltips--}}
+    <div class="confirmation confirmLogin ">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <div class="text">You are loged in</div>
+    </div>
+    <div class="confirmation errorLogin" id="error">
         <i class="fa fa-times" aria-hidden="true"></i>
         <div class="text">Something went wrong</div>
     </div>
