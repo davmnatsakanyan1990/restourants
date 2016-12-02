@@ -7,7 +7,8 @@ $( document ).ready(function() {
         }
     }
 
-    function creditCardTab() {
+   /* function creditCardTab() {
+        debugger;
         $( ".pay-check" ).each(function() {
             var itemIndex = $(this).parent().index();
             if ($(this).prop("checked")) {
@@ -18,7 +19,7 @@ $( document ).ready(function() {
         });
     }
 
-    creditCardTab();
+    creditCardTab();*/
 
     toggleCheckbox();
 

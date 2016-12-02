@@ -56,12 +56,14 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     //get cities
     RestaurantService.rootData()
         .then(function (response) {
+            $scope.cityInfo = response.data.current_city;
             $scope.city = response.data.current_city.name;
             $scope.cities = response.data.cities;
         });
 
     //search restaurant in system
     $scope.SearchRestaurantInfo = function (value) {
+
         var data = {
             city: $scope.city,
             restaurant: value
@@ -71,6 +73,10 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             .then(function (response) {
                 $scope.searcheInfo = response.data;
             });
+    };
+    $scope.selectCity = function (data) {
+        debugger;
+        console.log(data)
     };
 
     $scope.$watch(
