@@ -17,7 +17,8 @@
                 data-placeholder-text-single="'Select some city'"
                 ng-model="city"
                 ng-init="city"
-                ng-options="item as item.name for item in cities">
+                ng-options="item.name as item.name for item in cities">
+
         </select>
     </div>
     <div class="capitalize elementLeft searchMenuPart" style="width: calc(100% - 512px);">
