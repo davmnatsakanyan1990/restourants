@@ -63,7 +63,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
     //search restaurant in system
     $scope.SearchRestaurantInfo = function (value) {
-        debugger;
        for(var i=0; i<$scope.cities.length; i++){
            if($scope.cities[i].name == $scope.city){
                $scope.cityID = $scope.cities[i].id;
