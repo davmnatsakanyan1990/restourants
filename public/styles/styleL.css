@@ -27,6 +27,11 @@
   width: 45px;
   height: 45px;
 }
+.noElementFound {
+  text-align: center;
+  margin-top: 150px;
+  font-size: 20px;
+}
 .forBefore {
   position: absolute;
   top: 60px;

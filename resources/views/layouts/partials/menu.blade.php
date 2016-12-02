@@ -45,10 +45,11 @@
             <div class="companyElement clearElement">
                 <div class="companies" ng-repeat="company in searcheInfo">
                     <a href="#/<% city %>/<% company.name %>/<% company.id %>">
-                        <div class="companyTitle" ng-bind="company.title">Name name anem name</div>
-                        <div class="companyAddress" ng-bind="company.address">address address address address</div>
+                        <div class="companyTitle" ng-bind="company.name"></div>
+                        <div class="companyAddress" ng-bind="company.address"></div>
                     </a>
                 </div>
+                <div class="noElementFound" ng-if="searcheInfo.length == 0">Nothing was found</div>
             </div>
 
         </div>
