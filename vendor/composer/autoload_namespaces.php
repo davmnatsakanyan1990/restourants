@@ -17,4 +17,5 @@ return array(
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
+    'Camroncade\\Timezone\\' => array($vendorDir . '/camroncade/timezone/src'),
 );

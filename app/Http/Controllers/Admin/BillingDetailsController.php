@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\BillingDetails;
+use Camroncade\Timezone\Facades\Timezone;
 use CountryState;
 use Illuminate\Http\Request;
 
@@ -34,12 +35,22 @@ class BillingDetailsController extends Controller
         $billing_details = $this->admin->billing_details;
         $countries = CountryState::getCountries();
 
-        if($billing_details)
+        if($billing_details) {
             $states = CountryState::getStates($billing_details->country);
-        else
+            $selected_timezone = $billing_details->time_zone;
+        }
+        else {
             $states = [];
+            $selected_timezone = null;
+        }
+
+
+        $placeholder = 'Select a timezone';
+        $formAttributes = array('id'=>"time_zone", 'class' => 'swegForm', 'name' => 'time_zone');
+
+        $timezone_form = Timezone::selectForm($selected_timezone, $placeholder, $formAttributes);
         
-        return view('admin.update_billing_details', compact('billing_details', 'countries', 'states'));
+        return view('admin.update_billing_details', compact('billing_details', 'countries', 'states', 'timezone_form'));
     }
 
     /**
