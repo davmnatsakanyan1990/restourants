@@ -17,7 +17,8 @@
                 data-placeholder-text-single="'Select some city'"
                 ng-model="city"
                 ng-init="city.name"
-                ng-options="item.name as item.name for item in cities">
+                ng-options="item.name as item.name for item in cities"
+                ng-change = "selectCity()">
 
         </select>
     </div>

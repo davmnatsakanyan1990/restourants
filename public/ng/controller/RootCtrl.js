@@ -63,9 +63,15 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
     //search restaurant in system
     $scope.SearchRestaurantInfo = function (value) {
-
+        debugger;
+       for(var i=0; i<$scope.cities.length; i++){
+           if($scope.cities[i].name == $scope.city){
+               $scope.cityID = $scope.cities[i].id;
+               break;
+           }
+       }
         var data = {
-            city: $scope.city,
+            id: $scope.cityID,
             restaurant: value
         };
         $scope.shearchRestaurants = true;
@@ -74,10 +80,9 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                 $scope.searcheInfo = response.data;
             });
     };
-    $scope.selectCity = function (data) {
-        debugger;
+    /*$scope.selectCity = function (data) {
         console.log(data)
-    };
+    };*/
 
     $scope.$watch(
         function(){
