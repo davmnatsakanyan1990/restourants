@@ -56,7 +56,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     //get cities
     RestaurantService.rootData()
         .then(function (response) {
-            $scope.cityInfo = response.data.current_city;
             $scope.city = response.data.current_city.name;
             $scope.cities = response.data.cities;
         });
