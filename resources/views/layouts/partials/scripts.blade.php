@@ -48,4 +48,4 @@
 
 <script src="{{asset('js/animateMenu.js')}}"></script>
 <script src="{{asset('js/slider2.js')}}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkB3G-qzliKWCg-x_LYj_BlP5wNRvg2BA&libraries=places" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places" async defer></script>
