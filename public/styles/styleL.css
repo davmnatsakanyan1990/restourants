@@ -29,7 +29,7 @@
 }
 .noElementFound {
   text-align: center;
-  margin-top: 150px;
+  /* margin-top: 150px;*/
   font-size: 20px;
 }
 .forBefore {
@@ -498,6 +498,12 @@ html body .popupBody input {
 html body .popupBody input:first-child {
   margin: 0;
 }
+html body .popupBody .leftButtonsArea {
+  margin-top: 15px;
+}
+html body .popupBody .leftButtonsArea button:first-child {
+  margin-left: 10px;
+}
 html body .popupHeader {
   text-align: center;
 }
@@ -639,7 +645,7 @@ html body .navigation .dropdownMenu .dropdownInner {
   position: relative;
   padding: 20px;
   width: 100%;
-  height: 400px;
+  max-height: 400px;
   background-color: white;
   overflow: auto;
 }
@@ -710,6 +716,7 @@ html body .navigation .dropdownMenu .dropdownInner .companyElement .companies {
   float: left;
   margin: 0 10px 10px 10px;
   cursor: pointer;
+  width: 280px;
 }
 html body .navigation .dropdownMenu .dropdownInner .companyElement .companies .companyTitle {
   font-weight: 600;
@@ -1121,31 +1128,27 @@ html body .content .pageSection .cont footer {
   color: #d2d1d1;
   padding: 20px;
 }
-html body .content .pageSection .cont footer .footerText {
+html body .content .pageSection .cont footer .footerAll {
   font-size: 16px;
 }
-html body .content .pageSection .cont footer .footerText:after {
+html body .content .pageSection .cont footer .footerAll:after {
   content: '';
   display: table;
   clear: both;
 }
-html body .content .pageSection .cont footer .footerText .footerSec {
+html body .content .pageSection .cont footer .footerAll .footerSec {
   float: left;
   margin-right: 20px;
 }
-html body .content .pageSection .cont footer .footerText .footerSec .footerText {
+html body .content .pageSection .cont footer .footerAll .footerSec .footerText {
   padding-bottom: 5px;
   text-transform: capitalize;
 }
-html body .content .pageSection .cont footer .footerText .footerSec .footerText:hover {
-  color: white;
-  cursor: pointer;
+html body .content .pageSection .cont footer .footerAll .footerSec .footerText:hover {
+  color: #ff7e00;
 }
-html body .content .pageSection .cont footer .footerText a {
-  color: #d2d1d1;
-}
-html body .content .pageSection .cont footer .footerText a:hover {
-  color: white;
+html body .content .pageSection .cont footer .footerAll .footerSec .footerText:hover a {
+  color: #ff7e00;
 }
 html body .content .pageSection .cont footer .socialIco {
   margin: 10px auto 0 auto;

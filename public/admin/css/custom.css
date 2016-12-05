@@ -1531,6 +1531,23 @@ button, button:active, button:focus {
 .footer ul li:last-child a:after {
     display: none;
 }
+.form-title{
+    color: #ff7e00 !important;
+}
+.orange{
+    background-color: #ff7e00;
+    color: white;
+}
+.orange:hover{
+    background-color: #ff7e00;
+    color: white;
+}
+.cst-form-button{
+    width: 100px;
+}
+.login .content .input-icon{
+    border-left: 2px solid #ff7e00 !important;
+}
 
 /*Footer style End*/
 

@@ -26,13 +26,13 @@
     <div id="carousel-id" class="carousel slide carus1" data-ride="carousel">
         <div class="carousel-inner">
             <div class="item">
-                <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="../images/restaurantSlider/sliderImg1.jpg">
+                <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" ng-src="<%myNewArr[0][0]%>">
             </div>
             <div class="item">
-                <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="../images/restaurantSlider/sliderImg2.jpg">
+                <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" ng-src="<%myNewArr[0][1]%>">
             </div>
             <div class="item active">
-                <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="../images/restaurantSlider/sliderImg3.jpg">
+                <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" ng-src="<%myNewArr[0][2]%>">
             </div>
         </div>
         <a class="left carousel-control" href=".carus1" data-slide="prev">
@@ -384,31 +384,35 @@
                 </div>
             </div>
             <footer>
-                <div class="footerText">
-                    <div class="footerSec">
-                        <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location
+                            </div>
+                            <div class="footerText" data-toggle="modal" data-target="#myModalMaster">register owner</div>
+                            <div class="footerText"><a href="#forOrganization">For Restaurant</a></div>
                         </div>
-                        <div class="footerText" data-toggle="modal" data-target="#myModalMaster">register owner</div>
-                        <div class="footerText"><a href="#forOrganization">for organization</a></div>
-                    </div>
-                    <div class="footerSec">
-                        <div class="footerText"><a href="#contacts">contacts</a></div>
-                        <div class="footerText"><a href="#aboutProject">about project</a></div>
-                        <div class="footerText">Noticed a Mistake - let us</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="footerText"><a href="#contacts">contacts</a></div>
+                            <div class="footerText"><a href="#aboutProject">about project</a></div>
+                            <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a Mistake - let us</div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 floating">
+                            <img src="../images/logo.png">
+                            <div class="footerExplane">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.</br> Beatae, corporis. Beatae, corporis.
+                            </div>
+                            <div class="footerSocial">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                {{--<div class="socialIco">
-                    <div class="fb">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </div>
-                    <div class="twit">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </div>
-                    <div class="google">
-                        <i class="fa fa-google-plus" aria-hidden="true"></i>
-                    </div>
-
-                </div>--}}
             </footer>
         </div>
     </div>
