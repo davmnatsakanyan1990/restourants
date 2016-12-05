@@ -87,7 +87,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="footerText"><a href="#contacts">contacts</a></div>
                     <div class="footerText"><a href="#aboutProject">about project</a></div>
-                    <div class="footerText">Noticed a Mistake - let us</div>
+                    <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a Mistake - let us</div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 floating">
                     <img src="../images/logo.png">
@@ -101,7 +101,6 @@
                         <i class="fa fa-instagram" aria-hidden="true"></i>
                         <i class="fa fa-google-plus" aria-hidden="true"></i>
                     </div>
-
                 </div>
             </div>
         </div>

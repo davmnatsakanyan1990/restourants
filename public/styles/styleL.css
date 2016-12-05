@@ -498,6 +498,12 @@ html body .popupBody input {
 html body .popupBody input:first-child {
   margin: 0;
 }
+html body .popupBody .leftButtonsArea {
+  margin-top: 15px;
+}
+html body .popupBody .leftButtonsArea button:first-child {
+  margin-left: 10px;
+}
 html body .popupHeader {
   text-align: center;
 }
