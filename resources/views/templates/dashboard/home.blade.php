@@ -313,7 +313,7 @@
                     </div>--}}
                 </div>
                 <footer>
-                    <div class="footerText">
+                    <div class="footerAll">
                         <div class="footerSec">
                             <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location
                             </div>

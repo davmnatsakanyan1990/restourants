@@ -1122,31 +1122,27 @@ html body .content .pageSection .cont footer {
   color: #d2d1d1;
   padding: 20px;
 }
-html body .content .pageSection .cont footer .footerText {
+html body .content .pageSection .cont footer .footerAll {
   font-size: 16px;
 }
-html body .content .pageSection .cont footer .footerText:after {
+html body .content .pageSection .cont footer .footerAll:after {
   content: '';
   display: table;
   clear: both;
 }
-html body .content .pageSection .cont footer .footerText .footerSec {
+html body .content .pageSection .cont footer .footerAll .footerSec {
   float: left;
   margin-right: 20px;
 }
-html body .content .pageSection .cont footer .footerText .footerSec .footerText {
+html body .content .pageSection .cont footer .footerAll .footerSec .footerText {
   padding-bottom: 5px;
   text-transform: capitalize;
 }
-html body .content .pageSection .cont footer .footerText .footerSec .footerText:hover {
-  color: white;
-  cursor: pointer;
+html body .content .pageSection .cont footer .footerAll .footerSec .footerText:hover {
+  color: #ff7e00;
 }
-html body .content .pageSection .cont footer .footerText a {
-  color: #d2d1d1;
-}
-html body .content .pageSection .cont footer .footerText a:hover {
-  color: white;
+html body .content .pageSection .cont footer .footerAll .footerSec .footerText:hover a {
+  color: #ff7e00;
 }
 html body .content .pageSection .cont footer .socialIco {
   margin: 10px auto 0 auto;
