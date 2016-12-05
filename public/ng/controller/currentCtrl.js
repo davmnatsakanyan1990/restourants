@@ -37,7 +37,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
         .then(function (response) {
             $scope.currentRestaurant = response.data;
             $scope.moreCommentsToShow = $scope.currentRestaurant.more_comments;
-            console.log(response.data);
+
             //make map point
             $scope.initMap({
                 zoom: 16,
@@ -59,7 +59,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
             //
 
             $scope.hoursPart = $scope.currentRestaurant.workingHours;
-            console.log($scope.hoursPart);
 
 
             for(var a in $scope.hoursPart){
@@ -69,7 +68,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 
             }
-            console.log($scope.hoursPart);
 
 
             $scope.haveData = true;
@@ -114,6 +112,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                 }
             }
             $scope.$parent.docLoader = false;
+            console.log($scope.myNewArr);
 
         }.bind($scope));
 
