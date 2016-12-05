@@ -34,11 +34,12 @@
 <script src="{{asset('ng/controller/currentCtrl.js')}}"></script>
 <script src="{{asset('ng/controller/categoryController.js')}}"></script>
 <script src="{{asset('ng/controller/homeCtrl.js')}}"></script>
+<script src="{{asset('ng/controller/homeCtrl.js')}}"></script>
+<script src="{{asset('ng/controller/footerController.js')}}"></script>
 
 {{--directives--}}
 <script src="{{asset('ng/directive/scroll.js')}}"></script>
 <script src="{{asset('ng/directive/starRating.js')}}"></script>
-<script src="{{asset('ng/directive/loader.js')}}"></script>
 
 
 
