@@ -89,7 +89,10 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         },
         function(newValue, oldValue){
             setCookie('pageUrl', newValue, 3600);
+            $scope.searchInfo = "";
+            $scope.shearchRestaurants = false
         });
+
 
     $scope.showSearch = function(){
         $scope.search = false

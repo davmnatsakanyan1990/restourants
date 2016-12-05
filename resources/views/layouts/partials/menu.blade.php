@@ -41,7 +41,7 @@
 
     <div class="dropdownMenu" ng-show="shearchRestaurants" ng-class="{'secondPart': !first}">
         <div class="dropdownInner" ng-class="first ? 'first' : 'second'">
-            <i class="fa fa-times" aria-hidden="true" ng-click="shearchRestaurants = false"></i>
+            <i class="fa fa-times" aria-hidden="true" ng-click="shearchRestaurants = false; searchInfo = ''"></i>
             <div class="companyElement clearElement">
                 <div class="companies" ng-repeat="company in searcheInfo">
                     <a href="#/<% city %>/<% company.name %>/<% company.id %>">
