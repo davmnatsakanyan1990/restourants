@@ -160,7 +160,33 @@
   }
 }
 
+.categoryBlock{
+  .categoryImage{
+    display: block;
+  }
+  .categoryHoverImage{
+    display: none;
+  }
+  .text{
+    font-size: 11px;
+    color: #3c3e51;
+    margin-top: 5px
+  }
+  &:hover{
+    .categoryImage{
+      display: none;
+    }
+    .categoryHoverImage{
+      display: block;
+    }
+    .text{
+      font-size: 11px;
+      color: #ff7e00;
+      margin-top: 5px
+    }
+  }
 
+}
 html{
   height: 100vh;
   body{
