@@ -83,7 +83,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             if(response.data.restaurants.length > 0) {
                 $scope.initMap({
                     zoom: 12,
-                    center: new google.maps.LatLng($scope.restaurants[0].lat * 1, $scope.restaurants[0].long * 1 - 0.3),
+                    center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                     scrollwheel: false,
                     mapTypeId: google.maps.MapTypeId.TERRAIN
                 });
@@ -121,9 +121,14 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             });
     };
 
-    $scope.initMap = function(mapOptions){
+    $scope.initMap = function(mapOption){
 
-        var mapOptions = mapOptions || {
+        var mapOptions = {
+                zoom: mapOption.zoom,
+                center: new google.maps.LatLng(mapOption.center[0], mapOption.center[1]),
+                scrollwheel: mapOption.scrollwheel,
+                mapTypeId: mapOption.mapTypeId
+            } || {
                 zoom: 12,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
@@ -138,10 +143,10 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
 
         $scope.map.fitBounds(bounds); // map should be your map class
-        $scope.map.setCenter(mapOptions.center); //set after fitBounds
 
         var listener = google.maps.event.addListener($scope.map, "idle", function() {
             $scope.map.setZoom(mapOptions['zoom']);
+            $scope.map.setCenter(new google.maps.LatLng(mapOption.center[0],mapOption.center[1])); //set after fitBounds
             google.maps.event.removeListener(listener);
         });
     };
@@ -181,7 +186,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             last_comment: info.last_comment,
             explane: info.explane,
             rating: info.rating,
-            hoverPosition: new google.maps.LatLng(info.lat*1+0.043, info.long*1-0.106),
+            hoverPosition: new google.maps.LatLng(info.lat*1+0.033, info.long*1-0.106)
 
         });
 
@@ -346,7 +351,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                         if(response.data.restaurants.length > 0) {
                             $scope.initMap({
                                 zoom: 12,
-                                center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016),
+                                center: [$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016],
                                 scrollwheel: false,
                                 mapTypeId: google.maps.MapTypeId.TERRAIN
                             });
@@ -412,8 +417,8 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                     $scope.restaurants = response.data.restaurants;
 
                     $scope.initMap({
-                        zoom: 16,
-                        center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
+                        zoom: 12,
+                        center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                         scrollwheel: false,
                         mapTypeId: google.maps.MapTypeId.TERRAIN
                     });
@@ -433,7 +438,6 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
 
   setTimeout(function() {
-        console.log(document.readyState );
         if(document.readyState === 'complete') {
 
             /*window.scroll(0, 320);*/
