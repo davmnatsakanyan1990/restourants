@@ -34,4 +34,15 @@ class HomeController extends Controller
         $data['current_city'] = City::where('id', 1)->select(['id', 'name'])->first(); //TODO change city by location
         return $data;
     }
+    
+    public function detectUserCity(Request $request){
+        foreach($request->addresses as $address){
+            $city = City::where('name', $address['long_name'])->first();
+            if($city){
+                return response()->json(['city' => $city, 'status' => 1]);
+            }
+        }
+
+        return response()->json(['status' => 0]);
+    }
 }
