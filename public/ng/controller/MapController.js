@@ -147,11 +147,11 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             for(var r = 0; r < $scope.showFilters['Location'].length; r++){
                 $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
             }
-
             if(response.data.restaurants.length > 0) {
+                console.log($scope.restaurants[0].lat, $scope.restaurants[0].long);
                 $scope.initMap({
                     zoom: 12,
-                    center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016),
+                    center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                     scrollwheel: false,
                     mapTypeId: google.maps.MapTypeId.TERRAIN
                 });
@@ -216,9 +216,13 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     //    
     // };
 
-    $scope.initMap = function(mapOptions){
-
-        var mapOptions = mapOptions || {
+    $scope.initMap = function(mapOption){
+        var mapOptions = {
+            zoom: mapOption.zoom,
+                center: new google.maps.LatLng(mapOption.center[0], mapOption.center[1]),
+                scrollwheel: mapOption.scrollwheel,
+                mapTypeId: mapOption.mapTypeId
+        } || {
                 zoom: 12,
                 center: new google.maps.LatLng(40.0000, -98.0000),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
@@ -233,12 +237,13 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
 
         $scope.map.fitBounds(bounds); // map should be your map class
-        $scope.map.setCenter(mapOptions.center); //set after fitBounds
 
         var listener = google.maps.event.addListener($scope.map, "idle", function() {
             $scope.map.setZoom(mapOptions['zoom']);
+            $scope.map.setCenter(new google.maps.LatLng(mapOption.center[0],mapOption.center[1])); //set after fitBounds
             google.maps.event.removeListener(listener);
         });
+
     };
 
     var infoWindow = new google.maps.InfoWindow();
@@ -275,7 +280,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             last_comment: info.last_comment,
             explane: info.explane,
             rating: info.rating,
-            hoverPosition: new google.maps.LatLng(info.lat*1+0.043, info.long*1-0.106),
+            hoverPosition: new google.maps.LatLng(info.lat*1+0.033, info.long*1-0.106),
 
         });
 
@@ -309,6 +314,12 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             $scope.safeApply(
                 $scope.clichedElementId
             );
+        });
+
+        google.maps.event.addListener(marker, 'mouseover', function(){
+
+            console.log(marker.id);
+
         });
 
 
@@ -526,7 +537,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                     $scope.restaurants = response.data.restaurants;
 
                     $scope.initMap({
-                        zoom: 16,
+                        zoom: 12,
                         center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
                         scrollwheel: false,
                         mapTypeId: google.maps.MapTypeId.TERRAIN
