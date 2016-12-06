@@ -180,8 +180,6 @@ Route::get('run_cron', function(){
     }
 });
 
-Route::get('test', function (\Illuminate\Support\Facades\Request $request){
-    dd($request->ip());
-});
+Route::get('test/{place_id}', 'PlaceController@getLastComment');
 
 
