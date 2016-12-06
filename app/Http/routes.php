@@ -147,6 +147,7 @@ Route::get('search', 'PlaceController@search');
 Route::get('comments', 'PlaceController@moreComments');
 Route::get('sendmail/{email}', 'UserController@sendMail');
 Route::post('add_organization', 'HomeController@addOrganization');
+Route::post('detect_user_city', 'HomeController@detectUserCity');
 
 
 /**
