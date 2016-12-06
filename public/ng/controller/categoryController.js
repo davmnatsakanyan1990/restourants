@@ -49,7 +49,11 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             if(window.innerWidth > 600){
                 $scope.modeLoad = true;
                 for(var a=0; a< response.data.filters.Mode.length; a++){
-                    $scope.category.push({'name' : response.data.filters.Mode[a].name, 'id' : response.data.filters.Mode[a].id, 'image' : '../images/foodImages/'+(a+1)+'.png'})
+                    $scope.category.push({
+                        'name' : response.data.filters.Mode[a].name,
+                        'id' : response.data.filters.Mode[a].id,
+                        'image' : '../images/foodImages/'+(a+1)+'.png',
+                        'image2': '../images/foodImages/'+(a+1)+'1.png'})
                 }
             }else{
                 $scope.modeLoad = false;

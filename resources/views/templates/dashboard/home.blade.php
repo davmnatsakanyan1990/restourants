@@ -19,11 +19,11 @@
                             <div class="item">
                                 <div class="row">
                                     <div class="col-md-2 col-xs-2 col-sm-2" ng-repeat="cat in category track by $index">
-                                        <a class="thumbnail" href="#/<% city %>/category/<% cat.name %>/<% cat.id %>"
+                                        <a class="thumbnail categoryBlock" href="#/<% city %>/category/<% cat.name %>/<% cat.id %>"
                                            style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" >
-                                            <img src="<%cat.image%>" style="max-width:100%;">
-                                            <div class="text"
-                                                 style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
+                                            <img src="<%cat.image%>" style="max-width:100%;" class="categoryImage">
+                                            <img src="<%cat.image2%>" style="max-width:100%;" class="categoryHoverImage">
+                                            <div class="text">
                                                 <% cat.name %>
                                             </div>
                                         </a>

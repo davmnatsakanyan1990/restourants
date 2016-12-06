@@ -144,6 +144,28 @@
 .confirmation i.fa-times {
   color: #db4437;
 }
+.categoryBlock .categoryImage {
+  display: block;
+}
+.categoryBlock .categoryHoverImage {
+  display: none;
+}
+.categoryBlock .text {
+  font-size: 11px;
+  color: #3c3e51;
+  margin-top: 5px;
+}
+.categoryBlock:hover .categoryImage {
+  display: none;
+}
+.categoryBlock:hover .categoryHoverImage {
+  display: block;
+}
+.categoryBlock:hover .text {
+  font-size: 11px;
+  color: #ff7e00;
+  margin-top: 5px;
+}
 html {
   height: 100vh;
 }
