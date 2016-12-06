@@ -148,7 +148,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                 $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
             }
             if(response.data.restaurants.length > 0) {
-                console.log($scope.restaurants[0].lat, $scope.restaurants[0].long);
                 $scope.initMap({
                     zoom: 12,
                     center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
@@ -237,6 +236,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             bounds.extend($scope.markers[i].position) // your marker position, must be a LatLng instance
 
         $scope.map.fitBounds(bounds); // map should be your map class
+        $scope.map.setCenter(new google.maps.LatLng(mapOption.center[0],mapOption.center[1])); //set after fitBounds
 
         var listener = google.maps.event.addListener($scope.map, "idle", function() {
             $scope.map.setZoom(mapOptions['zoom']);
@@ -280,7 +280,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             service: info.service,
             explane: info.explane,
             rating: info.rating,
-            hoverPosition: new google.maps.LatLng(info.lat*1+0.033, info.long*1-0.106),
+            hoverPosition: new google.maps.LatLng(info.lat*1+0.033, info.long*1-0.106)
 
         });
 
@@ -461,7 +461,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
             RestaurantService.filterRestaurant($scope.callData)
                 .then(function (response) {
-
                     if(response.data.restaurants) {
                         if(response.data.status && response.data.status == 'ended'){
                             $scope.noMoreInfoToShow = true;
@@ -471,7 +470,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                         if(response.data.restaurants.length > 0) {
                             $scope.initMap({
                                 zoom: 12,
-                                center: new google.maps.LatLng($scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016),
+                                center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                                 scrollwheel: false,
                                 mapTypeId: google.maps.MapTypeId.TERRAIN
                             });
@@ -492,8 +491,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                     }
                 });
         }
-    }
-    ;
+    };
 
     //when delete a filter after click in it
     $scope.deleteElementFromFilter = function (filter, type) {
@@ -538,7 +536,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
                     $scope.initMap({
                         zoom: 12,
-                        center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
+                        center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                         scrollwheel: false,
                         mapTypeId: google.maps.MapTypeId.TERRAIN
                     });
