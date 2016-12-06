@@ -235,6 +235,8 @@ class PlaceController extends Controller
                 }
                 $place['service'] = $hs;
 
+                $place['last_comment'] = $this->getLastComment($item['id']);
+
                 array_push($restaurants, $place);
             }
         }
@@ -245,6 +247,15 @@ class PlaceController extends Controller
         $response['noMoreData']  = $noMoreData;
 
         return $response;
+    }
+
+    public function getLastComment($place_id){
+        $place_comments = Place::find($place_id)->comments()->where('parent_id', 0)->get()->toArray();
+        foreach($place_comments as $comment){
+            if(strlen($comment['text']) > 120){
+                return str_limit($comment['text'], 120);
+            }
+        }
     }
 
     /**

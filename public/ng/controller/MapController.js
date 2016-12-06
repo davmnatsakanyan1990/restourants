@@ -272,7 +272,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             title: info.title,
             id: info.id,
             image: info.image,
-            service: info.service,
+            last_comment: info.last_comment,
             explane: info.explane,
             rating: info.rating,
             hoverPosition: new google.maps.LatLng(info.lat*1+0.043, info.long*1-0.106),
