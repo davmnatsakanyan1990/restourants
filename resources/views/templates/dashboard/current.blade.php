@@ -26,13 +26,13 @@
     <div id="carousel-id" class="carousel slide carus1" data-ride="carousel">
         <div class="carousel-inner">
             <div class="item">
-                <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" ng-src="<%myNewArr[0][0]%>">
+                <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="../images/restaurantSlider/sliderImg1.jpg">
             </div>
             <div class="item">
-                <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" ng-src="<%myNewArr[0][1]%>">
+                <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide"  src="../images/restaurantSlider/sliderImg2.jpg">
             </div>
             <div class="item active">
-                <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" ng-src="<%myNewArr[0][2]%>">
+                <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="../images/restaurantSlider/sliderImg3.jpg">
             </div>
         </div>
         <a class="left carousel-control" href=".carus1" data-slide="prev">
