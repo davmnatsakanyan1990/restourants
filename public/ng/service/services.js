@@ -95,7 +95,24 @@ app.factory('RestaurantService', function($http) {
                 method: "GET",
                 url : "root/data"
             })
-        }
+        },
+        GoogleApiGeolocation: function(){
+            return $http({
+                method : "GET",
+                url : 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+Math.round(lat * 100) / 100+','+Math.round(lon * 100) / 100+'&key=AIzaSyAkB3G-qzliKWCg-x_LYj_BlP5wNRvg2BA' //TODO google api key
+            })
+        },
+        detectUserCity: function(data){
+            return  $http({
+                method : 'POST',
+                url : 'detect_user_city',
+                data : {
+                    addresses: data
+                }
+            })
+        },
+
+
 
 
     };

@@ -199,6 +199,27 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
          }
     };
 
+    //open write comment part
+    $scope.openReply = function (event) {
+        var elementParent = event.target.parentNode;
+        var elementToShow = $(elementParent).find('.writeSubComment');
+        var classes = elementToShow[0].classList;
+
+        var dontHave = true;
+        for(var clas=0; clas<classes.length; clas++){
+            if(classes[clas] == 'openToWrite'){
+                dontHave = false;
+                break;
+            }
+        }
+        if(!dontHave){
+            classes.remove('openToWrite')
+        }else{
+            classes.add('openToWrite')
+        }
+    };
+
+
     //map section
     var infoWindow = new google.maps.InfoWindow();
 

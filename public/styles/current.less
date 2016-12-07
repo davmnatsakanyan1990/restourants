@@ -44,10 +44,10 @@ button{
   margin-right: 10px;
 }
 .writeComment{
-  background-color: @mainColor;
+  background-color: #ff7e00;
   color: white;
   font-size: 16px;
-  border: 1px solid @mainColor;
+  border: 1px solid #ff7e00;
   font-weight: 400;
   padding: 5px;
   min-width: 80px;
@@ -170,6 +170,11 @@ button{
       }
     }
   }
+}
+.openToWrite{
+  height: 40px !important;
+  overflow: auto;
+  transition: 0.3s;
 }
 .restPageContainer{
   width: 100%;
@@ -479,7 +484,7 @@ button{
         }
         .commentContent{
           border-top: 1px solid #efefef;
-          padding: 25px 0;
+          padding: 25px 0 25px 40px;
           .commentTopPart{
             margin-bottom: 5px;
             .name{
@@ -488,49 +493,59 @@ button{
             }
             .rate{}
             .photo{
-              width: 50px;
-              height: 50px;
+              width: 40px;
+              height: 40px;
               border-radius: 100%;
               background-color: @mainColor;
               color: @secondColor;
               text-align: center;
-              line-height: 50px;
-              font-size: 18px;
+              line-height: 40px;
+              font-size: 16px;
               text-transform: capitalize;
               img{
                 width: 100%;
-                height: 100%;
+                height: auto;
               }
             }
 
           }
           .comment{
-            margin-bottom: 10px;
-            max-width: 900px;
+            max-width: 800px;
+            display: inline-block;
+          }
+          .replyOpen{
+            margin-left: 20px;
+            color: #3d3f52;
+            font-weight: 600;
+            cursor: pointer;
           }
           .subComment{
             .commentContent{
+              max-width: 800px;
               margin: 0 30px;
               background-color: #efefef;
               padding-left: 20px;
-              border-bottom: 1px solid @secondColor;
+              border-bottom: 5px solid @secondColor;
             }
           }
           .writeSubComment{
-            margin-left: 30px;
-            height: 40px;
-            margin-top: 10px;
+            margin: 10px 30px;
+            height: 0;
+            overflow: hidden;
+            transition: 0.3s;
             .replyInput{
               background-color: white;
               height: 40px;
               width: 30%;
+              border-right: 0;
             }
             .replyButton{
-              background-color: #00897B;
-              color: @secondColor;
+              background-color: #efefef;
               height: 100%;
-              width: 80px;
-              border: none;
+              width: 30px;
+              border: 1px solid #9e9e9e;
+              border-left: none;
+              color: #9e9e9e;
             }
           }
         }

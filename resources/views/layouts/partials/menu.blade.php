@@ -37,8 +37,6 @@
         <div class="logout" ng-if="openLogOut" ng-click = "logout()">log out</div>
     </div>
 
-
-
     <div class="dropdownMenu" ng-show="shearchRestaurants" ng-class="{'secondPart': !first}">
         <div class="dropdownInner" ng-class="first ? 'first' : 'second'">
             <i class="fa fa-times" aria-hidden="true" ng-click="shearchRestaurants = false; searchInfo = ''"></i>
@@ -55,42 +53,6 @@
         </div>
     </div>
 </div>
-
-
-
-    {{--<div class="dropdownMenu" ng-show="custom" ng-class="{'secondPart': !first}">
-        <div class="dropdownInner" ng-class="first ? 'first' : 'second'">
-            <div class="dropdownInnerText" ng-if="first" ng-repeat="category in categories">
-                <div class="dropdownTitle" ng-bind="category.title"></div>
-                <div class="dropdownText" ng-bind="category.text"></div>
-            </div>
-            <div class="topButtons" ng-if="!first">
-                <button class="filterButtons mergedButtons">Country1</button>
-                <button class="filterButtons mergedButtons">Country1</button>
-                <button class="filterButtons mergedButtons">Country1</button>
-                <button class="filterButtons mergedButtons">Country1</button>
-
-            </div>
-            <div class="dropdownInnerText2" ng-if="!first">
-                <div class="dropdownText" ng-if="places.length>0">
-                    <div  ng-repeat="place in places[0] track by $index" ng-bind="place">
-                    </div>
-                </div>
-                <div class="dropdownText" ng-if="places.length>1">
-                    <div ng-repeat="place in places[1] track by $index" ng-bind="place"></div>
-                </div>
-                <div class="dropdownText" ng-if="places.length>2">
-                    <div ng-repeat="place in places[2] track by $index" ng-bind="place"></div>
-                </div>
-                <div class="dropdownText" ng-if="places.length>3">
-                    <div ng-repeat="place in places[3] track by $index" ng-bind="place"></div>
-                </div>
-                <div class="dropdownText" ng-if="places.length>4">
-                    <div ng-repeat="place in places[4] track by $index" ng-bind="place"></div>
-                </div>
-            </div>
-        </div>
-    </div>--}}
 
 </div>
 
