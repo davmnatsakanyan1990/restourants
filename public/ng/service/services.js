@@ -96,10 +96,10 @@ app.factory('RestaurantService', function($http) {
                 url : "root/data"
             })
         },
-        GoogleApiGeolocation: function(){
+        GoogleApiGeolocation: function(data){
             return $http({
                 method : "GET",
-                url : 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+Math.round(lat * 100) / 100+','+Math.round(lon * 100) / 100+'&key=AIzaSyAkB3G-qzliKWCg-x_LYj_BlP5wNRvg2BA' //TODO google api key
+                url : 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+Math.round(data.lat * 100) / 100+','+Math.round(data.lon * 100) / 100+'&key=AIzaSyAkB3G-qzliKWCg-x_LYj_BlP5wNRvg2BA' //TODO google api key
             })
         },
         detectUserCity: function(data){

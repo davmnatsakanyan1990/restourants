@@ -56,8 +56,14 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     //get cities
     RestaurantService.rootData()
         .then(function (response) {
-            $scope.city = response.data.current_city.name;
+            debugger;
+            if(localStorage.cityName){
+                $rootScope.city =JSON.parse(localStorage.cityName);
+            }else{
+                $rootScope.city = response.data.current_city.name;
+            }
             $scope.cities = response.data.cities;
+
         });
 
     //search restaurant in system
