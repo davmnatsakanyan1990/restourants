@@ -56,7 +56,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
     //get cities
     RestaurantService.rootData()
         .then(function (response) {
-            debugger;
             if(localStorage.cityName){
                 $rootScope.city =JSON.parse(localStorage.cityName);
             }else{
