@@ -284,6 +284,13 @@
                                 </div>
                             </div>
                             <div class="comment" ng-bind="com.comment"></div>
+                            <span class="replyOpen" ng-click="openReply($event)" ng-if="logedUser">reply</span>
+                            <div class="writeSubComment clearElement" ng-if="logedUser">
+                                <input type="text" class="elementLeft replyInput" placeholder="Reply to this comment" ng-model="com.commentReply"/>
+                                <button class="replyButton elementLeft" ng-click="writeCommentNow(com)">
+                                    <i class="fa fa-reply" aria-hidden="true"></i>
+                                </button>
+                            </div>
                             <div class="subComment" ng-if="com.subComment">
                                 <div class="commentContent" ng-repeat="sub in com.subComment">
                                     <div class="clearElement commentTopPart">
@@ -337,10 +344,7 @@
                                     <div class="comment" ng-bind="sub.comment"></div>
                                 </div>
                             </div>
-                            <div class="writeSubComment clearElement" ng-if="logedUser">
-                                <input type="text" class="elementLeft replyInput" placeholder="Reply to this comment" ng-model="com.commentReply"/>
-                                <button class="replyButton elementLeft" ng-click="writeCommentNow(com)">Reply</button>
-                            </div>
+
                         </div>
                         <div class="bottomPart">
                             <button class="capitalize writeComment " ng-click="moreComments()" ng-if="moreCommentsToShow">show more</button>
