@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\SuperAdmin;
 
+use App\Models\Admin;
+use App\Models\Place;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,6 +22,22 @@ class HomeController extends Controller
     }
     
     public function index(){
-        dd($this->super_admin);
+//        dd($this->super_admin);
+        return view('super_admin/home');
     }
+    
+    public function update(Request $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email'
+        ]);
+        
+        $admin = Place::find($request->place_id)->admin;
+
+        Admin::find($admin->id)->update(['name' => $request->name, 'email' => $request->email]);
+        
+        return response()->json(['status'=>1]);
+    }
+    
+    
 }

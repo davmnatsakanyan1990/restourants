@@ -83,7 +83,7 @@ class Place extends Model
     }
     
     public function admin(){
-        return $this->belongsTo('App\Models\Place')->withTrashed();
+        return $this->belongsTo(Admin::class);
     }
     
     public function payment(){
