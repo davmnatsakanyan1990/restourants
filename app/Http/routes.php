@@ -43,6 +43,8 @@ Route::group([
 ],
     function(){
         Route::get('dashboard', 'HomeController@index');
+        Route::get('search', 'SearchController@search');
+        Route::get('update', 'HomeController@update');
     });
 
 /**
@@ -180,13 +182,8 @@ Route::get('run_cron', function(){
     }
 });
 
-Route::get('generate_comments_date', function(){
-    $comments = \App\Models\Comment::where('id', '<', '33464')->get()->toArray();
-    foreach($comments as $comment){
-        $r = mt_rand(1464825600, 1481027850);
-        $date = date('Y-m-d H:i:s', $r);
-        \App\Models\Comment::where('id', $comment['id'])->update(['created_at' => $date]);
-    }
+Route::get('test', function(){
+
 });
 
 
