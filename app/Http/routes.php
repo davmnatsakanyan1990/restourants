@@ -82,6 +82,14 @@ Route::group([
 ],
     function(){
         Route::get('dashboard', 'DashboardController@index');
+        Route::get('terms_of_use', function(){
+            return view('admin/terms_of_use');
+        });
+        Route::get('privacy_policy', function(){
+            return view('admin/privacy_policy');
+        });
+        Route::get('contact_us', 'ContactUsController@index');
+        
     });
 
 Route::group([
