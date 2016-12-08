@@ -1,0 +1,344 @@
+input{
+    border: 1px solid #9e9e9e;
+    height: 45px;
+    padding: 0 20px;
+    outline: none;
+}
+.organizationContent {
+    color: #000;
+    background-color: white;
+    width: 100%;
+    /*margin-top: 40px;*/
+}
+.organizationContent .special {
+    color: #ff7e00;
+}
+.organizationContent .organization {
+    padding: 125px 150px 120px 150px;
+}
+.organizationContent .organization .organizationTitle {
+    font-size: 65px;
+    font-family: 'Museo Slab 500';
+    color: #3d3d3d;
+}
+.organizationContent .organization .subTitle {
+    margin-top: 65px;
+    font-size: 35px;
+    font-family: 'Museo Slab 500';
+    color: #3d3d3d;
+    border-bottom: 1px solid #dddddd;
+    width: auto;
+    display: inline-block;
+}
+.organizationContent .organization .subTitle .line {
+    height: 2px;
+    background-color: #ff7e00;
+    width: 90px;
+}
+.organizationContent .organization .subContent {
+    font-size: 26px;
+    font-family: 'Source Sans Pro';
+    color: #3d3d3d;
+    margin-top: 26px;
+    font-weight: 600;
+    color: #716f6f;
+    text-align: justify;
+}
+.organizationContent .organization .fourBlocks {
+    margin-top: 40px;
+}
+.organizationContent .organization .fourBlocks .block {
+    text-align: center;
+}
+.organizationContent .organization .fourBlocks .block .blockRound {
+    font-size: 42px;
+    color: #ff7e00;
+    border: 1px solid #dfdfdf;
+    display: inline-block;
+    padding: 7px 0 0 0;
+    text-align: center;
+    height: 60px;
+    width: 112px;
+    border-radius: 90px 90px 0 0;
+    -moz-border-radius: 90px 90px 0 0;
+    -webkit-border-radius: 90px 90px 0 0;
+    background: white;
+    border-bottom: none;
+    z-index: 22;
+    position: relative;
+}
+.organizationContent .organization .fourBlocks .block .blockRect {
+    border: 1px solid #dddddd;
+    position: relative;
+    top: -1px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.organizationContent .organization .fourBlocks .block .blockRect .rectTitle {
+    font-size: 22px;
+    font-family: 'Museo Slab 500';
+    color: #3d3f52;
+}
+.organizationContent .organization .fourBlocks .block .blockRect .rectText {
+    font-size: 16px;
+    padding-top: 10px;
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    color: #716f6f;
+}
+.organizationContent .organization .buttonBlock {
+    font-family: 'Museo Slab 500';
+    text-align: center;
+}
+.organizationContent .organization .buttonBlock .buttonPart {
+    font-size: 22px;
+    color: #3d3f52;
+    border: 1px solid #ff7e00;
+    padding: 16px 18px;
+    background-color: white;
+    border-radius: 10px;
+    /*display: inline-block;*/
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 80px;
+}
+.organizationContent .organization .buttonBlock .buttonPart i {
+    margin-left: 27px;
+    color: #ff7e00;
+    transition: 0.3s;
+}
+.organizationContent .organization .buttonBlock .buttonPart:hover i {
+    padding: 0 5px;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.organizationContent footer {
+    color: white;
+}
+.organizationContent footer .row {
+    padding: 0 140px;
+}
+.organizationContent footer img {
+    height: 20px;
+}
+.organizationContent footer .footerText {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-top: 7px;
+    cursor: pointer;
+}
+.organizationContent footer .footerText:hover {
+    color: #ff7e00;
+}
+.organizationContent footer .footerText:hover a {
+    color: #ff7e00;
+}
+.organizationContent footer .footerText a {
+    color: white;
+}
+.organizationContent footer .footerExplane {
+    line-height: 16px;
+    margin-top: 7px;
+}
+.organizationContent footer .footerSocial {
+    margin-top: 10px;
+}
+.organizationContent footer .footerSocial i {
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.organizationContent footer .footerSocial i:hover {
+    color: #ff7e00;
+}
+@media screen and (max-width: 1260px) {
+    .organizationContent .organization {
+        padding: 125px 60px 120px 60px;
+    }
+    .organizationContent footer .row {
+        padding: 0 40px;
+    }
+    .block {
+        margin-top: 20px;
+    }
+}
+/*contacts page*/
+.contacts {
+    color: #000;
+    background-color: white;
+    width: 100%;
+    /*margin-top: 40px;*/
+}
+.contacts .subTitle {
+    margin-top: 65px;
+    font-size: 35px;
+    font-family: 'Museo Slab 500';
+    color: #3d3d3d;
+    border-bottom: 1px solid #dddddd;
+    width: auto;
+    display: inline-block;
+}
+.contacts .subTitle .line {
+    height: 2px;
+    background-color: #ff7e00;
+    width: 90px;
+}
+.contacts .topImage {
+    background: url("../img/contacs.png") no-repeat;
+    width: 100%;
+    height: 400px;
+}
+.contacts .topImage .contactText {
+    color: white;
+    text-align: center;
+    padding-top: 70px;
+}
+.contacts .topImage .contactText .contactTitle {
+    font-size: 65px;
+    font-family: 'Museo Slab 500';
+}
+.contacts .topImage .contactText .contactContent {
+    font-size: 24px;
+    font-family: 'Source Sans Pro';
+    margin: 40px 500px 0 500px;
+}
+.contacts .infoPart {
+    margin: 0 150px 65px 150px;
+}
+.contacts .infoPart input[type=text] {
+    width: 100%;
+    background-color: white;
+}
+.contacts .infoPart textarea {
+    width: 100%;
+    height: 240px;
+    margin-top: 25px;
+    resize: none;
+    padding: 15px 20px;
+}
+.contacts .infoPart textarea:active,
+.contacts .infoPart textarea:focus {
+    outline: none;
+}
+.contacts .infoPart .inputs {
+    margin-top: 55px;
+}
+.contacts .infoPart button {
+    width: 100%;
+    color: white;
+    background-color: #ff7e00;
+    border: 1px solid #ff7e00;
+    height: 45px;
+    font-size: 24px;
+    margin-top: 15px;
+}
+.contacts .infoPart .contactText {
+    font-size: 22px;
+    color: #000;
+}
+.contacts .infoPart .contactInfo {
+    font-size: 18px;
+    color: #6d6d6d;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 22px 0;
+}
+.contacts .infoPart .contactInfo i {
+    color: #ff7e00;
+    margin-right: 15px;
+    font-size: 20px;
+}
+.contacts footer {
+    color: white;
+}
+.contacts footer .row {
+    padding: 0 140px;
+}
+.contacts footer img {
+    height: 20px;
+}
+.contacts footer .footerText {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-top: 7px;
+    cursor: pointer;
+}
+.contacts footer .footerText:hover {
+    color: #ff7e00;
+}
+.contacts footer .footerText:hover a {
+    color: #ff7e00;
+}
+.contacts footer .footerText a {
+    color: white;
+}
+.contacts footer .footerExplane {
+    line-height: 16px;
+    margin-top: 7px;
+}
+.contacts footer .footerSocial {
+    margin-top: 10px;
+}
+.contacts footer .footerSocial i {
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.contacts footer .footerSocial i:hover {
+    color: #ff7e00;
+}
+@media screen and (max-width: 1602px) and (min-width: 830px) {
+    .contacts .topImage {
+        background: url("../img/contacs.png") no-repeat;
+        width: 100%;
+        height: 400px;
+    }
+    .contacts .topImage .contactText {
+        color: white;
+        text-align: center;
+        padding-top: 70px;
+    }
+    .contacts .topImage .contactText .contactTitle {
+        font-size: 65px;
+        font-family: 'Museo Slab 500';
+    }
+    .contacts .topImage .contactText .contactContent {
+        font-size: 24px;
+        font-family: 'Source Sans Pro';
+        margin: 40px 100px 0 100px;
+    }
+    .contacts .infoPart {
+        margin: 0 50px 65px 50px;
+    }
+}
+@media screen and (max-width: 830px) {
+    .contacts .topImage {
+        background: url("../img/contacs.png") no-repeat;
+        width: 100%;
+        height: 400px;
+    }
+    .contacts .topImage .contactText {
+        color: white;
+        text-align: center;
+        padding-top: 70px;
+    }
+    .contacts .topImage .contactText .contactTitle {
+        font-size: 65px;
+        font-family: 'Museo Slab 500';
+    }
+    .contacts .topImage .contactText .contactContent {
+        font-size: 20px;
+        font-family: 'Source Sans Pro';
+        margin: 20px 30px 0 30px;
+    }
+    .contacts .infoPart {
+        margin: 0 50px 65px 50px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .contacts input {
+        margin-top: 10px;
+    }
+}
