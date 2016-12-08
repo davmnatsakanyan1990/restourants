@@ -14,16 +14,17 @@ input{
     color: #ff7e00;
 }
 .organizationContent .organization {
-    padding: 125px 150px 120px 150px;
+    padding: 60px;
 }
 .organizationContent .organization .organizationTitle {
-    font-size: 65px;
+    font-size: 40px;
     font-family: 'Museo Slab 500';
     color: #3d3d3d;
+    margin-top: 20px;
 }
 .organizationContent .organization .subTitle {
-    margin-top: 65px;
-    font-size: 35px;
+    margin-top: 10px;
+    font-size: 30px;
     font-family: 'Museo Slab 500';
     color: #3d3d3d;
     border-bottom: 1px solid #dddddd;
@@ -36,7 +37,7 @@ input{
     width: 90px;
 }
 .organizationContent .organization .subContent {
-    font-size: 26px;
+    font-size: 20px;
     font-family: 'Source Sans Pro';
     color: #3d3d3d;
     margin-top: 26px;
@@ -156,7 +157,7 @@ input{
 }
 @media screen and (max-width: 1260px) {
     .organizationContent .organization {
-        padding: 125px 60px 120px 60px;
+        padding: 60px;
     }
     .organizationContent footer .row {
         padding: 0 40px;

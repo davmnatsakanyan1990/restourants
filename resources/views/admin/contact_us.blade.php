@@ -16,9 +16,9 @@
                 </div>
             </div>
             <div class="infoPart">
-                <div class="container-fluid">
+                <div class="container-fluid" style=" max-width: 1000px;">
                     <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <div class="subTitle">Send us message<div class="line"></div></div>
                             <div class="inputs">
                                 <div class="row">
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        {{--<div class="col-md-5">
                             <div class="subTitle">Contact Info<div class="line"></div></div>
                             <div class="inputs">
                                 <div class="row">
@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
             </div>
