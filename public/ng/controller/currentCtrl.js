@@ -60,7 +60,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
             $scope.hoursPart = $scope.currentRestaurant.workingHours;
 
-
             for(var a in $scope.hoursPart){
                 var hoursString= $scope.hoursPart[a];
                 var hoursArray = hoursString.split(',');
@@ -68,8 +67,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 
             }
-
-
+            $scope.aboutPhoto = ['../images/restaurantSlider/sliderImg1.jpg', '../images/restaurantSlider/sliderImg2.jpg', '../images/restaurantSlider/sliderImg3.jpg'];
             $scope.haveData = true;
             //restaurants images part
             var arr = $scope.currentRestaurant.images;
