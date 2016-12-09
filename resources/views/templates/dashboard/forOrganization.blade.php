@@ -7,10 +7,10 @@
         <div class="part1">
             <h1><mark>Manage</mark> your page from </br> your place</h1>
             <div class="statisticPart clearElement">
-                <div class="statistic elementLeft">
+                {{--<div class="statistic elementLeft">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     <div>Study the statistics of visits</div>
-                </div>
+                </div>--}}
                 <div class="statistic elementLeft">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                     <div>Edit the description and information about the services</div>
@@ -35,36 +35,58 @@
                 <!-- Carousel items -->
                 <div class="carousel-inner innerCustom">
                     <div class="active item myCustomItems">
-                        <div class="deliveryItem">Customers Delivery </br>Service №1</div>
+                        </br></br>
+                        <div class="deliveryItem">Leading online restaurants</br> catalog</div>
                         <img class="ItemLogo" src="../images/logoBig.png">
                     </div>
                     <div class="item myCustomItems">
-                        <div class="deliveryItem">Customers Delivery </br>Service №1</div>
-                        <div class="customText">Lorem ipsum dolor sit amet, consectetur.</div>
+                        </br></br>
+                        <div class="deliveryItem">We are the largest restaurant search</br> and advisory service in the US </div>
+                        <div class="customText">Our users choose restaurants and bars where they </br>want to spend their money</div>
                         <img class="ItemLogo" src="../images/find.png">
-                        <div class="customTextSmall">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit. Omnis, quam?</div>
+                        {{--<div class="customTextSmall">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit. Omnis, quam?</div>--}}
                     </div>
                     <div class="item myCustomItems">
-                        <div class="deliveryItem noBold">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit. Omnis, quam? </br> <span class="bold">40004500</span></div>
+                        </br></br></br>
+                        <div class="deliveryItem noBold">In search for restaurants</br><span class="bold"> 400.000</span></br> people daily visit <span class="markText">RestAdviser</span></div>
                         </br>
-                        <div class="deliveryItem noBold">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit. Omnis, quam? </br> <span class="bold">1000000</span></div>
+                        <div class="deliveryItem noBold">And they make <span class="bold">35.000</span> calls</div>
                         </br>
-                        <div class="transparentText">Lorem ipsum dolor sit <span class="markText">amet</span>, consectetur</br> adipisicing <span class="markText">elit</span></div>
+
                     </div>
                     <div class="item myCustomItems">
-                        <div class="deliveryItem">Your page here</div>
+                        </br></br>
+                        <div class="deliveryItem">Your page on RestAdviser</div>
                         </br></br>
                         <div class="clearElement contentWithImage">
-                            <div class="customTextSmall elementLeft textLeft">Lorem ipsum dolor </br>sit amet, consectetur. </br></br>adipisicing elit. Nisi, recusandae.</div>
+                            <div class="customTextSmall elementLeft textLeft">Your page is already on</br> <span class="markText">RestAdviser</span></br> and it is already working!
+                                </br></br>Your customers already</br> visit your page
+                            </div>
                             <img class="" src="../images/yourPage.png">
                         </div>
                     </div>
                     <div class="item myCustomItems">
+                        </br></br>
                         <img class="ItemLogo" src="../images/graf.png">
                         </br></br>
-                        <div class="deliveryItem noBold">Lorem ipsum dolor sit amet, consectetur </br>adipisicing elit.</div>
+                        <div class="deliveryItem noBold">We can increase the number of your</br> customers significantly</div>
                     </div>
-
+                    <div class="item myCustomItems">
+                        </br></br>
+                        </br></br>
+                        </br></br>
+                        <div class="deliveryItem noBold">We are already working with</br> more than <span class="bold">10.000 </span>restaurants</div>
+                    </div>
+                    <div class="item myCustomItems">
+                        </br></br>
+                        </br></br>
+                        <div class="deliveryItem noBold">
+                            Become our partner</br>
+                            Contact us by phone</br>
+                            <span class="markText">+7 (495) 660-39-16</span></br>
+                            Or using the feedback form
+                        </div>
+                    </div>
                 </div>
                 <!-- Carousel nav -->
                 <a class="carousel-control left customLeft carouselControlCustom" href=".carousel" data-slide="prev" style="background: transparent">&lsaquo;</a>
