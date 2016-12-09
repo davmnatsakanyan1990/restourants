@@ -27,23 +27,23 @@
 
                     </div>
                 @endif
-            <div class="topTitle">Pick a plan for your BigCommerce store</div>
+            <div class="topTitle">Pick a plan for your Restaurant</div>
             <p class="littleIext">Grow sales and increase efficiency with powerful features that fit your business</p>
 
                 <div class="plansPart clearElement">
                     <div class="plan elementLeft">
                         <div class="planTitle">{{ $plans[1]['name'] }}</div>
-                        <div class="planContent">
+                        <div class="planContent" style="min-height: 260px;">
                             <div class="textPart clearElement">
                                 <div class="pricePlace clearElement">
-                                    <div class="text elementLeft">A full-featured online store</div>
+                                    <div class="text elementLeft">Fully detailed presentation of Your Restaurant</div>
                                     <div class="price elementRight">
                                         <div class="priceSign"><i class="fa fa-usd" aria-hidden="true"></i></div>
                                         <div class="priceMore">
                                             <span class="bigPrice">{{ explode('.', $plans[1]['price'])[0] }}</span>
                                             <span>.</span>
                                             <span class="smallPrice">{{ explode('.', $plans[1]['price'])[1] }}</span>
-                                            <span class="smallPrice">/year</span>
+                                            <span class="smallPrice">/Monthly</span>
                                         </div>
                                     </div>
                                 </div>
@@ -55,22 +55,22 @@
 
                     <div class="plan elementRight">
                         <div class="planTitle">Enterprise</div>
-                        <div class="planContent">
+                        <div class="planContent" style="min-height: 260px;">
                             <div class="textPart clearElement">
                                 <div class="callText">
-                                    Call <span> 1-855-884-6731 </span>for pricing
+                                    <span> Contact US </span>for pricing
                                     tailored to your business
                                 </div>
-                                <div class="callText2">The ultimate cloud ecommerce selling solution</div>
+                                <div class="callText2">The ultimate selling solution</div>
 
-                                <button class="choseButton elementRight" data-toggle="modal" data-target="#myModalEnterprise"><i class="fa fa-phone" aria-hidden="true"></i>1-855-884-6731</button>
+                                <button class="choseButton elementRight" data-toggle="modal" data-target="#myModalEnterprise">Select plan</button>
                             </div>
                         </div>
                     </div>
 
 
                 </div>
-                <div class="customTable">
+                {{--<div class="customTable">
                     <div class="tablePart">
                         <div class="tableTitle">
                             <div class="titleTh">Get access to these features</div>
@@ -147,7 +147,7 @@
                             <div class="tableTr"><i class="fa fa-check" aria-hidden="true"></i></div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
 
             </div>
             <!-- END PAGE CONTENT-->

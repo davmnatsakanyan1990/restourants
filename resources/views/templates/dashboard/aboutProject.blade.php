@@ -92,7 +92,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 floating">
                     <img src="../images/logo.png">
                     <div class="footerExplane">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.</br> Beatae, corporis. Beatae, corporis.
+                        RestAdviser.com</br> All rights reserved.
                     </div>
                     <div class="footerSocial">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
