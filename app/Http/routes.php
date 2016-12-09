@@ -191,7 +191,8 @@ Route::get('run_cron', function(){
 });
 
 Route::get('test', function(){
-
+    $size = getimagesize("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTHULo4q-aEMni2MLHdTclBwGzjCXZITaPWNP7B53PU_XjVf9Fw");
+    dd($size);
 });
 
 

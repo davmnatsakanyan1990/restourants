@@ -328,18 +328,34 @@ class PlaceController extends Controller
         // get avg rate for current place and push to array
         $collection = collect($place->toArray());
         collect($place->toArray())->each(function($item, $key) use($collection){
-            if($key == 'rates'){
-                $total_rate = 0;
-                $count = count($item);
-                foreach ($item as $rate){
-                    $total_rate += $rate['mark'];
-                }
-                if($count != 0 )
-                    $m_rate = round($total_rate/$count);
-                else
-                    $m_rate = 0;
 
-                $collection->prepend($m_rate, 'rating');
+            switch ($key){
+                case 'rates':
+                    $total_rate = 0;
+                    $count = count($item);
+                    foreach ($item as $rate){
+                        $total_rate += $rate['mark'];
+                    }
+                    if($count != 0 )
+                        $m_rate = round($total_rate/$count);
+                    else
+                        $m_rate = 0;
+
+                    $collection->prepend($m_rate, 'rating');
+                    break;
+//                case 'images':
+//                    $i = 0;
+//                    $cover_images = [];
+//                    foreach($item as $image){
+//                        $image_size = getimagesize(url('/images/restaurantImages/'.$image['name']));
+//                        if(($image_size[0]/$image_size[1]) > 2 && ($image_size[0]/$image_size[1]) < 3 && $i < 3){
+//                            $cover_images[$i] = $image['name'];
+//                            $i++;
+//                        }
+//                    }
+//
+//                    $collection->prepend($cover_images, 'cover_images');
+//                    break;
             }
         })->all();
 
