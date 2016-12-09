@@ -37,7 +37,7 @@
                     <div class="active item myCustomItems">
                         </br></br>
                         <div class="deliveryItem">Leading online restaurants</br> catalog</div>
-                        <img class="ItemLogo" src="../images/logoBig.png">
+                        <img class="ItemLogo first" src="../images/logoBig.png">
                     </div>
                     <div class="item myCustomItems">
                         </br></br>

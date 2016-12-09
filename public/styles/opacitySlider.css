@@ -45,6 +45,11 @@
   margin: 0 auto;
   padding-top: 40px;
 }
+.carousel.myCustomItems .ItemLogo.first,
+.carousel-inner.myCustomItems .ItemLogo.first,
+.carousel-inner .item.myCustomItems .ItemLogo.first {
+  width: 50%;
+}
 .carousel.myCustomItems .customText,
 .carousel-inner.myCustomItems .customText,
 .carousel-inner .item.myCustomItems .customText {
