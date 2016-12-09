@@ -2,7 +2,7 @@
 
 
 $( document ).ready(function() {
-    debugger;
+
     var a = $('#biggestElement').outerHeight();
     $('.blockRect').css('height', a);
 });

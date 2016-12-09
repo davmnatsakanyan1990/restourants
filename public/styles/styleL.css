@@ -1333,6 +1333,7 @@ html body .uppercase {
   }
   html body .navigation .navIco {
     float: none;
+    height: auto;
   }
   html body .navigation .menuLeft {
     float: none;
