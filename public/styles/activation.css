@@ -19,7 +19,7 @@
   font-weight: 700;
 }
 .activation .infoStatistic .part1 .statisticPart {
-  width: 890px;
+  width: 586px;
   margin: 0 auto;
   padding: 80px 0;
 }
@@ -131,4 +131,15 @@
   right: 0;
   height: 100%;
   padding: 0 15px;
+}
+@media screen and (max-width: 617px) {
+  .activation .infoStatistic .part1 .statisticPart {
+    width: 285px !important;
+  }
+  .activation .infoStatistic .part1 .statisticPart .statistic {
+    margin-right: 0;
+  }
+  .activation .infoStatistic .part1 .statisticPart .statistic:first-child {
+    margin-bottom: 30px;
+  }
 }

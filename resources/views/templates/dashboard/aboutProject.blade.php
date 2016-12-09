@@ -1,6 +1,6 @@
 <div class="organizationContent">
     <div class="organization">
-        <div class="organizationTitle">For Company</div>
+        <div class="organizationTitle">About Project</div>
         <div class="subTitle">About Restadviser<div class="line"></div></div>
         <div class="subContent">In a huge and diverse country like the US the search
             for a good restaurant is never complete. Whether you are feeling fine dining in a
@@ -11,12 +11,13 @@
             All kinds of dining experiences are waiting to be discovered. Check out the best US restaurants now.
 
         </div>
-        <div class="subTitle">Com
-            pany Pages<div class="line"></div></div>
-        <div class="subContent">We believe in building to positively impact communities, infrastructure, the economy, opportunity and employment.
-            We take great pride in being proactive with our approach to projects, while ensuring that the best interests of the
-            stakeholders are represented at every stage. We are serious about our values. And in the context of those values we
-            can tackle your whole project in <span class="special">Restadviser</span> customer focused way or a portion thereof <span class="special">+7(495)660-39-16</span>
+        <div class="subTitle">People use the internet to search for restaurants<div class="line"></div></div>
+        <div class="subContent">In today’s Internet-connected world, when people are looking for someplace
+            to eat, whether it is a rush or a planned event, they will most probably use a search engine to
+            look for restaurants and takeaways. If your restaurant does not come up in the search results those
+            customers will not become yours. Having your restaurant registered in a professionally designed
+            website along with many others makes you more available for the potential customers and gives
+            you an incredible credibility in their eyes.
         </div>
         <div class="fourBlocks">
             <div class="container-fluid">
@@ -25,11 +26,12 @@
                         <div class="block ">
                             <div class="blockRound">1</div>
                             <div class="blockRect">
-                                <div class="rectTitle">Lorem Ipsum</div>
-                                <div class="rectText">Lorem Ipsum is simply dummy text
-                                    of the printing and typesetting indust
-                                    Lorem Ipsum has been the industry's
-                                    standard dummy text ever since
+                                <div class="rectTitle">The website is the</br> front door</div>
+                                <div class="rectText">By visiting our website, customers get a feel for the
+                                    restaurant, for the food, music and the atmosphere. The design of the website
+                                    reflects the design of the establishment, making it easier for customers to decide
+                                    whether it is what they are looking for. We are creating a sense of uniqueness for
+                                    any of our restaurants as if it is their own site – made specially to promote just their venue.
                                 </div>
                             </div>
                         </div>
@@ -37,33 +39,40 @@
                     <div class="block col-md-3">
                         <div class="blockRound">2</div>
                         <div class="blockRect">
-                            <div class="rectTitle">Lorem Ipsum</div>
-                            <div class="rectText">Lorem Ipsum is simply dummy text
-                                of the printing and typesetting indust
-                                Lorem Ipsum has been the industry's
-                                standard dummy text ever since
+                            <div class="rectTitle">The website will lead to Increasing customers</div>
+                            <div class="rectText">As an online catalog, our website is a permanent advertising channel that
+                                significantly increases a restaurant’s visibility and creates interest in clients who willing
+                                to try somewhere new. Having a restaurant registered in a professional website among other
+                                restaurants makes it available to both regular and potential customers providing them with
+                                the access of reviewing the products and services. Thus, the website makes it possible to
+                                target a wider market and increase the customer base.
                             </div>
                         </div>
                     </div>
                     <div class="block col-md-3">
                         <div class="blockRound">3</div>
                         <div class="blockRect">
-                            <div class="rectTitle">Lorem Ipsum</div>
-                            <div class="rectText">Lorem Ipsum is simply dummy text
-                                of the printing and typesetting indust
-                                Lorem Ipsum has been the industry's
-                                standard dummy text ever since
+                            <div class="rectTitle">The website is a great platform {{--to showcase the work--}}</div>
+                            <div class="rectText">Its design allows to include an image gallery, as well as testimonials
+                                about the work to demonstrate what makes the business unique. The website can be considered
+                                as being an online catalog. It is much easier and quicker to update information about products
+                                and services on the website, making it an effective way of letting customers about the
+                                arrival of new products, upcoming events, special promotions, or any new services offering.
                             </div>
                         </div>
                     </div>
                     <div class="block col-md-3">
                         <div class="blockRound">4</div>
-                        <div class="blockRect">
-                            <div class="rectTitle">Lorem Ipsum</div>
-                            <div class="rectText">Lorem Ipsum is simply dummy text
-                                of the printing and typesetting indust
-                                Lorem Ipsum has been the industry's
-                                standard dummy text ever since
+                        <div class="blockRect" id="biggestElement">
+                            <div class="rectTitle">The website helps to improve customer service</div>
+                            <div class="rectText">The website allows to save clients’ time and, thus, improve customer
+                                service. The design and other tools are specially created to make it easier for customers
+                                do searches. The great navigation and specified search filters enable customers to find
+                                quickly the restaurant that they look for.
+                                The website gives visitors an option to be permanently in touch and stay updated. The
+                                ‘’Contact Us” area is designed for visitors to ask questions or make requests that will be
+                                viewed and responded. They also have an opportunity to leave a review and share information
+                                on the website which will lead to value adding and service improvement.
                             </div>
                         </div>
                     </div>
@@ -92,7 +101,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 floating">
                     <img src="../images/logo.png">
                     <div class="footerExplane">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.</br> Beatae, corporis. Beatae, corporis.
+                        RestAdviser.com</br> All rights reserved.
                     </div>
                     <div class="footerSocial">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -106,3 +115,4 @@
         </div>
     </footer>
 </div>
+<script src="{{asset('js/script.js')}}"></script>

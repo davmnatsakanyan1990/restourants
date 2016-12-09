@@ -641,16 +641,19 @@ button, button:active, button:focus {
 }
 
 .planContent {
+    height: 260px;
     border: 1px solid #ff7e00;
     padding: 23px;
     margin-top: 2px;
     background-color: white;
+    position: relative;
 }
 
 .price {
     color: #ff7e00;
     position: relative;
     font-family: 'Museo Slab 500';
+    margin-left: 18px;
 }
 
 .priceSign i {
@@ -672,11 +675,11 @@ button, button:active, button:focus {
 }
 
 .bigPrice {
-    font-size: 78px;
+    font-size: 65px;
 }
 
 .smallPrice {
-    font-size: 31px;
+    font-size: 25px;
 }
 
 .choseButton {
@@ -687,6 +690,9 @@ button, button:active, button:focus {
     border: 1px solid #ff7e00;
     padding: 10px 34px;
     margin-top: 25px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }
 
 .choseButton:hover {
@@ -706,7 +712,7 @@ button, button:active, button:focus {
 }
 
 .pricePlace {
-    margin-top: 30px;
+   /* margin-top: 30px;*/
 }
 
 .callText {
@@ -1585,4 +1591,14 @@ button, button:active, button:focus {
         margin-top: 20px;
     }
 
+    .text{
+        font-size: 20px;
+    }
+    .callText{
+        font-size: 20px;
+        padding: 0;
+    }
+    .callText2{
+        font-size: 20px;
+    }
 }

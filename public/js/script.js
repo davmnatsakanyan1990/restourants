@@ -1,3 +1,8 @@
-/**
- * Created by User on 9/12/2016.
- */
+//there are the custom scrips
+
+
+$( document ).ready(function() {
+
+    var a = $('#biggestElement').outerHeight();
+    $('.blockRect').css('height', a);
+});
