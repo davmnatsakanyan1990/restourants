@@ -12,6 +12,7 @@
 */
 
 use App\Models\Place;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('layouts.main');
@@ -191,8 +192,15 @@ Route::get('run_cron', function(){
 });
 
 Route::get('test', function(){
-    $size = getimagesize("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTHULo4q-aEMni2MLHdTclBwGzjCXZITaPWNP7B53PU_XjVf9Fw");
-    dd($size);
+    Mail::send('emails.index', ['data' => 1], function ($m) {
+        $m->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
+
+        $m->to('dav.mnatsakanyan@gmail.com')->subject('Contact us');
+    });
+});
+
+Route::get('email', function(){
+    return view('emails.index');
 });
 
 
