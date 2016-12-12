@@ -174,7 +174,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
         $scope.callData.page++;
         var city = $scope.callData.city;
         var filters = $scope.callData.filters;
-        
         RestaurantService.getMoreRestaurant($scope.callData.page, city, filters)
             .then(function (response) {
                 if(response.data.status && response.data.status == 'ended'){
@@ -415,6 +414,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
+        $scope.loading = true
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
             $scope.filters[type] = [];
@@ -489,12 +489,14 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                         $scope.noMoreInfoToShow = true;
 
                     }
+                    $scope.loading = false;
                 });
         }
     };
 
     //when delete a filter after click in it
     $scope.deleteElementFromFilter = function (filter, type) {
+        $scope.loading = true;
         if(type == 'Mode')
             $scope.checkboxModel.checkboxModelF1[filter.id] = false;
 
@@ -523,7 +525,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
         RestaurantService.filterRestaurant($scope.callData)
             .then(function (response) {
-
+                $scope.loading = false;
                 if(response.data.restaurants) {
                     if(response.data.status && response.data.status == 'ended'){
                         $scope.noMoreInfoToShow = true;
@@ -550,6 +552,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                     $scope.noMoreInfoToShow = true;
 
                 }
+
             });
     }
 

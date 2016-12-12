@@ -100,7 +100,7 @@
                         </div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize"><span class="doubleBorder">Type of place</span></div>
-                            <div class="introContent" ng-bind="currentRestaurant.type"></div>
+                            <div class="introContent" ng-repeat="type in currentRestaurant.types" ng-bind="type"></div>
                         </div>
                         <div class="moreInfo">
                             <div class="introTitle capitalize"><span class="doubleBorder">services</span></div>

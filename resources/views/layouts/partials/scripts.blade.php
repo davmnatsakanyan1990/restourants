@@ -40,7 +40,7 @@
 {{--directives--}}
 <script src="{{asset('ng/directive/scroll.js')}}"></script>
 <script src="{{asset('ng/directive/starRating.js')}}"></script>
-
+<script src="{{asset('ng/directive/loader.js')}}"></script>
 
 
 {{--other js files--}}
