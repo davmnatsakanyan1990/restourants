@@ -18,7 +18,7 @@
 
                             <div class="item">
                                 <div class="row">
-                                    <div class="col-md-2 col-xs-2 col-sm-2" ng-repeat="cat in category track by $index">
+                                    <div class="col-md-3 col-xs-3 col-sm-3" ng-repeat="cat in category track by $index">
                                         <a class="thumbnail categoryBlock" href="#/<% city %>/category/<% cat.name %>/<% cat.id %>"
                                            style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" >
                                             <img src="<%cat.image%>" style="max-width:100%;" class="categoryImage">
