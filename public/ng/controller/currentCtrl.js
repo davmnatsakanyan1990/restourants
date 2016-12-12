@@ -1,4 +1,5 @@
 app.controller("currentController", function ($scope, $rootScope, $http, $document, $window, $timeout, $route, RestaurantService) {
+    window.scrollTo(0, 0);
     var request = $route.current.params;
     $scope.openPhoneInput = false;
     $scope.CurrentMenu = '';

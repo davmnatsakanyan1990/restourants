@@ -174,7 +174,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
         $scope.callData.page++;
         var city = $scope.callData.city;
         var filters = $scope.callData.filters;
-        
         RestaurantService.getMoreRestaurant($scope.callData.page, city, filters)
             .then(function (response) {
                 if(response.data.status && response.data.status == 'ended'){
