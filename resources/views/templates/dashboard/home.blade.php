@@ -257,6 +257,7 @@
                  </ul>
              </div>--}}
             <div class="cont">
+                <loading></loading>
                 <div ng-if="markers.length == 0" class="nothingFound">Nothing was found</div>
                 <div class="infoContent" ng-if="markers.length>0">
                     <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
