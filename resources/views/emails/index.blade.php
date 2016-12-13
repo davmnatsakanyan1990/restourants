@@ -17,7 +17,7 @@
             width: 100%;
             height: 355px;
             overflow: hidden;
-            background-image: url('http://restadviser.com/Mail_template/images/home_webmaster_header_head.jpg');
+            background-image: url('//restadviser.com/Mail_template/images/home_webmaster_header_head.jpg');
             background-size: 100% auto;
         }
         .content .top-title-block h2 {
@@ -43,7 +43,7 @@
             top: 0;
             width: 22px;
             height: 51px;
-            background-image: url( "http://restadviser.com/Mail_template/images/left-scope.png");
+            background-image: url( "//restadviser.com/Mail_template/images/left-scope.png");
         }
 
         .content .top-title-block .top-info-block:before {
@@ -135,7 +135,7 @@
 <body style="margin: 0; padding: 0; font-family: Arial Narrow;">
 <div class="area" style="width: 1000px; margin: 0 auto;">
 
-    <img src="http://restadviser.com/Mail_template/images/home_webmaster_header_head.jpg" style="width: 100%; height: 355px; overflow: hidden;">
+    <img src="'http://restadviser.com/mail_template/images/home_webmaster_header_head.jpg' }}" style="width: 100%; height: 355px; overflow: hidden;">
     <div class="content">
         <div class="top-title-block">
             <h2 style=" font-size: 30px;line-height: 30px; color: #444343; text-align: center;">Welcome to Restourant Adviser</h2>
@@ -166,7 +166,7 @@ details for your store. Please save this email for future reference.</p>
                 </li>
             </ul>
 
-            <button style="font-size: 14px; background-color: #ff7e00; width: 173px; height: 34px; color: #ffffff; margin: 52px auto 0; display: block; cursor: pointer; border: 0;">Your the control panel</button>
+            <a href="dsfdf"><button style="font-size: 14px; background-color: #ff7e00; width: 173px; height: 34px; color: #ffffff; margin: 52px auto 0; display: block; cursor: pointer; border: 0;">Your the control panel</button></a>
         </div>
     </div>
 </div>

@@ -192,10 +192,11 @@ Route::get('run_cron', function(){
 });
 
 Route::get('test', function(){
-    Mail::send('emails.index', ['data' => 1], function ($m) {
-        $m->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
+    
+    Mail::send('emails.index', ['data' => 1, 'pathToImage' => public_path()."/Mail_template/images/home_webmaster_header_head.jpg"], function ($message) {
+        $message->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
 
-        $m->to('dav.mnatsakanyan@gmail.com')->subject('Contact us');
+        $message->to('dav.mnatsakanyan@gmail.com')->subject('Contact us');
     });
 });
 

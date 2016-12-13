@@ -20,11 +20,14 @@ class HomeController extends Controller
      */
     public function addOrganization(Request $request){
         dd($request->all());
+        $this->validate($request, [
+            //TODO validation rules
+        ]);
         $data = $request->all();
         Mail::send('emails.add_organization', ['data' => $data], function ($m) use ($data) {
-            $m->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
+            $m->from(env('MAIL_FROM'), 'Look Restaurants Application');
 
-            $m->to('lookrestaurants@gmail.com')->subject('Add Organization');
+            $m->to(env('MAIL_FROM'))->subject('Add Organization');
         });
     }
     
