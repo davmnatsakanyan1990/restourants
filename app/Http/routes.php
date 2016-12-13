@@ -191,10 +191,10 @@ Route::get('run_cron', function(){
     }
 });
 
-Route::get('test', function(){
+Route::get('send_mail_to_owner', function(){
     
     Mail::send('emails.index', ['data' => 1, 'pathToImage' => public_path()."/Mail_template/images/home_webmaster_header_head.jpg"], function ($message) {
-        $message->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
+        $message->from('support@restadviser.com', 'Look Restaurants Application');
 
         $message->to('dav.mnatsakanyan@gmail.com')->subject('Contact us');
     });
