@@ -371,10 +371,11 @@ button:focus {
   min-width: 80px;
   text-align: center;
   font-size: 14px;
-  height: 32px;
+  height: auto;
   background-color: white;
   transition: 0.3s;
   outline: none;
+  padding: 5px;
 }
 .restPageContainer .pageContainer .containerContent .container3 .chooseRestMenu:hover {
   background-color: #3d3f52;

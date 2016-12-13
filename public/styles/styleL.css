@@ -1578,6 +1578,10 @@ html body .uppercase {
   html body .content .pageSection {
     width: 320px;
   }
+  html body footer .row {
+    padding: 0;
+    text-align: center;
+  }
 }
 @media screen and (max-width: 900px) and (min-width: 770px) {
   html body .content .pageSection {

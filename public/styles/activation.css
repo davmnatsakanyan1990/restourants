@@ -142,4 +142,7 @@
   .activation .infoStatistic .part1 .statisticPart .statistic:first-child {
     margin-bottom: 30px;
   }
+  footer .row {
+    padding: 0 !important;
+  }
 }
