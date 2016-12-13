@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="margin: 0; padding: 0; font-family: Arial Narrow;">
 <head>
     <meta charset="utf-8">
     <title></title>
@@ -17,7 +17,7 @@
             width: 100%;
             height: 355px;
             overflow: hidden;
-            background-image: url("images/home_webmaster_header_head.jpg");
+            background-image: url('http://restadviser.com/Mail_template/images/home_webmaster_header_head.jpg');
             background-size: 100% auto;
         }
         .content .top-title-block h2 {
@@ -43,7 +43,7 @@
             top: 0;
             width: 22px;
             height: 51px;
-            background-image: url("images/left-scope.png");
+            background-image: url( "http://restadviser.com/Mail_template/images/left-scope.png");
         }
 
         .content .top-title-block .top-info-block:before {
@@ -54,7 +54,7 @@
             top: 0;
             width: 22px;
             height: 51px;
-            background-image: url("images/right-scope.png");
+            background-image: url("http://restadviser.com/Mail_template/images/right-scope.png");
         }
 
         .content .top-title-block .top-info-block p {
@@ -99,18 +99,18 @@
             clear: both;
         }
 
-        .content .login-information-block ul li span {
+        ul li span {
             display: block;
             float: left;
         }
 
-        .content .login-information-block ul li span:first-child {
+         ul li span:first-child {
             width: 150px;
             font-size: 20px;
             color: #ff7e00;
         }
 
-        .content .login-information-block ul li span:last-child {
+         ul li span:last-child {
             font-size: 18px;
             width: 295px;
             padding: 0 0 12px 0;
@@ -132,40 +132,41 @@
         }
     </style>
 </head>
-<body>
-<div class="area">
-    <div class="top-bg"></div>
+<body style="margin: 0; padding: 0; font-family: Arial Narrow;">
+<div class="area" style="width: 1000px; margin: 0 auto;">
+
+    <img src="http://restadviser.com/Mail_template/images/home_webmaster_header_head.jpg" style="width: 100%; height: 355px; overflow: hidden;">
     <div class="content">
         <div class="top-title-block">
-            <h2>Welcome to Restourant Adviser</h2>
-            <div class="top-info-block">
-                <p>Thank you for starting your free trial with BigCommerce. Below are the login 
+            <h2 style=" font-size: 30px;line-height: 30px; color: #444343; text-align: center;">Welcome to Restourant Adviser</h2>
+            <div class="top-info-block" style="width: 600px; margin: 24px auto 0; padding: 5px 0 0 0; text-align: center; position: relative;">
+                <p style="margin: 0 auto; padding: 0 50px; font-size: 18px; line-height: 23px; color: #8a8888;">Thank you for starting your free trial with BigCommerce. Below are the login
 details for your store. Please save this email for future reference.</p>
             </div>
         </div>
 
-        <div class="login-information-block">
-            <h2>Your login information</h2>
-            <ul>
-                <li>
-                    <span>Your URL:</span>
-                    <span>http://restadviser.com/#/salt%20</span>
+        <div class="login-information-block" style="text-align: center; margin: 50px 0 0 0;">
+            <h2 style="font-size: 22px; line-height: 22px; margin: 0; padding: 0; color: #ff7e00;">Your login information</h2>
+            <ul style="display: inline-block; text-align: left;">
+                <li style="display: block; list-style: none; margin: 0 0 12px 0;">
+                    <span style="width: 150px; font-size: 20px; color: #ff7e00;">Your URL:</span>
+                    <span style="font-size: 18px; width: 295px; padding: 0 0 12px 0; color: #616786; margin: 0 0 0 10px; border-bottom: 1px solid #d4d4d4;">http://restadviser.com/#/salt%20</span>
                 </li>
-                <li>
-                    <span>Username:</span>
-                    <span>ds.restadvisr@gmail.com</span>
+                <li style="display: block; list-style: none; margin: 0 0 12px 0;">
+                    <span style="width: 150px; font-size: 20px; color: #ff7e00;">Username:</span>
+                    <span style="font-size: 18px; width: 295px; padding: 0 0 12px 0; color: #616786; margin: 0 0 0 10px; border-bottom: 1px solid #d4d4d4;">ds.restadvisr@gmail.com</span>
                 </li>
-                <li>
-                    <span>Username:</span>
-                    <span>ds.restadvisr@gmail.com</span>
+                <li style="display: block; list-style: none; margin: 0 0 12px 0;">
+                    <span style="width: 150px; font-size: 20px; color: #ff7e00;">Username:</span>
+                    <span style="font-size: 18px; width: 295px; padding: 0 0 12px 0; color: #616786; margin: 0 0 0 10px; border-bottom: 1px solid #d4d4d4;">ds.restadvisr@gmail.com</span>
                 </li>
-                <li>
-                    <span>Your Support PIN:</span>
-                    <span>5293345</span>
+                <li style="display: block; list-style: none; margin: 0 0 12px 0;">
+                    <span style="width: 150px; font-size: 20px; color: #ff7e00;">Your Support PIN:</span>
+                    <span style="font-size: 18px; width: 295px; padding: 0 0 12px 0; color: #616786; margin: 0 0 0 10px; border-bottom: 1px solid #d4d4d4;">5293345</span>
                 </li>
             </ul>
 
-            <button>Your the control panel</button>
+            <button style="font-size: 14px; background-color: #ff7e00; width: 173px; height: 34px; color: #ffffff; margin: 52px auto 0; display: block; cursor: pointer; border: 0;">Your the control panel</button>
         </div>
     </div>
 </div>
