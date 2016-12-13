@@ -414,7 +414,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
-        $scope.loading = true
+        $scope.loading = true;
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
             $scope.filters[type] = [];

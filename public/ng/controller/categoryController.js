@@ -295,6 +295,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
+        $scope.loading = true;
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
             $scope.filters[type] = [];
@@ -370,6 +371,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                         $scope.noMoreInfoToShow = true;
 
                     }
+                    $scope.loading = false;
                 });
         }
     }
@@ -377,6 +379,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
     //when delete a filter after click in it
     $scope.deleteElementFromFilter = function (filter, type) {
+        $scope.loading = true;
         if(type == 'Mode')
             $scope.checkboxModel.checkboxModelF1[filter.id] = false;
 
@@ -405,7 +408,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
         RestaurantService.filterRestaurant($scope.callData)
             .then(function (response) {
-
+                $scope.loading = false;
                 if(response.data.restaurants) {
                     if(response.data.status && response.data.status == 'ended'){
                         $scope.noMoreInfoToShow = true;
