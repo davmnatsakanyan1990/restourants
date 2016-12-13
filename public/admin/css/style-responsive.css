@@ -169,7 +169,7 @@ From Medium Devices Up To Larger Devices
 	}
 
 	.page-sidebar-fixed.page-sidebar-closed .footer {
-	  margin-left: 35px;
+	 /* margin-left: 35px;*/
 	}
 
 	.page-sidebar-fixed .footer .footer-tools .go-top { 
@@ -466,7 +466,7 @@ From Medium Devices Up To Larger Devices
 	}
 
 	.page-sidebar-reversed.page-sidebar-fixed.page-sidebar-closed .footer {
-		margin-right: 35px;
+		/*margin-right: 35px;*/
 	}
 
 	/***

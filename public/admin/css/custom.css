@@ -1496,6 +1496,10 @@ button, button:active, button:focus {
     color: #ff7e00;
     text-align: center;
 }
+.control-label{
+    color: #ff7e00 !important;
+    font-weight: 600 !important;
+}
 
 /*Footer style*/
 .footer{

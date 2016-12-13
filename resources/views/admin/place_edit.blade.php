@@ -476,12 +476,12 @@
 
                                                     </div>
                                                     <div class="margiv-top-10">
-                                                        <button type="submit" class="btn green">
-                                                            Save Changes
-                                                        </button>
                                                         <a href="{{ url('admin/dashboard') }}"> <button type="button" class="btn default">
                                                             Cancel
                                                         </button></a>
+                                                        <button type="submit" class="btn green">
+                                                            Save Changes
+                                                        </button>
                                                     </div>
                                                 </form>
                                             </div>
