@@ -199,13 +199,16 @@ body {
 .working-hours ul li:after {
     content: "";
     clear: both;
-    display: table;
+    display: block;
 }
-
-.working-hours ul li label, .working-hours ul li div, .working-hours ul li input {
+.counters div{
+    float: left;
+}
+.working-hours ul li label, .working-hours ul li input {
     display: block;
     float: left;
 }
+
 
 .working-hours ul li label {
     margin: 5px 0 0 0;
@@ -213,6 +216,7 @@ body {
 
 .working-hours ul li .checker {
     padding: 9px 0 0 0;
+    float: left;
 }
 
 .working-hours ul li label:nth-of-type(1) {
@@ -324,6 +328,7 @@ div.profile > div {
 
 .elementsBlock {
     position: relative;
+    float: left;
 }
 
 .elementsBlock .upDown {
@@ -1552,6 +1557,11 @@ button, button:active, button:focus {
     background-color: #ffffff;
     right: -10px;
     top: 2px;
+}
+.first_part:after{
+    content: "";
+    clear: both;
+    display: block;
 }
 
 .footer ul li:last-child a:after {

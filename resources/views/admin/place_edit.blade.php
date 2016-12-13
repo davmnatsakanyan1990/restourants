@@ -127,50 +127,61 @@
                                                         <ul class="col-md-12">
                                                             @foreach($d as $wk_day => $value)
                                                             <li>
-                                                                <label for="">{{ $wk_day }}:</label>
-                                                                <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" {{ ($value != 'losed' && $value != '') ? 'checked' : '' }}/>
+                                                                {{--<label for="">{{ $wk_day }}:</label>--}}
+                                                                {{--<input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" {{ ($value != 'Closed' && $value != '') ? 'checked' : '' }}/>--}}
 
                                                                 @if($value == 'Closed' || $value == '')
-                                                                <div class="addingElement">
-                                                                    <div class="counters">
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="{{ $wk_day }}[data][1][from][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][1][from][hr]',   'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][from][hr]', 'hours')"></i>
+                                                                <div class="first_part">
+                                                                    <label for="">{{ $wk_day }}:</label>
+                                                                    <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" />
+                                                                    <div class="addingElement">
+                                                                        <div class="counters">
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][1][from][hr]" class="form-control" value="00"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][1][from][hr]',   'hours' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][from][hr]', 'hours')"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="margin5">:</div>
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][1][from][min]" class="form-control" value="00"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][1][from][min]', 'minute' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][from][min]', 'minute')"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <label for="" style="width: auto">to</label>
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][1][to][hr]" class="form-control" value="00"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][1][to][hr]', 'hours' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][to][hr]', 'hours')"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="margin5">:</div>
+                                                                            <div class="elementsBlock">
+                                                                                <input type="text" name="{{ $wk_day }}[data][1][to][min]" class="form-control" value="00"/>
+                                                                                <div class="upDown">
+                                                                                    <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][1][to][min]', 'minute' )"></i>
+                                                                                    <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][to][min]', 'minute')"></i>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="{{ $wk_day }}[data][1][from][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true" onClick="increment('{{ $wk_day }}[data][1][from][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][from][min]', 'minute')"></i>
-                                                                            </div>
+                                                                        <div class="addMore" title="add more time period" >
+                                                                            <i class="fa fa-plus" aria-hidden="true"></i>
                                                                         </div>
-                                                                        <label for="" style="width: auto">to</label>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="{{ $wk_day }}[data][1][to][hr]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][1][to][hr]', 'hours' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][to][hr]', 'hours')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="margin5">:</div>
-                                                                        <div class="elementsBlock">
-                                                                            <input type="text" name="{{ $wk_day }}[data][1][to][min]" class="form-control" value="00"/>
-                                                                            <div class="upDown">
-                                                                                <i class="fa fa-angle-up" aria-hidden="true"   onClick="increment('{{ $wk_day }}[data][1][to][min]', 'minute' )"></i>
-                                                                                <i class="fa fa-angle-down" aria-hidden="true" onClick="decrement('{{ $wk_day }}[data][1][to][min]', 'minute')"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="addMore" title="add more time period" >
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
                                                                     </div>
                                                                 </div>
                                                                 @else
                                                                     @foreach($value as $k => $part)
+                                                                     @if($k ==0)
+                                                                         <div class="first_part">
+                                                                            <label for="">{{ $wk_day }}:</label>
+                                                                            <input type="checkbox" name="{{ $wk_day }}[index]" class="form-control" checked/>
+
+                                                                     @endif
+
                                                                     <div class="addingElement {{ $k == 0 ? '' : 'customMargin' }}">
                                                                         <div class="counters">
                                                                             <div class="elementsBlock">
@@ -215,6 +226,9 @@
                                                                             </div>
                                                                         @endif
                                                                     </div>
+                                                                     @if($k ==0)
+                                                                         </div>
+                                                                     @endif
                                                                     @endforeach
                                                                 @endif
                                                             </li>
