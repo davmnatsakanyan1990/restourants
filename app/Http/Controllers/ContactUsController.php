@@ -17,11 +17,14 @@ class ContactUsController extends Controller
      */
     public function sendMail(Request $request){
         dd($request->all());
+        $this->validate($request, [
+           // TODO validation rules 
+        ]);
         $data = $request->all();
         Mail::send('emails.contact_us', ['data' => $data], function ($m) use ($data) {
-            $m->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
+            $m->from(env('MAIL_FROM'), 'Look Restaurants Application');
 
-            $m->to('lookrestaurants@gmail.com')->subject('Contact us');
+            $m->to(env('MAIL_FROM'))->subject('Contact us');
         });
     }
 }
