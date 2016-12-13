@@ -130,7 +130,7 @@
                         </div>
                         <div class="row">
                             <div class="butt-block pull-right">
-                                <a href="{{ url('admin/dashboard') }}"> <button type="button">Cancel</button></a>
+                              {{--  <a href="{{ url('admin/dashboard') }}"> <button type="button">Cancel</button></a>--}}
                                 <button type="submit">Update contact</button>
                             </div>
                         </div>

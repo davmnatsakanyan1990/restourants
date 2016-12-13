@@ -1408,9 +1408,9 @@ button, button:active, button:focus {
     width: 100%;
     height: 42px;
     border: 1px solid #d9d9d9;
-    color: #5e5e5e;
+    color: #9c9a9a;
     font-size: 16px;
-    font-family: 'Source Sans Pro';
+    font-family: 'Arial Narrow';
     padding: 0 0 0 47px;
 }
 
@@ -1474,12 +1474,12 @@ button, button:active, button:focus {
     height: 35px;
 }
 
-.update-billing-page .row .butt-block button:first-child {
+/*.update-billing-page .row .butt-block button:first-child {
     width: 110px;
     height: 35px;
     background-color: #cac4bf;
     margin: 0 10px 0 0;
-}
+}*/
 /*Update billing page End*/
 
 /*Footer style*/
