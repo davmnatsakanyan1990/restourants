@@ -27,27 +27,6 @@
         <div class="text">Something went wrong</div>
     </div>
     <!--logIn popup-->
-    {{--<div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header popupHeader">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title capitalize">log in</h4>
-                </div>
-                <div class="modal-body popupBody">
-                    <input class="capitalize lightInput" type="text" placeholder="name"/>
-                    <input class="capitalize lightInput" type="text" placeholder="E-mail"/>
-                    <input class="capitalize lightInput" type="password" placeholder="password"/>
-                </div>
-                <div class="modal-footer popupFooter">
-                    <button type="button" class="filterButtons popupButton capitalize" data-dismiss="modal">Close</button>
-                    <button type="button" class="filterButtons popupButton capitalize">log in</button>
-                </div>
-            </div>
-        </div>
-    </div>--}}
-
-
     <div class="modal fade"  id="myModal" role="dialog">
         <div class="modal-dialog">
 
@@ -172,49 +151,56 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header popupHeader">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title capitalize">add location</h4>
-                </div>
-                <div class="modal-body popupBody leftContent littleInputs">
-                    <div class="inputsBlocks">
-                        <div class="inputBlock">
-                            <div class="titleInput">Name</div>
-                            <input class="capitalize lightInput" type="text" placeholder="name"/>
-                        </div>
-                        <div class="inputBlock">
-                            <div class="titleInput">address</div>
-                            <input class="capitalize lightInput" type="text" placeholder="address"/>
-                        </div>
-                        <div class="inputBlock">
-                            <div class="titleInput">phone number</div>
-                            <input class="capitalize lightInput" type="text" placeholder="phone number"/>
-                        </div>
-                        <div class="inputBlock">
-                            <div class="titleInput">description</div>
-                            <textarea placeholder="description"></textarea>
-                        </div>
-                        <div class="inputBlock">
-                            <div class="titleInput">website</div>
-                            <input class="capitalize lightInput" type="text" placeholder="website"/>
-                        </div>
-                        <div class="inputBlock">
-                            <div class="titleInput">e-mail</div>
-                            <input class="capitalize lightInput" type="text" placeholder="e-mail"/>
-                        </div>
-                        <div class="leftButtonsArea clearElement">
-                            <button type="button" class="capitalize greyButton elementRight">ok</button>
-                            <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
+                <form name="form1" novalidate>
+                    <div class="modal-header popupHeader">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title capitalize">add location</h4>
+                    </div>
+                    <div class="modal-body popupBody leftContent littleInputs">
+                        <div class="inputsBlocks">
+                            <div class="relativeElement marginTop10">
+                                <div class="titleInput">Name</div>
+                                <input class="capitalize lightInput" type="text" name="name" ng-model="name" placeholder="name"/>
+                                <validation validate-for="name" validate-form="form1" ng-model="name"></validation>
+                            </div>
+                            <div class="relativeElement marginTop10">
+                                <div class="titleInput">address</div>
+                                <input class="capitalize lightInput" type="text" name="address" ng-model="address" placeholder="address"/>
+                                <validation validate-for="number" validate-form="form1" ng-model="address"></validation>
+                            </div>
+                            <div class="relativeElement marginTop10">
+                                <div class="titleInput">phone number</div>
+                                <input class="capitalize lightInput" type="text" name="phone" ng-model="phone" placeholder="phone number"/>
+                                <validation validate-for="number" validate-form="form1" ng-model="phone"></validation>
+                            </div>
+                            <div class="relativeElement marginTop10">
+                                <div class="titleInput">description</div>
+                                <textarea placeholder="description"></textarea>
+                            </div>
+                            <div class="relativeElement marginTop10">
+                                <div class="titleInput">website</div>
+                                <input class="capitalize lightInput" type="text" name="website" ng-model="website" placeholder="website"/>
+                                <validation validate-for="website" validate-form="form1" ng-model="website"></validation>
+                            </div>
+                            <div class="relativeElement marginTop10">
+                                <div class="titleInput">e-mail</div>
+                                <input class="capitalize lightInput" type="text" name="email" ng-model="email" placeholder="e-mail"/>
+                                <validation validate-for="email" validate-form="form1" ng-model="email"></validation>
+                            </div>
+                            <div class="leftButtonsArea clearElement">
+                                <button type="button" class="capitalize greyButton elementRight">ok</button>
+                                <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
 
         </div>
     </div>
     <!---->
 
-    <!--add master popup-->
+    <!--register owner popup-->
     <div class="modal fade" id="myModalMaster" role="dialog">
         <div class="modal-dialog">
 
@@ -224,16 +210,18 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title capitalize">register owner</h4>
                 </div>
-                <form>
+                <form name="form2">
                     <div class="modal-body popupBody leftContent littleInputs">
                         <div class="inputsBlocks">
-                            <div class="inputBlock">
+                            <div class="relativeElement marginTop10">
                                 <div class="titleInput">Name</div>
-                                <input class="capitalize lightInput" type="text" placeholder="name"/>
+                                <input class="capitalize lightInput" type="text" name="name" ng-model="name1" placeholder="name"/>
+                                <validation validate-for="name" validate-form="form2" ng-model="name1"></validation>
                             </div>
-                            <div class="inputBlock">
+                            <div class="relativeElement marginTop10">
                                 <div class="titleInput">sureName</div>
-                                <input class="capitalize lightInput" type="text" placeholder="sureName"/>
+                                <input class="capitalize lightInput" type="text" name="sureName" ng-model="sureName1" placeholder="sureName"/>
+                                <validation validate-for="name" validate-form="form2" ng-model="sureName1"></validation>
                             </div>
                             <div class="inputBlock">
                                 <div class="titleInput">gender</div>
@@ -248,21 +236,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="inputBlock">
+                            <div class="relativeElement marginTop10">
                                 <div class="titleInput">phone number</div>
-                                <input class="capitalize lightInput" type="text" placeholder="phoneNumber"/>
+                                <input class="capitalize lightInput" type="text" name="phoneNumber" ng-model="phoneNumber" placeholder="phoneNumber"/>
+                                <validation validate-for="number" validate-form="form2" ng-model="phoneNumber"></validation>
                             </div>
-                            <div class="inputBlock">
+                            <div class="relativeElement marginTop10">
                                 <div class="titleInput">description</div>
                                 <textarea placeholder="description"></textarea>
                             </div>
-                            <div class="inputBlock">
+                            <div class="relativeElement marginTop10">
                                 <div class="titleInput">website</div>
-                                <input class="capitalize lightInput" type="text" placeholder="website"/>
+                                <input class="capitalize lightInput" type="text" name="website" ng-model="websiteAd" placeholder="website"/>
+                                <validation validate-for="website" validate-form="form2" ng-model="websiteAd"></validation>
                             </div>
-                            <div class="inputBlock">
+                            <div class="relativeElement marginTop10">
                                 <div class="titleInput">e-mail</div>
-                                <input class="capitalize lightInput" type="text" placeholder="e-mail"/>
+                                <input class="capitalize lightInput" type="text" name="email" ng-model="emailAd" placeholder="e-mail"/>
+                                <validation validate-for="email" validate-form="form2" ng-model="emailAd"></validation>
                             </div>
                             <div class="leftButtonsArea clearElement">
                                 <button type="button" class="capitalize greyButton elementRight">ok</button>
@@ -288,22 +279,25 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title capitalize">Let us</h4>
             </div>
-            <div class="modal-body popupBody leftContent littleInputs">
-                <div class="inputsBlocks">
-                    <div class="inputBlock">
-                        <div class="titleInput">e-mail</div>
-                        <input class="capitalize lightInput" type="text"/>
-                    </div>
-                    <div class="inputBlock">
-                        <div class="titleInput">description</div>
-                        <textarea></textarea>
-                    </div>
-                    <div class="leftButtonsArea clearElement">
-                        <button type="button" class="capitalize greyButton elementRight">ok</button>
-                        <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
+            <form name="form3">
+                <div class="modal-body popupBody leftContent littleInputs">
+                    <div class="inputsBlocks">
+                        <div class="relativeElement marginTop10">
+                            <div class="titleInput">e-mail</div>
+                            <input class="capitalize lightInput" name="email" ng-model="emailAdd" type="text"/>
+                            <validation validate-for="email" validate-form="form3" ng-model="emailAdd"></validation>
+                        </div>
+                        <div class="relativeElement marginTop10">
+                            <div class="titleInput">description</div>
+                            <textarea></textarea>
+                        </div>
+                        <div class="leftButtonsArea clearElement">
+                            <button type="button" class="capitalize greyButton elementRight">ok</button>
+                            <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
     </div>

@@ -111,38 +111,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         $scope.animateTopMenuVar = $scope.animateTopMenuVar === false ? true: false;
     };
 
-
-    /*$scope.categories = {
-        f1: {
-            title: 'The place where be the restaurant',
-            text: 'text text text text text text text text text text text text'
-        },
-        f2: {
-            title: 'The place where be the restaurant',
-            text: 'text text text text text text text text text text text text'
-        },
-        f3: {
-            title: 'The place where be the restaurant',
-            text: 'text text text text text text text text text text text text'
-        },
-        f4: {
-            title: 'The place where be the restaurant',
-            text: 'text text text text text text text text text text text text'
-        },
-        f5: {
-            title: 'The place where be the restaurant',
-            text: 'text text text text text text text text text text text text'
-        },
-        f6: {
-            title: 'The place where be the restaurant',
-            text: 'text text text text text text text text text text text text'
-        },
-        f7: {
-            title: 'The place where be the restaurant',
-            text: 'text text text text text text text text text text text text'
-        }
-    };*/
-
     $scope.places = [
         ['Abanda',  'Abbeville', 'Abbotsford', 'Abbott', 'Abbottstown', 'Abbyville', 'Abercrombie', 'Aberdeen', 'Aberdeen', 'Gardens'],
         ['Abanda',  'Abbeville', 'Abbotsford', 'Abbott', 'Abbottstown', 'Abbyville', 'Abercrombie', 'Aberdeen', 'Aberdeen', 'Gardens'],
