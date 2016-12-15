@@ -1070,6 +1070,10 @@ html body .content .pageSection .cont .infoContent .info .imageSection {
   height: 160px;
   float: left;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(../images/restaurantImages/0769b2c07f8e8356e1c0ce0316033a0f_1462423144.JPG);
 }
 html body .content .pageSection .cont .infoContent .info .imageSection img {
   width: 300px;

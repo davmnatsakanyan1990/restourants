@@ -263,8 +263,8 @@
                     <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                           ng-mouseenter="openInfoWindow($event, info)">
                         <a href="#/<% city %>/<% info.title %>/<% info.id %>" class="clearElement">
-                            <div class="imageSection">
-                                <img src="images/restaurantImages/<% info.image %>">
+                            <div class="imageSection" style="background-image: url('../images/restaurantImages/<%info.image %>')">
+                                {{--<img src="images/restaurantImages/<% info.image %>">--}}
                             </div>
                             <div class="textSection">
                                 <div class="title" ng-bind="info.title"></div>
