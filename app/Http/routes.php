@@ -11,7 +11,9 @@
 |
 */
 
+use App\Models\Admin;
 use App\Models\Place;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
@@ -202,6 +204,30 @@ Route::get('send_mail_to_owner', function(){
 
 Route::get('email', function(){
     return view('emails.index');
+});
+
+Route::get('fill_emails', function(){
+//    $d = DB::table('places')
+//        ->join('company', 'places.mobile', '=', 'company.phone')
+//        ->select('places.id', 'company.email as company_email')
+//        ->where('company.email', '!=', '')
+//        ->get();
+//
+//    foreach($d as $value){
+//
+//        Place::where('id',  $value->id)->update(['email'=> $value->company_email]);
+//    }
+});
+
+Route::get('test', function(){
+    $admins = Admin::all();
+    foreach ($admins as $admin){
+        $a = Admin::where('username', $admin['username'])->get()->count();
+        if($a > 1){
+            dd('not unique', $admin['id']);
+            
+        }
+    }
 });
 
 

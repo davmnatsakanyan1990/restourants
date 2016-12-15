@@ -20,6 +20,7 @@ class Place extends Model
     protected $fillable = [
         'mobile',
         'name',
+        'email',
         'intro',
         'address',
         'location_id',
