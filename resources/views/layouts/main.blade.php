@@ -175,7 +175,7 @@
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">description</div>
-                                <textarea placeholder="description"></textarea>
+                                <textarea placeholder="description" ng-model="descriptionLocation"></textarea>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">website</div>
@@ -188,7 +188,7 @@
                                 <validation validate-for="email" validate-form="form1" ng-model="email"></validation>
                             </div>
                             <div class="leftButtonsArea clearElement">
-                                <button type="button" class="capitalize greyButton elementRight">ok</button>
+                                <button type="button" class="capitalize greyButton elementRight" ng-click="addLocation([name,address,phone,descriptionLocation, website,email])">ok</button>
                                 <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
                             </div>
                         </div>
@@ -228,11 +228,11 @@
                                 <div class="genderInputs">
                                     <div class="genderSection">
                                         <span class="male">male</span>
-                                        <input class="capitalize lightInput" type="radio" name="gender" value="male"/>
+                                        <input class="capitalize lightInput" type="radio" name="gender" ng-model="gender" value="male"/>
                                     </div>
                                     <div class="genderSection">
                                         <span class="female">female</span>
-                                        <input class="capitalize lightInput" type="radio" name="gender" value="female"/>
+                                        <input class="capitalize lightInput" type="radio" name="gender" ng-model="gender" value="female"/>
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">description</div>
-                                <textarea placeholder="description"></textarea>
+                                <textarea placeholder="description" ng-model="description1"></textarea>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">website</div>
@@ -256,7 +256,7 @@
                                 <validation validate-for="email" validate-form="form2" ng-model="emailAd"></validation>
                             </div>
                             <div class="leftButtonsArea clearElement">
-                                <button type="button" class="capitalize greyButton elementRight">ok</button>
+                                <button type="button" class="capitalize greyButton elementRight" ng-click="registerOwner([name1, sureName1, gender, phoneNumber, description1, websiteAd, emailAd])">ok</button>
                                 <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
                             </div>
                         </div>
@@ -289,10 +289,10 @@
                         </div>
                         <div class="relativeElement marginTop10">
                             <div class="titleInput">description</div>
-                            <textarea></textarea>
+                            <textarea ng-model="description2"></textarea>
                         </div>
                         <div class="leftButtonsArea clearElement">
-                            <button type="button" class="capitalize greyButton elementRight">ok</button>
+                            <button type="button" class="capitalize greyButton elementRight" ng-click="noticedMistake([emailAdd, description2])">ok</button>
                             <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
                         </div>
                     </div>

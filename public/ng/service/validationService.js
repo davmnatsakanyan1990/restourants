@@ -3,7 +3,6 @@ app.factory('validationService', function() {
         validate: function(validateName, validateValue) {
             var value = false;
             var pattern;
-            debugger;
             switch (validateName){
                 case 'name':
                     if(validateValue){

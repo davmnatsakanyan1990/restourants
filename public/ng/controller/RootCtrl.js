@@ -268,4 +268,50 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             '; path=/';
     }
 
+    $scope.addLocation = function (data) {
+        if(data[0]&&data[1]&&data[2]&&data[3]&&data[4]&&data[5]){
+            var sendingData = {
+                name:data[0],
+                address: data[1],
+                phoneNumber: data[2],
+                description: data[3],
+                website: data[4],
+                email: data[5]
+            };
+            RestaurantService.addLocation(sendingData)
+                .then(function (response) {
+
+                })
+        }
+    };
+    $scope.gender = 'female';
+    $scope.registerOwner = function (data) {
+        if(data[0]&&data[1]&&data[2]&&data[3]&&data[4]&&data[5]&&data[6]){
+            var sendingData = {
+                name:data[0],
+                sureName: data[1],
+                gender: data[2],
+                phoneNumber: data[3],
+                description: data[4],
+                website: data[5],
+                email: data[6]
+            };
+            RestaurantService.registerOwner(sendingData)
+                .then(function (response) {
+
+                })
+        }
+    };
+    $scope.noticedMistake = function (data) {
+        if(data[0]&&data[1]){
+            var sendingData = {
+                email: data[0],
+                description: data[1]
+            };
+            RestaurantService.noticedMistake(data)
+                .then(function (response) {
+
+                })
+        }
+    }
 });
