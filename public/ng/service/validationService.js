@@ -36,6 +36,9 @@ app.factory('validationService', function() {
             }
 
             return {value: value, pattern: pattern};
+        },
+        reset: function(){
+            $('.tooltips ').addClass('displayNone');
         }
     };
 });

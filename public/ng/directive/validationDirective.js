@@ -8,11 +8,15 @@ app.directive('validation', [ 'validationService',function (validationService) {
             required: '=required'
         },
         replace:true,
-        template: '<div class="tooltips" ng-show="!error.value && error.pattern" style="top: 23px; " ng-bind="error.pattern"></div>',
+        template: '<div class="tooltips" ng-class="{'+'displayNone'+': error.value && !error.pattern}"  style="top: 23px; " ng-bind="error.pattern"></div>',
         link: function ($scope, element, attr) {
             $scope.$watch('validateValue', function(newValue, oldValue) {
+                /*debugger;*/
                 $scope.error= {};
                 $scope.error.value = true;
+                if($('.tooltips').hasClass('displayNone')){
+                    $('.tooltips').removeClass('displayNone')
+                }
                 if (newValue) {
                     if(attr.validateFor && attr.validateForm){
                         var form =attr.validateForm;

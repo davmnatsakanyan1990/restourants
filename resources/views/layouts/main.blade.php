@@ -153,7 +153,7 @@
             <div class="modal-content">
                 <form name="form1" novalidate>
                     <div class="modal-header popupHeader">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close" data-dismiss="modal" ng-click="resetPopup(['name','address','phone','descriptionLocation', 'website','email'])">&times;</button>
                         <h4 class="modal-title capitalize">add location</h4>
                     </div>
                     <div class="modal-body popupBody leftContent littleInputs">
@@ -189,7 +189,7 @@
                             </div>
                             <div class="leftButtonsArea clearElement">
                                 <button type="button" class="capitalize greenButton elementRight" ng-click="addLocation([name,address,phone,descriptionLocation, website,email])">ok</button>
-                                <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
+                                <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal" ng-click="resetPopup(['name','address','phone','descriptionLocation', 'website','email'])">cancel</button>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header popupHeader">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" ng-click="resetPopup(['name1', 'sureName1', 'gender', 'phoneNumber', 'description1', 'websiteAd', 'emailAd'])">&times;</button>
                     <h4 class="modal-title capitalize">register owner</h4>
                 </div>
                 <form name="form2">
@@ -257,7 +257,7 @@
                             </div>
                             <div class="leftButtonsArea clearElement">
                                 <button type="button" class="capitalize greenButton elementRight" ng-click="registerOwner([name1, sureName1, gender, phoneNumber, description1, websiteAd, emailAd])">ok</button>
-                                <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
+                                <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal" ng-click="resetPopup(['name1', 'sureName1', 'gender', 'phoneNumber', 'description1', 'websiteAd', 'emailAd'])">cancel</button>
                             </div>
                         </div>
                     </div>
@@ -276,7 +276,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header popupHeader">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" ng-click="resetPopup(['emailAdd', 'description2'])">&times;</button>
                 <h4 class="modal-title capitalize">Let us</h4>
             </div>
             <form name="form3">
@@ -293,7 +293,7 @@
                         </div>
                         <div class="leftButtonsArea clearElement">
                             <button type="button" class="capitalize greenButton elementRight" ng-click="noticedMistake([emailAdd, description2])">ok</button>
-                            <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal">cancel</button>
+                            <button type="button" class="capitalize greyButton elementRight" data-dismiss="modal" ng-click="resetPopup(['emailAdd', 'description2'])">cancel</button>
                         </div>
                     </div>
                 </div>
