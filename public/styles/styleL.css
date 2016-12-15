@@ -429,6 +429,13 @@ html body .greyButton {
   padding: 5px;
   width: 100px;
 }
+html body .greenButton {
+  color: white;
+  background-color: #00897b;
+  border: none;
+  padding: 5px;
+  width: 100px;
+}
 html body .showMoreButton {
   height: 40px;
   width: 100%;
