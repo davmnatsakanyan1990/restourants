@@ -27,6 +27,7 @@
 
 {{--services--}}
 <script src="{{asset('ng/service/services.js')}}"></script>
+<script src="{{asset('ng/service/validationService.js')}}"></script>
 
 {{--controllers--}}
 <script src="{{asset('ng/controller/MapController.js')}}"></script>
@@ -41,7 +42,7 @@
 <script src="{{asset('ng/directive/scroll.js')}}"></script>
 <script src="{{asset('ng/directive/starRating.js')}}"></script>
 <script src="{{asset('ng/directive/loader.js')}}"></script>
-
+<script src="{{asset('ng/directive/validationDirective.js')}}"></script>
 
 {{--other js files--}}
 
