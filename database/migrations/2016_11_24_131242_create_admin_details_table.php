@@ -15,6 +15,7 @@ class CreateAdminDetailsTable extends Migration
         Schema::create('admin_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('admin_id')->unsigned();
+            $table->string('username')->unique();
             $table->string('password');
             $table->timestamps();
 
