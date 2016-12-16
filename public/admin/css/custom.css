@@ -1179,6 +1179,20 @@ button, button:active, button:focus {
     font-size: 20px;
 }
 
+.checkout-page {
+    position: relative;
+}
+
+.checkout-page .right-sitebar {
+    position: static;
+}
+
+.checkout-page .position-fixed {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .checkout-page .right-sitebar .top-line {
     height: 3px;
     background-color: #ff7e00;
