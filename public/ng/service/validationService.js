@@ -1,4 +1,4 @@
-app.factory('validationService', function() {
+app.factory('validationService', function($rootScope) {
     return {
         validate: function(validateName, validateValue, required) {
             var value = false;
@@ -36,6 +36,11 @@ app.factory('validationService', function() {
             }
 
             return {value: value, pattern: pattern};
+        },
+        reset: function(){
+            /*$('.tooltips ').addClass('displayNone');*/
+            $rootScope.error = {};
+            $rootScope.itIsReset = true;
         }
     };
 });

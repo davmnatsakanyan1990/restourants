@@ -1,5 +1,5 @@
 
-app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, $route, RestaurantService) {
+app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, $route, RestaurantService,validationService) {
     var request = $route.current;
     $scope.showModal = false;
     $scope.search = true;
@@ -267,7 +267,16 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             '; expires=' + now.toUTCString() +
             '; path=/';
     }
+    $scope.resetPopup = function(data){
 
+        for(var d=0; d<data.length; d++){
+            $scope[data[d]] = ' ';
+        }
+        validationService.reset();
+        setTimeout(function(){
+            $rootScope.itIsReset = false;
+        }, 0);
+    };
     $scope.addLocation = function (data) {
         if(data[0]&&data[1]&&data[2]&&data[3]&&data[4]&&data[5]){
             var sendingData = {
