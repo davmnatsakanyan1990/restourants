@@ -67,7 +67,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
     //search restaurant in system
     $scope.SearchRestaurantInfo = function (value) {
-        /*debugger;*/
         if(value.charAt(value.length-1) == " "){
             for(var i=0; i<$scope.cities.length; i++){
                 if($scope.cities[i].name == $scope.city){
