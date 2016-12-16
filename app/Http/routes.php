@@ -220,14 +220,10 @@ Route::get('fill_emails', function(){
 });
 
 Route::get('test', function(){
-    $admins = Admin::all();
-    foreach ($admins as $admin){
-        $a = Admin::where('username', $admin['username'])->get()->count();
-        if($a > 1){
-            dd('not unique', $admin['id']);
-            
-        }
-    }
+    $collection = collect(config('coverimages'));
+    $random = $collection->random(3);
+    dd($random);
+
 });
 
 

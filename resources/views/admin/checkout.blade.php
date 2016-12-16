@@ -6,22 +6,23 @@
             <div class="wholePage">
                 @if($admin->place->plan->id == 1)
                     <div class="curent-plan-block">
-                        <div class="block">
-                            @if($days_remaining)
-                                <h2>Your current plan:Free Trial</h2>
-                            @else
-                                <h2>Your plan is expired</h2>
-                            @endif
-                            <div class="caunter">
-                                <div>
-                                    <span class="num-block first-num {{ $days_remaining ? 'color-1' : 'color-2' }}">{{ $days_remaining }}</span>
-                                    {{--<span>:</span>--}}
-                                    {{--<span class="num-block last-num">0</span>--}}
-                                    <span>Days remaing</span>
+                        <a href="{{ url('admin/payment/subscribe') }}">
+                            <div class="block">
+                                @if($days_remaining)
+                                    <h2>Your current plan:Free Trial</h2>
+                                @else
+                                    <h2>Your plan is expired</h2>
+                                @endif
+                                <div class="caunter">
+                                    <div>
+                                        <span class="num-block first-num {{ $days_remaining ? 'color-1' : 'color-2' }}">{{ $days_remaining }}</span>
+                                        {{--<span>:</span>--}}
+                                        {{--<span class="num-block last-num">0</span>--}}
+                                        <span>Days remaing</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        </a>
                     </div>
                 @endif
                 <div class="checkout-page">
@@ -272,15 +273,13 @@
                                         <label>
                                             <input name="terms" type="checkbox" class="checkbox" id="checkbox">
                                             <label for="checkbox"></label>
-                                            <span>I have read and agree to the Teams of Service</span>
+                                            <span>I have read and agree to the <a href="{{ url('admin/terms_of_use') }}">Teams of Service</a></span>
                                         </label>
                                         <div class="butt-block">
                                             <button id="pay" type="button">Place Order</button>
                                         </div>
                                         <input type="hidden" name="plan_id" value="{{ $plan->id }}">
                                         <input name="token" type="hidden" value="" />
-                                        <h2> Call us at </h2>
-                                        <h3><i class="fa fa-phone" aria-hidden="true"></i> 1-8885-556-894</h3>
                                     </div>
                                 </div>
                             </div>

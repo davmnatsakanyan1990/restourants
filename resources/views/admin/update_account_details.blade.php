@@ -16,6 +16,16 @@
                                     <p>{{ session('message') }}</p>
                                 </div>
                             @endif
+                            @if(count($errors)>0)
+                                <div class="alert alert-danger fade-in">
+                                    <i class="close" data-dismiss="alert" aria-label="close">&times;</i>
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <h5 style="color: red;">*Personal info</h5>
                             <form role="form" method="post" action="{{ url('admin/profile/update/pers_info') }}">
                                 {{ csrf_field() }}
@@ -23,20 +33,10 @@
                                     <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Name" value="{{ $admin['name'] }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" value="{{ $admin['email'] }}">
+                                    <input type="text" name="username" id="username" class="form-control input-sm" placeholder="Username" value="{{ $admin['username'] }}">
                                 </div>
                                 <input type="submit" value="Update" class="btn btn-info btn-block" style="margin-bottom: 10px;">
                             </form>
-                                @if(count($errors)>0)
-                                    <div class="alert alert-danger fade-in">
-                                        <i class="close" data-dismiss="alert" aria-label="close">&times;</i>
-                                        <ul>
-                                            @foreach($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
                             <h5 style="color: red;">*Secure info</h5>
                             <form role="form" method="post" action="{{ url('admin/profile/update/sec_info') }}">
                                 {{ csrf_field() }}
