@@ -67,21 +67,25 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
 
     //search restaurant in system
     $scope.SearchRestaurantInfo = function (value) {
-       for(var i=0; i<$scope.cities.length; i++){
-           if($scope.cities[i].name == $scope.city){
-               $scope.cityID = $scope.cities[i].id;
-               break;
-           }
-       }
-        var data = {
-            id: $scope.cityID,
-            restaurant: value
-        };
-        $scope.shearchRestaurants = true;
-        RestaurantService.SearchRestaurant(data)
-            .then(function (response) {
-                $scope.searcheInfo = response.data;
-            });
+        if(value.charAt(value.length-1) == " "){
+            spaceCount++;
+            for(var i=0; i<$scope.cities.length; i++){
+                if($scope.cities[i].name == $scope.city){
+                    $scope.cityID = $scope.cities[i].id;
+                    break;
+                }
+            }
+            var data = {
+                id: $scope.cityID,
+                restaurant: value
+            };
+            $scope.shearchRestaurants = true;
+            RestaurantService.SearchRestaurant(data)
+                .then(function (response) {
+                    $scope.searcheInfo = response.data;
+                });
+        }
+
     };
     /*$scope.selectCity = function (data) {
         console.log(data)
