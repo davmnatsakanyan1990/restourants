@@ -30,9 +30,6 @@ app.directive('validation', ['$rootScope', 'validationService',function ($rootSc
                     }else if(newValue =='' && oldValue){
                         $rootScope.error = validationService.validate(attr.validateFor, $scope.validateValue, attr.required?true:false);
                     }
-                    /*if(oldValue == 'undefined'){
-                     $('.tooltips ').addClass('displayNone');
-                     }*/
                     $scope.error = $rootScope.error;
                 }
 
