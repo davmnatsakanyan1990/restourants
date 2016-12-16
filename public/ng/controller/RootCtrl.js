@@ -268,10 +268,11 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             '; path=/';
     }
     $scope.resetPopup = function(data){
-        validationService.reset();
         for(var d=0; d<data.length; d++){
             $scope[data[d]] = '';
         }
+        validationService.reset();
+        setTimeout(function(){$rootScope.itIsReset = false; }, 0);
     };
     $scope.addLocation = function (data) {
         if(data[0]&&data[1]&&data[2]&&data[3]&&data[4]&&data[5]){
