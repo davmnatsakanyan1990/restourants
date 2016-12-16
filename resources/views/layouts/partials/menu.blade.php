@@ -26,7 +26,7 @@
         <div class="searchIcon">
             <form ng-submit="SearchRestaurantInfo(searchInfo)">
                 <i class="fa fa-search" aria-hidden="true"></i>
-                <input class="capitalize" type="text" ng-model="searchInfo" placeholder="search" />
+                <input class="capitalize" type="text" ng-change="SearchRestaurantInfo(searchInfo)" ng-trim="false" ng-model="searchInfo" placeholder="search" />
             </form>
 
         </div>
