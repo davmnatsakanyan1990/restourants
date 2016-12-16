@@ -42,7 +42,12 @@ class AdminController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update_pers_info(Request $request){
-        Admin::where('id', $this->admin->id)->update(['name' => $request->name, 'email' => $request->email]);
+
+        $this->validate($request, [
+           'username' => 'required|unique:admins,username,'.$this->admin->id.',id'
+        ]);
+        
+        Admin::where('id', $this->admin->id)->update(['name' => $request->name, 'username' => $request->username]);
         
         return redirect()->back()->with('message', 'Data was successfully updated');
     }
