@@ -31,5 +31,15 @@ $( document ).ready(function() {
         creditCardTab();
     });
 
+    var checkoutOffTop = $(".checkout-page").offset().top;
 
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() >= $(".checkout-page .cont > div.top-block").offset().top) {
+            $(".checkout-page .right-sitebar").css("top", $(window).scrollTop() - checkoutOffTop + 50);
+            $(".checkout-page .right-sitebar").addClass("position-fixed");
+        } else if ($(window).scrollTop() <= $(".checkout-page .cont > div.top-block").offset().top) {
+            $(".checkout-page .right-sitebar").removeClass("position-fixed");
+        }
+    });
 });
