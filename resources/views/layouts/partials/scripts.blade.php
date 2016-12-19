@@ -21,6 +21,7 @@
 <script src="{{asset('lib/angular-route/angular-route.js')}}"></script>
 
 <script src="{{asset('lib/angular-chosen-localytics/dist/angular-chosen.min.js')}}"></script>
+<script src="{{asset('lib/angular-socialshare/dist/angular-socialshare.js')}}"></script>
 
 
 <script src="{{asset('/ng/app.js')}}"></script>

@@ -326,17 +326,39 @@
                             <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a Mistake - let us</div>
                         </div>
                     </div>
-                    {{--<div class="socialIco">
-                        <div class="fb">
+                    <div class="footerSocial">
+                        <a socialshare
+                           socialshare-provider="facebook"
+                           socialshare-text="RestAdviser"
+                           {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                           socialshare-url="http://restadviser.com">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </div>
-                        <div class="twit">
+                        </a>
+                        <a
+                                socialshare
+                                socialshare-provider="twitter"
+                                socialshare-text="RestAdviser"
+                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                socialshare-url="http://restadviser.com">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </div>
-                        <div class="google">
+                        </a>
+                        <a
+                                socialshare
+                                socialshare-provider="linkedin"
+                                socialshare-text="RestAdviser"
+                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                socialshare-url="http://restadviser.com">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a
+                                socialshare
+                                socialshare-provider="google"
+                                socialshare-text="RestAdviser"
+                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                socialshare-url="http://restadviser.com">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
-                        </div>
-                    </div>--}}
+                        </a>
+                    </div>
                 </footer>
             </div>
 

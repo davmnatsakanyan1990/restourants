@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ["ngRoute", 'localytics.directives']);
+var app = angular.module("myApp", ["ngRoute", 'localytics.directives', '720kb.socialshare']);
 
 app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
     function ($interpolateProvider, $routeProvider,$locationProvider) {

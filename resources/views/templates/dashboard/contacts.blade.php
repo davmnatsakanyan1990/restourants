@@ -90,13 +90,38 @@
                         RestAdviser.com</br> All rights reserved.
                     </div>
                     <div class="footerSocial">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                        <i class="fa fa-youtube" aria-hidden="true"></i>
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        <a socialshare
+                           socialshare-provider="facebook"
+                           socialshare-text="RestAdviser"
+                           {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                           socialshare-url="http://restadviser.com">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a
+                                socialshare
+                                socialshare-provider="twitter"
+                                socialshare-text="RestAdviser"
+                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                socialshare-url="http://restadviser.com">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a
+                                socialshare
+                                socialshare-provider="linkedin"
+                                socialshare-text="RestAdviser"
+                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                socialshare-url="http://restadviser.com">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a
+                                socialshare
+                                socialshare-provider="google"
+                                socialshare-text="RestAdviser"
+                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                socialshare-url="http://restadviser.com">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </a>
                     </div>
-
                 </div>
             </div>
         </div>
