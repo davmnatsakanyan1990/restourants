@@ -221,7 +221,7 @@ Route::get('fill_emails', function(){
 
 Route::get('test', function(){
     $collection = collect(config('coverimages'));
-    $random = $collection->random(3);
+    $random = $collection->random(3)->toArray();
     dd($random);
 
 });
