@@ -509,6 +509,10 @@ class PlaceController extends Controller
         $data['site'] = $array['site'];
         $data['price'] = $array['price'];
         $data['workingHours'] = $array['workingHours'];
+        
+        $collection = collect(config('coverimages'));
+        $random = $collection->random(3)->toArray();
+        $data['coverImages'] = $random;
 
         // $data['shareItems'] = $data['shares'];
 
