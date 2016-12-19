@@ -68,7 +68,13 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
 
             }
-            $scope.aboutPhoto = ['../images/restaurantSlider/sliderImg1.jpg', '../images/restaurantSlider/sliderImg2.jpg', '../images/restaurantSlider/sliderImg3.jpg'];
+            $scope.aboutPhoto = $scope.currentRestaurant.coverImages;
+            $scope.coverImages =[];
+            for(k in $scope.aboutPhoto){
+                $scope.coverImages.push($scope.aboutPhoto[k]);
+            }
+            console.log($scope.coverImages);
+
             $scope.haveData = true;
             //restaurants images part
             var arr = $scope.currentRestaurant.images;
