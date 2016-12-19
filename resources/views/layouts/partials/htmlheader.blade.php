@@ -1,6 +1,6 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="UTF-8">
-<title>RestAdviser</title>
+<title>Restadviser</title>
 <link rel="stylesheet" href="{{asset('fonts/fonts.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{asset('styles/ui.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{asset('styles/current.css')}}" type="text/css" />
