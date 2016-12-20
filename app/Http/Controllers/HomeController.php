@@ -16,18 +16,56 @@ class HomeController extends Controller
     }
 
     /**
-     * Send mail to the super admin - Add Organization
+     * Send mail to the super admin - Add Location
+     * 
+     * @param Request $request
      */
-    public function addOrganization(Request $request){
-        dd($request->all());
+    public function addLocation(Request $request){
+        
         $this->validate($request, [
             //TODO validation rules
         ]);
-        $data = $request->all();
-        Mail::send('emails.add_organization', ['data' => $data], function ($m) use ($data) {
-            $m->from(env('MAIL_FROM'), 'Look Restaurants Application');
+        
+        Mail::send('emails.add_location', ['request' => $request], function ($m) use ($request) {
+            $m->from($request->email, 'Look Restaurants Application');
 
-            $m->to(env('MAIL_FROM'))->subject('Add Organization');
+            $m->to(env('SUPPORT_MAIL'))->subject('Add Location');
+        });
+    }
+
+    /**
+     * Send mail to the super admin - Add Organization
+     * 
+     * @param Request $request
+     */
+    public function registerOwner(Request $request){
+
+        $this->validate($request, [
+            //TODO validation rules
+        ]);
+
+        Mail::send('emails.register_owner', ['request' => $request], function ($m) use ($request) {
+            $m->from($request->email, 'Look Restaurants Application');
+
+            $m->to(env('SUPPORT_MAIL'))->subject('Register Owner');
+        });
+    }
+
+    /**
+     * Send mail to the super admin - Noticed Mistake
+     *
+     * @param Request $request
+     */
+    
+    public function noticedMistake(Request $request){
+        $this->validate($request, [
+            //TODO validation rules
+        ]);
+
+        Mail::send('emails.noticed_mistake', ['request' => $request], function ($m) use ($request) {
+            $m->from($request->email, 'Look Restaurants Application');
+
+            $m->to(env('SUPPORT_MAIL'))->subject('Noticed Mistake');
         });
     }
     
