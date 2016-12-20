@@ -23,7 +23,12 @@ class HomeController extends Controller
     public function addLocation(Request $request){
         
         $this->validate($request, [
-            //TODO validation rules
+            'name' => 'required',
+            'address' => 'required',
+            'phoneNumber' => 'required',
+            'description' => 'required',
+            'website' => 'required',
+            'email' => 'required'
         ]);
         
         Mail::send('emails.add_location', ['request' => $request], function ($m) use ($request) {
@@ -41,7 +46,13 @@ class HomeController extends Controller
     public function registerOwner(Request $request){
 
         $this->validate($request, [
-            //TODO validation rules
+            'name' => 'required',
+            'sureName' => 'required',
+            'gender' => 'required',
+            'phoneNumber' => 'required',
+            'description' => 'required',
+            'website' => 'required',
+            'email' => 'required'
         ]);
 
         Mail::send('emails.register_owner', ['request' => $request], function ($m) use ($request) {
@@ -59,7 +70,8 @@ class HomeController extends Controller
     
     public function noticedMistake(Request $request){
         $this->validate($request, [
-            //TODO validation rules
+            'email'=> 'required',
+            'description' => 'required'
         ]);
 
         Mail::send('emails.noticed_mistake', ['request' => $request], function ($m) use ($request) {
