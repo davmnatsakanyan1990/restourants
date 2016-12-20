@@ -42,7 +42,7 @@
                                         <div class="priceSign"><i class="fa fa-usd" aria-hidden="true"></i></div>
                                         <div class="priceMore">
                                             <span class="bigPrice">{{ explode('.', $plans[1]['price'])[0] }}</span>
-                                            <span>.</span>
+                                            <span style="font-size: 30px;">.</span>
                                             <span class="smallPrice">{{ explode('.', $plans[1]['price'])[1] }}</span>
                                             <span class="smallPrice">/Monthly</span>
                                         </div>

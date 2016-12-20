@@ -102,41 +102,35 @@
                     <div class="footerText"><a href="#privacyPolicy">Privacy Policy</a></div>
                     <div class="footerText"><a href="#termsOfUse">Terms of Use</a></div>
                     <div class="footerSocial">
-
                         <a socialshare
-                           socialshare-type="share"
                            socialshare-provider="facebook"
+                           socialshare-type="share"
                            socialshare-text="Restadviser"
-                           socialshare-title="<% currentRestaurant.name %>"
-                           socialshare-media="http://restadviser.com/images/coverImages/<% coverImages[0] %>"
-                           socialshare-description = "<%currentRestaurant.address%>"
-                           socialshare-url="<% lnk %>"
+                           socialshare-title="Restadviser"
+                           socialshare-media="http://restadviser.com/images/coverImages/cover1.png"
+                           socialshare-url="http://restadviser.com/#/aboutProject"
                            socialshare-via="129554920871527">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="twitter"
-                                socialshare-text="<% currentRestaurant.name %>"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<% lnk %>">
+                                socialshare-text="Restadviser"
+                                socialshare-url="http://restadviser.com/#/aboutProject">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="linkedin"
                                 socialshare-text="Restadviser"
-                                socialshare-description="<% currentRestaurant.name %>"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/aboutProject">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="google"
                                 socialshare-text="Restadviser"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/aboutProject">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                         </a>
                     </div>

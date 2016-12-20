@@ -783,7 +783,7 @@
                            socialshare-text="Restadviser"
                            socialshare-title="Restadviser"
                            socialshare-media="http://restadviser.com/images/coverImages/cover1.png"
-                           socialshare-url="<% lnk %>"
+                           socialshare-url="http://restadviser.com/#/termsOfUse"
                            socialshare-via="129554920871527">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
@@ -792,7 +792,7 @@
                                 socialshare-provider="twitter"
                                 socialshare-text="Restadviser"
                                 {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/termsOfUse">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
                         <a
@@ -800,7 +800,7 @@
                                 socialshare-provider="linkedin"
                                 socialshare-text="Restadviser"
                                 {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/termsOfUse">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                         <a
@@ -808,7 +808,7 @@
                                 socialshare-provider="google"
                                 socialshare-text="Restadviser"
                                 {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/termsOfUse">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                         </a>
                     </div>
