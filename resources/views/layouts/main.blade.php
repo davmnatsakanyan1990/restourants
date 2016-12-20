@@ -5,6 +5,23 @@
     @include("layouts.partials.scripts")
 </head>
 <body ng-app="myApp" ng-controller="rootController">
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '129554920871527',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 {{--<div class="home-loader" ng-show="docLoader"><img src="/images/loader2.gif" width="100" height="100"></div>--}}
     @include("layouts.partials.menu")
     <ng-view></ng-view>

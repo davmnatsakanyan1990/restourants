@@ -19,9 +19,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('styles/activation.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/opacitySlider.css')}}">
 
+<link rel="icon" type="image/png" href="{{asset('images/favicon.ico')}}" sizes="32x32">
 
-
-
+<meta property="og:url" content="http://restadviser.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Restadviser">
+<meta property="og:image" content="http://restadviser.com/images/coverImages/cover18.png">
+<meta property="og:description" content="We are Restadviser team">
 
 
 <!-- Add fancyBox -->

@@ -407,27 +407,33 @@
                                 RestAdviser.com</br> All rights reserved.
                             </div>
                             <div class="footerSocial">
+
                                 <a socialshare
+                                   socialshare-type="share"
                                    socialshare-provider="facebook"
                                    socialshare-text="Restadviser"
-                                   {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                   socialshare-url="<%window.location.href%>">
+                                   socialshare-title="<% currentRestaurant.name %>"
+                                   socialshare-media="http://restadviser.com/images/coverImages/<% coverImages[0] %>"
+                                   socialshare-description = "<%currentRestaurant.address%>"
+                                   socialshare-url="<% lnk %>"
+                                   socialshare-via="129554920871527">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
                                 <a
                                    socialshare
                                    socialshare-provider="twitter"
-                                   socialshare-text="Restadviser"
+                                   socialshare-text="<% currentRestaurant.name %>"
                                    {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                   socialshare-url="<%window.location.href%>">
+                                   socialshare-url="<% lnk %>">
                                     <i class="fa fa-twitter" aria-hidden="true"></i>
                                 </a>
                                 <a
                                         socialshare
                                         socialshare-provider="linkedin"
                                         socialshare-text="Restadviser"
+                                        socialshare-description="<% currentRestaurant.name %>"
                                         {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                        socialshare-url="<%window.location.href%>">
+                                        socialshare-url="<%lnk%>">
                                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                                 </a>
                                 <a
@@ -435,7 +441,7 @@
                                         socialshare-provider="google"
                                         socialshare-text="Restadviser"
                                         {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                        socialshare-url="<%window.location.href%>">
+                                        socialshare-url="<%lnk%>">
                                     <i class="fa fa-google-plus" aria-hidden="true"></i>
                                 </a>
                             </div>

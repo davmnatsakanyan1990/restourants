@@ -20,6 +20,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
     });
 
+    setTimeout(function(){ $scope.lnk = window.location.href;}, 0);
 	RestaurantService.getLogedUser()
 		.then(function (response) {
 			if(response.data.status == 1){

@@ -330,32 +330,30 @@
                         <a socialshare
                            socialshare-provider="facebook"
                            socialshare-text="Restadviser"
-                           {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                           socialshare-url="<%window.location.href%>">
+                           socialshare-media="images/restaurantImages/rest1.jpg"
+                           socialshare-via="129554920871527"
+                           socialshare-url="http://restadviser.com">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="twitter"
                                 socialshare-text="Restadviser"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%window.location.href%>">
+                                socialshare-url="http://restadviser.com">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="linkedin"
                                 socialshare-text="Restadviser"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%window.location.href%>">
+                                socialshare-url="http://restadviser.com">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="google"
                                 socialshare-text="Restadviser"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%window.location.href%>">
+                                socialshare-url="http://restadviser.com">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                         </a>
                     </div>
