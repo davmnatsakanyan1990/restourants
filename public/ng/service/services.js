@@ -114,28 +114,23 @@ app.factory('RestaurantService', function($http) {
         addLocation: function (data) {
             return $http ({
                 method: "POST",
-                url : 'restaurant/location',
-                data : {
-                    addresses: data
-                }
+                url : 'add_location',
+                data : data
             })
         },
         registerOwner: function (data) {
             return $http ({
                 method: "POST",
-                url : 'restaurant/registerOwner',
-                data : {
-                    addresses: data
-                }
+                url : 'register_owner',
+                data : data
+
             })
         },
         noticedMistake: function (data) {
             return $http ({
                 method: "POST",
-                url : 'restaurant/noticedMistake',
-                data : {
-                    addresses: data
-                }
+                url : 'noticed_mistake',
+                data :data
             })
         },
 

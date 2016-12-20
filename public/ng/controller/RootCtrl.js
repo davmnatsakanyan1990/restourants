@@ -292,7 +292,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             };
             RestaurantService.addLocation(sendingData)
                 .then(function (response) {
-
+                    alert('message sent');
                 })
         }
     };
@@ -310,7 +310,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             };
             RestaurantService.registerOwner(sendingData)
                 .then(function (response) {
-
+                    alert('message sent');
                 })
         }
     };
@@ -320,9 +320,9 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                 email: data[0],
                 description: data[1]
             };
-            RestaurantService.noticedMistake(data)
+            RestaurantService.noticedMistake(sendingData)
                 .then(function (response) {
-
+                    alert('message sent');
                 })
         }
     }

@@ -158,9 +158,12 @@ Route::get('products/{menu_id}', 'PlaceController@products');
 Route::get('search', 'PlaceController@search');
 
 Route::get('comments', 'PlaceController@moreComments');
-Route::get('sendmail/{email}', 'UserController@sendMail');
-Route::post('add_organization', 'HomeController@addOrganization');
 Route::post('detect_user_city', 'HomeController@detectUserCity');
+
+Route::get('sendmail/{email}', 'UserController@sendMail');
+Route::post('add_location', 'HomeController@addLocation');
+Route::post('register_owner', 'HomeController@registerOwner');
+Route::post('noticed_mistake', 'HomeController@noticedMistake');
 
 
 /**
