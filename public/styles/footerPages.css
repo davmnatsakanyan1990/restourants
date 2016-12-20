@@ -11,13 +11,13 @@
   padding: 125px 150px 120px 150px;
 }
 .organizationContent .organization .organizationTitle {
-  font-size: 65px;
+  font-size: 40px;
   font-family: 'Museo Slab 500';
   color: #3d3d3d;
 }
 .organizationContent .organization .subTitle {
-  margin-top: 65px;
-  font-size: 35px;
+  margin-top: 10px;
+  font-size: 30px;
   font-family: 'Museo Slab 500';
   color: #3d3d3d;
   border-bottom: 1px solid #dddddd;
@@ -30,7 +30,7 @@
   width: 90px;
 }
 .organizationContent .organization .subContent {
-  font-size: 26px;
+  font-size: 20px;
   font-family: 'Source Sans Pro';
   color: #3d3d3d;
   margin-top: 26px;
@@ -111,6 +111,17 @@
 }
 .organizationContent footer {
   color: white;
+  padding-top: 20px;
+}
+.organizationContent footer .copyRight {
+  color: #a3a4ae;
+}
+.organizationContent footer .line {
+  width: 100%;
+  height: 1px;
+  background-color: #a3a4ae;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 .organizationContent footer .row {
   padding: 0 140px;
@@ -121,7 +132,7 @@
 .organizationContent footer .footerText {
   font-size: 18px;
   text-transform: capitalize;
-  margin-top: 7px;
+  margin-top: 4px;
   cursor: pointer;
 }
 .organizationContent footer .footerText:hover {
@@ -168,7 +179,7 @@
 }
 .contacts .subTitle {
   margin-top: 65px;
-  font-size: 35px;
+  font-size: 30px;
   font-family: 'Museo Slab 500';
   color: #3d3d3d;
   border-bottom: 1px solid #dddddd;

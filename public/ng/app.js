@@ -26,10 +26,6 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
                 templateUrl : "templates/dashboard/home",
                 controller : "MapCtrl"
             })
-            /*.when("/activation", {
-                templateUrl : "templates/dashboard/activation",
-                controller : "MapCtrl"
-            })*/
             .when("/forOrganization", {
                 templateUrl : "templates/dashboard/forOrganization",
                 controller : "footerController"
@@ -40,6 +36,14 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
             })
             .when("/contacts", {
                 templateUrl : "templates/dashboard/contacts",
+                controller : "footerController"
+            })
+            .when("/termsOfUse", {
+             templateUrl : "templates/dashboard/termsOfUse",
+             controller : "footerController"
+             })
+            .when("/privacyPolicy", {
+                templateUrl : "templates/dashboard/privacyPolicy",
                 controller : "footerController"
             })
             .when("/:city/:name/:id", {

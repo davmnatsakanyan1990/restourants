@@ -85,10 +85,8 @@
                     <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a Mistake - let us</div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 floating">
-                    <img src="../images/logo.png">
-                    <div class="footerExplane">
-                        RestAdviser.com</br> All rights reserved.
-                    </div>
+                    <div class="footerText"><a href="#privacyPolicy">Privacy Policy</a></div>
+                    <div class="footerText"><a href="#termsOfUse">Terms of Use</a></div>
                     <div class="footerSocial">
                         <a socialshare
                            socialshare-provider="facebook"
@@ -125,6 +123,10 @@
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                         </a>
                     </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 floating">
+                    <div class="line"></div>
+                    <span class="copyRight">&copy; RestAdviser.com | All rights reserved.</span>
                 </div>
             </div>
         </div>
