@@ -1,6 +1,6 @@
 <div class="organizationContent">
     <div class="organization">
-        <div class="organizationTitle">About Project</div>
+        <div class="organizationTitle" style="font-size: 50px;  margin-bottom: 30px;">About Project</div>
         <div class="subTitle">About Restadviser<div class="line"></div></div>
         <div class="subContent">In a huge and diverse country like the US the search
             for a good restaurant is never complete. Whether you are feeling fine dining in a
@@ -99,10 +99,8 @@
                     <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a Mistake - let us</div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 floating">
-                    <img src="../images/logo.png">
-                    <div class="footerExplane">
-                        RestAdviser.com</br> All rights reserved.
-                    </div>
+                    <div class="footerText"><a href="#privacyPolicy">Privacy Policy</a></div>
+                    <div class="footerText"><a href="#termsOfUse">Terms of Use</a></div>
                     <div class="footerSocial">
                         <a socialshare
                            socialshare-provider="facebook"
@@ -110,7 +108,7 @@
                            socialshare-text="Restadviser"
                            socialshare-title="Restadviser"
                            socialshare-media="http://restadviser.com/images/coverImages/cover1.png"
-                           socialshare-url="<% lnk %>"
+                           socialshare-url="http://restadviser.com/#/aboutProject"
                            socialshare-via="129554920871527">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
@@ -118,27 +116,28 @@
                                 socialshare
                                 socialshare-provider="twitter"
                                 socialshare-text="Restadviser"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/aboutProject">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="linkedin"
                                 socialshare-text="Restadviser"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/aboutProject">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                         <a
                                 socialshare
                                 socialshare-provider="google"
                                 socialshare-text="Restadviser"
-                                {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="<%lnk%>">
+                                socialshare-url="http://restadviser.com/#/aboutProject">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                         </a>
                     </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 floating">
+                    <div class="line"></div>
+                    <span class="copyRight">&copy; RestAdviser.com | All rights reserved.</span>
                 </div>
             </div>
         </div>

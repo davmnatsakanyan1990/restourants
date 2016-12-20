@@ -40,7 +40,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/admin/css/custom.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/css/customPopup.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="icon" type="image/png" href="/admin/img/favicon.ico" sizes="32x32">
 <script>
     var BASE_URL = '{{ url('/') }}'
 </script>
