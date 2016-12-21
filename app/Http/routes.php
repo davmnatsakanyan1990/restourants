@@ -12,6 +12,7 @@
 */
 
 use App\Models\Admin;
+use App\Models\Payment;
 use App\Models\Place;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -81,6 +82,16 @@ Route::group([
 
 Route::group([
     'prefix' => 'admin',
+    'namespace' => 'Admin\Auth'
+],
+    function(){
+        Route::get('password/reset/{token?}', 'PasswordController@showResetForm');
+        Route::post('password/email', 'PasswordController@sendResetLinkEmail');
+        Route::post('password/reset', 'PasswordController@reset');
+    });
+
+Route::group([
+    'prefix' => 'admin',
     'namespace' => 'Admin',
 ],
     function(){
@@ -139,12 +150,8 @@ Route::group([
 /**
  * Comments route
  */
-Route::group([
-    'prefix' => 'comment',
-],
-    function(){
-        Route::post('add', 'CommentController@create');
-    });
+ Route::post('comment/add', 'CommentController@create');
+    
 
 
 
@@ -172,25 +179,36 @@ Route::post('noticed_mistake', 'HomeController@noticedMistake');
 Route::get('move/images', 'ApiController@movePlaceImages');
 Route::post('fill/places', 'ApiController@fillPlace');
 Route::get('fill/cuisines', 'ApiController@fillCuisines');
-Route::get('fill/locations', 'ApiController@fillLocations');
+Route::post('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
 Route::get('fill/support_ids', 'ApiController@fillSupportId');
 
 
 Route::get('run_cron', function(){
-    $places = Place::whereNotNull('first_login')->where('plan_id', 1)->get()->toArray();
+    $places1 = Place::whereNotNull('first_login')->where('plan_id', 1)->get()->toArray();
 
     // get current date time in Unix format
     $now = strtotime(date("Y-m-d H:i:s"));
 
-    foreach($places as $place){
+    if(count($places1) > 0) {
+        foreach ($places1 as $place) {
 
-        //get email sent time in Unix format
-        $activation_date = strtotime($place['first_login']);
+            //get email sent time in Unix format
+            $activation_date = strtotime($place['first_login']);
 
-        // deactivate place after 5 day
-        if($now > $activation_date + 432000){
+            // deactivate place after 5 day
+            if ($now > $activation_date + 432000) {
+                Place::where('id', $place['id'])->delete();
+            }
+        }
+    }
+
+    $places2 = Place::where('plan_id', 2)->get()->toArray();
+    foreach ($places2 as $place) {
+        $last_payment = Payment::where('place_id', $place['id'])->orderBy('created_at')->get()->last()->toArray();
+        $payment_date = strtotime($last_payment['created_at']);
+        if($now > $payment_date + 31536000){
             Place::where('id', $place['id'])->delete();
         }
     }
@@ -210,16 +228,16 @@ Route::get('email', function(){
 });
 
 Route::get('fill_emails', function(){
-//    $d = DB::table('places')
-//        ->join('company', 'places.mobile', '=', 'company.phone')
-//        ->select('places.id', 'company.email as company_email')
-//        ->where('company.email', '!=', '')
-//        ->get();
-//
-//    foreach($d as $value){
-//
-//        Place::where('id',  $value->id)->update(['email'=> $value->company_email]);
-//    }
+    $d = DB::table('places')
+        ->join('company', 'places.mobile', '=', 'company.phone')
+        ->select('places.id', 'company.email as company_email')
+        ->where('company.email', '!=', '')
+        ->get();
+
+    foreach($d as $value){
+
+        Place::where('id',  $value->id)->update(['email'=> $value->company_email]);
+    }
 });
 
 Route::get('test', function(){
