@@ -222,6 +222,13 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             );
         });
 
+        google.maps.event.addListener(marker, 'mouseover', function(){
+            console.log(marker.id);
+            marker.setIcon('images/bullets/hover1.png');
+        });
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            marker.setIcon('images/bullets/1.png');
+        });
 
         $scope.markers.push(marker);
     };
