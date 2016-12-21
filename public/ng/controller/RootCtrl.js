@@ -1,5 +1,5 @@
 
-app.controller("rootController", function($scope, $rootScope, $http, $document, $window, $timeout, $location, $route, RestaurantService,validationService) {
+app.controller("rootController", function($scope, $rootScope, $location, $route, RestaurantService, validationService, Helper) {
     var request = $route.current;
     $scope.showModal = false;
     $scope.search = true;
@@ -156,12 +156,6 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
         });
 	
 	//login and register part
-    var animate = function (element) {
-        element.animate({ opacity: '0.4', height: '100px'}, "slow");
-        element.animate({ opacity: '1'}, "slow");
-        element.animate({ opacity: '0.4'}, "slow");
-        element.animate({ opacity: '0', height: '0'}, "slow");
-    };
     var confirm = document.getElementsByClassName('confirm');
 	$scope.loginUser = function(data){
 	    if(data && data.password && data.email){
@@ -176,9 +170,9 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         var userName = JSON.stringify(un);
                         localStorage.setItem('userName',userName);
                         $scope.reset();
-                        animate($(".confirmLogin"));
+                        Helper.success(['You are loged in', 'login'])
                     }else if(response.data.status == "error"){
-                        animate($(".errorLogin"));
+                        Helper.error(['Something went wrong', 'login'])
                     }
                     RestaurantService.getLogedUser()
                         .then(function (response) {
@@ -187,8 +181,8 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                             }
                         });
                 }, function(error){
-                    animate($(".errorLogin"));
-                    console.log(error.data)
+                    console.log(error.data);
+                    Helper.error(['Something went wrong', 'login'])
                 });
         }else{
             $scope.reset();
@@ -206,8 +200,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         localStorage.setItem('userName',userName);
                         $scope.currentUser = {};
                         $scope.reset();
-                        animate($(".confirm"));
-                        
+                        Helper.success(['Your registration is success', 'registration']);
                         RestaurantService.sendRegistrationMail(user.email)
                             .then(function(response){
 
@@ -221,7 +214,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                         });
                 }, function(error){
                     console.log(error.data);
-                    animate($(".error"));
+                    Helper.error(['Something went wrong', 'registration']);
                 });
         }else{
             $scope.reset();
@@ -233,6 +226,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
                 if(response.data.status == "ok"){
                     $rootScope.logedUser = false;
                     localStorage.removeItem("userName");
+                    Helper.success(['You are loged out', 'log']);
                 }else{
                     $scope.successLogin = false;
                 }
@@ -292,7 +286,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             };
             RestaurantService.addLocation(sendingData)
                 .then(function (response) {
-                    alert('message sent');
+                    Helper.success(['Message was send successfully', 'message'])
                 })
         }
     };
@@ -310,7 +304,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             };
             RestaurantService.registerOwner(sendingData)
                 .then(function (response) {
-                    alert('message sent');
+                    Helper.success(['Message was send successfully', 'message'])
                 })
         }
     };
@@ -322,7 +316,7 @@ app.controller("rootController", function($scope, $rootScope, $http, $document, 
             };
             RestaurantService.noticedMistake(sendingData)
                 .then(function (response) {
-                    alert('message sent');
+                    Helper.success(['Message was send successfully', 'message'])
                 })
         }
     }

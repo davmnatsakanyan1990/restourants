@@ -1,4 +1,4 @@
-app.controller("footerController", function($scope, RestaurantService) {
+app.controller("footerController", function($scope, RestaurantService, Helper) {
     window.scrollTo(0, 0);
     setTimeout(function(){ $scope.lnk = window.location.href;}, 0);
     $scope.sendMessage = function (data) {
@@ -11,7 +11,9 @@ app.controller("footerController", function($scope, RestaurantService) {
             };
             RestaurantService.contact(dataSent)
                 .then(function(response){
-
+                    Helper.success(['Email was sent successfully', 'email']);
+                }, function (error) {
+                    Helper.error(['Email was not sent', 'email']);
                 })
         }
     }
