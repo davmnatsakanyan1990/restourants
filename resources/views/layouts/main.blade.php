@@ -177,18 +177,24 @@
                         <div class="inputsBlocks">
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Name</div>
-                                <input class="capitalize lightInput" type="text" name="name" ng-model="name"/>
-                                <validation validate-for="name" validate-form="form1" required ng-model="name"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="name" ng-model="name"/>
+                                    <validation validate-for="name" validate-form="form1" required ng-model="name"></validation>
+                                </div>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Address</div>
-                                <input class="capitalize lightInput" type="text" name="address" ng-model="address"/>
-                                <validation validate-for="number" validate-form="form1" required ng-model="address"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="address" ng-model="address"/>
+                                    <validation validate-for="number" validate-form="form1" required ng-model="address"></validation>
+                                </div>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Phone number</div>
-                                <input class="capitalize lightInput" type="text" name="phone" ng-model="phone" />
-                                <validation validate-for="number" validate-form="form1" required ng-model="phone"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="phone" ng-model="phone" />
+                                    <validation validate-for="number" validate-form="form1" required ng-model="phone"></validation>
+                                </div>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Description</div>
@@ -196,13 +202,17 @@
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Website</div>
-                                <input class="capitalize lightInput" type="text" name="website" ng-model="website"/>
-                                <validation validate-for="website" validate-form="form1" ng-model="website"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="website" ng-model="website"/>
+                                    <validation validate-for="website" validate-form="form1" ng-model="website"></validation>
+                                </div>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">E-mail</div>
-                                <input class="capitalize lightInput" type="text" name="email" ng-model="email" />
-                                <validation validate-for="email" validate-form="form1" required ng-model="email"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="email" ng-model="email" />
+                                    <validation validate-for="email" validate-form="form1" required ng-model="email"></validation>
+                                </div>
                             </div>
                             <div class="leftButtonsArea clearElement">
                                 <button type="button" class="capitalize greenButton elementRight" ng-click="addLocation([name,address,phone,descriptionLocation, website,email])">ok</button>
@@ -232,13 +242,17 @@
                         <div class="inputsBlocks">
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Name</div>
-                                <input class="capitalize lightInput" type="text" name="name" ng-model="name1"/>
-                                <validation validate-for="name" validate-form="form2" required ng-model="name1"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="name" ng-model="name1"/>
+                                    <validation validate-for="name" validate-form="form2" required ng-model="name1"></validation>
+                                </div>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">SureName</div>
-                                <input class="capitalize lightInput" type="text" name="sureName" ng-model="sureName1"/>
-                                <validation validate-for="name" validate-form="form2" required ng-model="sureName1"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="sureName" ng-model="sureName1"/>
+                                    <validation validate-for="name" validate-form="form2" required ng-model="sureName1"></validation>
+                                </div>
                             </div>
                             <div class="inputBlock">
                                 <div class="titleInput">Gender</div>
@@ -255,8 +269,10 @@
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Phone number</div>
-                                <input class="capitalize lightInput" type="text" name="phoneNumber" ng-model="phoneNumber"/>
-                                <validation validate-for="number" validate-form="form2" required ng-model="phoneNumber"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="phoneNumber" ng-model="phoneNumber"/>
+                                    <validation validate-for="number" validate-form="form2" required ng-model="phoneNumber"></validation>
+                                </div>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Description</div>
@@ -264,13 +280,17 @@
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">Website</div>
-                                <input class="capitalize lightInput" type="text" name="website" ng-model="websiteAd"/>
-                                <validation validate-for="website" validate-form="form2" ng-model="websiteAd"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="website" ng-model="websiteAd"/>
+                                    <validation validate-for="website" validate-form="form2" ng-model="websiteAd"></validation>
+                                </div>
                             </div>
                             <div class="relativeElement marginTop10">
                                 <div class="titleInput">E-mail</div>
-                                <input class="capitalize lightInput" type="text" name="email" ng-model="emailAd"/>
-                                <validation validate-for="email" validate-form="form2" required ng-model="emailAd"></validation>
+                                <div class="relativeElement">
+                                    <input class="capitalize lightInput" type="text" name="email" ng-model="emailAd"/>
+                                    <validation validate-for="email" validate-form="form2" required ng-model="emailAd"></validation>
+                                </div>
                             </div>
                             <div class="leftButtonsArea clearElement">
                                 <button type="button" class="capitalize greenButton elementRight" ng-click="registerOwner([name1, sureName1, gender, phoneNumber, description1, websiteAd, emailAd])">ok</button>
@@ -301,8 +321,10 @@
                     <div class="inputsBlocks">
                         <div class="relativeElement marginTop10">
                             <div class="titleInput">E-mail</div>
-                            <input class="capitalize lightInput" name="email" ng-model="emailAdd" type="text"/>
-                            <validation validate-for="email" validate-form="form3" required ng-model="emailAdd"></validation>
+                            <div class="relativeElement">
+                                <input class="capitalize lightInput" name="email" ng-model="emailAdd" type="text"/>
+                                <validation validate-for="email" validate-form="form3" required ng-model="emailAdd"></validation>
+                            </div>
                         </div>
                         <div class="relativeElement marginTop10">
                             <div class="titleInput">Description</div>
