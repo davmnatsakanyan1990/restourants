@@ -8,7 +8,7 @@ app.directive('validation', ['$rootScope', 'validationService',function ($rootSc
             required: '=required'
         },
         replace:true,
-        template: '<div class="tooltips"  ng-show="!error.value && error.pattern"  style="top: 23px; " ng-bind="error.pattern"></div>',
+        template: '<div class="tooltips"  ng-show="!error.value && error.pattern"  style="top: 0; " ng-bind="error.pattern"></div>',
         link: function ($scope, element, attr) {
 
             $scope.$watch('validateValue', function(newValue, oldValue) {

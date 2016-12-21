@@ -32,6 +32,18 @@ app.factory('validationService', function($rootScope) {
                             pattern = 'Invalid web page'
                         }
                         break;
+                    case 'subject':
+                        if(validateValue){
+                            value = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/.test(validateValue);
+                            pattern = 'Invalid subject'
+                        }
+                        break;
+                    case 'text':
+                        if(validateValue){
+                            value = /^[a-zA-Z0-9]*$/.test(validateValue);
+                            pattern = 'Invalid subject'
+                        }
+                        break;
                 }
             }
 

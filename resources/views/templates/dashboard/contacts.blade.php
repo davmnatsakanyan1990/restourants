@@ -17,19 +17,28 @@
                             <div class="row">
                                 <form name="contactUs">
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Name"/>
+                                        <div class="relativeElement">
+                                            <input type="text" placeholder="Name" ng-model="contactName"/>
+                                            <validation validate-for="name" validate-form="contactUs" required ng-model="contactName"></validation>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 relativeElement">
+                                        <div class="relativeElement">
+                                            <input type="text" placeholder="Email" ng-model="contactEmail"/>
+                                            <validation validate-for="email" validate-form="contactUs" required ng-model="contactEmail"></validation>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 relativeElement">
+                                        <div class="relativeElement">
+                                            <input type="text" placeholder="Subject" ng-model="contactSubject"/>
+                                            <validation validate-for="subject" validate-form="contactUs" required ng-model="contactSubject"></validation>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 relativeElement">
+                                        <textarea placeholder="Message" ng-model="contactMessage"></textarea>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Email"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="Subject"/>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <textarea placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <button>Send message</button>
+                                        <button ng-click="sendMessage([contactName, contactEmail, contactSubject, contactMessage])">Send message</button>
                                     </div>
                                 </form>
                             </div>

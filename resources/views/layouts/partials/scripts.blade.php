@@ -29,6 +29,7 @@
 {{--services--}}
 <script src="{{asset('ng/service/services.js')}}"></script>
 <script src="{{asset('ng/service/validationService.js')}}"></script>
+<script src="{{asset('ng/service/helper.js')}}"></script>
 
 {{--controllers--}}
 <script src="{{asset('ng/controller/MapController.js')}}"></script>
