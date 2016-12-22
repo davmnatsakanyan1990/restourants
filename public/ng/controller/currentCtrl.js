@@ -121,23 +121,23 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                         break;
                     case 1:
                         $scope.cal = 12;
-                        $scope.myNewArr = arr;
+                        $scope.myNewArr.push(arr);
                         break;
                     case 2:
                         $scope.cal = 6;
-                        $scope.myNewArr = arr;
+                        $scope.myNewArr.push(arr);
                         break;
                     case 3:
                         $scope.cal = 4;
-                        $scope.myNewArr = arr;
+                        $scope.myNewArr.push(arr);
                         break;
                     case 4:
                         $scope.cal = 3;
-                        $scope.myNewArr = arr;
+                        $scope.myNewArr.push(arr);
                         break;
                     case 5:
                         $scope.cal = 2;
-                        $scope.myNewArr = arr;
+                        $scope.myNewArr.push(arr)
                         break;
                 }
             }
