@@ -354,7 +354,7 @@
                 <div class="container6 pages parallax" id="photos">
                     <div class="containerTitle capitalize">visitor photos</div>
                     <div class="containerContent with100">
-                        <div class=""><!--slider-->
+                        <div class="" ng-show="!noImage"><!--slider-->
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div id="Carousel" class="carus2 carousel slide">
