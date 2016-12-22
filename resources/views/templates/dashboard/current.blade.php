@@ -354,13 +354,12 @@
                 <div class="container6 pages parallax" id="photos">
                     <div class="containerTitle capitalize">visitor photos</div>
                     <div class="containerContent with100">
-                        <div class=""><!--slider-->
+                        <div class="" ng-show="!noImage"><!--slider-->
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div id="Carousel" class="carus2 carousel slide">
                                         <!-- Carousel items -->
                                         <div class="carousel-inner">
-
                                             <div class="item active">
                                                 <div class="row">
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
@@ -373,7 +372,6 @@
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
                                                         <a  class="thumbnail fancybox" rel="group" href= "<%image%>"><img src="<%image%>" style="max-width:100%;" alt=""></a>
                                                     </div>
-
                                                 </div><!--.row-->
                                             </div><!--.item-->
                                         </div><!--.carousel-inner-->

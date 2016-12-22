@@ -88,7 +88,8 @@
                     <span></span>
                 </div>
                 <ul class="NavButtons clear ">
-                    <li class="navSecond capitalize" ng-click="displayElement('f1')">mode
+                    <li class="navSecond capitalize">
+                        <div class="displayElement" ng-click="displayElement($event)">mode</div>
                         <div class="forBefore displayNone" id="f1">
                             <div class="filters ">
                                 <span class="triangle"></span>
@@ -102,7 +103,7 @@
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF1, 'Mode')">
                                         ok
@@ -112,7 +113,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f2')">cost
+                    <li class="navSecond capitalize">
+                        <div class="displayElement" ng-click="displayElement($event)">cost</div>
                         <div class="forBefore displayNone" id="f2">
                             <div class="filters">
                                 <span class="triangle"></span>
@@ -135,24 +137,25 @@
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF2, 'Cost')">ok</button>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f3')">Sort by
+                    <li class="navSecond capitalize">
+                        <div class="displayElement" ng-click="displayElement($event)">Sort by</div>
                         <div class="forBefore displayNone" id="f3">
                             <div class="filters">
                                 <span class="triangle"></span>
-                                <div class="filtersAll">
+                                <div class="filtersAll scrollbar style-3">
                                     <p ng-repeat="sortBy in drowSort track by $index">
                                         <input type="checkbox" id="test<% $index %>3" ng-model="checkboxModel.checkboxModelF3[sortBy.pass.id][sortBy.pass.name]"/>
                                         <label for="test<% $index %>3" ng-bind="sortBy.display.name">Popularity - high to low</label>
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF3, 'Sort By')">
                                         ok
@@ -161,35 +164,37 @@
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f4')">cuisine
+                    <li class="navSecond capitalize">
+                        <div class="displayElement" ng-click="displayElement($event)">cuisine</div>
                         <div class="forBefore displayNone" id="f4">
                             <div class="filters">
                                 <span class="triangle"></span>
-                                <div class="filtersAll">
+                                <div class="filtersAll style-3">
                                     <p ng-repeat="cuisin in drowCuisine track by $index">
                                         <input type="checkbox" id="test<% $index %>4" ng-model="checkboxModel.checkboxModelF4[cuisin.pass.id][cuisin.pass.name]"/>
                                         <label for="test<% $index %>4" ng-bind="cuisin.display.name"></label>
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF4, 'Cuisine')">ok</button>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f5')">type of restaurants
+                    <li class="navSecond capitalize">
+                        <div class="displayElement" ng-click="displayElement($event)">type of restaurants</div>
                         <div class="forBefore displayNone" id="f5">
                             <div class="filters">
                                 <span class="triangle"></span>
-                                <div class="filtersAll">
+                                <div class="filtersAll style-3">
                                     <p ng-repeat="type in drowType track by $index">
                                         <input type="checkbox" id="test<% $index %>5" ng-model="checkboxModel.checkboxModelF5[type.pass.id][type.pass.name]"/>
                                         <label for="test<% $index %>5" ng-bind="type.display.name"></label>
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF5, 'Type')">
                                         ok
@@ -198,18 +203,19 @@
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f6')">Location
+                    <li class="navSecond capitalize">
+                        <div class="displayElement" ng-click="displayElement($event)">Location</div>
                         <div class="forBefore displayNone" id="f6">
                             <div class="filters">
                                 <span class="triangle"></span>
-                                <div class="filtersAll">
+                                <div class="filtersAll style-3">
                                     <p ng-repeat="location in drowCLocation track by $index">
                                         <input type="checkbox" id="test<% $index %>6" ng-model="checkboxModel.checkboxModelF6[location.pass.id][location.pass.name]"/>
                                         <label for="test<% $index %>6" ng-bind="location.display.name"></label>
                                     </p>
                                 </div>
                                 <div class="filtersAll">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF6, 'Location')">
                                         ok
@@ -259,8 +265,8 @@
             <div class="cont">
                 <loading></loading>
                 <div ng-if="markers.length == 0" class="nothingFound">Nothing was found</div>
-                <div class="infoContent" ng-if="markers.length>0">
-                    <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
+                <div class="infoContent style-3" ng-if="markers.length>0">
+                    <div class="info <% info.id %>" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                           ng-mouseenter="openInfoWindow($event, info)">
                         <a href="#/<% city %>/<% info.title %>/<% info.id %>" class="clearElement">
                             <div class="imageSection" style="background-image: url('../images/restaurantImages/<%info.image %>')">

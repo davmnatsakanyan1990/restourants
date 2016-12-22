@@ -286,39 +286,26 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
         marker.content = '<div class="infoWindowContent">' + info.explane + '</div>';
 
         google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+            infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
             infoWindow.open($scope.map, marker);
             $scope.clichedElementId = marker.id;
-
-            $scope.$watch('clichedElementId', function() {
-
-                var element = document.getElementsByClassName('active');
-                for (var i = 0; i < element.length; i++) {
-                    var el = element[i];
-                    var pos = el.offsetTop
-                };
-                /* window.scrollTo(0, pos);*/
-
-            });
-            $scope.safeApply = function(fn) {
-                var phase = this.$root.$$phase;
-                if(phase == '$apply' || phase == '$digest') {
-                    if(fn && (typeof(fn) === 'function')) {
-                        fn();
-                    }
-                } else {
-                    this.$apply(fn);
-                }
-            };
-            $scope.safeApply(
-                $scope.clichedElementId
-            );
+            /*var elementCollection = $('.info');
+            if($('.info').hasClass('active')){
+                $('.info').removeClass('active')
+            }
+            if($('.info').hasClass($scope.clichedElementId)){
+                var el = document.getElementsByClassName($scope.clichedElementId);
+               var pos = $( "div."+ $scope.clichedElementId).offset();
+                window.scrollTo(0, pos.top-100)
+            }*/
         });
 
         google.maps.event.addListener(marker, 'mouseover', function(){
-
-            console.log(marker.id);
-
+            /*console.log(marker.id);*/
+            marker.setIcon('images/bullets/hover1.png');
+        });
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            marker.setIcon('images/bullets/1.png');
         });
 
 
@@ -349,45 +336,19 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     };
 
     //display second menu elements
-    $scope.displayElement = function (id) {
-        var element1 = document.getElementById('f1');
-        var element2 = document.getElementById('f2');
-        var element3 = document.getElementById('f3');
-        var element4 = document.getElementById('f4');
-        var element5 = document.getElementById('f5');
-        var element6 = document.getElementById('f6');
-        var element = document.getElementById(id);
-        if(element1!=element){
-            element1.classList.remove('displayBlock');
-            element1.classList.add('displayNone');
-        }
-        if(element2!=element){
-            element2.classList.remove('displayBlock');
-            element2.classList.add('displayNone');
-        }
-        if(element3!=element){
-            element3.classList.remove('displayBlock');
-            element3.classList.add('displayNone');
-        }
-        if(element4!=element){
-            element4.classList.remove('displayBlock');
-            element4.classList.add('displayNone');
-        }
-        if(element5!=element){
-            element5.classList.remove('displayBlock');
-            element5.classList.add('displayNone');
-        }
-        if(element6!=element){
-            element6.classList.remove('displayBlock');
-            element6.classList.add('displayNone');
-        }
-        if(element.classList.contains('displayBlock')){
-            element.classList.remove('displayBlock');
-            element.classList.add('displayNone');
-        }else if(element.classList.contains('displayNone')){
+    $scope.displayElement = function (event) {
+        var element =event.currentTarget.parentNode.lastElementChild;
+        if(element.classList.contains('displayNone')){
+            $('.forBefore').addClass('displayNone');
             element.classList.remove('displayNone');
-            element.classList.add('displayBlock');
+        }else{
+            $('.forBefore').addClass('displayNone');
+            element.classList.add('displayNone');
         }
+    };
+    $scope.cancelDisplay = function () {
+        var element = event.currentTarget.parentNode.parentNode.parentNode;
+        element.classList.add('displayNone');
     };
 
     //in feature it will be call
