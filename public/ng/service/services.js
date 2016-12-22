@@ -136,7 +136,7 @@ app.factory('RestaurantService', function($http) {
         contact: function (data) {
             return $http ({
                 method: "POST",
-                url : 'contact',
+                url : 'contact_us',
                 data :data
             })
         }

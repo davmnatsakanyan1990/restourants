@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Place;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
@@ -34,4 +35,9 @@ class PasswordController extends Controller
     {
         $this->guestMiddleware();
     }
+
+//    public function sendResetLinkEmail(Request $request){
+////        $email = $request->email;
+////        Place::where('email', $email)->first()
+//    }
 }

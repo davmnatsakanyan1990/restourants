@@ -22,21 +22,26 @@
                             <div class="subTitle">Send us message<div class="line"></div></div>
                             <div class="inputs">
                                 <div class="row">
-                                    <form name="contactUs">
+                                    @if(session('message'))
+                                        <div class="alert alert-success">
+                                            <p>{{ session('message') }}</p>
+                                        </div>
+                                     @endif
+                                    <form method="post" action="{{ url('admin/contact_us/send') }}" name="contactUs">
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="Name"/>
+                                            <input type="text" name="name" placeholder="Name"/>
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="Email"/>
+                                            <input type="text" name="email" placeholder="Email"/>
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="Subject"/>
+                                            <input type="text" name="subject" placeholder="Subject"/>
                                         </div>
                                         <div class="col-md-12">
-                                            <textarea placeholder="Message"></textarea>
+                                            <textarea name="message" placeholder="Message"></textarea>
                                         </div>
                                         <div class="col-md-4">
-                                            <button>Send message</button>
+                                            <button type="submit">Send message</button>
                                         </div>
                                     </form>
                                 </div>

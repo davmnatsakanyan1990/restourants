@@ -159,6 +159,40 @@
 @section('scripts')
     <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
     <script src="{{ url('js/payment.js') }}" type="text/javascript"></script>
+    <script>
+        $('form[name="enterprise"] button[type="submit"]').on('click', function(e){
+            e.preventDefault();
+            var first_name = $('form[name="enterprise"] input[name="first_name"]').val();
+            var last_name = $('form[name="enterprise"] input[name="last_name"]').val();
+            var email = $('form[name="enterprise"] input[name="email"]').val();
+            var phone = $('form[name="enterprise"] input[name="phone"]').val();
+            var description = $('form[name="enterprise"] textarea[name="description"]').val();
+
+            $.ajax({
+                url: BASE_URL+'/admin/payment/enterprise/sendmail',
+                type: 'post',
+                data: {
+                    first_name: first_name,
+                    last_name: last_name,
+                    email: email,
+                    phone: phone,
+                    description: description
+                },
+                success: function(response){
+                    if(response.success){
+                        $('#myModalEnterprise').modal('close');
+                    }
+                },
+                error: function(error){
+                    var errors = error.responseJSON;
+                    $('#errors').append('<div class="alert alert-danger "><ul id="errors_list"></ul></div>');
+                    $.each(errors, function(index, value){
+                        $('#errors_list').append('<li>'+value[0]+'</li>');
+                    })
+                }
+            })
+        })
+    </script>
 @endsection
 
 
@@ -173,6 +207,7 @@
                     <h4 class="modal-title capitalize">Enterprise</h4>
                 </div>
                 <div class="modal-body popupBody leftContent littleInputs">
+                    <div id="errors"></div>
                     <div class="inputsBlocks">
                         <div class="inputBlock">
                             <div class="titleInput">first name</div>

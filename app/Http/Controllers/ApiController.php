@@ -52,7 +52,7 @@ class ApiController extends Controller
 
         $d = json_decode($data_json, true);
 
-        if(count(Place::where('name', $d['name'])->get()->toArray()) == 0) {
+        if(count(Place::where('name', $d['name'])->where('mobile', $d['mobile'])->get()->toArray()) == 0) {
             
             $data = array();
 

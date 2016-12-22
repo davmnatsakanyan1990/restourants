@@ -80,15 +80,16 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
     });
 
-Route::group([
-    'prefix' => 'admin',
-    'namespace' => 'Admin\Auth'
-],
-    function(){
-        Route::get('password/reset/{token?}', 'PasswordController@showResetForm');
-        Route::post('password/email', 'PasswordController@sendResetLinkEmail');
-        Route::post('password/reset', 'PasswordController@reset');
-    });
+//Route::group([
+//    'prefix' => 'admin',
+//    'namespace' => 'Admin\Auth'
+//],
+//    function(){
+//        Route::post('password/email', 'PasswordController@sendResetLinkEmail');
+//        Route::post('password/reset', 'PasswordController@reset');
+//        Route::get('password/reset/{token?}', 'PasswordController@showResetForm');
+//
+//    });
 
 Route::group([
     'prefix' => 'admin',
@@ -103,6 +104,7 @@ Route::group([
             return view('admin/privacy_policy');
         });
         Route::get('contact_us', 'ContactUsController@index');
+        Route::post('contact_us/send', 'ContactUsController@send');
         
     });
 
@@ -171,6 +173,8 @@ Route::get('sendmail/{email}', 'UserController@sendMail');
 Route::post('add_location', 'HomeController@addLocation');
 Route::post('register_owner', 'HomeController@registerOwner');
 Route::post('noticed_mistake', 'HomeController@noticedMistake');
+Route::post('noticed_mistake', 'HomeController@noticedMistake');
+Route::post('contact_us', 'ContactUsController@sendMail');
 
 
 /**

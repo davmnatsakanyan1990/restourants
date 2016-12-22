@@ -148,14 +148,17 @@ class PaymentController extends Controller
     }
     
     public function sendMail(Request $request){
-        $data = $request->all();
-        Mail::send('emails.enterprise', ['data' => $data], function ($m) use ($data) {
-            $m->from('lookrestaurants@gmail.com', 'Look Restaurants Application');
+        $this->validate($request,[
+            'email' => 'required|email'
+        ]);
+       
+        Mail::send('emails.enterprise', ['request' => $request], function ($m) use ($request) {
+            $m->from($request->email, 'Look Restaurants Application');
 
-            $m->to('lookrestaurants@gmail.com')->subject('Enterprise');
+            $m->to(env('SUPPORT_MAIL'))->subject('Enterprise');
         });
         
-        return redirect()->back()->with('message', 'Your message was successfully sent');
+        return response()->json(['success'=>1]);
     }
 
     /**
