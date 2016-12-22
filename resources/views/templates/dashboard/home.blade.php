@@ -260,7 +260,7 @@
                 <loading></loading>
                 <div ng-if="markers.length == 0" class="nothingFound">Nothing was found</div>
                 <div class="infoContent" ng-if="markers.length>0">
-                    <div class="info" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
+                    <div class="info <% info.id %>" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                           ng-mouseenter="openInfoWindow($event, info)">
                         <a href="#/<% city %>/<% info.title %>/<% info.id %>" class="clearElement">
                             <div class="imageSection" style="background-image: url('../images/restaurantImages/<%info.image %>')">

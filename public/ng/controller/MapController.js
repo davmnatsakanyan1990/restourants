@@ -286,37 +286,22 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
         marker.content = '<div class="infoWindowContent">' + info.explane + '</div>';
 
         google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+            infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
             infoWindow.open($scope.map, marker);
             $scope.clichedElementId = marker.id;
-
-            $scope.$watch('clichedElementId', function() {
-
-                var element = document.getElementsByClassName('active');
-                for (var i = 0; i < element.length; i++) {
-                    var el = element[i];
-                    var pos = el.offsetTop
-                };
-                /* window.scrollTo(0, pos);*/
-
-            });
-            $scope.safeApply = function(fn) {
-                var phase = this.$root.$$phase;
-                if(phase == '$apply' || phase == '$digest') {
-                    if(fn && (typeof(fn) === 'function')) {
-                        fn();
-                    }
-                } else {
-                    this.$apply(fn);
-                }
-            };
-            $scope.safeApply(
-                $scope.clichedElementId
-            );
+            /*var elementCollection = $('.info');
+            if($('.info').hasClass('active')){
+                $('.info').removeClass('active')
+            }
+            if($('.info').hasClass($scope.clichedElementId)){
+                var el = document.getElementsByClassName($scope.clichedElementId);
+               var pos = $( "div."+ $scope.clichedElementId).offset();
+                window.scrollTo(0, pos.top-100)
+            }*/
         });
 
         google.maps.event.addListener(marker, 'mouseover', function(){
-            console.log(marker.id);
+            /*console.log(marker.id);*/
             marker.setIcon('images/bullets/hover1.png');
         });
         google.maps.event.addListener(marker, 'mouseout', function() {
