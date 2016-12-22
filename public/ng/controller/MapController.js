@@ -336,45 +336,19 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     };
 
     //display second menu elements
-    $scope.displayElement = function (id) {
-        var element1 = document.getElementById('f1');
-        var element2 = document.getElementById('f2');
-        var element3 = document.getElementById('f3');
-        var element4 = document.getElementById('f4');
-        var element5 = document.getElementById('f5');
-        var element6 = document.getElementById('f6');
-        var element = document.getElementById(id);
-        if(element1!=element){
-            element1.classList.remove('displayBlock');
-            element1.classList.add('displayNone');
-        }
-        if(element2!=element){
-            element2.classList.remove('displayBlock');
-            element2.classList.add('displayNone');
-        }
-        if(element3!=element){
-            element3.classList.remove('displayBlock');
-            element3.classList.add('displayNone');
-        }
-        if(element4!=element){
-            element4.classList.remove('displayBlock');
-            element4.classList.add('displayNone');
-        }
-        if(element5!=element){
-            element5.classList.remove('displayBlock');
-            element5.classList.add('displayNone');
-        }
-        if(element6!=element){
-            element6.classList.remove('displayBlock');
-            element6.classList.add('displayNone');
-        }
-        if(element.classList.contains('displayBlock')){
-            element.classList.remove('displayBlock');
-            element.classList.add('displayNone');
-        }else if(element.classList.contains('displayNone')){
+    $scope.displayElement = function (event) {
+        var element =event.currentTarget.parentNode.lastElementChild;
+        if(element.classList.contains('displayNone')){
+            $('.forBefore').addClass('displayNone');
             element.classList.remove('displayNone');
-            element.classList.add('displayBlock');
+        }else{
+            $('.forBefore').addClass('displayNone');
+            element.classList.add('displayNone');
         }
+    };
+    $scope.cancelDisplay = function () {
+        var element = event.currentTarget.parentNode.parentNode.parentNode;
+        element.classList.add('displayNone');
     };
 
     //in feature it will be call

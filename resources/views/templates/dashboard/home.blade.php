@@ -88,7 +88,8 @@
                     <span></span>
                 </div>
                 <ul class="NavButtons clear ">
-                    <li class="navSecond capitalize" ng-click="displayElement('f1')">mode
+                    <li class="navSecond capitalize">
+                        <div ng-click="displayElement($event)">mode</div>
                         <div class="forBefore displayNone" id="f1">
                             <div class="filters ">
                                 <span class="triangle"></span>
@@ -102,7 +103,7 @@
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF1, 'Mode')">
                                         ok
@@ -112,7 +113,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f2')">cost
+                    <li class="navSecond capitalize">
+                        <div ng-click="displayElement($event)">cost</div>
                         <div class="forBefore displayNone" id="f2">
                             <div class="filters">
                                 <span class="triangle"></span>
@@ -135,13 +137,14 @@
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF2, 'Cost')">ok</button>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f3')">Sort by
+                    <li class="navSecond capitalize">
+                        <div ng-click="displayElement($event)">Sort by</div>
                         <div class="forBefore displayNone" id="f3">
                             <div class="filters">
                                 <span class="triangle"></span>
@@ -152,7 +155,7 @@
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF3, 'Sort By')">
                                         ok
@@ -161,7 +164,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f4')">cuisine
+                    <li class="navSecond capitalize">
+                        <div ng-click="displayElement($event)">cuisine</div>
                         <div class="forBefore displayNone" id="f4">
                             <div class="filters">
                                 <span class="triangle"></span>
@@ -172,13 +176,14 @@
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize" ng-click="pushElementInFilter(checkboxModel.checkboxModelF4, 'Cuisine')">ok</button>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f5')">type of restaurants
+                    <li class="navSecond capitalize">
+                        <div ng-click="displayElement($event)">type of restaurants</div>
                         <div class="forBefore displayNone" id="f5">
                             <div class="filters">
                                 <span class="triangle"></span>
@@ -189,7 +194,7 @@
                                     </p>
                                 </div>
                                 <div class="twoButtons">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF5, 'Type')">
                                         ok
@@ -198,7 +203,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="navSecond capitalize" ng-click="displayElement('f6')">Location
+                    <li class="navSecond capitalize">
+                        <div ng-click="displayElement($event)">Location</div>
                         <div class="forBefore displayNone" id="f6">
                             <div class="filters">
                                 <span class="triangle"></span>
@@ -209,7 +215,7 @@
                                     </p>
                                 </div>
                                 <div class="filtersAll">
-                                    <button class=" filterButtons capitalize">cancel</button>
+                                    <button class=" filterButtons capitalize" ng-click="cancelDisplay($event)">cancel</button>
                                     <button class="filterButtons capitalize"
                                             ng-click="pushElementInFilter(checkboxModel.checkboxModelF6, 'Location')">
                                         ok
