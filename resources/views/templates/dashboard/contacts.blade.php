@@ -38,7 +38,7 @@
                                         <textarea placeholder="Message" ng-model="contactMessage"></textarea>
                                     </div>
                                     <div class="col-md-4">
-                                        <button ng-click="sendMessage([contactName, contactEmail, contactSubject, contactMessage])">Send message</button>
+                                        <button ng-click="sendMessage([contactName, contactEmail, contactSubject, contactMessage], ['contactName', 'contactEmail', 'contactSubject', 'contactMessage'])">Send message</button>
                                     </div>
                                 </form>
                             </div>
