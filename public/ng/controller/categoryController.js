@@ -277,6 +277,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
         $scope.loading = true;
+        debugger;
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
             $scope.filters[type] = [];
@@ -284,7 +285,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
             for (var k in index) {
                 for (var key in index[k]) {
                     if (key) {
-                        if (index[k][key] == false) {
+                        if (index[k][key] == false || index[k] == false) {
                             var elementDeleted = true;
                         } else {
                             elementDeleted = false;
@@ -313,9 +314,14 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                             }
                         }
                     }
-                }
+                    console.log(typeof index[k])
+                    if(typeof index[k]!=="object" && index[k]!==false){
+                        $scope.callData.filters[type].push(k);
+                    }else if(typeof index[k]=="object" && index[k][key]!==false){
+                        $scope.callData.filters[type].push(k);
+                    }
 
-                $scope.callData.filters[type].push(k);
+                }
             }
 
             $scope.callData.page = 1;
@@ -323,7 +329,6 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
             RestaurantService.filterRestaurant($scope.callData)
                 .then(function (response) {
-
                     if(response.data.restaurants) {
                         if(response.data.status && response.data.status == 'ended'){
                             $scope.noMoreInfoToShow = true;
@@ -333,7 +338,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                         if(response.data.restaurants.length > 0) {
                             $scope.initMap({
                                 zoom: 12,
-                                center: [$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.016],
+                                center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                                 scrollwheel: false,
                                 mapTypeId: google.maps.MapTypeId.TERRAIN
                             });
@@ -355,8 +360,7 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                     $scope.loading = false;
                 });
         }
-    }
-    ;
+    };
 
     //when delete a filter after click in it
     $scope.deleteElementFromFilter = function (filter, type) {

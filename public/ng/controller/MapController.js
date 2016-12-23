@@ -301,7 +301,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
         });
 
         google.maps.event.addListener(marker, 'mouseover', function(){
-            /*console.log(marker.id);*/
             marker.setIcon('images/bullets/hover1.png');
         });
         google.maps.event.addListener(marker, 'mouseout', function() {
@@ -376,7 +375,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
         $scope.loading = true;
-        debugger;
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
             $scope.filters[type] = [];
@@ -413,7 +411,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                             }
                         }
                     }
-                    console.log(typeof index[k])
+                    
                     if(typeof index[k]!=="object" && index[k]!==false){
                         $scope.callData.filters[type].push(k);
                     }else if(typeof index[k]=="object" && index[k][key]!==false){
