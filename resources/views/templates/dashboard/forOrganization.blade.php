@@ -77,7 +77,7 @@
                         </br></br>
                         <div class="deliveryItem noBold">We are already working with</br> more than <span class="bold">10.000 </span>restaurants</div>
                     </div>
-                    <div class="item myCustomItems">
+                    {{--<div class="item myCustomItems">
                         </br></br>
                         </br></br>
                         <div class="deliveryItem noBold">
@@ -86,14 +86,14 @@
                             <span class="markText">+7 (495) 660-39-16</span></br>
                             Or using the feedback form
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
                 <!-- Carousel nav -->
                 <a class="carousel-control left customLeft carouselControlCustom" href=".carousel" data-slide="prev" style="background: transparent">&lsaquo;</a>
                 <a class="carousel-control right carouselControlCustom" href=".carousel" data-slide="next" style="background: transparent">&rsaquo;</a>
             </div>
     </div>
-    <div class="videoAbout">
+    {{--<div class="videoAbout">
         <div class="videoM">
             <div class="videoPart">
                 <video width="100%" height="100%" controls>
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-    </div>
+    </div>--}}
     <footer>
         <div class="container-fluid">
             <div class="row">
