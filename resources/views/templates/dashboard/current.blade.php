@@ -164,7 +164,7 @@
                         </div>
                     </div>
                     <div class="fillRestMenu clearElement" ng-if="CurrentMenu && currentRestaurant.menuItems">
-                        <div class="testyFood elementLeft" ng-repeat="menu in CurrentMenu">
+                        <div class="testyFood elementLeft style-3" ng-repeat="menu in CurrentMenu">
                             <div class="foodTitle" ng-bind="menu.title"></div>
                             <div class="foodDescription" ng-bind="menu.description"></div>
                             <div class="foodPrice" ng-if="menu.price" ng-bind="menu.price + '$'"></div>
