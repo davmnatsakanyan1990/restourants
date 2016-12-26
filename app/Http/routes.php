@@ -187,6 +187,7 @@ Route::post('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
 Route::get('fill/support_ids', 'ApiController@fillSupportId');
+Route::get('export_places', 'ApiController@exportPlaces');
 
 
 Route::get('run_cron', function(){
@@ -245,9 +246,33 @@ Route::get('fill_emails', function(){
 });
 
 Route::get('test', function(){
-    $collection = collect(config('coverimages'));
-    $random = $collection->random(3)->toArray();
-    dd($random);
+    $places = DB::table('places')
+        ->join('admin_details', 'places.admin_id', '=', 'admin_details.admin_id')
+        ->leftJoin('locations', 'places.location_id', '=', 'locations.id')
+        ->leftJoin('cities', 'locations.city_id', '=', 'cities.id')
+        ->whereNotNull('email')
+        ->select(
+            'places.id',
+            'places.email',
+            'places.name',
+            'admin_details.username',
+            'admin_details.password',
+            'places.support_id',
+            'cities.name as city_name'
+        )
+        ->get();
+    $data = array();
+    foreach($places as $place){
+        $d = array();
+        $d[0] = $place->email;
+        $d[1] = $place->name;
+        $d[2] = 'https://restadviser.com/#/'.$place->city_name.'/'.$place->name.'/'.$place->id;
+        $d[3] = $place->username;
+        $d[4] = $place->password;
+        $d[5] = $place->support_id;
+        array_push($data, $d);
+    }
+    dd($data);
 
 });
 

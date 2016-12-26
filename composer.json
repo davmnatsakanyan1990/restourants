@@ -10,7 +10,8 @@
         "doctrine/dbal": "^2.5",
         "laravel/socialite": "^2.0",
         "dougsisk/laravel-country-state": "^1.2",
-        "camroncade/timezone": "0.1"
+        "camroncade/timezone": "0.1",
+        "maatwebsite/excel": "~2.1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

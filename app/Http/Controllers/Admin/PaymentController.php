@@ -91,8 +91,8 @@ class PaymentController extends Controller
 
         $token = $request->token;
         
-        Twocheckout::verifySSL(false);  // this is set to true by default
-        Twocheckout::sandbox(true);
+//        Twocheckout::verifySSL(false);  // this is set to true by default
+//        Twocheckout::sandbox(true);
 
         try {
             $charge = TwocheckoutCharge::auth(array(
