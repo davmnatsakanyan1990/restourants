@@ -106,10 +106,10 @@
                             <div class="introTitle capitalize"><span class="doubleBorder">services</span></div>
                             <div class="introContent" ng-bind="currentRestaurant.services"></div>
                         </div>
-                        <div class="marginTop10 moreInfoAddress clearElement">
+                        <div class="marginTop10 moreInfoAddress ">
                             <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
-                            <div class="clearElement hourBlock">
-                                <div class="introContent hourContent clearElement elementLeft" ng-repeat="(day,hourr) in hoursPart">
+                            <div class="clearElement hourBlock row">
+                                <div class="introContent hourContent clearElement  col-md-4 col-sm-3 col-lg-3 col-xs-4" ng-repeat="(day,hourr) in hoursPart">
                                     <div class="capitalize infoTitle" ng-bind="day"></div>
                                     <div class="infoHour" ng-repeat="hour in hourr" ng-bind="hour"></div>
                                 </div>
