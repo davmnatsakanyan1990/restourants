@@ -411,7 +411,8 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                             }
                         }
                     }
-                    
+
+
                     if(typeof index[k]!=="object" && index[k]!==false){
                         $scope.callData.filters[type].push(k);
                     }else if(typeof index[k]=="object" && index[k][key]!==false){

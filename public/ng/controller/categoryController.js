@@ -223,7 +223,6 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
         });
 
         google.maps.event.addListener(marker, 'mouseover', function(){
-            console.log(marker.id);
             marker.setIcon('images/bullets/hover1.png');
         });
         google.maps.event.addListener(marker, 'mouseout', function() {
@@ -277,11 +276,9 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
         $scope.loading = true;
-        debugger;
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
             $scope.filters[type] = [];
-
             for (var k in index) {
                 for (var key in index[k]) {
                     if (key) {
@@ -314,11 +311,46 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
                             }
                         }
                     }
-                    console.log(typeof index[k])
                     if(typeof index[k]!=="object" && index[k]!==false){
-                        $scope.callData.filters[type].push(k);
+                        if(type=='Mode'){
+                            switch (key){
+                                case 'delivery':
+                                    $scope.callData.filters[type].push(4);
+                                    break;
+                                case 'dine out':
+                                    $scope.callData.filters[type].push(3);
+                                    break;
+                                case 'drinks and nightlife':
+                                    $scope.callData.filters[type].push(5);
+                                    break;
+                                case 'take away':
+                                    $scope.callData.filters[type].push(6);
+                                    break;
+                            }
+
+                        }else{
+                            $scope.callData.filters[type].push(k);
+                        }
                     }else if(typeof index[k]=="object" && index[k][key]!==false){
-                        $scope.callData.filters[type].push(k);
+                        if(type=='Mode'){
+                            switch (key){
+                                case 'delivery':
+                                    $scope.callData.filters[type].push(4);
+                                    break;
+                                case 'dine out':
+                                    $scope.callData.filters[type].push(3);
+                                    break;
+                                case 'drinks and nightlife':
+                                    $scope.callData.filters[type].push(5);
+                                    break;
+                                case 'take away':
+                                    $scope.callData.filters[type].push(6);
+                                    break;
+                            }
+
+                        }else{
+                            $scope.callData.filters[type].push(k);
+                        }
                     }
 
                 }
