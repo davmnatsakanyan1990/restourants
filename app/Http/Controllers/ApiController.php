@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminDetails;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Comment;
@@ -36,10 +37,6 @@ class ApiController extends Controller
                 File::move('C:\Users\Designer\Downloads\\'.$image['name'], 'C:\xampp\htdocs\restourants\public\images\restaurantImages\\'.$image['name']);
 
             }
-//            $items = Image::where('imageable_type', 'App\Models\Place')->where('name',$image['name'] )->get()->toArray();
-//            if(count($items)>1){
-//                dd($image['name']);
-//            }
 
         }
     }
@@ -98,7 +95,24 @@ class ApiController extends Controller
             $data['site'] = 'site1.com';
             $data['cost'] = $cost;
             $support_id = $this->generateUniqueRandomNumber();
+            if($support_id == ''){
+                $support_id = $this->generateUniqueRandomNumber();
+            }
             $data['support_id'] = $support_id;
+            $data['plan_id'] = 1;
+
+            // generate admin
+            $password = str_random(8);
+            $admin_id = DB::table('admins')->insertGetId([
+                'name' => '',
+                'email' => '',
+                'username' => 'admin'.$support_id,
+                'password' => bcrypt($password)
+            ]);
+
+            AdminDetails::create(['admin_id' => $admin_id, 'username' => 'admin'.$support_id,  'password' => $password]);
+
+            $data['admin_id'] = $admin_id;
 
             //fill places table
             $place_id = DB::table('places')->insertGetId(
@@ -286,6 +300,9 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * Generate unique support ID
+     */
     public function fillSupportId(){
         $places = Place::withTrashed()->whereNull('support_id')->get()->toArray();
 
@@ -311,6 +328,9 @@ class ApiController extends Controller
 
     }
 
+    /**
+     * Generate csv file wit places which has email
+     */
     public function exportPlaces(){
         $places = DB::table('places')
             ->join('admin_details', 'places.admin_id', '=', 'admin_details.admin_id')
@@ -348,5 +368,26 @@ class ApiController extends Controller
             });
 
         })->download('csv');
+    }
+
+    /**
+     * Generate Admins
+     */
+    public function fillAdmins(){
+        $places = Place::where('admin_id', 1)->get()->toArray();
+        foreach ($places as $place){
+            $password = str_random(8);
+            $support_id = Place::find($place['id'])->support_id;
+            $admin_id = DB::table('admins')->insertGetId([
+                'name' => '',
+                'email' => '',
+                'username' => 'admin'.$support_id,
+                'password' => bcrypt($password)
+            ]);
+
+            AdminDetails::create(['admin_id' => $admin_id, 'username' => 'admin'.$support_id,  'password' => $password]);
+
+            Place::where('id', $place['id'])->update(['admin_id' => $admin_id]);
+        }
     }
 }
