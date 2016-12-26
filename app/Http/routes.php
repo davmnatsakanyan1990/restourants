@@ -225,6 +225,7 @@ Route::get('email', function(){
 Route::get('fill/support_ids', 'ApiController@fillSupportId');
 Route::get('fill/admins', 'ApiController@fillAdmins');
 Route::get('export_places', 'ApiController@exportPlaces');
+
 Route::get('fill_emails', function(){
     $d = DB::table('places')
         ->join('company', 'places.mobile', '=', 'company.phone')

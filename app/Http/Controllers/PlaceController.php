@@ -313,9 +313,6 @@ class PlaceController extends Controller
             'cuisins',
             'highlights',
             'types',
-            'shares' => function($share){
-                return $share->with('image');
-            },
             'comments' => function($comments){
                 return $comments->orderBy('created_at', 'desc');
             },
