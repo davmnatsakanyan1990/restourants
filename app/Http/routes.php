@@ -12,6 +12,7 @@
 */
 
 use App\Models\Admin;
+use App\Models\AdminDetails;
 use App\Models\Payment;
 use App\Models\Place;
 use Illuminate\Support\Facades\DB;
@@ -153,10 +154,11 @@ Route::group([
  * Comments route
  */
  Route::post('comment/add', 'CommentController@create');
-    
 
 
-
+/**
+ * Angular Calls
+ */
 Route::get('{city}/restaurants', 'PlaceController@index');
 Route::get('root/data', 'HomeController@getRootData');
 Route::get('{city}/restaurants/more', 'PlaceController@loadMore');
@@ -165,10 +167,8 @@ Route::get('restaurants/category/{data}', 'PlaceController@getCategoryProducts')
 Route::get('show/{id}', 'PlaceController@show');
 Route::get('products/{menu_id}', 'PlaceController@products');
 Route::get('search', 'PlaceController@search');
-
 Route::get('comments', 'PlaceController@moreComments');
 Route::post('detect_user_city', 'HomeController@detectUserCity');
-
 Route::get('sendmail/{email}', 'UserController@sendMail');
 Route::post('add_location', 'HomeController@addLocation');
 Route::post('register_owner', 'HomeController@registerOwner');
@@ -178,7 +178,7 @@ Route::post('contact_us', 'ContactUsController@sendMail');
 
 
 /**
- * Routes for API call
+ * Routes for bot's call
  */
 Route::get('move/images', 'ApiController@movePlaceImages');
 Route::post('fill/places', 'ApiController@fillPlace');
@@ -186,51 +186,45 @@ Route::get('fill/cuisines', 'ApiController@fillCuisines');
 Route::post('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
-Route::get('fill/support_ids', 'ApiController@fillSupportId');
 
+/*--------------------------------------*/
 
-Route::get('run_cron', function(){
-    $places1 = Place::whereNotNull('first_login')->where('plan_id', 1)->get()->toArray();
-
-    // get current date time in Unix format
-    $now = strtotime(date("Y-m-d H:i:s"));
-
-    if(count($places1) > 0) {
-        foreach ($places1 as $place) {
-
-            //get email sent time in Unix format
-            $activation_date = strtotime($place['first_login']);
-
-            // deactivate place after 5 day
-            if ($now > $activation_date + 432000) {
-                Place::where('id', $place['id'])->delete();
-            }
-        }
-    }
-
-    $places2 = Place::where('plan_id', 2)->get()->toArray();
-    foreach ($places2 as $place) {
-        $last_payment = Payment::where('place_id', $place['id'])->orderBy('created_at')->get()->last()->toArray();
-        $payment_date = strtotime($last_payment['created_at']);
-        if($now > $payment_date + 31536000){
-            Place::where('id', $place['id'])->delete();
-        }
-    }
-});
-
-Route::get('send_mail_to_owner', function(){
-    
-    Mail::send('emails.index', ['data' => 1, 'pathToImage' => public_path()."/Mail_template/images/home_webmaster_header_head.jpg"], function ($message) {
-        $message->from('support@restadviser.com', 'Look Restaurants Application');
-
-        $message->to('dav.mnatsakanyan@gmail.com')->subject('Contact us');
-    });
-});
+//Route::get('run_cron', function(){
+//    $places1 = Place::whereNotNull('first_login')->where('plan_id', 1)->get()->toArray();
+//
+//    // get current date time in Unix format
+//    $now = strtotime(date("Y-m-d H:i:s"));
+//
+//    if(count($places1) > 0) {
+//        foreach ($places1 as $place) {
+//
+//            //get email sent time in Unix format
+//            $activation_date = strtotime($place['first_login']);
+//
+//            // deactivate place after 5 day
+//            if ($now > $activation_date + 432000) {
+//                Place::where('id', $place['id'])->delete();
+//            }
+//        }
+//    }
+//
+//    $places2 = Place::where('plan_id', 2)->get()->toArray();
+//    foreach ($places2 as $place) {
+//        $last_payment = Payment::where('place_id', $place['id'])->orderBy('created_at')->get()->last()->toArray();
+//        $payment_date = strtotime($last_payment['created_at']);
+//        if($now > $payment_date + 31536000){
+//            Place::where('id', $place['id'])->delete();
+//        }
+//    }
+//});
 
 Route::get('email', function(){
     return view('emails.index');
 });
 
+Route::get('fill/support_ids', 'ApiController@fillSupportId');
+Route::get('fill/admins', 'ApiController@fillAdmins');
+Route::get('export_places', 'ApiController@exportPlaces');
 Route::get('fill_emails', function(){
     $d = DB::table('places')
         ->join('company', 'places.mobile', '=', 'company.phone')
@@ -239,16 +233,8 @@ Route::get('fill_emails', function(){
         ->get();
 
     foreach($d as $value){
-
         Place::where('id',  $value->id)->update(['email'=> $value->company_email]);
     }
-});
-
-Route::get('test', function(){
-    $collection = collect(config('coverimages'));
-    $random = $collection->random(3)->toArray();
-    dd($random);
-
 });
 
 
