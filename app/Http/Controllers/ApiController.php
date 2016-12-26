@@ -88,7 +88,7 @@ class ApiController extends Controller
             $cost = count($d['cost']);
             $data['mobile'] = $d['mobile'];
             $data['name'] = $d['name'];
-            $data['intro'] = ' dfdf';
+            $data['intro'] = '';
             $data['address'] = $d['address'];
             $data['location_id'] = $location_id;
 
