@@ -374,6 +374,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
+        debugger;
         $scope.loading = true;
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
@@ -411,7 +412,8 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                             }
                         }
                     }
-                    
+
+
                     if(typeof index[k]!=="object" && index[k]!==false){
                         $scope.callData.filters[type].push(k);
                     }else if(typeof index[k]=="object" && index[k][key]!==false){
