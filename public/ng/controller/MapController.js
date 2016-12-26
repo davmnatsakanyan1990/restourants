@@ -301,7 +301,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
         });
 
         google.maps.event.addListener(marker, 'mouseover', function(){
-            /*console.log(marker.id);*/
             marker.setIcon('images/bullets/hover1.png');
         });
         google.maps.event.addListener(marker, 'mouseout', function() {
@@ -383,7 +382,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             for (var k in index) {
                 for (var key in index[k]) {
                     if (key) {
-                        if (index[k][key] == false) {
+                        if (index[k][key] == false || index[k] == false) {
                             var elementDeleted = true;
                         } else {
                             elementDeleted = false;
@@ -412,9 +411,14 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
                             }
                         }
                     }
-                }
+                    
+                    if(typeof index[k]!=="object" && index[k]!==false){
+                        $scope.callData.filters[type].push(k);
+                    }else if(typeof index[k]=="object" && index[k][key]!==false){
+                        $scope.callData.filters[type].push(k);
+                    }
 
-                $scope.callData.filters[type].push(k);
+                }
             }
 
             $scope.callData.page = 1;
