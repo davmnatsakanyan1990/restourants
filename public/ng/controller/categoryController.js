@@ -21,7 +21,6 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
     $scope.checkboxModel.checkboxModelF1[0][request.name] = true;
 
     $scope.filters = {};
-    debugger;
     $scope.callData = {
         page: 1,
         city: request.city,
@@ -276,7 +275,6 @@ app.controller('CategoryCtr', function ($scope, $http, $document, $window, $time
 
     //when add a filter from second menu
     $scope.pushElementInFilter = function (index, type) {
-        debugger;
         $scope.loading = true;
         if(index.length > 0) {
             $scope.callData.filters[type] = [];
