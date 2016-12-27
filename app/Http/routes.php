@@ -238,4 +238,18 @@ Route::get('fill_emails', function(){
     }
 });
 
+Route::get('assign_cover_image_random', function(){
+    $places = Place::with('coverImages')->get()->toArray();
+
+    foreach($places as $place){
+        if(count($place['cover_images']) == 0) {
+            $collection = collect(config('coverimages'));
+            $random = $collection->random(3)->toArray();
+            foreach ($random as $img) {
+                \App\Models\Image::create(['name' => $img, 'imageable_id' => $place['id'], 'imageable_type' => 'App\Models\Place', 'role' => 2]);
+            }
+        }
+    }
+});
+
 

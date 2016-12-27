@@ -80,14 +80,25 @@ class HomeController extends Controller
             $m->to(env('SUPPORT_MAIL'))->subject('Noticed Mistake');
         });
     }
-    
+
+    /**
+     * City call, if location is blocked
+     * 
+     * @return mixed
+     */
     public function getRootData(){
         $cities = City::select(['id', 'name'])->get();
         $data['cities'] = $cities;
-        $data['current_city'] = City::where('id', 1)->select(['id', 'name'])->first(); //TODO change city by location
+        $data['current_city'] = City::where('id', 1)->select(['id', 'name'])->first();
         return $data;
     }
-    
+
+    /**
+     * Find user's city in db
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function detectUserCity(Request $request){
         foreach($request->addresses as $address){
             $city = City::where('name', $address['long_name'])->first();

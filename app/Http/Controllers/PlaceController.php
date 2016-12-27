@@ -506,14 +506,23 @@ class PlaceController extends Controller
         $data['site'] = $array['site'];
         $data['price'] = $array['price'];
         $data['workingHours'] = $array['workingHours'];
-        
-        $collection = collect(config('coverimages'));
-        $random = $collection->random(3)->toArray();
-        $data['coverImages'] = $random;
+
+        $data['coverImages'] = array();
+        $covers = Place::find($id)->coverImages->toArray();
+        foreach ($covers as $cover){
+            array_push($data['coverImages'], $cover['name']);
+        }
+//        $collection = collect(config('coverimages'));
+//        $random = $collection->random(3)->toArray();
+//        $data['coverImages'] = $random;
 
         // $data['shareItems'] = $data['shares'];
 
         return response()->json($data);
+    }
+
+    public function updateCoverImages(Request $request){
+        
     }
 
     /**

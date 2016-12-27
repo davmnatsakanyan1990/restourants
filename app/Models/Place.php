@@ -39,6 +39,10 @@ class Place extends Model
         return $this->morphMany('App\Models\Image', 'imageable');
     }
 
+    public function coverImages(){
+        return $this->morphMany('App\Models\Image', 'imageable')->where('role', 2);
+    }
+
     public function thumb_image(){
         return $this->morphMany('App\Models\Image', 'imageable')->where('role', 1);
     }

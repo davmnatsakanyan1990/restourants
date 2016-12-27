@@ -24,7 +24,8 @@ class PaymentController extends Controller
     {
         $this->middleware('auth:admin');
 
-        $this->place = Auth::guard('admin')->user()->place;
+        if(Auth::guard('admin')->check())
+            $this->place = Auth::guard('admin')->user()->place;
     }
 
     public function show(){
