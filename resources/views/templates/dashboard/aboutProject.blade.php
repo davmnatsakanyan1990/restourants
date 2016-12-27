@@ -26,7 +26,7 @@
                         <div class="block ">
                             <div class="blockRound">1</div>
                             <div class="blockRect">
-                                <div class="rectTitle">The website is the</br> front door</div>
+                                <div class="rectTitle">Your online presence is the front door</div>
                                 <div class="rectText">By visiting our website, customers get a feel for the
                                     restaurant, for the food, music and the atmosphere. The design of the website
                                     reflects the design of the establishment, making it easier for customers to decide
@@ -39,7 +39,7 @@
                     <div class="block col-md-3">
                         <div class="blockRound">2</div>
                         <div class="blockRect">
-                            <div class="rectTitle">The website will lead to Increasing customers</div>
+                            <div class="rectTitle">Your page here will lead to increasing customers</div>
                             <div class="rectText">As an online catalog, our website is a permanent advertising channel that
                                 significantly increases a restaurant’s visibility and creates interest in clients who willing
                                 to try somewhere new. Having a restaurant registered in a professional website among other
@@ -52,7 +52,7 @@
                     <div class="block col-md-3">
                         <div class="blockRound">3</div>
                         <div class="blockRect">
-                            <div class="rectTitle">The website is a great platform {{--to showcase the work--}}</div>
+                            <div class="rectTitle">Online catalog is a great platform</div>
                             <div class="rectText">Its design allows to include an image gallery, as well as testimonials
                                 about the work to demonstrate what makes the business unique. The website can be considered
                                 as being an online catalog. It is much easier and quicker to update information about products
@@ -64,7 +64,7 @@
                     <div class="block col-md-3">
                         <div class="blockRound">4</div>
                         <div class="blockRect" id="biggestElement">
-                            <div class="rectTitle">The website helps to improve customer service</div>
+                            <div class="rectTitle">We help to improve customer service</div>
                             <div class="rectText">The website allows to save clients’ time and, thus, improve customer
                                 service. The design and other tools are specially created to make it easier for customers
                                 do searches. The great navigation and specified search filters enable customers to find
@@ -88,19 +88,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location
+                    <div class="footerText" data-toggle="modal" data-target="#myModalLocation">Add location
                     </div>
-                    <div class="footerText" data-toggle="modal" data-target="#myModalMaster">register owner</div>
-                    <div class="footerText"><a href="#forOrganization">For Restaurant</a></div>
+                    <div class="footerText" data-toggle="modal" data-target="#myModalMaster">Register owner</div>
+                    <div class="footerText"><a href="#forOrganization">For restaurant</a></div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footerText"><a href="#contacts">contacts</a></div>
-                    <div class="footerText"><a href="#aboutProject">about project</a></div>
-                    <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a Mistake - let us</div>
+                    <div class="footerText"><a href="#contacts">Contacts</a></div>
+                    <div class="footerText"><a href="#aboutProject">About us</a></div>
+                    <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a mistake - let us know</div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 floating">
-                    <div class="footerText"><a href="#privacyPolicy">Privacy Policy</a></div>
-                    <div class="footerText"><a href="#termsOfUse">Terms of Use</a></div>
+                    <div class="footerText"><a href="#privacyPolicy">Privacy policy</a></div>
+                    <div class="footerText"><a href="#termsOfUse">Terms of use</a></div>
                     <div class="footerSocial">
                         <a socialshare
                            socialshare-provider="facebook"
