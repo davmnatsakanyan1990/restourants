@@ -521,10 +521,6 @@ class PlaceController extends Controller
         return response()->json($data);
     }
 
-    public function updateCoverImages(Request $request){
-        
-    }
-
     /**
      * get more comments
      *
