@@ -13,6 +13,14 @@ app.controller("rootController", function($scope, $rootScope, $location, $route,
             }
         });
     });
+    $scope.$watch('city', function(newValue, oldValue) {
+        if(newValue && oldValue){
+            $rootScope.cityChanged = true;
+            console.log($rootScope.cityChanged);
+        }else{
+            $rootScope.cityChanged = false;
+        }
+    });
 
     var request = $route.current;
     $scope.showModal = false;
@@ -100,9 +108,19 @@ app.controller("rootController", function($scope, $rootScope, $location, $route,
         }
 
     };
-    /*$scope.selectCity = function (data) {
-        console.log(data)
-    };*/
+        $rootScope.$on('$routeChangeSuccess', function () {
+            var uu = $location.url();
+            var url = uu.split('/');
+            if(url[2] == 'restaurants'){
+                $scope.selectCity = function () {
+                    $location.path('/'+ $scope.city +'/restaurants');
+                };
+            }else{
+                $scope.selectCity = function () {
+
+                };
+            }
+        });
 
     $scope.$watch(
         function(){
