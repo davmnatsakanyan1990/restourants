@@ -16,9 +16,8 @@ app.controller("myCtrl", function($scope,$rootScope, $http, $document, $window, 
 
                 RestaurantService.detectUserCity(address_components)
                     .then(function successCallback(response) {
-                        debugger;
                         if($rootScope.cityChanged){
-                            $location.path('/'+$rootScope.city+'/restaurants');
+                            $location.path('/'+$scope.city+'/restaurants');
                         }else if(response.data.status == 1){
                             $location.path('/'+response.data.city.name+'/restaurants');
                             $rootScope.city = response.data.city.name;
