@@ -1,5 +1,19 @@
 
-app.controller("rootController", function($scope, $rootScope, $location, $route, RestaurantService, validationService, Helper) {
+app.controller("rootController", function($scope, $rootScope, $location, $route, $window, RestaurantService, validationService, Helper) {
+
+    $rootScope.$on('$routeChangeSuccess', function () {
+
+        console.log('Route Change: ' + $location.url());
+        $window.ga('send', {
+            'hitType': 'screenview',
+            'appName' : 'restadviser.com',
+            'screenName' : $location.url(),
+            'hitCallback': function() {
+                console.log('GA hitCallback sent!');
+            }
+        });
+    });
+
     var request = $route.current;
     $scope.showModal = false;
     $scope.search = true;
@@ -320,4 +334,5 @@ app.controller("rootController", function($scope, $rootScope, $location, $route,
                 })
         }
     }
+
 });
