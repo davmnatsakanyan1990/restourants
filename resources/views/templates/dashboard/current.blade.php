@@ -109,7 +109,7 @@
                         <div class="marginTop10 moreInfoAddress ">
                             <div class="introTitle capitalize elementLeft floatNone">Working hours:</div>
                             <div class="clearElement hourBlock row">
-                                <div class="introContent hourContent clearElement  col-md-4 col-sm-3 col-lg-3 col-xs-4" ng-repeat="(day,hourr) in hoursPart">
+                                <div class="introContent hourContent clearElement" ng-repeat="(day,hourr) in hoursPart">
                                     <div class="capitalize infoTitle" ng-bind="day"></div>
                                     <div class="infoHour" ng-repeat="hour in hourr" ng-bind="hour"></div>
                                 </div>
@@ -389,19 +389,19 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="footerText" data-toggle="modal" data-target="#myModalLocation">add location
+                            <div class="footerText" data-toggle="modal" data-target="#myModalLocation">Add location
                             </div>
-                            <div class="footerText" data-toggle="modal" data-target="#myModalMaster">register owner</div>
-                            <div class="footerText"><a href="#forOrganization">For Restaurant</a></div>
+                            <div class="footerText" data-toggle="modal" data-target="#myModalMaster">Register owner</div>
+                            <div class="footerText"><a href="#forOrganization">For restaurant</a></div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="footerText"><a href="#contacts">contacts</a></div>
-                            <div class="footerText"><a href="#aboutProject">about project</a></div>
-                            <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a Mistake - let us</div>
+                            <div class="footerText"><a href="#contacts">Contacts</a></div>
+                            <div class="footerText"><a href="#aboutProject">About us</a></div>
+                            <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a mistake - let us know</div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-12 floating">
-                            <div class="footerText"><a href="#privacyPolicy">Privacy Policy</a></div>
-                            <div class="footerText"><a href="#termsOfUse">Terms of Use</a></div>
+                            <div class="footerText"><a href="#privacyPolicy">Privacy policy</a></div>
+                            <div class="footerText"><a href="#termsOfUse">Terms of use</a></div>
                             <div class="footerSocial">
 
                                 <a socialshare

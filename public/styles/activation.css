@@ -75,7 +75,6 @@
 }
 .activation footer .footerText {
   font-size: 18px;
-  text-transform: capitalize;
   margin-top: 7px;
   cursor: pointer;
 }

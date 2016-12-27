@@ -1,5 +1,27 @@
 
-app.controller("rootController", function($scope, $rootScope, $location, $route, RestaurantService, validationService, Helper) {
+app.controller("rootController", function($scope, $rootScope, $location, $route, $window, RestaurantService, validationService, Helper) {
+
+    $rootScope.$on('$routeChangeSuccess', function () {
+
+        console.log('Route Change: ' + $location.url());
+        $window.ga('send', {
+            'hitType': 'screenview',
+            'appName' : 'restadviser.com',
+            'screenName' : $location.url(),
+            'hitCallback': function() {
+                console.log('GA hitCallback sent!');
+            }
+        });
+    });
+    $scope.$watch('city', function(newValue, oldValue) {
+        if(newValue && oldValue){
+            $rootScope.cityChanged = true;
+            console.log($rootScope.cityChanged);
+        }else{
+            $rootScope.cityChanged = false;
+        }
+    });
+
     var request = $route.current;
     $scope.showModal = false;
     $scope.search = true;
@@ -86,9 +108,19 @@ app.controller("rootController", function($scope, $rootScope, $location, $route,
         }
 
     };
-    /*$scope.selectCity = function (data) {
-        console.log(data)
-    };*/
+        $rootScope.$on('$routeChangeSuccess', function () {
+            var uu = $location.url();
+            var url = uu.split('/');
+            if(url[2] == 'restaurants'){
+                $scope.selectCity = function () {
+                    $location.path('/'+ $scope.city +'/restaurants');
+                };
+            }else{
+                $scope.selectCity = function () {
+
+                };
+            }
+        });
 
     $scope.$watch(
         function(){
@@ -320,4 +352,5 @@ app.controller("rootController", function($scope, $rootScope, $location, $route,
                 })
         }
     }
+
 });

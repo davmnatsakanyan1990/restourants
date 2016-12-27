@@ -1180,7 +1180,6 @@ html body .content .pageSection .cont footer .footerAll .footerSec {
 }
 html body .content .pageSection .cont footer .footerAll .footerSec .footerText {
   padding-bottom: 5px;
-  text-transform: capitalize;
 }
 html body .content .pageSection .cont footer .footerAll .footerSec .footerText:hover {
   color: #ff7e00;
