@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Cuisin;
 use App\Models\Highlight;
+use App\Models\Image;
 use App\Models\Place;
 use App\Models\PlaceCategory;
 use App\Models\PlaceCuisin;
@@ -18,6 +19,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PlaceController extends Controller
 {
@@ -46,6 +48,8 @@ class PlaceController extends Controller
         $all_types = Type::all()->toArray();
 
         $all_categories = Category::all()->toArray();
+
+        $cover_images = Place::with('coverImages')->find($this->place->id)->toArray();
 
         $hours = array();
 
@@ -88,7 +92,7 @@ class PlaceController extends Controller
             }
         }
         
-        return view('admin.place_edit', compact('d', 'place', 'locations', 'all_cities', 'all_cuisins', 'all_highlights', 'all_types', 'all_categories'));
+        return view('admin.place_edit', compact('d', 'place', 'locations', 'all_cities', 'all_cuisins', 'all_highlights', 'all_types', 'all_categories', 'cover_images'));
     }
     
     public function update(Request $request){
@@ -329,5 +333,33 @@ class PlaceController extends Controller
 
     public function addCoverImages(Request $request){
         dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'files.*' => 'dimensions:min_width=1500,min_height=2015',
+        ]);
+        $messages = $validator->errors();
+
+        echo $messages->first();
+//        if ($validator->fails()) {
+//            return redirect()->back()
+//                ->withErrors($validator);
+//        }
+
+//        $image_files = $request->file('files');
+//
+//        $destinationPath = 'images/coverImages';
+//        foreach ($image_files as $file) {
+//            $ext = $file->getClientOriginalExtension();
+//            $unique_id = uniqid();
+//            $fileName = 'cover'.time().$unique_id.'.'.$ext;
+//
+//            $file->move($destinationPath, $fileName);
+//        }
+    }
+
+    public function deleteCoverImage($id){
+        $image = Image::find($id);
+
+        Image::find($id)->delete();
+        unlink('images/coverImages/'.$image['name']);
     }
 }

@@ -498,6 +498,7 @@
                                                         </button>
                                                     </div>
                                                 </form>
+
                                                 <form action="add_cover" method="post" enctype="multipart/form-data" >
                                                     <div class="field" align="left">
                                                         <h3>Cover images</h3>
