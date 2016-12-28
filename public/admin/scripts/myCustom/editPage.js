@@ -107,7 +107,6 @@ $(document).ready(function() {
     if (window.File && window.FileList && window.FileReader) {
         $("#files").on("change", function(e) {
             var files = e.target.files;
-            uploadImages.push(files[0]);
 
                 filesLength = files.length;
             for (var i = 0; i < filesLength; i++) {
@@ -122,6 +121,7 @@ $(document).ready(function() {
                     $(".remove").click(function(){
                         $(this).parent(".pip").remove();
                     });
+                    uploadImages.push(e.target.result);
 
                     // Old code here
                     /*$("<img></img>", {
@@ -129,8 +129,8 @@ $(document).ready(function() {
                      src: e.target.result,
                      title: file.name + " | Click to remove"
                      }).insertAfter("#files").click(function(){$(this).remove();});*/
-
                 });
+
                 fileReader.readAsDataURL(f);
             }
         });
@@ -139,18 +139,17 @@ $(document).ready(function() {
     }
 
     $("form[name='sendImage']").submit(function(e) {
-
         $.ajax({
             url: "add_cover",
             type: "POST",
-            data: uploadImages,
+            data: {dataImage:uploadImages},
             async: false,
             success: function (msg) {
                 alert(msg)
             },
-            cache: false,
+            /*cache: false,
             contentType: false,
-            processData: false
+            processData: false,*/
         });
 
         e.preventDefault();
