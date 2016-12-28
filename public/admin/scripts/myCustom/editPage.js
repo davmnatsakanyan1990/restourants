@@ -103,9 +103,12 @@ $( window ).load(function() {
 
 
 $(document).ready(function() {
+    var uploadImages = [];
     if (window.File && window.FileList && window.FileReader) {
         $("#files").on("change", function(e) {
-            var files = e.target.files,
+            var files = e.target.files;
+            uploadImages.push(files[0]);
+
                 filesLength = files.length;
             for (var i = 0; i < filesLength; i++) {
                 var f = files[i];
@@ -134,6 +137,25 @@ $(document).ready(function() {
     } else {
         alert("Your browser doesn't support to File API")
     }
+
+    $("form[name='sendImage']").submit(function(e) {
+
+        $.ajax({
+            url: "add_cover",
+            type: "POST",
+            data: uploadImages,
+            async: false,
+            success: function (msg) {
+                alert(msg)
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+        e.preventDefault();
+    });
+
 });
 function startUpload(){
     /*document.getElementById('f1_upload_process').style.visibility = 'visible';*/

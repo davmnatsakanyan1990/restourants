@@ -498,14 +498,14 @@
                                                         </button>
                                                     </div>
                                                 </form>
-                                                <form action="add_cover" method="post" enctype="multipart/form-data" >
+                                                <form name="sendImage" enctype="multipart/form-data" >
                                                     <div class="field" align="left">
                                                         <h3>Cover images</h3>
                                                         <div class="currentImage">
                                                             <img src="../img/photo1.jpg" alt="">
                                                         </div>
-                                                        <input type="file" id="files" name="files[]" multiple />
-                                                        <input type="submit" name="submitBtn" value="Upload" />
+                                                        <input type="file" id="files" name="files[]" multiple="true" />
+                                                        <input type="submit" name="sendfiles" value="Upload" />
                                                     </div>
                                                 </form>
 
