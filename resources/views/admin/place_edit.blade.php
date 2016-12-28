@@ -501,9 +501,11 @@
                                                 <form action="add_cover" method="post" enctype="multipart/form-data">
                                                     <div class="field" align="left">
                                                         <h3>Cover images</h3>
+                                                        @foreach($cover_images as $image)
                                                         <div class="currentImage">
-                                                            <img src="../img/photo1.jpg" alt="">
+                                                            <img src="{{ asset('images/coverImages/'.$image['name']) }}" alt="">
                                                         </div>
+                                                        @endforeach
                                                         <input type="file" id="files" name="files[]" multiple />
                                                         <input type="submit" name="submitBtn" value="Upload" />
                                                     </div>
