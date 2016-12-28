@@ -107,8 +107,8 @@ $(document).ready(function() {
     if (window.File && window.FileList && window.FileReader) {
         $("#files").on("change", function(e) {
             var files = e.target.files;
-
-                filesLength = files.length;
+            uploadImages.push(files[0]);
+              var filesLength = files.length;
             for (var i = 0; i < filesLength; i++) {
                 var f = files[i];
                 var fileReader = new FileReader();
@@ -121,7 +121,7 @@ $(document).ready(function() {
                     $(".remove").click(function(){
                         $(this).parent(".pip").remove();
                     });
-                    uploadImages.push(e.target.result);
+                    /*uploadImages.push(e.target.result);*/
 
                     // Old code here
                     /*$("<img></img>", {
@@ -138,22 +138,24 @@ $(document).ready(function() {
         alert("Your browser doesn't support to File API")
     }
 
-    $("form[name='sendImage']").submit(function(e) {
+   /* $("input[name='sendfiles']").click(function(e) {
+        console.log(uploadImages);
+        var a =JSON.stringify(uploadImages);
         $.ajax({
             url: "add_cover",
             type: "POST",
-            data: {dataImage:uploadImages},
+            data: {dataImage: uploadImages},
             async: false,
             success: function (msg) {
                 alert(msg)
             },
-            /*cache: false,
+            /!*cache: false,
             contentType: false,
-            processData: false,*/
+            processData: false,*!/
         });
 
         e.preventDefault();
-    });
+    });*/
 
 });
 function startUpload(){
