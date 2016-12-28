@@ -500,7 +500,7 @@
                                                 </form>
                                                 <form action="add_cover" method="post" enctype="multipart/form-data">
                                                     <div class="field" align="left">
-                                                        <h3>Cover images</h3>
+                                                        <h3 style="color: #ff7e00;">Cover images</h3>
                                                         <div class="currentImage">
                                                             <img src="../img/photo1.jpg" alt="">
                                                         </div>

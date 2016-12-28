@@ -118,8 +118,15 @@ $(document).ready(function() {
                         "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
                         "<br/><span class=\"remove\">Remove image</span>" +
                         "</span>").insertAfter("#files");
-                    $(".remove").click(function(){
+                    $(".remove").click(function(e){
+                        debugger;
+                        if(files.length>1){
+
+                        }else{
+                            files = [];
+                        }
                         $(this).parent(".pip").remove();
+                        console.log(e.target)
                     });
                     /*uploadImages.push(e.target.result);*/
 
