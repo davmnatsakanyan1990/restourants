@@ -117,6 +117,7 @@ Route::group([
         Route::get('edit', 'PlaceController@edit');
         Route::post('update', 'PlaceController@update');
         Route::post('add_cover', 'PlaceController@addCoverImages');
+        Route::post('delete_cover_image/{id}', 'PlaceController@deleteCoverImage');
     });
 
 Route::group([
