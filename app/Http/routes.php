@@ -116,6 +116,7 @@ Route::group([
     function(){
         Route::get('edit', 'PlaceController@edit');
         Route::post('update', 'PlaceController@update');
+        Route::post('add_vover', 'PlaceController@addCoverImages');
     });
 
 Route::group([
