@@ -103,9 +103,11 @@ $( window ).load(function() {
 
 
 $(document).ready(function() {
+    var uploadImages = [];
     if (window.File && window.FileList && window.FileReader) {
         $("#files").on("change", function(e) {
-            var files = e.target.files,
+            var files = e.target.files;
+
                 filesLength = files.length;
             for (var i = 0; i < filesLength; i++) {
                 var f = files[i];
@@ -119,6 +121,7 @@ $(document).ready(function() {
                     $(".remove").click(function(){
                         $(this).parent(".pip").remove();
                     });
+                    uploadImages.push(e.target.result);
 
                     // Old code here
                     /*$("<img></img>", {
@@ -126,14 +129,32 @@ $(document).ready(function() {
                      src: e.target.result,
                      title: file.name + " | Click to remove"
                      }).insertAfter("#files").click(function(){$(this).remove();});*/
-
                 });
+
                 fileReader.readAsDataURL(f);
             }
         });
     } else {
         alert("Your browser doesn't support to File API")
     }
+
+    $("form[name='sendImage']").submit(function(e) {
+        $.ajax({
+            url: "add_cover",
+            type: "POST",
+            data: {dataImage:uploadImages},
+            async: false,
+            success: function (msg) {
+                alert(msg)
+            },
+            /*cache: false,
+            contentType: false,
+            processData: false,*/
+        });
+
+        e.preventDefault();
+    });
+
 });
 function startUpload(){
     /*document.getElementById('f1_upload_process').style.visibility = 'visible';*/
