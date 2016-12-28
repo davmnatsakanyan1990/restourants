@@ -166,7 +166,6 @@ $(document).ready(function() {
    $('.removeImage').click(function (e) {
        var element = e.target.parentNode;
        var id=$($(element).find('img')[0]).data('id')
-       console.log();
        $.ajax({
                url: "delete_cover_image/"+id,
                type: "POST",

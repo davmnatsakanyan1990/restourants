@@ -507,8 +507,8 @@
                                                             <div class="removeImage">Remove</div>
                                                         </div>
                                                         @endforeach
-                                                        <input type="file" id="files" name="files[]" multiple />
-                                                        <input type="submit" name="submitBtn" value="Upload" />
+                                                        <input class="inputfile" type="file" id="files" name="files[]" multiple />
+                                                        <input class="upload" type="submit" name="submitBtn" value="Upload" />
                                                     </div>
                                                 </form>
                                             </div>

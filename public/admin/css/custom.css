@@ -1644,13 +1644,43 @@ input[type="file"] {
     padding: 6px 0;
     background-color: #ff7e00;
     top: 37%;
-    left: 22%;
+    left: 28%;
     color: white;
     display: none;
 }
 .currentImage:hover .removeImage{
     display: block;
     cursor: pointer;
+}
+.upload{
+    width: 100px;
+    height: 30px;
+    background-color: #ff7e00;
+    border: none;
+    color: white;
+    margin-top: 10px;
+}
+.inputfile{
+    width: 92px;
+    height: 21px;
+    opacity: 1;
+
+    z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
 }
 /*image upload end*/
 
