@@ -1601,6 +1601,42 @@ button, button:active, button:focus {
 
 /*Footer style End*/
 
+/*image upload*/
+input[type="file"] {
+    display: block;
+}
+.imageThumb {
+    max-height: 75px;
+    border: 2px solid;
+    padding: 1px;
+    cursor: pointer;
+}
+.pip {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+}
+.remove {
+    display: block;
+    background: #444;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.remove:hover {
+    background: white;
+    color: black;
+}
+.currentImage{
+    display: inline-table;
+    width: 10%;
+    margin-bottom: 20px;
+}
+.currentImage img{
+    width: 100%; height: auto;
+}
+/*image upload end*/
+
 @media screen and (min-width: 1466px) and (max-width: 1614px) {
     .wholePage {
         padding: 65px 10px;

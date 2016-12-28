@@ -498,6 +498,17 @@
                                                         </button>
                                                     </div>
                                                 </form>
+                                                <form action="add_cover" method="post" enctype="multipart/form-data" target="upload_target"  onsubmit="startUpload();">
+                                                    <div class="field" align="left">
+                                                        <h3>Cover images</h3>
+                                                        <div class="currentImage">
+                                                            <img src="../img/photo1.jpg" alt="">
+                                                        </div>
+                                                        <input type="file" id="files" name="files[]" multiple />
+                                                        <input type="submit" name="submitBtn" value="Upload" />
+                                                    </div>
+                                                </form>
+                                                <iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
                                             </div>
                                         </div>
                                     </div>
