@@ -49,7 +49,7 @@ class PlaceController extends Controller
 
         $all_categories = Category::all()->toArray();
 
-        $cover_images = Place::with('coverImages')->find($this->place->id)->toArray();
+        $cover_images = Place::with('coverImages')->find($this->place->id)->coverImages->toArray();
 
         $hours = array();
 
@@ -332,28 +332,31 @@ class PlaceController extends Controller
     }
 
     public function addCoverImages(Request $request){
-        dd($request->all());
-        $validator = Validator::make($request->all(), [
-            'files.*' => 'dimensions:min_width=1500,min_height=2015',
-        ]);
-        $messages = $validator->errors();
-
-        echo $messages->first();
+//        dd($request->all());
+//        $validator = Validator::make($request->all(), [
+//            'files.*' => 'dimensions:min_width=1500,min_height=2015',
+//        ]);
+//        $messages = $validator->errors();
+//
+//        echo $messages->first();
 //        if ($validator->fails()) {
 //            return redirect()->back()
 //                ->withErrors($validator);
 //        }
 
-//        $image_files = $request->file('files');
-//
-//        $destinationPath = 'images/coverImages';
-//        foreach ($image_files as $file) {
-//            $ext = $file->getClientOriginalExtension();
-//            $unique_id = uniqid();
-//            $fileName = 'cover'.time().$unique_id.'.'.$ext;
-//
-//            $file->move($destinationPath, $fileName);
-//        }
+        $image_files = $request->file('files');
+
+        $destinationPath = 'images/coverImages';
+        foreach ($image_files as $file) {
+            $ext = $file->getClientOriginalExtension();
+            $unique_id = uniqid();
+            $fileName = 'cover'.time().$unique_id.'.'.$ext;
+
+            $file->move($destinationPath, $fileName);
+            Image::create(['name'=>$fileName, 'imageable_id' => $this->place->id, 'imageable_type' => 'App\Models\Place', 'role'=>2]);
+
+        }
+        return redirect()->back();
     }
 
     public function deleteCoverImage($id){

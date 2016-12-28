@@ -1629,11 +1629,28 @@ input[type="file"] {
 }
 .currentImage{
     display: inline-table;
-    width: 10%;
+    width: 200px;
     margin-bottom: 20px;
+    position: relative;
 }
 .currentImage img{
     width: 100%; height: auto;
+}
+.removeImage{
+    position: absolute;
+    width: 80px;
+    /* height: 50%; */
+    text-align: center;
+    padding: 6px 0;
+    background-color: #ff7e00;
+    top: 37%;
+    left: 22%;
+    color: white;
+    display: none;
+}
+.currentImage:hover .removeImage{
+    display: block;
+    cursor: pointer;
 }
 /*image upload end*/
 

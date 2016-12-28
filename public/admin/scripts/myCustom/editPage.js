@@ -116,10 +116,9 @@ $(document).ready(function() {
                     var file = e.target;
                     $("<span class=\"pip\">" +
                         "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-                        "<br/><span class=\"remove\">Remove image</span>" +
+                        /*"<br/><span class=\"remove\">Remove image</span>" +*/
                         "</span>").insertAfter("#files");
                     $(".remove").click(function(e){
-                        debugger;
                         if(files.length>1){
 
                         }else{
@@ -128,7 +127,7 @@ $(document).ready(function() {
                         $(this).parent(".pip").remove();
                         console.log(e.target)
                     });
-                    /*uploadImages.push(e.target.result);*/
+                    uploadImages.push(e.target.result);
 
                     // Old code here
                     /*$("<img></img>", {
@@ -164,17 +163,25 @@ $(document).ready(function() {
         e.preventDefault();
     });*/
 
+   $('.removeImage').click(function (e) {
+       var element = e.target.parentNode;
+       var id=$($(element).find('img')[0]).data('id')
+       console.log();
+       $.ajax({
+               url: "delete_cover_image/"+id,
+               type: "POST",
+               data: {dataImage: uploadImages},
+               async: false,
+               success: function (msg) {
+                   e.target.parentNode.remove()
+               },
+   });
+
+
+   });
+
 });
 function startUpload(){
     /*document.getElementById('f1_upload_process').style.visibility = 'visible';*/
     return true;
 }
-
-/*
-$.ajax({
-    url: "script.php",
-    type: "POST",
-    data: {id : menuId},
-    dataType: "html"
-});
-*/
