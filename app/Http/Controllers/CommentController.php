@@ -17,7 +17,13 @@ class CommentController extends Controller
             abort(503);
         }
     }
-    
+
+    /**
+     * Add new comment
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function create(Request $request){
         if($request->user_type == 'user') {
             $author_id = Auth::guard('user')->user()->id;

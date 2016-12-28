@@ -231,6 +231,11 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * Fill all existing cuisines
+     * 
+     * @param Request $request
+     */
     public function fillCuisines(Request $request){
 
         $d = json_decode($request->data, true);

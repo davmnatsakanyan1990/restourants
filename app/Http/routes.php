@@ -116,6 +116,7 @@ Route::group([
     function(){
         Route::get('edit', 'PlaceController@edit');
         Route::post('update', 'PlaceController@update');
+        Route::post('add_vover', 'PlaceController@addCoverImages');
     });
 
 Route::group([
@@ -235,6 +236,20 @@ Route::get('fill_emails', function(){
 
     foreach($d as $value){
         Place::where('id',  $value->id)->update(['email'=> $value->company_email]);
+    }
+});
+
+Route::get('assign_cover_image_random', function(){
+    $places = Place::with('coverImages')->get()->toArray();
+
+    foreach($places as $place){
+        if(count($place['cover_images']) == 0) {
+            $collection = collect(config('coverimages'));
+            $random = $collection->random(3)->toArray();
+            foreach ($random as $img) {
+                \App\Models\Image::create(['name' => $img, 'imageable_id' => $place['id'], 'imageable_type' => 'App\Models\Place', 'role' => 2]);
+            }
+        }
     }
 });
 

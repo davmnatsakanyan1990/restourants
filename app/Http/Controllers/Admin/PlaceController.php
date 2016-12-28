@@ -326,4 +326,8 @@ class PlaceController extends Controller
 
 
     }
+
+    public function addCoverImages(Request $request){
+        dd($request->all());
+    }
 }

@@ -21,7 +21,8 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin');
 
-        $this->admin = Auth::guard('admin')->user();
+        if(Auth::guard('admin')->check())
+            $this->admin = Auth::guard('admin')->user();
     }
 
     /**
