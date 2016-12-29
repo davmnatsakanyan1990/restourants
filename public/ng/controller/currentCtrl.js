@@ -69,7 +69,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
             $scope.aboutPhoto = $scope.currentRestaurant.coverImages;
             $scope.coverImages =[];
-            for(k in $scope.aboutPhoto){
+            for(var k=1; k< $scope.aboutPhoto.length; k++){
                 $scope.coverImages.push($scope.aboutPhoto[k]);
             }
             $scope.haveData = true;
