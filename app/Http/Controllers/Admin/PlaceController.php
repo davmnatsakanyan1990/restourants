@@ -334,7 +334,7 @@ class PlaceController extends Controller
     public function addCoverImages(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'files' => 'dimensions:width=1920,height=800',
+//            'files' => 'dimensions:width=1920,height=800',
         ]);
         $messages = $validator->errors()->all();
 
