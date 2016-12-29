@@ -332,31 +332,41 @@ class PlaceController extends Controller
     }
 
     public function addCoverImages(Request $request){
-//        dd($request->all());
-//        $validator = Validator::make($request->all(), [
-//            'files.*' => 'dimensions:min_width=1500,min_height=2015',
-//        ]);
-//        $messages = $validator->errors();
-//
-//        echo $messages->first();
-//        if ($validator->fails()) {
-//            return redirect()->back()
-//                ->withErrors($validator);
-//        }
+
+        $validator = Validator::make($request->all(), [
+            'files' => 'image|dimensions:min_width=1500,min_height=2015',
+        ]);
+        $messages = $validator->errors();
+        
+        if ($validator->fails()) {
+            return response()->json(['files'=>[['error' => 'error text']]]);
+        }
 
         $image_files = $request->file('files');
 
         $destinationPath = 'images/coverImages';
         foreach ($image_files as $file) {
             $ext = $file->getClientOriginalExtension();
+            $size = $file->getClientSize();
+            $mimtype = $file->getClientMimeType();
             $unique_id = uniqid();
             $fileName = 'cover'.time().$unique_id.'.'.$ext;
 
             $file->move($destinationPath, $fileName);
-            Image::create(['name'=>$fileName, 'imageable_id' => $this->place->id, 'imageable_type' => 'App\Models\Place', 'role'=>2]);
+            $image = Image::create(['name'=>$fileName, 'imageable_id' => $this->place->id, 'imageable_type' => 'App\Models\Place', 'role'=>2]);
 
         }
-        return redirect()->back();
+        return response()->json(['files' => [
+                ['deleteType' => 'POST',
+                'deleteUrl' => url('admin/place/delete_cover_image/'.$image->id),
+                'name' => $fileName,
+                'size' => $size,
+                'thumbnailUrl' => asset('images/coverImages/'.$fileName),
+                'type' => $mimtype,
+                'url' => asset('images/coverImages/'.$fileName)]
+            ]
+        ]);
+
     }
 
     public function deleteCoverImage($id){
