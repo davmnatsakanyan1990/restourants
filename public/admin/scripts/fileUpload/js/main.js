@@ -19,11 +19,6 @@ $(function () {
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: 'add_cover',
-        disableImageResize: /Android(?!.*Chrome)|Opera/
-            .test(window.navigator && navigator.userAgent),
-        imageMaxWidth: 300,
-        imageMaxHeight: 300,
-        imageCrop: false // Force cropped images
     });
 
     // Enable iframe cross-domain access via redirect option:
