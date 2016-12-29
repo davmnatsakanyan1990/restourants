@@ -497,12 +497,15 @@
                                                             Save Changes
                                                         </button>
                                                     </div>
-                                                    @foreach($cover_images as $image)
-                                                    <div class="currentImage">
-                                                    <img data-id ={{$image['id']}}  src="{{ asset('images/coverImages/'.$image['name']) }}" alt="">
-                                                    <div class="removeImage">Remove</div>
+                                                    <div class="images">
+                                                        <h3 style="color: #ff7e00;">Cover images</h3>
+                                                        @foreach($cover_images as $image)
+                                                            <div class="currentImage">
+                                                                <img data-id ={{$image['id']}}  src="{{ asset('images/coverImages/'.$image['name']) }}" alt="">
+                                                                <div class="removeImage">Remove</div>
+                                                            </div>
+                                                        @endforeach
                                                     </div>
-                                                    @endforeach
                                                 </form>
                                                 {{--<form action="add_cover" method="post" enctype="multipart/form-data">--}}
                                                     {{--<div class="field" align="left">--}}
