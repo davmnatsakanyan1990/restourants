@@ -499,6 +499,7 @@
                                                     </div>
                                                     <div class="images">
                                                         <h3 style="color: #ff7e00;">Cover images</h3>
+                                                        <p>Upload images only: width:1920px, height:800px</p>
                                                         @foreach($cover_images as $image)
                                                             <div class="currentImage">
                                                                 <img data-id ={{$image['id']}}  src="{{ asset('images/coverImages/'.$image['name']) }}" alt="">
