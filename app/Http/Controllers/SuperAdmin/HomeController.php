@@ -17,12 +17,12 @@ class HomeController extends Controller
 
     public function __construct(){
         $this->middleware('auth:super_admin');
-
-        $this->super_admin = Auth::guard('super_admin')->user();
+        
+        if(Auth::guard('super_admin')->check())
+            $this->super_admin = Auth::guard('super_admin')->user();
     }
     
     public function index(){
-//        dd($this->super_admin);
         return view('super_admin/home');
     }
     

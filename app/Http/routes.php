@@ -52,6 +52,14 @@ Route::group([
         Route::get('update', 'HomeController@update');
     });
 
+Route::group([
+    'prefix' => 'super_admin/places',
+    'namespace' => 'SuperAdmin'
+],
+    function(){
+        Route::get('all', 'PlaceController@index');
+    });
+
 /**
  * User route part
  */
