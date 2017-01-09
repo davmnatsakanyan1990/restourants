@@ -16,4 +16,8 @@ class GroupAdmin extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function places(){
+//        return $this->has
+    }
 }

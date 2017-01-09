@@ -86,6 +86,7 @@ Route::group([
 ],
     function(){
         Route::get('dashboard', 'HomeController@index');
+        Route::get('cover/edit', 'CoverController@edit');
     });
 
 /**
