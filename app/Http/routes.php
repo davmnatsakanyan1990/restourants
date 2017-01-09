@@ -79,6 +79,13 @@ Route::group([
         Route::get('login', 'AuthController@getLogin');
         Route::post('login', 'AuthController@postLogin');
     });
+Route::group([
+    'prefix' => 'group_admin',
+    'namespace' => 'GroupAdmin'
+],
+    function(){
+        Route::get('dashboard', 'HomeController@index');
+    });
 
 /**
  * User route part

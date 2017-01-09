@@ -28,6 +28,9 @@ class Authenticate
                     case 'super_admin' :
                         return redirect('super_admin/login');
                     break;
+                    case 'group_admin' :
+                        return redirect('group_admin/login');
+                        break;
                 }
             }
         }
