@@ -1,11 +1,13 @@
 $( document ).ready(function() {
-    $( ".more" ).click(function() {
-        if($( ".comments" ).hasClass('hide')){
-            $( ".comments" ).removeClass('hide');
-            $( ".comments" ).addClass('show');
+    $( ".more" ).click(function(e) {
+        var element = e.target.parentNode.parentNode;
+        var currentElement = $(element).find('.comments');
+        if($( currentElement ).hasClass('hide')){
+            $( currentElement ).removeClass('hide');
+            $( currentElement ).addClass('show');
         }else if($( ".comments" ).hasClass('show')){
-            $( ".comments" ).addClass('hide');
-            $( ".comments" ).removeClass('show');
+            $( currentElement ).addClass('hide');
+            $( currentElement).removeClass('show');
         }
     });
 });
