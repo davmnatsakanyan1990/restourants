@@ -78,6 +78,7 @@ Route::group([
     function(){
         Route::get('login', 'AuthController@getLogin');
         Route::post('login', 'AuthController@postLogin');
+        Route::get('logout', 'AuthController@logout');
     });
 Route::group([
     'prefix' => 'group_admin',

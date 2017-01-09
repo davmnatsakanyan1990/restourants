@@ -35,6 +35,7 @@ class AuthController extends Controller
     protected $username = 'username';
     protected $loginView = 'group_admin.auth.login';
     protected $redirectTo = 'group_admin/dashboard';
+    protected $redirectAfterLogout = 'group_admin/login';
 
     /**
      * AuthController constructor.
