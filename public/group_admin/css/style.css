@@ -1,5 +1,6 @@
 body {
   min-height: 90vh;
+  background-color: #E5E9ED;
 }
 /*header*/
 .header {
@@ -119,3 +120,84 @@ body {
   border-left: 2px solid #ff7e00 !important;
 }
 /*Footer style End*/
+/*content*/
+.clearElement:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.floatRight {
+  float: right;
+}
+.page-container {
+  margin-top: 70px;
+}
+.restList {
+  margin: 0 15%;
+}
+.restList .restaurant {
+  padding: 10px;
+  background-color: white;
+  border-top: 2px solid #ff6600;
+}
+.restList .restaurant .name {
+  font-size: 25px;
+  color: #ff6600;
+  margin-bottom: 10px;
+}
+.restList .restaurant .changeCover {
+  color: #ff6600;
+  background-color: white;
+  border: 1px solid #ff6600;
+  padding: 5px 10px;
+}
+.restList .restaurant .changeCover:active,
+.restList .restaurant .changeCover:focus {
+  outline: none;
+}
+.restList .restaurant .changeCover:hover {
+  background-color: #ff6600;
+  color: white;
+}
+.restList .restaurant .addressPart .addressGroup {
+  font-size: 16px;
+  color: #393d52;
+  margin-bottom: 5px;
+}
+.restList .restaurant .addressPart .addressGroup i {
+  color: #ff6600;
+  margin-right: 5px;
+  font-size: 18px;
+}
+.restList .restaurant .comments textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+.restList .restaurant .comments .commentName {
+  color: #ff6600;
+  font-size: 16px;
+  font-weight: 600;
+}
+.restList .restaurant .comments .commentMain {
+  margin-top: 10px;
+}
+.restList .restaurant .comments .addComment {
+  min-width: 110px;
+  background-color: #ff6600;
+  color: white;
+  border: 1px solid #ff6600;
+  padding: 5px 10px;
+}
+.restList .restaurant .comments .addComment:active,
+.restList .restaurant .comments .addComment:focus {
+  outline: none;
+}
+.restList .restaurant .comments .viewAll {
+  text-align: center;
+}
+.restList .restaurant .comments .viewAll a {
+  color: #ff6600;
+  font-size: 16px;
+  cursor: pointer;
+}

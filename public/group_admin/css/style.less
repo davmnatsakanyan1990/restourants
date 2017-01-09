@@ -1,5 +1,6 @@
 body{
   min-height: 90vh;
+  background-color: #E5E9ED;
 }
 /*header*/
 .header{
@@ -129,3 +130,90 @@ body{
 }
 
 /*Footer style End*/
+
+/*content*/
+.clearElement{
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+.floatRight{
+  float: right;
+}
+.page-container{
+  margin-top: 70px;
+}
+.restList{
+  margin: 0 15%;
+  .restaurant{
+    padding: 10px;
+    background-color: white;
+    border-top: 2px solid #ff6600;
+    .name{
+      font-size: 25px;
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+    .changeCover{
+      color: #ff6600;
+      background-color: white;
+      border: 1px solid #ff6600;
+      padding: 5px 10px;
+      &:active, &:focus{
+        outline: none;
+      }
+      &:hover{
+        background-color: #ff6600;
+        color: white;
+      }
+    }
+    .addressPart{
+      .addressGroup{
+        font-size: 16px;
+        color: #393d52;
+        margin-bottom: 5px;
+        i{
+          color: #ff6600;
+          margin-right: 5px;
+          font-size: 18px;
+        }
+      }
+
+    }
+    .comments{
+      textarea{
+        width: 100%;
+        height: 100px;
+        resize: none;
+      }
+      .commentName{
+        color: #ff6600;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .commentMain{
+        margin-top: 10px;
+      }
+      .addComment{
+        min-width: 110px;
+        background-color: #ff6600;
+        color: white;
+        border: 1px solid #ff6600;
+        padding: 5px 10px;
+        &:active, &:focus{
+          outline: none;
+        }
+      }
+      .viewAll{
+        text-align: center;
+        a{
+          color: #ff6600;
+          font-size: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
