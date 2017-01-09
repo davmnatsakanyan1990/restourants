@@ -54,7 +54,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
-    <form class="login-form" action="{{ url('admin/login') }}" method="post">
+    <form class="login-form" action="{{ url('group_admin/login') }}" method="post">
         {{ csrf_field() }}
         <h3 class="form-title">Group Admin Login</h3>
         @if(count($errors) > 0)
