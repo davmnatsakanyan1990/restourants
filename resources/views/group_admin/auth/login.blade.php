@@ -17,7 +17,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8"/>
-    <title>Admin - Login</title>
+    <title>Group Admin - Login</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
@@ -37,10 +37,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/admin/css/style-metronic.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-    <link href="/admin/css/plugins.css" rel="stylesheet" type="text/css"/>
-    <link href="/admin/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-    <link href="/admin/css/pages/login.css" rel="stylesheet" type="text/css"/>
-    <link href="/admin/css/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="/group_admin/css/login.css" rel="stylesheet" type="text/css"/>
+    <link href="/group_admin/css/style.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="/admin/favicon.ico"/>
 </head>
@@ -58,7 +56,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN LOGIN FORM -->
     <form class="login-form" action="{{ url('admin/login') }}" method="post">
         {{ csrf_field() }}
-        <h3 class="form-title">Admin Login</h3>
+        <h3 class="form-title">Group Admin Login</h3>
         @if(count($errors) > 0)
             <div class="alert alert-danger">
                 <ul>
@@ -96,45 +94,6 @@ License: You must have a valid license purchased only from themeforest(the above
                 Login {{--<i class="m-icon-swapright m-icon-white"></i>--}}
             </button>
         </div>
-        {{--<div class="login-options">--}}
-            {{--<h4>Or login with</h4>--}}
-            {{--<ul class="social-icons">--}}
-                {{--<li>--}}
-                    {{--<a class="facebook" data-original-title="facebook" href="#">--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a class="twitter" data-original-title="Twitter" href="#">--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a class="googleplus" data-original-title="Goole Plus" href="#">--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a class="linkedin" data-original-title="Linkedin" href="#">--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-        {{--<div class="forget-password">--}}
-            {{--<h4>Forgot your password ?</h4>--}}
-            {{--<p>--}}
-                {{--no worries, click--}}
-                {{--<a href="javascript:;" id="forget-password">--}}
-                    {{--here--}}
-                {{--</a>--}}
-                {{--to reset your password.--}}
-            {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="create-account">--}}
-            {{--<p>--}}
-                {{--Don't have an account yet ?&nbsp;--}}
-                {{--<a href="javascript:;" id="register-btn">--}}
-                    {{--Create an account--}}
-                {{--</a>--}}
-            {{--</p>--}}
-        {{--</div>--}}
     </form>
     <!-- END LOGIN FORM -->
     <!-- BEGIN FORGOT PASSWORD FORM -->
