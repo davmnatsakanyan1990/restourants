@@ -18,6 +18,6 @@ class GroupAdmin extends Authenticatable
     ];
 
     public function places(){
-//        return $this->has
+        return $this->hasMany(Place::class);
     }
 }

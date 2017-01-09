@@ -4,8 +4,9 @@
 @endsection
 @section('content')
 <div class="restList">
+    @foreach($restaurants as $restaurant)
     <div class="restaurant">
-        <div class="name">Restaurant name</div>
+        <div class="name">{{ $restaurant->name }}</div>
         <div class="addressPart">
 
             <div class="addressGroup">
@@ -36,6 +37,6 @@
             <div class="viewAll"><a>View All</a></div>
         </div>
     </div>
-
+    @endforeach
 </div>
 @endsection
