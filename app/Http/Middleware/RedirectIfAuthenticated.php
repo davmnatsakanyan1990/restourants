@@ -25,6 +25,9 @@ class RedirectIfAuthenticated
                 case 'super_admin' :
                     return redirect('super_admin/dashboard');
                     break;
+                case 'group_admin' :
+                    return redirect('group_admin/dashboard');
+                    break;
             }
         }
 

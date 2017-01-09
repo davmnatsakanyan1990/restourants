@@ -55,6 +55,10 @@ return [
             'driver' => 'session',
             'provider' => 'super_admins',
         ],
+        'group_admin' => [
+            'driver' => 'session',
+            'provider' => 'group_admins',
+        ],
 
         'user' => [
             'driver' => 'session',
@@ -88,6 +92,11 @@ return [
          'super_admins' => [
              'driver' => 'eloquent',
              'model' => App\Models\SuperAdmin::class,
+         ],
+        
+        'group_admins' => [
+             'driver' => 'eloquent',
+             'model' => App\Models\GroupAdmin::class,
          ],
         
         'admins' => [

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAdminIdPlacesTable extends Migration
+class AddGroupAdminColumnPlacesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddAdminIdPlacesTable extends Migration
     public function up()
     {
         Schema::table('places', function (Blueprint $table) {
-            $table->integer('admin_id')->nullable()->unsigned();
+            $table->integer('group_admin_id')->nullable()->unsigned()->after('admin_id');
 
-            $table->foreign('admin_id')->references('id')->on('admins');
+            $table->foreign('group_admin_id')->references('id')->on('group_admins');
         });
     }
 

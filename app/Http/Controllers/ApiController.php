@@ -379,7 +379,7 @@ class ApiController extends Controller
      * Generate Admins
      */
     public function fillAdmins(){
-        $places = Place::where('admin_id', 1)->get()->toArray();
+        $places = Place::whereNull('admin_id')->get()->toArray();
         foreach ($places as $place){
             $password = str_random(8);
             $support_id = Place::find($place['id'])->support_id;

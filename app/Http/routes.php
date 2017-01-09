@@ -60,6 +60,26 @@ Route::group([
         Route::get('all', 'PlaceController@index');
     });
 
+Route::group([
+    'prefix' => 'super_admin/group_admin',
+    'namespace' => 'SuperAdmin'
+],
+    function(){
+        Route::get('new', 'GroupAdminController@create');
+    });
+
+/**
+ * Group Admin route part
+ */
+Route::group([
+    'prefix' => 'group_admin',
+    'namespace' => 'GroupAdmin\Auth'
+],
+    function(){
+        Route::get('login', 'AuthController@getLogin');
+        Route::post('login', 'AuthController@postLogin');
+    });
+
 /**
  * User route part
  */
