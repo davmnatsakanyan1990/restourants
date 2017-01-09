@@ -282,4 +282,8 @@ Route::get('assign_cover_image_random', function(){
     }
 });
 
+Route::get('test', function(){
+    return view('group_admin.dashboard');
+});
+
 
