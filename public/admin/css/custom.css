@@ -1526,6 +1526,7 @@ button, button:active, button:focus {
     position: absolute;
     bottom: 0;
     width: 100%;
+    background-color: #393d52;
 }
 .footer:after {
     content: "";
