@@ -47,7 +47,6 @@ body {
 /*Footer style*/
 .footer {
   height: 40px !important;
-  position: absolute;
   bottom: 0;
   width: 100%;
   background-color: #393d52;
