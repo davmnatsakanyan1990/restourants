@@ -1,53 +1,50 @@
-body{
+body {
   min-height: 90vh;
 }
 /*header*/
-.header{
+.header {
   background-color: #393d52;
   padding: 0 20px;
-  &.navbar{
-    width: 100%;
-
-    margin: 0;
-    border: 0px;
-
-    box-shadow: none;
-    height: 50px;
-    min-height: 50px;
-  }
-  .navbar-brand{
-    padding: 0 !important;
-    /* height: auto !important; */
-    height: 43px !important;
-    padding-top: 7px !important;
-    img{
-      height: 35px;
-    }
-  }
-  .user{
-    position: relative;
-    display: block;
-    a{
-      padding: 10px 0px 6px 6px;
-    }
-  }
-  .dropdown{
-    >a{
-      color: white;
-      &:hover, &:active, &:focus{
-        color: #ff7e00;
-        background-color: transparent;
-      }
-    }
-  }
-.navbar-nav{
+}
+.header.navbar {
+  width: 100%;
+  margin: 0;
+  border: 0px;
+  box-shadow: none;
+  height: 50px;
+  min-height: 50px;
+}
+.header .navbar-brand {
+  padding: 0 !important;
+  /* height: auto !important; */
+  height: 43px !important;
+  padding-top: 7px !important;
+}
+.header .navbar-brand img {
+  height: 35px;
+}
+.header .user {
+  position: relative;
+  display: block;
+}
+.header .user a {
+  padding: 10px 0px 6px 6px;
+}
+.header .dropdown > a {
+  color: white;
+}
+.header .dropdown > a:hover,
+.header .dropdown > a:active,
+.header .dropdown > a:focus {
+  color: #ff7e00;
+  background-color: transparent;
+}
+.header .navbar-nav {
   margin: 0;
 }
-}
 /*End header*/
-
 /*Footer style*/
-.footer{
+.footer {
   height: 40px !important;
   position: absolute;
   bottom: 0;
@@ -61,20 +58,17 @@ body{
   display: table;
   clear: both;
 }
-
 .footer ul:after {
   content: "";
   display: table;
   clear: both;
 }
-
 .footer ul {
   float: left;
   display: block;
   /*height: 100%;*/
   margin: 0;
 }
-
 .footer ul li {
   float: left;
   height: 100%;
@@ -82,7 +76,6 @@ body{
   list-style: none;
   position: relative;
 }
-
 .footer ul li a {
   display: block;
   color: #ffffff;
@@ -90,7 +83,6 @@ body{
   position: relative;
   font-family: 'Arial';
 }
-
 .footer ul li a:after {
   content: "";
   position: absolute;
@@ -101,31 +93,29 @@ body{
   right: -10px;
   top: 2px;
 }
-.first_part:after{
+.first_part:after {
   content: "";
   clear: both;
   display: block;
 }
-
 .footer ul li:last-child a:after {
   display: none;
 }
-.form-title{
+.form-title {
   color: #ff7e00 !important;
 }
-.orange{
+.orange {
   background-color: #ff7e00;
   color: white;
 }
-.orange:hover{
+.orange:hover {
   background-color: #ff7e00;
   color: white;
 }
-.cst-form-button{
+.cst-form-button {
   width: 100px;
 }
-.login .content .input-icon{
+.login .content .input-icon {
   border-left: 2px solid #ff7e00 !important;
 }
-
 /*Footer style End*/
