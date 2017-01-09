@@ -71,6 +71,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/admin/plugins/excanvas.min.js"></script>
 <![endif]-->
 <script src="/group_admin/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="/group_admin/scripts/scripts.js" type="text/javascript"></script>
 <script src="/admin/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <script src="/group_admin/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/admin/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>

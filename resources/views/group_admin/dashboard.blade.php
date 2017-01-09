@@ -23,8 +23,9 @@
         </div>
         <div class="clearElement">
             <button class="changeCover floatRight">Change cover image</button>
+            <i class="fa fa-chevron-down more" aria-hidden="true"></i>
         </div>
-        <div class="comments">
+        <div class="comments hide">
             <div class="commentName">Comments</div>
             <textarea></textarea>
             <div class="clearElement">
@@ -35,7 +36,6 @@
             <div class="viewAll"><a>View All</a></div>
         </div>
     </div>
-
 
 </div>
 @endsection
