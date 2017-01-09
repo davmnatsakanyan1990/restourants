@@ -33,7 +33,7 @@ class AuthController extends Controller
      */
     protected $guard = 'group_admin';
     protected $username = 'username';
-    protected $loginView;
+    protected $loginView = 'group_admin.auth.login';
     protected $redirectTo;
 
     /**
