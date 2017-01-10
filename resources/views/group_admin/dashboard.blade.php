@@ -7,21 +7,30 @@
     @foreach($restaurants as $restaurant)
     <div class="restaurant">
         <div class="name">{{ $restaurant->name }}</div>
-        <div class="addressPart">
 
-            <div class="addressGroup">
-                <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 25px;"></i>
-                <span>{{ $restaurant->address }}</span>
+        <div class="clearElement">
+            <div class="addressPart floatLeft">
+                <div class="addressGroup">
+                    <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 25px;"></i>
+                    <span>{{ $restaurant->address }}</span>
+                </div>
+                <div class="addressGroup">
+                    <i class="fa fa-phone" aria-hidden="true" style="font-size: 23px;"></i>
+                    <span>{{ $restaurant->mobile }}</span>
+                </div>
+                <div class="addressGroup">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>{{ $restaurant->email }}</span>
+                </div>
             </div>
-            <div class="addressGroup">
-                <i class="fa fa-phone" aria-hidden="true" style="font-size: 23px;"></i>
-                <span>{{ $restaurant->mobile }}</span>
-            </div>
-            <div class="addressGroup">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>{{ $restaurant->email }}</span>
-            </div>
+            <div class="status floatRight">Not logged in</div>
+            {{--<div class="status floatRight">5 days remain</div>
+            <div class="status floatRight">Expired</div>
+            <div class="status floatRight">Purchased</div>--}}
         </div>
+
+
+
         <div class="clearElement">
             <a href="{{ url('group_admin/place/cover/'.$restaurant->id) }}"> <button class="changeCover floatRight">Change cover image</button></a>
             <i class="fa fa-chevron-down more" aria-hidden="true"></i>
