@@ -32,6 +32,7 @@ return array(
     'CreateImagesTable' => $baseDir . '/database/migrations/2016_10_05_144400_create_images_table.php',
     'CreateLocationsTable' => $baseDir . '/database/migrations/2016_10_13_143102_create_locations_table.php',
     'CreateMenusTable' => $baseDir . '/database/migrations/2016_10_10_105837_create_menus_table.php',
+    'CreateNotesTable' => $baseDir . '/database/migrations/2017_01_09_150549_create_notes_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePaymentsTable' => $baseDir . '/database/migrations/2016_11_16_103247_create_payments_table.php',
     'CreatePlaceCategoriesTable' => $baseDir . '/database/migrations/2016_10_13_130807_create_place_categories_table.php',
