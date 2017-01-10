@@ -11,8 +11,16 @@ $('.addComment').on('click', function(){
         },
         success: function(data){
             if(data.success){
-                section.closest('.comments').find('.commentMain').text(text);
+                var news = section.closest('.comments').find('.commentMain');
                 section.closest('.comments').find('textarea').val('');
+                var viewElement = section.closest('.comments').find('.viewAll');
+                var newElement = $( "<div class='comment'><i class='fa fa-pencil' aria-hidden='true'></i>"+text+"</div>" );
+                if(viewElement[0].innerHTML == '<a>View All</a>'){
+                    news.empty();
+                    $(news).prepend(newElement)
+                }else if(viewElement[0].innerHTML == '<a>View Less</a>'){
+                    $(news).prepend(newElement)
+                }
             }
         }
     })
@@ -25,13 +33,13 @@ $('.viewAll').on('click', function(){
     if(element[0].innerHTML == '<a>View Less</a>'){
         element.empty();
         var el = $( "<a>View All</a>" );
-        $(element).append(el);
+        $(element).prepend(el);
         /*var current = element.closest('.comments').find('.commentMain');
         current.empty();*/
         var current = element.closest('.comments').find('.commentMain :first-child');
 
         current.nextAll().remove();
-        current.after(data);
+
     }else if(element[0].innerHTML == '<a>View All</a>'){
         $.ajax({
             url: BASE_URL+'/group_admin/notes/all/'+place_id,
@@ -42,11 +50,11 @@ $('.viewAll').on('click', function(){
                 current.empty();
                 for(var i=0; i<notes.length; i++){
                     var newElement = $( "<div class='comment'><i class='fa fa-pencil' aria-hidden='true'></i>"+notes[i].text+"</div>" );
-                    $(current).append(newElement)
+                    $(current).prepend(newElement)
                 }
                 element.empty();
                 var el = $( "<a>View Less</a>" );
-                $(element).append(el);
+                $(element).prepend(el);
             }
         })
     }
