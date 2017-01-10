@@ -16,7 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/super_admin/css/dashboard.css" rel="stylesheet">
-
+    <link href="/super_admin/css/style.css" rel="stylesheet">
     <script>
         var BASE_URL = '{{  url('/') }}'
     </script>
@@ -29,7 +29,7 @@
 <div class="container-fluid">
 
 
-    @include('super_admin.layouts.sidebar')
+   {{-- @include('super_admin.layouts.sidebar')--}}
 
     <div class="row">
         @yield('content')
