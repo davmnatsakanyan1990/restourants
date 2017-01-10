@@ -16,7 +16,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                     <img alt="" height="30" src="{{ asset('group_admin/img/avatar.png') }}"/>
 					<span class="username">
-						 adminName
+						 {{ Auth::guard('group_admin')->user()->name }}
 					</span>
                     <i class="fa fa-angle-down"></i>
                 </a>
