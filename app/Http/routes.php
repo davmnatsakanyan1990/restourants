@@ -87,7 +87,7 @@ Route::group([
     function(){
         Route::get('dashboard', 'HomeController@index');
         Route::get('cover/edit', 'CoverController@edit');
-        Route::post('notes/new', 'CoverController@edit');
+        Route::post('notes/new', 'NoteController@create');
     });
 
 /**

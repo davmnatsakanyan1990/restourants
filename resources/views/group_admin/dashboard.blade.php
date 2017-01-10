@@ -43,11 +43,5 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $('.addComment').on('click', function(){
-            var text = $(this).closest('.comments').find('textarea').val();
-            var place_id = $(this).data('place_id');
-            $.ajax()
-        })
-    </script>
+    <script src="/group_admin/scripts/notes.js" type="text/javascript"></script>
 @endsection

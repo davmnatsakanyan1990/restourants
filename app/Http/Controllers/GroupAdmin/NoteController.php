@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\GroupAdmin;
 
+use App\Models\Note;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,6 +21,6 @@ class NoteController extends Controller
     }
     
     public function create(Request $request){
-        
+//        Note::create(['text' => $request->text, 'place_id' => $])
     }
 }
