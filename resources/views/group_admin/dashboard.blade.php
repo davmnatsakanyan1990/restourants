@@ -27,14 +27,14 @@
             <i class="fa fa-chevron-down more" aria-hidden="true"></i>
         </div>
         <div class="comments hide">
-            <div class="commentName">Comments</div>
-            <textarea></textarea>
+            <div class="commentName">Notes</div>
+            <textarea placeholder="write your note here"></textarea>
             <div class="clearElement">
-                <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add comment</button>
+                <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add note</button>
             </div>
-            <div class="commentMain">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consequuntur
+            <div class="commentMain style-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consequuntur
                 debitis et, non perferendis rem sapiente ut. Accusantium, mollitia voluptatum!</div>
-            <div class="viewAll"><a>View All</a></div>
+            <div class="viewAll" data_place_id="{{ $restaurant->id }}"><a>View All</a></div>
         </div>
     </div>
     @endforeach
