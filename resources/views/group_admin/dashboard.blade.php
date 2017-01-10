@@ -32,9 +32,8 @@
             <div class="clearElement">
                 <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add comment</button>
             </div>
-            <div class="commentMain">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consequuntur
-                debitis et, non perferendis rem sapiente ut. Accusantium, mollitia voluptatum!</div>
-            <div class="viewAll"><a>View All</a></div>
+            <div class="commentMain">{{ count($restaurant->notes) > 0 ? $restaurant->notes[0]['text'] : '' }}</div>
+            <div data-place_id="{{ $restaurant->id }}" class="viewAll"><a>View All</a></div>
         </div>
     </div>
     @endforeach

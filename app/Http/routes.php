@@ -88,6 +88,7 @@ Route::group([
         Route::get('dashboard', 'HomeController@index');
         Route::get('cover/edit', 'CoverController@edit');
         Route::post('notes/new', 'NoteController@create');
+        Route::get('notes/all/{place_id}', 'NoteController@getAll');
     });
 
 /**
