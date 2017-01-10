@@ -21,6 +21,14 @@ class NoteController extends Controller
     }
     
     public function create(Request $request){
-//        Note::create(['text' => $request->text, 'place_id' => $])
+        Note::create(['text' => $request->text, 'place_id' => $request->place_id]);
+        
+        return response()->json(['success' => 1]);
+    }
+    
+    public function getAll($place_id){
+        $notes = Note::where('place_id', $place_id)->get();
+        
+        return $notes->toArray();
     }
 }

@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Note extends Model
 {
-    
+    protected $fillable = [
+        'text',
+        'place_id'
+    ];
 }

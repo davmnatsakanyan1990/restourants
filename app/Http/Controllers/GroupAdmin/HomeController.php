@@ -21,7 +21,11 @@ class HomeController extends Controller
     }
     
     public function index(){
-        $restaurants = Place::where('group_admin_id', $this->admin->id)->paginate(20);
+        $restaurants = Place::with(['notes' => function($notes){
+                return $notes->orderBy('created_at', 'desc');
+            }])
+            ->where('group_admin_id', $this->admin->id)
+            ->paginate(20);
         
         return view('group_admin.dashboard', compact('restaurants'));
     }

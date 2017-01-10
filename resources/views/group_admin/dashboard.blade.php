@@ -30,11 +30,10 @@
             <div class="commentName">Notes</div>
             <textarea placeholder="write your note here"></textarea>
             <div class="clearElement">
-                <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add note</button>
+                <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add comment</button>
             </div>
-            <div class="commentMain style-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consequuntur
-                debitis et, non perferendis rem sapiente ut. Accusantium, mollitia voluptatum!</div>
-            <div class="viewAll" data_place_id="{{ $restaurant->id }}"><a>View All</a></div>
+            <div class="commentMain style-3">{{ count($restaurant->notes) > 0 ? $restaurant->notes[0]['text'] : '' }}</div>
+            <div data-place_id="{{ $restaurant->id }}" class="viewAll"><a>View All</a></div>
         </div>
     </div>
     @endforeach
