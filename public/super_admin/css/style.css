@@ -324,3 +324,56 @@ body {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
+/*user registration*/
+.myForm .registrUser {
+  max-width: 600px;
+  display: block;
+  margin: 40px auto;
+  background-color: white;
+  padding: 20px 30px;
+  border-top: 2px solid #ff7e00;
+}
+.myForm .registrUser .userForm .title {
+  font-size: 23px;
+  color: #383838;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.myForm .registrUser .userForm .inputGroup {
+  position: relative;
+  margin-bottom: 10px;
+}
+.myForm .registrUser .userForm .inputGroup input {
+  border: none;
+  width: 100%;
+  outline: none;
+  border-bottom: 1px solid #dedede;
+  padding: 10px 10px 10px 72px;
+  margin-bottom: 5px;
+}
+.myForm .registrUser .userForm .inputGroup input:active,
+.myForm .registrUser .userForm .inputGroup input:focus {
+  outline: none;
+  border-bottom: 1px solid #ff7e00;
+}
+.myForm .registrUser .userForm .inputGroup .i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 24px;
+  color: #dedede;
+  width: 56px;
+  border-right: 1px solid #dedede;
+  text-align: center;
+}
+.myForm .registrUser .userForm .registerAdmin {
+  background-color: #ff7e00;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  margin-top: 10px;
+}
+.myForm .registrUser .userForm .registerAdmin:active,
+.myForm .registrUser .userForm .registerAdmin:focus {
+  outline: none;
+}

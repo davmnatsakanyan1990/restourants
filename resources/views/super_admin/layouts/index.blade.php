@@ -12,7 +12,8 @@
     <title>Super admin</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/admin/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/super_admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/super_admin/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Custom styles for this template -->
     <link href="/super_admin/css/dashboard.css" rel="stylesheet">
