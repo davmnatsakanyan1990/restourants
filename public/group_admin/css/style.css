@@ -216,6 +216,9 @@ body {
 }
 .restList .restaurant .comments .viewAll {
   text-align: center;
+  color: #ff6600;
+  font-size: 16px;
+  cursor: pointer;
 }
 .restList .restaurant .comments .viewAll a {
   color: #ff6600;
