@@ -5,49 +5,16 @@
     <div class="images">
         <h3 style="color: #ff7e00;">Cover images</h3>
         <p>Upload images only: width:1920px, height:800px</p>
+        @foreach($restaurant['coverImages'] as $cover)
+        <div class="currentImage">
+            <img data-id="{{ $cover['id'] }}"  src="http://restaurants.dev/images/coverImages/{{ $cover['name'] }}" alt="">
+            <div class="removeImage">Remove</div>
+        </div>
+        @endforeach
 
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
-        <div class="currentImage">
-            <img  src="http://restaurants.dev/images/coverImages/cover11.png" alt="">
-            <div class="removeImage">Remove</div>
-        </div>
     </div>
-    <form id="fileupload" action="{{url('admin/place/add_cover')}}" method="POST" enctype="multipart/form-data">
+    <form id="fileupload" action="#" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="place_id" value="{{ $restaurant['id'] }}">
         <!-- Redirect browsers with JavaScript disabled to the origin page -->
         <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -131,7 +98,7 @@
             ComponentsDropdowns.init();
         });
     </script>
-    <script src="/admin/scripts/myCustom/editPage.js"></script>
+    <script src="/group_admin/scripts/myCustom/editPage.js"></script>
 
     <script id="template-upload" type="text/x-tmpl">
                 {% for (var i=0, file; file=o.files[i]; i++) { %}

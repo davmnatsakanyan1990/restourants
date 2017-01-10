@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="clearElement">
-            <button class="changeCover floatRight">Change cover image</button>
+            <a href="{{ url('group_admin/place/cover/'.$restaurant->id) }}"> <button class="changeCover floatRight">Change cover image</button></a>
             <i class="fa fa-chevron-down more" aria-hidden="true"></i>
         </div>
         <div class="comments hide">

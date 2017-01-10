@@ -86,7 +86,9 @@ Route::group([
 ],
     function(){
         Route::get('dashboard', 'HomeController@index');
-        Route::get('cover/edit', 'CoverController@edit');
+        Route::get('place/cover/{place_id}', 'CoverController@index');
+        Route::post('place/cover/add_cover', 'CoverController@create');
+        Route::post('place/cover/delete/{image_id}', 'CoverController@delete');
         Route::post('notes/new', 'NoteController@create');
         Route::get('notes/all/{place_id}', 'NoteController@getAll');
     });
