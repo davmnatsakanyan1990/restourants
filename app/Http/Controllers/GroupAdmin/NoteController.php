@@ -27,7 +27,7 @@ class NoteController extends Controller
     }
     
     public function getAll($place_id){
-        $notes = Note::where('place_id', $place_id)->get();
+        $notes = Note::where('place_id', $place_id)->orderBy('created_at', 'desc')->get();
         
         return $notes->toArray();
     }
