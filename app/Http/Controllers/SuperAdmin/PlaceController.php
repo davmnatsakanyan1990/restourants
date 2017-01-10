@@ -22,8 +22,36 @@ class PlaceController extends Controller
     
     public function index(){
         $restaurants = Place::simplePaginate(15);
-        
+
+        foreach($restaurants->items() as $item){
+            if($item->plan_id == 1)
+                $item->days_remaining = $this->getRemainingTime($item->id);
+            else if($item->plan_id == 2)
+                $item->days_remaining = 'purchased';
+        }
+       
         return view('super_admin.places', compact('restaurants'));
         
+    }
+
+    public function getRemainingTime($place_id){
+        $first_login =  Place::find($place_id)->first_login;
+        if($first_login) {
+            $days = ((strtotime($first_login) + 432000) - strtotime(date("Y-m-d H:i:s"))) / 86400;
+            if ($days <= 0) {
+                return 'expired';
+            } else {
+                return round($days);
+            }
+        }
+        else{
+            return 'not_logged_in';
+        }
+
+        // 1: not logged in
+        // 2: expired
+        // 3: purchased
+        // 4: remaining days
+
     }
 }
