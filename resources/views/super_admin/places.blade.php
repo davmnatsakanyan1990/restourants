@@ -31,17 +31,22 @@
                             <span>{{ $restaurant->email }}</span>
                         </div>
                     </div>
-                    <div class="status floatRight">Not logged in</div>
-                    {{--<div class="status floatRight">5 days remain</div>
-                    <div class="status floatRight">Expired</div>
-                    <div class="status floatRight">Purchased</div>--}}
+                    @if($restaurant->getAttributes()['days_remaining'] == 'not_logged_in')
+                        <div class="status floatRight">Not logged in</div>
+                    @elseif($restaurant->getAttributes()['days_remaining'] == 'expired')
+                        <div class="status floatRight">Expired</div>
+                    @elseif($restaurant->getAttributes()['days_remaining'] == 'purchased')
+                        <div class="status floatRight">Purchased</div>
+                    @else
+                        <div class="status floatRight">{{ $restaurant->getAttributes()['days_remaining'] }} days remain</div>
+                    @endif
                 </div>
                 <div class="clearElement">
                     <select class="floatLeft selectAdmin">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <option {{ $restaurant->group_admin ? '' : 'selected' }} value="">Select Admin</option>
+                        @foreach($group_admins as $admin)
+                            <option {{ $restaurant->group_admin_id == $admin['id'] ? 'selected' : '' }} value="{{ $admin['id'] }}">{{ $admin['name'] }}</option>
+                        @endforeach
                     </select>
                     <a href="#"> <button class="changeCover floatRight">Save</button></a>
                 </div>
