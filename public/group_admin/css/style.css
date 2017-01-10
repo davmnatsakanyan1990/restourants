@@ -47,7 +47,6 @@ body {
 /*Footer style*/
 .footer {
   height: 40px !important;
-  position: absolute;
   bottom: 0;
   width: 100%;
   background-color: #393d52;
@@ -223,4 +222,45 @@ body {
 .orange {
   background-color: #ff7e00;
   color: white;
+}
+/*cover page*/
+.coverImages {
+  margin: 0 10%;
+}
+.images {
+  margin-top: 30px;
+}
+.currentImage {
+  display: inline-table;
+  width: 200px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.currentImage img {
+  width: 100%;
+  height: auto;
+}
+.removeImage {
+  position: absolute;
+  width: 80px;
+  /* height: 50%; */
+  text-align: center;
+  padding: 6px 0;
+  background-color: #ff7e00;
+  top: 37%;
+  left: 28%;
+  color: white;
+  display: none;
+}
+.currentImage:hover .removeImage {
+  display: block;
+  cursor: pointer;
+}
+.upload {
+  width: 100px;
+  height: 30px;
+  background-color: #ff7e00;
+  border: none;
+  color: white;
+  margin-top: 10px;
 }

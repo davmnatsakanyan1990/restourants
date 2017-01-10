@@ -2,7 +2,7 @@
     <!-- BEGIN TOP NAVIGATION BAR -->
     <div class="header-inner">
         <!-- BEGIN LOGO -->
-        <a class="navbar-brand" href="{{ url('admin/dashboard') }}">
+        <a class="navbar-brand" href="{{ url('group_admin/dashboard') }}">
             <img src="{{asset('images/logo.png')}}" alt="logo" class="img-responsive"/>
         </a>
         <!-- END LOGO -->
