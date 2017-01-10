@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\SuperAdmin;
 
+use App\Models\GroupAdmin;
 use App\Models\Place;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,10 @@ class PlaceController extends Controller
             else if($item->plan_id == 2)
                 $item->days_remaining = 'purchased';
         }
-       
-        return view('super_admin.places', compact('restaurants'));
+
+        $group_admins = GroupAdmin::all()->toArray();
+        
+        return view('super_admin.places', compact('restaurants', 'group_admins'));
         
     }
 

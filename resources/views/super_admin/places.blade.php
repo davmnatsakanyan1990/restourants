@@ -43,10 +43,10 @@
                 </div>
                 <div class="clearElement">
                     <select class="floatLeft selectAdmin">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <option {{ $restaurant->group_admin ? '' : 'selected' }} value="">Select Admin</option>
+                        @foreach($group_admins as $admin)
+                            <option {{ $restaurant->group_admin_id == $admin['id'] ? 'selected' : '' }} value="{{ $admin['id'] }}">{{ $admin['name'] }}</option>
+                        @endforeach
                     </select>
                     <a href="#"> <button class="changeCover floatRight">Save</button></a>
                 </div>
