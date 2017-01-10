@@ -7,7 +7,7 @@
         <p>Upload images only: width:1920px, height:800px</p>
         @foreach($restaurant['coverImages'] as $cover)
         <div class="currentImage">
-            <img data-id="{{ $cover['id'] }}"  src="http://restaurants.dev/images/coverImages/{{ $cover['name'] }}" alt="">
+            <img data-id="{{ $cover['id'] }}"  src="{{ url('images/coverImages/'.$cover['name']) }}" alt="">
             <div class="removeImage">Remove</div>
         </div>
         @endforeach
