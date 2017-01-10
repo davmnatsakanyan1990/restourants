@@ -27,12 +27,12 @@
             <i class="fa fa-chevron-down more" aria-hidden="true"></i>
         </div>
         <div class="comments hide">
-            <div class="commentName">Comments</div>
-            <textarea></textarea>
+            <div class="commentName">Notes</div>
+            <textarea placeholder="write your note here"></textarea>
             <div class="clearElement">
                 <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add comment</button>
             </div>
-            <div class="commentMain">{{ count($restaurant->notes) > 0 ? $restaurant->notes[0]['text'] : '' }}</div>
+            <div class="commentMain style-3">{{ count($restaurant->notes) > 0 ? $restaurant->notes[0]['text'] : '' }}</div>
             <div data-place_id="{{ $restaurant->id }}" class="viewAll"><a>View All</a></div>
         </div>
     </div>
