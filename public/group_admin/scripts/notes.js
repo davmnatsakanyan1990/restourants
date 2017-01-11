@@ -72,7 +72,7 @@ $('.cancel').on('click', function(){
 $('.save').on('click', function(){
     var email = $(this).closest('.addressGroup').find('input').val();
     var place_id = $(this).data('place_id');
-    var t = $(this)
+    var t = $(this);
     if(email){
         $.ajax({
             url: BASE_URL+'/group_admin/place/add_email',
