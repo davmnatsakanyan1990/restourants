@@ -181,6 +181,39 @@ body {
   margin-right: 5px;
   font-size: 18px;
 }
+.restList .restaurant .addressPart .addressGroup .greenColor {
+  color: #00897b;
+  font-weight: 600;
+}
+.restList .restaurant .addressPart .addressGroup .addingEmail input {
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #e5e9ed;
+  padding-left: 13px;
+}
+.restList .restaurant .addressPart .addressGroup .addingEmail input:active,
+.restList .restaurant .addressPart .addressGroup .addingEmail input:focus {
+  outline: none;
+  border-bottom: 1px solid #ff6600;
+}
+.restList .restaurant .addressPart .addressGroup .addingEmail button {
+  height: 30px;
+  width: 80px;
+  border: none;
+}
+.restList .restaurant .addressPart .addressGroup .addingEmail button:active,
+.restList .restaurant .addressPart .addressGroup .addingEmail button:focus {
+  outline: none;
+}
+.restList .restaurant .addressPart .addressGroup .addingEmail button.save {
+  background-color: #00897b;
+  color: white;
+}
+.restList .restaurant .addressPart .addressGroup .addingEmail button.cancel {
+  background-color: #e5e9ed;
+  color: #ff6600;
+  border: none;
+}
 .restList .restaurant .status {
   font-size: 16px;
   min-width: 156px;
@@ -248,6 +281,12 @@ body {
 .orange {
   background-color: #ff7e00;
   color: white;
+}
+.orangeColor {
+  color: #ff7e00;
+}
+.pointer {
+  cursor: pointer;
 }
 /*cover page*/
 .coverImages {

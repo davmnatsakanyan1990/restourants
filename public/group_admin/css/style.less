@@ -191,6 +191,39 @@ body{
           margin-right: 5px;
           font-size: 18px;
         }
+        .greenColor{
+          color: #00897b;
+          font-weight: 600;
+        }
+        .addingEmail{
+          input{
+            height: 30px;
+            border: none;
+            border-bottom: 1px solid #e5e9ed;
+            padding-left: 13px;
+            &:active, &:focus{
+              outline: none;
+              border-bottom: 1px solid #ff6600;
+            }
+          }
+          button{
+            height: 30px;
+            width: 80px;
+            border: none;
+            &:active, &:focus{
+              outline: none;
+            }
+            &.save{
+              background-color: #00897b;
+              color: white;
+            }
+            &.cancel{
+              background-color: #e5e9ed;
+              color: #ff6600;
+              border: none;
+            }
+          }
+        }
       }
     }
     .status{
@@ -263,6 +296,12 @@ body{
 .orange {
   background-color: #ff7e00;
   color: white;
+}
+.orangeColor{
+  color: #ff7e00;
+}
+.pointer{
+  cursor: pointer;
 }
 
 

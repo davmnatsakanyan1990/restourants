@@ -60,3 +60,21 @@ $('.viewAll').on('click', function(){
     }
 
 });
+$('.addingEmail').hide();
+$('.addEmail').on('click', function(){
+    $(this).hide();
+    $(this).closest('.addressGroup').find('.addingEmail').show();
+});
+$('.cancel').on('click', function(){
+    $(this).closest('.addressGroup').find('.addingEmail').hide();
+    $(this).closest('.addressGroup').find('.addEmail').show();
+});
+$('.save').on('click', function(){
+    var email = $(this).closest('.addressGroup').find('input').val();
+    if(email){
+        $(this).closest('.addressGroup').find('.addingEmail').hide();
+        $(this).closest('.addressGroup').find('.addEmail').hide();
+        $(this).closest('.addressGroup').append(email);
+
+    }
+});
