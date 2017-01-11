@@ -25,7 +25,7 @@
                     <span class="addingEmail">
                         <input type="text" placeholder="write here">
                         <button class="cancel">Cancel</button>
-                        <button class="save">Save</button>
+                        <button class="save" data-place_id="{{ $restaurant->id }}">Save</button>
                     </span>
                 </div>
             </div>
