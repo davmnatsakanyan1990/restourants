@@ -42,6 +42,22 @@ body {
 .header .navbar-nav {
   margin: 0;
 }
+.nav > li > a {
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+}
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: transparent;
+  color: #ff7e00;
+}
+.active {
+  color: #ff7e00 !important;
+}
+.active a {
+  color: #ff7e00 !important;
+}
 /*End header*/
 /*Footer style*/
 .footer {

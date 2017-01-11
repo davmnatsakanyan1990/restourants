@@ -8,7 +8,10 @@
         <!-- END LOGO -->
         <!-- BEGIN TOP NAVIGATION MENU -->
         <ul class="nav navbar-nav pull-left site-curent-menu">
-            <!-- END USER LOGIN DROPDOWN -->
+            <li class=''><a href="">All </a></li>
+            <li class=''><a href="">Call back</a></li>
+            <li class=''><a href="">Deleted</a></li>
+            <li class=''><a href="">Client</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
 
