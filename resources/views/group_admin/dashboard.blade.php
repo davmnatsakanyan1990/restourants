@@ -21,6 +21,12 @@
                 <div class="addressGroup">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
                     <span>{{ $restaurant->email }}</span>
+                    <span class="greenColor pointer addEmail">Add</span>
+                    <span class="addingEmail">
+                        <input type="text" placeholder="write here">
+                        <button class="cancel">Cancel</button>
+                        <button class="save">Save</button>
+                    </span>
                 </div>
             </div>
             @if($restaurant->getAttributes()['days_remaining'] == 'not_logged_in')
@@ -45,7 +51,7 @@
             <div class="commentName">Notes</div>
             <textarea placeholder="write your note here"></textarea>
             <div class="clearElement">
-                <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add comment</button>
+                <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add note</button>
             </div>
             <div class="commentMain style-3"><i class='fa fa-pencil' aria-hidden='true'></i>{{ count($restaurant->notes) > 0 ? $restaurant->notes[0]['text'] : '' }}</div>
             <div data-place_id="{{ $restaurant->id }}" class="viewAll"><a>View All</a></div>
