@@ -20,8 +20,11 @@
                 </div>
                 <div class="addressGroup">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <span>{{ $restaurant->email }}</span>
-                    <span class="greenColor pointer addEmail">Add</span>
+                    @if($restaurant->email)
+                        <span>{{ $restaurant->email }}</span>
+                    @else
+                        <span class="greenColor pointer addEmail">Add</span>
+                    @endif
                     <span class="addingEmail">
                         <input type="text" placeholder="write here">
                         <button class="cancel">Cancel</button>
