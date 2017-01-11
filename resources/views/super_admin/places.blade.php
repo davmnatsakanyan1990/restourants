@@ -48,7 +48,7 @@
                             <option {{ $restaurant->group_admin_id == $admin['id'] ? 'selected' : '' }} value="{{ $admin['id'] }}">{{ $admin['name'] }}</option>
                         @endforeach
                     </select>
-                    <a href="#"> <button class="changeCover floatRight">Save</button></a>
+                    <a href="#"> <button class="changeCover floatRight" data-place_id="{{ $restaurant->id }}">Save</button></a>
                 </div>
                 {{--<div class="comments hide">
                     <div class="commentName">Notes</div>

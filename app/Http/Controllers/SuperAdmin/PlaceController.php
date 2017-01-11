@@ -38,7 +38,8 @@ class PlaceController extends Controller
     }
 
     public function update(Request $request, $place_id){
-        Place::find($place_id)->update(['group_admin_id' => $request->admin_id]);
+
+        Place::where('id', $place_id)->update(['group_admin_id' => $request->admin_id]);
         
         return 1;
     }
