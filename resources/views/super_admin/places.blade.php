@@ -49,6 +49,9 @@
                         @endforeach
                     </select>
                     <a href="#"> <button class="changeCover floatRight" data-place_id="{{ $restaurant->id }}">Save</button></a>
+                    <div class="floatLeft loadingDiv">
+                        <img src="/super_admin/images/load.gif" alt="">
+                    </div>
                 </div>
                 {{--<div class="comments hide">
                     <div class="commentName">Notes</div>

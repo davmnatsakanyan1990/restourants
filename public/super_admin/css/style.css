@@ -377,3 +377,9 @@ body {
 .myForm .registrUser .userForm .registerAdmin:focus {
   outline: none;
 }
+.loadingDiv {
+  margin-left: 20px;
+}
+.loadingDiv img {
+  width: 45px;
+}
