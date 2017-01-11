@@ -21,8 +21,17 @@ class PlaceController extends Controller
             $this->super_admin = Auth::guard('super_admin')->user();
     }
     
-    public function index(){
-        $restaurants = Place::withTrashed()->simplePaginate(15);
+    public function index(Request $request){
+        $city = $request->city;
+        $restaurants = Place::withTrashed();
+        if($request->city) {
+            $restaurants = $restaurants->with(
+                'location')->whereHas('location', function ($query) use ($request) {
+                $query->where('city_id', $request->city);
+            });
+        }
+
+        $restaurants = $restaurants->simplePaginate(15);
 
         foreach($restaurants->items() as $item){
             if($item->plan_id == 1)
@@ -33,12 +42,12 @@ class PlaceController extends Controller
 
         $group_admins = GroupAdmin::all()->toArray();
         
-        return view('super_admin.places', compact('restaurants', 'group_admins'));
+        return view('super_admin.places', compact('restaurants', 'group_admins', 'city'));
         
     }
 
     public function update(Request $request, $place_id){
-        
+
         if($request->admin_id != '') {
             Place::withTrashed()->where('id', $place_id)->update(['group_admin_id' => $request->admin_id]);
         }
