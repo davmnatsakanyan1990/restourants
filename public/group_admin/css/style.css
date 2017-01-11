@@ -146,6 +146,13 @@ body {
   border-top: 2px solid #ff6600;
   margin-bottom: 5px;
 }
+.restList .restaurant .topPart select {
+  width: 156px;
+  border: 1px solid #ff6600;
+  color: #909090;
+  height: 30px;
+  padding: 5px;
+}
 .restList .restaurant .name {
   font-size: 25px;
   color: #ff6600;
@@ -224,6 +231,7 @@ body {
   color: #ff6600;
   overflow: hidden;
   text-align: center;
+  margin-top: 15px;
 }
 .restList .restaurant .comments.hide {
   height: 0;

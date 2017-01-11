@@ -6,8 +6,15 @@
 <div class="restList">
     @foreach($restaurants->items() as $restaurant)
     <div class="restaurant">
-        <div class="name">{{ $restaurant->name }}</div>
-
+        <div class="topPart clearElement">
+            <div class="name floatLeft">{{ $restaurant->name }}</div>
+            <select class="floatRight">
+                <option value="volvo">VolvoVolvoVolvoVolvoVolvoVolvoVolvoVolvoVolvoVolvoVolvoVolvoVolvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
         <div class="clearElement">
             <div class="addressPart floatLeft">
                 <div class="addressGroup">
