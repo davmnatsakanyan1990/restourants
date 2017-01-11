@@ -8,19 +8,19 @@
         <div class="filterTitle">Filters</div>
         <form class="clearElement">
             <div class="radioGroup floatLeft">
-                <input id="radio1" type="radio" name="status" value="male" checked class="floatLeft">
+                <input id="radio1" type="radio" name="status" value="all" checked class="floatLeft">
                 <label for="radio1" class="floatLeft radioText">All</label>
             </div>
             <div class="radioGroup floatLeft">
-                <input id="radio2" type="radio" name="status" value="female" class="floatLeft">
+                <input id="radio2" type="radio" name="status" value="callBack" class="floatLeft">
                 <label for="radio2" class="floatLeft radioText">Call back</label>
             </div>
             <div class="radioGroup floatLeft">
-                <input id="radio3" type="radio" name="status" value="other" class="floatLeft">
+                <input id="radio3" type="radio" name="status" value="deleted" class="floatLeft">
                 <label for="radio3" class="floatLeft radioText">Deleted</label>
             </div>
             <div class="radioGroup floatLeft">
-                <input id="radio4" type="radio" name="status" value="other" class="floatLeft">
+                <input id="radio4" type="radio" name="status" value="client" class="floatLeft">
                 <label for="radio4" class="floatLeft radioText">Client</label>
             </div>
             <button class="apply">Apply</button>
