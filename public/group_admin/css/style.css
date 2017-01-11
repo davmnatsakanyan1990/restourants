@@ -1,6 +1,10 @@
 body {
   background-color: #E5E9ED;
 }
+button:active,
+button:focus {
+  outline: none;
+}
 /*header*/
 .header {
   background-color: #393d52;
@@ -155,6 +159,31 @@ body {
 }
 .restList {
   margin: 0 15%;
+}
+.restList .filters {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.restList .filters .radioGroup {
+  margin-right: 20px;
+}
+.restList .filters .radioGroup .radioText {
+  margin-left: 3px;
+  font-weight: 100;
+}
+.restList .filters .filterTitle {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #ff6600;
+}
+.restList .filters .apply {
+  float: right;
+  background-color: #ff6600;
+  border: none;
+  color: white;
+  width: 70px;
+  height: 30px;
 }
 .restList .restaurant {
   padding: 10px;
