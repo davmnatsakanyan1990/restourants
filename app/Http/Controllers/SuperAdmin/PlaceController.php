@@ -22,7 +22,7 @@ class PlaceController extends Controller
     }
     
     public function index(){
-        $restaurants = Place::simplePaginate(15);
+        $restaurants = Place::withTrashed()->simplePaginate(15);
 
         foreach($restaurants->items() as $item){
             if($item->plan_id == 1)
@@ -38,14 +38,19 @@ class PlaceController extends Controller
     }
 
     public function update(Request $request, $place_id){
-
-        Place::where('id', $place_id)->update(['group_admin_id' => $request->admin_id]);
         
-        return 1;
+        if($request->admin_id != '') {
+            Place::withTrashed()->where('id', $place_id)->update(['group_admin_id' => $request->admin_id]);
+        }
+        else{
+            Place::withTrashed()->where('id', $place_id)->update(['group_admin_id' => null]);
+        }
+            return 1;
+
     }
 
     public function getRemainingTime($place_id){
-        $first_login =  Place::find($place_id)->first_login;
+        $first_login =  Place::withTrashed()->find($place_id)->first_login;
         if($first_login) {
             $days = ((strtotime($first_login) + 432000) - strtotime(date("Y-m-d H:i:s"))) / 86400;
             if ($days <= 0) {

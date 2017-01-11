@@ -373,6 +373,7 @@ class PlaceController extends Controller
         $image = Image::find($id);
 
         Image::find($id)->delete();
-        unlink('images/coverImages/'.$image['name']);
+        if(strlen($image['name'])>13)
+            unlink('images/coverImages/'.$image['name']);
     }
 }
