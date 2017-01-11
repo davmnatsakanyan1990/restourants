@@ -47,7 +47,7 @@
             <div class="clearElement">
                 <button class="addComment floatRight" data-place_id="{{ $restaurant->id }}">Add comment</button>
             </div>
-            <div class="commentMain style-3"><i class='fa fa-pencil' aria-hidden='true'></i>{{ count($restaurant->notes) > 0 ? $restaurant->notes[0]['text'] : '' }}</div>
+            <div class="commentMain style-3"><i class="{{ count($restaurant->notes) > 0 ? 'fa fa-pencil' : '' }}" aria-hidden='true'></i>{{ count($restaurant->notes) > 0 ? $restaurant->notes[0]['text'] : '' }}</div>
             <div data-place_id="{{ $restaurant->id }}" class="viewAll"><a>View All</a></div>
         </div>
     </div>

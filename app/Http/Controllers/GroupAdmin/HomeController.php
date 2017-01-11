@@ -21,7 +21,7 @@ class HomeController extends Controller
     }
     
     public function index(){
-        $restaurants = Place::with(['notes' => function($notes){
+        $restaurants = Place::withTrashed()->with(['notes' => function($notes){
                 return $notes->orderBy('created_at', 'desc');
             }])
             ->where('group_admin_id', $this->admin->id)
@@ -38,7 +38,7 @@ class HomeController extends Controller
     }
 
     public function getRemainingTime($place_id){
-        $first_login =  Place::find($place_id)->first_login;
+        $first_login =  Place::withTrashed()->find($place_id)->first_login;
         if($first_login) {
             $days = ((strtotime($first_login) + 432000) - strtotime(date("Y-m-d H:i:s"))) / 86400;
             if ($days <= 0) {

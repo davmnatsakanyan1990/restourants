@@ -63,6 +63,7 @@ class CoverController extends Controller
         $image = Image::find($image_id);
 
         Image::find($image_id)->delete();
-        unlink('images/coverImages/'.$image['name']);
+        if(strlen($image['name'])>13)
+            unlink('images/coverImages/'.$image['name']);
     }
 }
