@@ -72,18 +72,19 @@ $('.cancel').on('click', function(){
 $('.save').on('click', function(){
     var email = $(this).closest('.addressGroup').find('input').val();
     var place_id = $(this).data('place_id');
+    var t = $(this)
     if(email){
         $.ajax({
-            url: BASE_URL+'group_admin/place/add_email',
+            url: BASE_URL+'/group_admin/place/add_email',
             type: 'post',
             data: {
                 email: email,
                 place_id: place_id
             },
             success: function(){
-                $(this).closest('.addressGroup').find('.addingEmail').hide();
-                $(this).closest('.addressGroup').find('.addEmail').hide();
-                $(this).closest('.addressGroup').append(email);
+                t.closest('.addressGroup').find('.addingEmail').hide();
+                t.closest('.addressGroup').find('.addEmail').hide();
+                t.closest('.addressGroup').append(email);
             }
         })
     }
