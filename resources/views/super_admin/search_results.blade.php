@@ -19,15 +19,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Restaurant's details</h4>
                 </div>
                 <div class="modal-body">
                    <form action="{{ url('super_admin/update') }}" method="post" id="modal_form">
                        <div class="form-group">
-                           <input name="name" type="text" class="form-control">
+                           <input name="name" type="text" class="form-control" placeholder="Name">
                        </div>
                        <div class="form-group">
-                           <input name="email" type="email" class="form-control">
+                           <input name="email" type="email" class="form-control" placeholder="Email">
                        </div>
                        <input type="hidden" name="place_id" value="{{ $place['id'] }}">
                    </form>

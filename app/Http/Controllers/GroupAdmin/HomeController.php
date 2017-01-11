@@ -33,7 +33,7 @@ class HomeController extends Controller
             else if($item->plan_id == 2)
                 $item->days_remaining = 'purchased';
         }
-//dd($restaurants->toArray());
+
         return view('group_admin.dashboard', compact('restaurants'));
     }
 
@@ -56,5 +56,13 @@ class HomeController extends Controller
         // 3: purchased
         // 4: remaining days
 
+    }
+    
+    public function addEmail(Request $request){
+        $place_id = $request->place_id;
+        $email = $request->email;
+        Place::where('id', $place_id)->update(['email' => $email]);
+        
+        return 1;
     }
 }

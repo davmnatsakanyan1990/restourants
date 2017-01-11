@@ -64,7 +64,7 @@
                 </div>--}}
             </div>
         @endforeach
-        {{ $restaurants->links() }}
+        {{ $restaurants->appends(['city' => $city])->links() }}
     </div>
 
 
