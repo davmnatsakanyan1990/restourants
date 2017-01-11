@@ -26,13 +26,22 @@ class GroupAdminController extends Controller
     }
     
     public function save(Request $request){
+
+        $this->validate($request, [
+            'name' => 'required',
+            'username' => 'required|unique:group_admins,username',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+            'email' => 'email'
+        ]);
+
         GroupAdmin::create([
-            'name' => $request->name, 
+            'name' => $request->name,
+            'email' => $request->email,
             'username' => $request->username, 
             'password' => bcrypt($request->password)
         ]);
         
-        
-        echo 'admin created';
+        return redirect()->back()->with('success', 'Admin was successfully created');
     }
 }

@@ -58,6 +58,7 @@ Route::group([
 ],
     function(){
         Route::get('all', 'PlaceController@index');
+        Route::post('update/{place_id}', 'PlaceController@update');
     });
 
 Route::group([
@@ -66,6 +67,7 @@ Route::group([
 ],
     function(){
         Route::get('new', 'GroupAdminController@create');
+        Route::post('save', 'GroupAdminController@save');
     });
 
 /**

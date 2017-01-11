@@ -9,7 +9,8 @@ class GroupAdmin extends Authenticatable
 {
     protected $fillable = [
         'name',
-        'username'
+        'username',
+        'email'
     ];
 
     protected $hidden = [

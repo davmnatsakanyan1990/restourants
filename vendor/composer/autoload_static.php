@@ -363,6 +363,7 @@ class ComposerStaticInitb03c18293ab113bbab1b81ce5c8185ee
     public static $classMap = array (
         'AddAdminIdPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_09_150229_add_admin_id_places_table.php',
         'AddDeletedAtToPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_081117_add_deleted_at_to_places_table.php',
+        'AddEmailColumnGroupAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_11_062702_add_email_column_group_admins_table.php',
         'AddFirstLoginColumnPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_075555_add_first_login_column_places_table.php',
         'AddForeignKeyPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_134617_add_foreign_key_places_table.php',
         'AddGroupAdminColumnPlacesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_09_100541_add_group_admin_column_places_table.php',
