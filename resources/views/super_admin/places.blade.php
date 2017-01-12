@@ -12,18 +12,22 @@
     <div class="restList col-sm-9 col-sm-offset-2">
         <div class="filters">
             <div class="filterTitle">Filters</div>
-            <form class="clearElement">
-                <select class="floatLeft">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+            <form class="clearElement" method="get" action="{{ url('super_admin/places/all') }}">
+                <select class="floatLeft" name="city">
+                    <option {{ request('city') && request('city')== 'all' ? 'selected' : '' }} value="all">All</option>
+                    @foreach($cities as $c)
+                        <option {{ request('city') && request('city')==$c['id'] ? 'selected' : '' }} value="{{ $c['id'] }}">{{ $c['name'] }}</option>
+                    @endforeach
                 </select>
                 <div class="radioGroup floatLeft">
-                    <input id="radio1" type="radio" name="status" value="loggedIn" checked class="floatLeft">
-                    <label for="radio1" class="floatLeft radioText">Logged in</label>
+                    <input id="radio1" type="radio" name="status" value="all" {{ request('status') && request('status') == 'all' ? 'checked' : !request('status') ? 'checked' : '' }} class="floatLeft">
+                    <label for="radio1" class="floatLeft radioText">All</label>
                 </div>
-                <button class="apply">Apply</button>
+                <div class="radioGroup floatLeft">
+                    <input id="radio2" type="radio" name="status" value="loggedIn" {{ request('status') && request('status') == 'loggedIn' ? 'checked' : '' }} class="floatLeft">
+                    <label for="radio2" class="floatLeft radioText">Logged in</label>
+                </div>
+                <button class="apply" type="submit">Apply</button>
             </form>
         </div>
         @foreach($restaurants as $restaurant)
@@ -78,7 +82,7 @@
                 </div>--}}
             </div>
         @endforeach
-        {{ $restaurants->appends(['city' => $city, 'is_logged_in'=> $is_logged_in])->links() }}
+        {{ $restaurants->appends(['city' => $city, 'status'=> $status])->links() }}
     </div>
 
 
