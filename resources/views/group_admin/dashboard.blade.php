@@ -10,18 +10,22 @@
             <div class="radioGroup floatLeft">
                 <input {{ request('status') && request('status') == 'all' ? 'checked' : !request('status') ? 'checked' : '' }} id="radio1" type="radio" name="status" value="all"  class="floatLeft">
                 <label for="radio1" class="floatLeft radioText">All</label>
+                <div class="check"><div class="inside"></div></div>
             </div>
             <div class="radioGroup floatLeft">
                 <input {{ request('status') == 'call_back' ? 'checked' : ''}} id="radio2" type="radio" name="status" value="call_back" class="floatLeft">
                 <label for="radio2" class="floatLeft radioText">Call back</label>
+                <div class="check"><div class="inside"></div></div>
             </div>
             <div class="radioGroup floatLeft">
                 <input {{ request('status') == 'deleted' ? 'checked' : ''}} id="radio3" type="radio" name="status" value="deleted" class="floatLeft">
                 <label for="radio3" class="floatLeft radioText">Deleted</label>
+                <div class="check"><div class="inside"></div></div>
             </div>
             <div class="radioGroup floatLeft">
                 <input {{ request('status') == 'client' ? 'checked' : ''}} id="radio4" type="radio" name="status" value="client" class="floatLeft">
                 <label for="radio4" class="floatLeft radioText">Client</label>
+                <div class="check"><div class="inside"></div></div>
             </div>
             <button class="apply" type="submit">Apply</button>
         </form>
