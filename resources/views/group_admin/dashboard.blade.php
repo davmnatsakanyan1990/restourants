@@ -6,40 +6,41 @@
 <div class="restList">
     <div class="filters">
         <div class="filterTitle">Filters</div>
-        <form class="clearElement">
+        <form class="clearElement" method="get" action="{{ url('group_admin/dashboard') }}">
             <div class="radioGroup floatLeft">
-                <input id="radio1" type="radio" name="status" value="all" checked class="floatLeft">
+                <input {{ request('status') && request('status') == 'all' ? 'checked' : !request('status') ? 'checked' : '' }} id="radio1" type="radio" name="status" value="all"  class="floatLeft">
                 <label for="radio1" class="floatLeft radioText">All</label>
                 <div class="check"><div class="inside"></div></div>
             </div>
             <div class="radioGroup floatLeft">
-                <input id="radio2" type="radio" name="status" value="callBack" class="floatLeft">
+                <input {{ request('status') == 'call_back' ? 'checked' : ''}} id="radio2" type="radio" name="status" value="call_back" class="floatLeft">
                 <label for="radio2" class="floatLeft radioText">Call back</label>
                 <div class="check"><div class="inside"></div></div>
             </div>
             <div class="radioGroup floatLeft">
-                <input id="radio3" type="radio" name="status" value="deleted" class="floatLeft">
+                <input {{ request('status') == 'deleted' ? 'checked' : ''}} id="radio3" type="radio" name="status" value="deleted" class="floatLeft">
                 <label for="radio3" class="floatLeft radioText">Deleted</label>
                 <div class="check"><div class="inside"></div></div>
             </div>
             <div class="radioGroup floatLeft">
-                <input id="radio4" type="radio" name="status" value="client" class="floatLeft">
+                <input {{ request('status') == 'client' ? 'checked' : ''}} id="radio4" type="radio" name="status" value="client" class="floatLeft">
                 <label for="radio4" class="floatLeft radioText">Client</label>
                 <div class="check"><div class="inside"></div></div>
             </div>
-            <button class="apply">Apply</button>
+            <button class="apply" type="submit">Apply</button>
         </form>
     </div>
     @foreach($restaurants->items() as $restaurant)
     <div class="restaurant">
         <div class="topPart clearElement">
             <div class="name floatLeft">{{ $restaurant->name }}</div>
-            <select class="floatRight">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+            @if($restaurant->plan_id != 2)
+            <select class="floatRight place_status" name="status" data-id="{{ $restaurant->id }}">
+                <option {{ is_null($restaurant->status) ? 'selected' : '' }} value="">Select Status</option>
+                <option {{ $restaurant->status == 'call_back' ? 'selected' : '' }} value="call_back">Call Back</option>
+                <option {{ $restaurant->status == 'deleted' ? 'selected' : '' }} value="deleted">Deleted</option>
             </select>
+            @endif
         </div>
         <div class="clearElement">
             <div class="addressPart floatLeft">
@@ -94,7 +95,7 @@
         </div>
     </div>
     @endforeach
-        {{ $restaurants->links() }}
+        {{ $restaurants->appends(['status'=> $status])->links() }}
 </div>
 @endsection
 

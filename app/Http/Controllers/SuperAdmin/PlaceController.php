@@ -6,7 +6,6 @@ use App\Models\City;
 use App\Models\GroupAdmin;
 use App\Models\Place;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +20,13 @@ class PlaceController extends Controller
         if(Auth::guard('super_admin')->check())
             $this->super_admin = Auth::guard('super_admin')->user();
     }
-    
+
+    /**
+     * Show all restaurants
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Request $request){
         $city = $request->city;
         $status = $request->status;
@@ -38,7 +43,7 @@ class PlaceController extends Controller
             $restaurants = $restaurants->whereNotNull('first_login');
         }
 
-        $restaurants = $restaurants->simplePaginate(15);
+        $restaurants = $restaurants->paginate(20);
 
         foreach($restaurants->items() as $item){
             if($item->plan_id == 1)
@@ -54,6 +59,13 @@ class PlaceController extends Controller
         
     }
 
+    /**
+     * Change restaurant's admin user
+     * 
+     * @param Request $request
+     * @param $place_id
+     * @return int
+     */
     public function update(Request $request, $place_id){
 
         if($request->admin_id != '') {
@@ -66,6 +78,12 @@ class PlaceController extends Controller
 
     }
 
+    /**
+     * Get restaurant's remaining status
+     * 
+     * @param $place_id
+     * @return float|string
+     */
     public function getRemainingTime($place_id){
         $first_login =  Place::withTrashed()->find($place_id)->first_login;
         if($first_login) {
@@ -80,10 +98,10 @@ class PlaceController extends Controller
             return 'not_logged_in';
         }
 
-        // 1: not logged in
-        // 2: expired
-        // 3: purchased
-        // 4: remaining days
+        // case 1: not logged in
+        // case 2: expired
+        // case 3: purchased
+        // case 4: remaining days
 
     }
 }
