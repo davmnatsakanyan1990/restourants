@@ -177,13 +177,17 @@ body {
 }
 .restList .filters .radioGroup {
   margin-right: 20px;
+  line-height: 30px;
+  margin-left: 10px;
 }
 .restList .filters .radioGroup .radioText {
   margin-left: 3px;
   font-weight: 100;
 }
 .restList .filters .radioGroup input[type=radio] {
+  margin-top: 10px;
   cursor: pointer;
+  margin-left: 10px;
 }
 .restList .filters .radioGroup label {
   cursor: pointer;
@@ -199,6 +203,9 @@ body {
   border: none;
   color: white;
   width: 70px;
+  height: 30px;
+}
+.restList .filters select {
   height: 30px;
 }
 .restList .restaurant {
