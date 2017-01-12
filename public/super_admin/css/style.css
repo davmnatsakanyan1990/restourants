@@ -1,6 +1,14 @@
 body {
   background-color: #E5E9ED;
 }
+button:active,
+input:active,
+select:active,
+button:focus,
+input:focus,
+select:focus {
+  outline: none;
+}
 /*header*/
 .header {
   background-color: #393d52;
