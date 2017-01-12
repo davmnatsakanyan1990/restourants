@@ -64,7 +64,7 @@
                 </div>--}}
             </div>
         @endforeach
-        {{ $restaurants->appends(['city' => $city])->links() }}
+        {{ $restaurants->appends(['city' => $city, 'is_logged_in'=> $is_logged_in])->links() }}
     </div>
 
 
