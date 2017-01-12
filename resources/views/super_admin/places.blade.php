@@ -23,6 +23,10 @@
                     <input id="radio1" type="radio" name="status" value="loggedIn" checked class="floatLeft">
                     <label for="radio1" class="floatLeft radioText">Logged in</label>
                 </div>
+                <div class="radioGroup floatLeft">
+                    <input id="radio2" type="radio" name="status" value="all" checked class="floatLeft">
+                    <label for="radio2" class="floatLeft radioText">All</label>
+                </div>
                 <button class="apply">Apply</button>
             </form>
         </div>

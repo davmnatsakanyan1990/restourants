@@ -187,7 +187,6 @@ body {
 .restList .filters .radioGroup input[type=radio] {
   margin-top: 10px;
   cursor: pointer;
-  margin-left: 10px;
 }
 .restList .filters .radioGroup label {
   cursor: pointer;
