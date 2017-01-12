@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\SuperAdmin;
 
+use App\Models\City;
 use App\Models\GroupAdmin;
 use App\Models\Place;
 use Illuminate\Http\Request;
@@ -23,16 +24,16 @@ class PlaceController extends Controller
     
     public function index(Request $request){
         $city = $request->city;
-        $is_logged_in = $request->is_logged_in;
+        $status = $request->status;
 
         $restaurants = Place::withTrashed();
-        if($request->city) {
+        if($request->city && $request->city != 'all') {
             $restaurants = $restaurants->with(
                 'location')->whereHas('location', function ($query) use ($request) {
                 $query->where('city_id', $request->city);
             });
         }
-        if($request->is_logged_in){
+        if($request->status && $request->status == 'loggedIn'){
 
             $restaurants = $restaurants->whereNotNull('first_login');
         }
@@ -47,8 +48,9 @@ class PlaceController extends Controller
         }
 
         $group_admins = GroupAdmin::all()->toArray();
+        $cities = City::all()->toArray();
         
-        return view('super_admin.places', compact('restaurants', 'group_admins', 'city', 'is_logged_in'));
+        return view('super_admin.places', compact('restaurants', 'group_admins', 'cities', 'city', 'status'));
         
     }
 
