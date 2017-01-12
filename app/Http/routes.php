@@ -87,8 +87,9 @@ Route::group([
     'namespace' => 'GroupAdmin'
 ],
     function(){
-        Route::get('dashboard', 'HomeController@index');
-        Route::post('place/add_email', 'HomeController@addEmail');
+        Route::get('dashboard', 'PlaceController@index');
+        Route::post('place/add_email', 'PlaceController@addEmail');
+        Route::post('place/update_status', 'PlaceController@updateStatus');
         Route::get('place/cover/{place_id}', 'CoverController@index');
         Route::post('place/cover/add_cover', 'CoverController@create');
         Route::post('place/cover/delete/{image_id}', 'CoverController@delete');

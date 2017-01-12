@@ -20,5 +20,22 @@ $( document ).ready(function() {
     });
 });
 
+$('.place_status').on('change', function(){
+    var place_id = $(this).data('id');
+    var status = $(this).val();
+    
+    $.ajax({
+        url: BASE_URL+'/group_admin/place/update_status',
+        type: 'post',
+        data: {
+            place_id: place_id,
+            status: status
+        },
+        success: function(data){
+            
+        }
+    })
+});
+
 
 

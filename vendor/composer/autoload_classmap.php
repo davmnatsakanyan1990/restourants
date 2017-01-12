@@ -17,6 +17,7 @@ return array(
     'AddRememberTokenColumnAdminsTable' => $baseDir . '/database/migrations/2016_10_24_132041_add_remember_token_column_admins_table.php',
     'AddRoleColumnToImagesTable' => $baseDir . '/database/migrations/2016_10_07_070720_add_role_column_to_images_table.php',
     'AddSendedAtPlacesTable' => $baseDir . '/database/migrations/2016_11_16_104621_add_sended_at_places_table.php',
+    'AddStatusToPlacesTbale' => $baseDir . '/database/migrations/2017_01_12_080415_add_status_to_places_tbale.php',
     'AddSupportIdPlacesTable' => $baseDir . '/database/migrations/2016_11_24_082830_add_support_id_places_table.php',
     'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'CategoryTableSeeder' => $baseDir . '/database/seeds/CategoryTableSeeder.php',
