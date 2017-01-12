@@ -3,7 +3,7 @@ $( document ).ready(function() {
     $('.changeCover').prop('disabled', true);
     $( "select" ).change(function() {
         var currentButton = $(this).closest('.restaurant').find('.changeCover');
-        if($(this).val()){
+        if($(this).val()=='' || $(this).val()){
             $(this).closest('.restaurant').find('.changeCover').prop('disabled', false);
             if($(currentButton).hasClass('disable')){
                 $(currentButton).removeClass('disable')
@@ -17,7 +17,7 @@ $( document ).ready(function() {
         var place_id = $(this).data('place_id');
         var load= $(this).closest('.restaurant').find('.loadingDiv');
 
-        if(text){
+        if(text == '' || text){
             $.ajax({
                 url: BASE_URL+'/super_admin/places/update/'+place_id,
                 type: 'post',
