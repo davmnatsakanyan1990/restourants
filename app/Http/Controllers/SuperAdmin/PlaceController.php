@@ -23,12 +23,18 @@ class PlaceController extends Controller
     
     public function index(Request $request){
         $city = $request->city;
+        $is_logged_in = $request->is_logged_in;
+
         $restaurants = Place::withTrashed();
         if($request->city) {
             $restaurants = $restaurants->with(
                 'location')->whereHas('location', function ($query) use ($request) {
                 $query->where('city_id', $request->city);
             });
+        }
+        if($request->is_logged_in){
+
+            $restaurants = $restaurants->whereNotNull('first_login');
         }
 
         $restaurants = $restaurants->simplePaginate(15);
@@ -42,7 +48,7 @@ class PlaceController extends Controller
 
         $group_admins = GroupAdmin::all()->toArray();
         
-        return view('super_admin.places', compact('restaurants', 'group_admins', 'city'));
+        return view('super_admin.places', compact('restaurants', 'group_admins', 'city', 'is_logged_in'));
         
     }
 
