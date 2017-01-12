@@ -9,9 +9,23 @@
     </div>
 
     {{ $restaurants->links() }}--}}
-
-
     <div class="restList col-sm-9 col-sm-offset-2">
+        <div class="filters">
+            <div class="filterTitle">Filters</div>
+            <form class="clearElement">
+                <select class="floatLeft">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <div class="radioGroup floatLeft">
+                    <input id="radio1" type="radio" name="status" value="loggedIn" checked class="floatLeft">
+                    <label for="radio1" class="floatLeft radioText">Logged in</label>
+                </div>
+                <button class="apply">Apply</button>
+            </form>
+        </div>
         @foreach($restaurants as $restaurant)
             <div class="restaurant">
                 <div class="name">{{ $restaurant->name }}</div>

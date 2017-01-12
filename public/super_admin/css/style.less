@@ -3,47 +3,47 @@ body{
 }
 /*header*/
 .header{
-  background-color: #393d52;
-  padding: 0 20px;
-  &.navbar{
-    width: 100%;
+   background-color: #393d52;
+   padding: 0 20px;
+   &.navbar{
+     width: 100%;
 
-    margin: 0;
-    border: 0px;
+     margin: 0;
+     border: 0px;
 
-    box-shadow: none;
-    height: 50px;
-    min-height: 50px;
-  }
-  .navbar-brand{
-    padding: 0 !important;
-    /* height: auto !important; */
-    height: 43px !important;
-    padding-top: 7px !important;
-    img{
-      height: 35px;
-    }
-  }
-  .user{
-    position: relative;
-    display: block;
-    a{
-      padding: 10px 0px 6px 6px;
-    }
-  }
-  .dropdown{
-    >a{
-      color: white;
-      &:hover, &:active, &:focus{
-        color: #ff7e00;
-        background-color: transparent;
-      }
-    }
-  }
-.navbar-nav{
-  margin: 0;
-}
-}
+     box-shadow: none;
+     height: 50px;
+     min-height: 50px;
+   }
+   .navbar-brand{
+     padding: 0 !important;
+     /* height: auto !important; */
+     height: 43px !important;
+     padding-top: 7px !important;
+     img{
+       height: 35px;
+     }
+   }
+   .user{
+     position: relative;
+     display: block;
+     a{
+       padding: 10px 0px 6px 6px;
+     }
+   }
+   .dropdown{
+     >a{
+       color: white;
+       &:hover, &:active, &:focus{
+         color: #ff7e00;
+         background-color: transparent;
+       }
+     }
+   }
+   .navbar-nav{
+     margin: 0;
+   }
+ }
 .nav >li >a{
   text-decoration: none;
   background-color: transparent;
@@ -58,6 +58,21 @@ body{
   color: #ff7e00 !important;
   a{
     color: #ff7e00 !important;
+  }
+}
+.nav{
+  select{
+    height: 50px;
+    background-color: #393d52;
+    border: none;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    color: white;
+    margin-left: 20px;
+    padding: 10px;
+    &:active, &:focus{
+      outline: none;
+    }
   }
 }
 /*End header*/
@@ -168,6 +183,37 @@ body{
 }
 .restList{
   margin: 20px 15% 0 15%;
+  .filters{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+    .radioGroup{
+      margin-right: 20px;
+      .radioText{
+        margin-left: 3px;
+        font-weight: 100;
+      }
+      input[type=radio]{
+        cursor: pointer;
+      }
+      label{
+        cursor: pointer;
+      }
+    }
+    .filterTitle{
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #ff6600;
+    }
+    .apply{
+      float: right;
+      background-color: #ff6600;
+      border: none;
+      color: white;
+      width: 70px;
+      height: 30px;
+    }
+  }
   .restaurant{
     padding: 10px;
     background-color: white;

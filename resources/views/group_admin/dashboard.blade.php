@@ -4,10 +4,39 @@
 @endsection
 @section('content')
 <div class="restList">
+    <div class="filters">
+        <div class="filterTitle">Filters</div>
+        <form class="clearElement">
+            <div class="radioGroup floatLeft">
+                <input id="radio1" type="radio" name="status" value="all" checked class="floatLeft">
+                <label for="radio1" class="floatLeft radioText">All</label>
+            </div>
+            <div class="radioGroup floatLeft">
+                <input id="radio2" type="radio" name="status" value="callBack" class="floatLeft">
+                <label for="radio2" class="floatLeft radioText">Call back</label>
+            </div>
+            <div class="radioGroup floatLeft">
+                <input id="radio3" type="radio" name="status" value="deleted" class="floatLeft">
+                <label for="radio3" class="floatLeft radioText">Deleted</label>
+            </div>
+            <div class="radioGroup floatLeft">
+                <input id="radio4" type="radio" name="status" value="client" class="floatLeft">
+                <label for="radio4" class="floatLeft radioText">Client</label>
+            </div>
+            <button class="apply">Apply</button>
+        </form>
+    </div>
     @foreach($restaurants->items() as $restaurant)
     <div class="restaurant">
-        <div class="name">{{ $restaurant->name }}</div>
-
+        <div class="topPart clearElement">
+            <div class="name floatLeft">{{ $restaurant->name }}</div>
+            <select class="floatRight">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
         <div class="clearElement">
             <div class="addressPart floatLeft">
                 <div class="addressGroup">

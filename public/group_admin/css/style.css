@@ -1,6 +1,10 @@
 body {
   background-color: #E5E9ED;
 }
+button:active,
+button:focus {
+  outline: none;
+}
 /*header*/
 .header {
   background-color: #393d52;
@@ -41,6 +45,22 @@ body {
 }
 .header .navbar-nav {
   margin: 0;
+}
+.nav > li > a {
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+}
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: transparent;
+  color: #ff7e00;
+}
+.active {
+  color: #ff7e00 !important;
+}
+.active a {
+  color: #ff7e00 !important;
 }
 /*End header*/
 /*Footer style*/
@@ -140,11 +160,49 @@ body {
 .restList {
   margin: 0 15%;
 }
+.restList .filters {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.restList .filters .radioGroup {
+  margin-right: 20px;
+}
+.restList .filters .radioGroup .radioText {
+  margin-left: 3px;
+  font-weight: 100;
+}
+.restList .filters .radioGroup input[type=radio] {
+  cursor: pointer;
+}
+.restList .filters .radioGroup label {
+  cursor: pointer;
+}
+.restList .filters .filterTitle {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #ff6600;
+}
+.restList .filters .apply {
+  float: right;
+  background-color: #ff6600;
+  border: none;
+  color: white;
+  width: 70px;
+  height: 30px;
+}
 .restList .restaurant {
   padding: 10px;
   background-color: white;
   border-top: 2px solid #ff6600;
   margin-bottom: 5px;
+}
+.restList .restaurant .topPart select {
+  width: 156px;
+  border: 1px solid #ff6600;
+  color: #909090;
+  height: 30px;
+  padding: 5px;
 }
 .restList .restaurant .name {
   font-size: 25px;
@@ -224,6 +282,7 @@ body {
   color: #ff6600;
   overflow: hidden;
   text-align: center;
+  margin-top: 15px;
 }
 .restList .restaurant .comments.hide {
   height: 0;
