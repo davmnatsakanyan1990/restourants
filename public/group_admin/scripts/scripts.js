@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     $( ".more" ).click(function(e) {
-        var myElement = e.target
+        var myElement = e.target;
         if($(myElement).hasClass('fa-chevron-down')){
             $(myElement).removeClass('fa-chevron-down');
             $(myElement).addClass('fa-chevron-up');

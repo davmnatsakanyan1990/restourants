@@ -1,7 +1,7 @@
 app.controller("myCtrl", function($scope,$rootScope, $http, $document, $window, $location, $timeout, RestaurantService) {
     // $location.path('/salt lake city/restaurants');
 
-    var default_city = 'salt lake city';
+    var default_city = 'philadelphia';
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
