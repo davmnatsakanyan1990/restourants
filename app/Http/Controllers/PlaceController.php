@@ -400,7 +400,7 @@ class PlaceController extends Controller
         if(count($array['comments']) > 0){
             $comments = $array['comments'];
             foreach ($comments as $key => $comment) {
-                $comments[$key]['author'] = $comment['commentable_type']:: find($comment['commentable_id'])->toArray();
+                $comments[$key]['author'] = $comment['commentable_type']:: find($comment['commentable_id']);
                 $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
 
 
@@ -542,7 +542,7 @@ class PlaceController extends Controller
         //get comments author
         $comments = $array['comments'];
         foreach($comments as $key => $comment){
-            $comments[$key]['author'] = $comment['commentable_type'] :: find($comment['commentable_id'])->toArray();
+            $comments[$key]['author'] = $comment['commentable_type'] :: find($comment['commentable_id']);
             $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
 
 
