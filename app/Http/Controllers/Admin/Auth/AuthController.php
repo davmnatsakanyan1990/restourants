@@ -33,7 +33,7 @@ class AuthController extends Controller
 
     protected $loginView = 'admin/auth/login';
     protected $guard = 'admin';
-    protected $redirectTo = 'admin/dashboard';
+    protected $redirectTo = 'admin/payment/subscribe';
     protected $redirectAfterLogout = 'admin/login';
     protected $username = 'username';
 

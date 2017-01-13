@@ -31,10 +31,12 @@ class PlaceController extends Controller
         $city = $request->city;
         $status = $request->status;
 
-        $restaurants = Place::withTrashed();
+        $restaurants = Place::withTrashed()->with(['location'=>function($location){
+            $location->with('city');
+        }]);
+//        dd($restaurants->paginate(10));
         if($request->city && $request->city != 'all') {
-            $restaurants = $restaurants->with(
-                'location')->whereHas('location', function ($query) use ($request) {
+            $restaurants = $restaurants->whereHas('location', function ($query) use ($request) {
                 $query->where('city_id', $request->city);
             });
         }
