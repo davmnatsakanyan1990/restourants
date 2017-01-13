@@ -19,11 +19,11 @@ $( document ).ready(function() {
         }
     });
 });
-
+$('.loadingDiv').hide();
 $('.place_status').on('change', function(){
     var place_id = $(this).data('id');
     var status = $(this).val();
-    
+    var load= $(this).closest('.restaurant').find('.loadingDiv');
     $.ajax({
         url: BASE_URL+'/group_admin/place/update_status',
         type: 'post',
@@ -32,10 +32,17 @@ $('.place_status').on('change', function(){
             status: status
         },
         success: function(data){
-            
+            load.show();
+        },
+        complete: function(){
+            setTimeout(function(){
+                load.hide();
+            }, 1000);
         }
     })
 });
+
+
 
 
 

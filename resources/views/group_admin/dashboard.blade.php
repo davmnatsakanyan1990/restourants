@@ -41,6 +41,9 @@
                 <option {{ $restaurant->status == 'deleted' ? 'selected' : '' }} value="deleted">Deleted</option>
             </select>
             @endif
+            <div class="floatRight loadingDiv">
+                <img src="/super_admin/images/load.gif" alt="">
+            </div>
         </div>
         <div class="clearElement">
             <div class="addressPart floatLeft">
