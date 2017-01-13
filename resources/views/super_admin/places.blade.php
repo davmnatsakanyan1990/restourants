@@ -34,7 +34,9 @@
         </div>
         @foreach($restaurants as $restaurant)
             <div class="restaurant">
-                <div class="name">{{ $restaurant->name }}</div>
+                <a target="_blank" href="{{ url('/').'/#/'.$restaurant->location->city->name.'/'.$restaurant->name.'/'.$restaurant->id }}">
+                    <div class="name">{{ $restaurant->name }}<span>, {{ $restaurant->support_id }}</span></div>
+                </a>
 
                 <div class="clearElement">
                     <div class="addressPart floatLeft">
@@ -68,7 +70,7 @@
                             <option {{ $restaurant->group_admin_id == $admin['id'] ? 'selected' : '' }} value="{{ $admin['id'] }}">{{ $admin['name'] }}</option>
                         @endforeach
                     </select>
-                    <a href="#"> <button class="changeCover floatRight disable" data-place_id="{{ $restaurant->id }}">Save</button></a>
+                    <a> <button class="changeCover floatRight disable" data-place_id="{{ $restaurant->id }}">Save</button></a>
                     <div class="floatLeft loadingDiv">
                         <img src="/super_admin/images/load.gif" alt="">
                     </div>
