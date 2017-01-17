@@ -21,8 +21,8 @@
                                     <div class="col-md-3 col-xs-3 col-sm-3" ng-repeat="cat in category track by $index">
                                         <a class="thumbnail categoryBlock" href="#/<% city %>/category/<% cat.name %>/<% cat.id %>"
                                            style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" >
-                                            <img src="<%cat.image%>" style="max-width:100%;" class="categoryImage">
-                                            <img src="<%cat.image2%>" style="max-width:100%;" class="categoryHoverImage">
+                                            <img ng-src="<%cat.image%>" style="max-width:100%;" class="categoryImage">
+                                            <img ng-src="<%cat.image2%>" style="max-width:100%;" class="categoryHoverImage">
                                             <div class="text">
                                                 <% cat.name %>
                                             </div>

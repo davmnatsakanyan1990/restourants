@@ -1,11 +1,11 @@
 app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $window, $timeout,$route, RestaurantService) {
     var request = $route.current.params;
-    $scope.custom = false;
-    $scope.openDropMenu = false;
-    $scope.animateTopMenuVar = false;
+   /* $scope.custom = false;
+    $scope.openDropMenu = false;*/
+    /*$scope.animateTopMenuVar = false;*/
     $scope.animateSecondMenuVar = false;
-    $scope.activePage = 'page1';
-    $scope.FixedRestMenu = false;
+    /*$scope.activePage = 'page1';*/
+    /*$scope.FixedRestMenu = false;*/
     $scope.noMoreInfoToShow = false;
 
     $scope.checkboxModel = {
@@ -26,10 +26,9 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     var slidePage = 0;
     RestaurantService.getRestaurantsList($scope.callData)
         .then(function (response) {
-
             $scope.restaurants = response.data.restaurants;
             $scope.city = response.data.city;
-            $scope.showFilters = response.data.filters;
+            var showFilters = response.data.filters;
 
             $scope.noMoreInfoToShow = response.data.noMoreData;
 
@@ -58,7 +57,6 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
            }else{
                $scope.modeLoad = false;
            }
-
 
 
             /*if(window.innerWidth < 380){
@@ -128,27 +126,27 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
             };*/
 
             $scope.drowCuisine = [];
-            for(var p = 0; p < $scope.showFilters.Cuisine.length; p++){
-                $scope.drowCuisine.push({"display": $scope.showFilters.Cuisine[p], "pass" : $scope.showFilters.Cuisine[p]})
+            for(var p = 0; p < showFilters.Cuisine.length; p++){
+                $scope.drowCuisine.push({"display": showFilters.Cuisine[p], "pass" : showFilters.Cuisine[p]})
             }
             $scope.drowMode = [];
-            for(var m = 0; m < $scope.showFilters.Mode.length; m++){
-                $scope.drowMode.push({"display": $scope.showFilters.Mode[m], "pass" : $scope.showFilters.Mode[m]})
+            for(var m = 0; m < showFilters.Mode.length; m++){
+                $scope.drowMode.push({"display": showFilters.Mode[m], "pass" : showFilters.Mode[m]})
             }
             $scope.drowSort = [];
-            for(var n = 0; n < $scope.showFilters['Sort By'].length; n++){
-                $scope.drowSort.push({"display": $scope.showFilters['Sort By'][n], "pass" : $scope.showFilters['Sort By'][n]})
+            for(var n = 0; n < showFilters['Sort By'].length; n++){
+                $scope.drowSort.push({"display": showFilters['Sort By'][n], "pass" : showFilters['Sort By'][n]})
             }
             $scope.drowType = [];
-            for(var q = 0; q < $scope.showFilters['Type Of Restaurants'].length; q++){
-                $scope.drowType.push({"display": $scope.showFilters['Type Of Restaurants'][q], "pass" : $scope.showFilters['Type Of Restaurants'][q]})
+            for(var q = 0; q < showFilters['Type Of Restaurants'].length; q++){
+                $scope.drowType.push({"display": showFilters['Type Of Restaurants'][q], "pass" : showFilters['Type Of Restaurants'][q]})
             }
             $scope.drowCLocation = [];
-            for(var r = 0; r < $scope.showFilters['Location'].length; r++){
-                $scope.drowCLocation.push({"display": $scope.showFilters['Location'][r], "pass" : $scope.showFilters['Location'][r]})
+            for(var r = 0; r < showFilters['Location'].length; r++){
+                $scope.drowCLocation.push({"display": showFilters['Location'][r], "pass" : showFilters['Location'][r]})
             }
             if(response.data.restaurants.length > 0) {
-                $scope.initMap({
+                initMap({
                     zoom: 12,
                     center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                     scrollwheel: false,
@@ -200,7 +198,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     //         .then(function (response) {
     //             $scope.restaurants = response.data.restaurants;
     //
-    //             $scope.initMap({
+    //             initMap({
     //                 zoom: 12,
     //                 center: new google.maps.LatLng($scope.restaurants[0].lat*1, $scope.restaurants[0].long*1 -0.3),
     //                 scrollwheel: false,
@@ -214,7 +212,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     //    
     // };
 
-    $scope.initMap = function(mapOption){
+    initMap = function(mapOption){
         var mapOptions = {
             zoom: mapOption.zoom,
                 center: new google.maps.LatLng(mapOption.center[0], mapOption.center[1]),
@@ -314,9 +312,9 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
     //end processes for map
 
     // open top dropdown menu section
-    $scope.openDrop = function(){
+   /* $scope.openDrop = function(){
         $scope.openDropMenu = $scope.openDropMenu === false ? true: false;
-    };
+    };*/
 
     $scope.$watch(function () {
         return $window.scrollY;
@@ -434,7 +432,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
                         $scope.restaurants = response.data.restaurants;
                         if(response.data.restaurants.length > 0) {
-                            $scope.initMap({
+                            initMap({
                                 zoom: 12,
                                 center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                                 scrollwheel: false,
@@ -502,7 +500,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
 
                     $scope.restaurants = response.data.restaurants;
 
-                    $scope.initMap({
+                    initMap({
                         zoom: 12,
                         center:[$scope.restaurants[0].lat * 1 + 0.003, $scope.restaurants[0].long * 1 - 0.116],
                         scrollwheel: false,
