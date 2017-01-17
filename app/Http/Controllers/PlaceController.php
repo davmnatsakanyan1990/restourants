@@ -8,6 +8,7 @@ use App\Models\Location;
 use App\Models\Place;
 use App\Models\Product;
 use App\Models\Type;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
@@ -166,30 +167,36 @@ class PlaceController extends Controller
 
         $data = Place::with(['categories', 'highlights', 'cuisins', 'types', 'thumb_image']);
 
+        // filter by location
         if(count($locations) > 0)
             $data = $data->orWhereIn('location_id', $locations);
 
+        // filter by cost
         if(count($costs) > 0)
             $data = $data->orWhereIn('cost', $costs);
 
+        // filter by category
         if(count($categories) > 0) {
             $data = $data->orWhereHas('categories', function ($query) use ($categories) {
                 $query->whereIn('category_id', $categories);
             });
         }
 
+        // filter by highlight
         if(count($highlights) > 0) {
             $data = $data->orWhereHas('highlights', function ($query) use ($highlights) {
                 $query->whereIn('highlight_id', $highlights);
             });
         }
 
+        // filter by cuisine
         if(count($cuisines) > 0) {
             $data = $data->orWhereHas('cuisins', function ($query) use ($cuisines) {
                 $query->whereIn('cuisin_id', $cuisines);
             });
         }
 
+        // filter by type
         if(count($types) > 0) {
             $data = $data->orWhereHas('types', function ($query) use ($types) {
                 $query->whereIn('type_id', $types);
@@ -314,7 +321,7 @@ class PlaceController extends Controller
             'highlights',
             'types',
             'comments' => function($comments){
-                return $comments->orderBy('created_at', 'desc');
+                return $comments->with('author')->orderBy('created_at', 'desc');
             },
             'menus' => function($menu){
                 return $menu->with('products');
@@ -323,200 +330,141 @@ class PlaceController extends Controller
             ->findOrFail($id);
 
         // get avg rate for current place and push to array
-        $collection = collect($place->toArray());
-        collect($place->toArray())->each(function($item, $key) use($collection){
-
-            switch ($key){
-                case 'rates':
-                    $total_rate = 0;
-                    $count = count($item);
-                    foreach ($item as $rate){
-                        $total_rate += $rate['mark'];
-                    }
-                    if($count != 0 )
-                        $m_rate = round($total_rate/$count);
-                    else
-                        $m_rate = 0;
-
-                    $collection->prepend($m_rate, 'rating');
-                    break;
-//                case 'images':
-//                    $i = 0;
-//                    $cover_images = [];
-//                    foreach($item as $image){
-//                        $image_size = getimagesize(url('/images/restaurantImages/'.$image['name']));
-//                        if(($image_size[0]/$image_size[1]) > 2 && ($image_size[0]/$image_size[1]) < 3 && $i < 3){
-//                            $cover_images[$i] = $image['name'];
-//                            $i++;
-//                        }
-//                    }
+//        $collection = collect($place->toArray());
+//        collect($place->toArray())->each(function($item, $key) use($collection){
 //
-//                    $collection->prepend($cover_images, 'cover_images');
+//            switch ($key){
+//                case 'rates':
+//                    $total_rate = 0;
+//                    $count = count($item);
+//                    foreach ($item as $rate){
+//                        $total_rate += $rate['mark'];
+//                    }
+//                    if($count != 0 )
+//                        $m_rate = round($total_rate/$count);
+//                    else
+//                        $m_rate = 0;
+//
+//                    $collection->prepend($m_rate, 'rating');
 //                    break;
-            }
-        })->all();
+//            }
+//        })->all();
+        $place  = $place->toArray();
 
-        // get total comments count for current place and add to array
-        $collection->prepend(count($collection['comments']), 'comment');
-
-        // format price and add to array
-        switch ($place->cost){
-            case 0:
-                $collection->prepend('', 'price');
-                break;
-            case 1:
-                $collection->prepend('$', 'price');
-                break;
-            case 2:
-                $collection->prepend('$$', 'price');
-                break;
-            case 3:
-                $collection->prepend('$$$', 'price');
-                break;
-            case 4:
-                $collection->prepend('$$$$', 'price');
-                break;
-        }
-
-        $wrk_hs_array = $place->workinghour->toArray();
-
-        $workinghours = array();
-
-        $workinghours['mon'] = $wrk_hs_array['mon'];
-        $workinghours['tue'] = $wrk_hs_array['tue'];
-        $workinghours['wed'] = $wrk_hs_array['wed'];
-        $workinghours['thu'] = $wrk_hs_array['thu'];
-        $workinghours['fri'] = $wrk_hs_array['fri'];
-        $workinghours['sat'] = $wrk_hs_array['sat'];
-        $workinghours['sun'] = $wrk_hs_array['sun'];
-
-
-        $collection->prepend($workinghours, 'workingHours');
-
-        // format shares, comments
-        $array = $collection->all();
-
-        //get comments author
-        if(count($array['comments']) > 0){
-            $comments = $array['comments'];
-            foreach ($comments as $key => $comment) {
-                $comments[$key]['author'] = $comment['commentable_type']:: find($comment['commentable_id']);
-                $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
-
-
-                foreach ($sub_comments as $k => $sub_comment) {
-                    $sub_comments[$k]['author'] = $sub_comment['commentable_type']:: find($sub_comment['commentable_id'])->toArray();
-                }
-                $comments[$key]['sub_comments'] = $sub_comments;
-            }
-
-
-            $chunked = collect($comments)->values()->chunk(5)->toArray();
-            $comm_pages = count($chunked);
-            $array['comments'] = $chunked[0];
-        }
+        // container array for response
         $data = array();
 
-        foreach ($array as $key=>$value){
+        // get total comments count for current place and add to array
+        $data['comment'] = count($place['comments']);
 
-            //comments format
-            if(count($array['comments']) > 0){
-                if ($key == 'comments') {
-                    foreach ($array[$key] as $k => $v) {
-
-                        $data[$key][$k]['name'] = $v['author']['name'];
-                        $data[$key][$k]['date'] = date_format(date_create($array[$key][$k]['created_at']), "m/d/y");
-                        $data[$key][$k]['comment'] = $v['text'];
-                        $data[$key][$k]['id'] = $v['id'];
-
-                        $sub_coms = Comment::where('parent_id', $v['id'])->get()->toArray();
-                        if (count($sub_coms) > 0) {
-                            foreach ($sub_coms as $index => $comment) {
-                                $author = $comment['commentable_type']:: find($comment['commentable_id'])->name;
-                                $data[$key][$k]['subComment'][$index]['name'] = $author;
-                                $data[$key][$k]['subComment'][$index]['comment'] = $comment['text'];
-                                $data[$key][$k]['subComment'][$index]['date'] = date_format(date_create($comment['created_at']), "m/d/y");
-                                $data[$key][$k]['subComment'][$index]['id'] = $comment['id'];
-                            }
-                        } else {
-                            $data[$key][$k]['subComment'] = null;
-                        }
-                    }
-                }
-            }
-
-            // cuisins format
-            if($key == 'cuisins'){
-                $cuisins = array();
-                foreach ($array[$key] as $k=>$v){
-                    array_push($cuisins, $v['name']);
-                }
-                $data['cuisins'] = $cuisins;
-            }
-
-            // services format
-            if($key == 'highlights'){
-                $services = array();
-                foreach ($array[$key] as $k=>$v){
-                    array_push($services, $v['name']);
-                }
-                $data['services'] = $services;
-            }
-
-            //types format
-            if($key == 'types'){
-                $types = array();
-                foreach ($array[$key] as $k=>$v){
-                    array_push($types, $v['name']);
-                }
-                $data['types'] = $types;
-            }
-
-            // images format
-            if($key == 'images'){
-                $images = array();
-                foreach ($array[$key] as $k => $v){
-                    array_push($images, '../images/restaurantImages/'.$v['name']);
-                }
-                $data['images'] = $images;
-            }
-
-            // menus format
-            if($key == 'menus'){
-                foreach ($array[$key] as $k=>$v){
-                    $data['menuItems'][$k]['name'] = $v['name'];
-                    $data['menuItems'][$k]['id'] = $v['id'];
-                }
-            }
+        // format price and add to array
+        switch ($place['cost']){
+            case 0:
+                $data['price'] = '';
+                break;
+            case 1:
+                $data['price'] = '$';
+                break;
+            case 2:
+                $data['price'] = '$$';
+                break;
+            case 3:
+                $data['price'] = '$$$';
+                break;
+            case 4:
+                $data['price'] = '$$$$';
+                break;
         }
 
-        $data['id'] = $array['id'];
-        $data['mobileNumber'] = $array['mobile'];
-        $data['name'] = $array['name'];
-        $data['rating'] = (int)$array['rating'];
-        $data['comment'] = $array['comment'];
+        // format working hours
+        $workinghours = array();
+        $workinghours['mon'] = $place['workinghour']['mon'];
+        $workinghours['tue'] = $place['workinghour']['tue'];
+        $workinghours['wed'] = $place['workinghour']['wed'];
+        $workinghours['thu'] = $place['workinghour']['thu'];
+        $workinghours['fri'] = $place['workinghour']['fri'];
+        $workinghours['sat'] = $place['workinghour']['sat'];
+        $workinghours['sun'] = $place['workinghour']['sun'];
+        $data['workingHours'] = $workinghours;
+        
+        //format comments
+        if(count($place['comments']) > 0){
+            foreach ($place['comments'] as $key => $comment) {
+                $place['comments'][$key]['name'] = $comment['author']['name'];
+                $place['comments'][$key]['date'] = date_format(date_create($comment['created_at']), "m/d/y");
+                $place['comments'][$key]['comment'] = $comment['text'];
+                $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
+
+                if(count($sub_comments) > 0) {
+                    foreach ($sub_comments as $k => $sub_comment) {
+                        $sub_comments[$k]['name'] = User:: find($sub_comment['user_id'])->name;
+                        $sub_comments[$k]['date'] = date_format(date_create($sub_comment['created_at']), "m/d/y");
+                        $sub_comments[$k]['comment'] = $sub_comment['text'];
+                    }
+                    $place['comments'][$key]['subComment'] = $sub_comments;
+                }
+                else{
+                    $place['comments'][$key]['subComment'] = null;
+                }
+            }
+
+            $chunked = collect($place['comments'])->values()->chunk(5)->toArray();
+            $comm_pages = count($chunked);
+            $data['comments'] = $chunked[0];
+        }
+
+        // cuisines format
+        $cuisins = array();
+        foreach ($place['cuisins'] as $k=>$v){
+            array_push($cuisins, $v['name']);
+        }
+        $data['cuisins'] = $cuisins;
+
+        // services format
+        $services = array();
+        foreach ($place['highlights'] as $k=>$v){
+            array_push($services, $v['name']);
+        }
+        $data['services'] = $services;
+
+        //types format
+        $types = array();
+        foreach ($place['types'] as $k=>$v){
+            array_push($types, $v['name']);
+        }
+        $data['types'] = $types;
+
+        // images format
+        $images = array();
+        foreach ($place['images'] as $k => $v){
+            array_push($images, '../images/restaurantImages/'.$v['name']);
+        }
+        $data['images'] = $images;
+
+        // menus format
+        foreach ($place['menus'] as $k=>$v){
+            $data['menuItems'][$k]['name'] = $v['name'];
+            $data['menuItems'][$k]['id'] = $v['id'];
+        }
+
+        $data['id'] = $place['id'];
+        $data['mobileNumber'] = $place['mobile'];
+        $data['name'] = $place['name'];
+//        $data['rating'] = (int)$array['rating'];
         if(isset($comm_pages) && $comm_pages == 1)
             $data['more_comments'] = false;
         else
             $data['more_comments'] = true;
-        $data['intro'] = $array['intro'];
-        $data['address'] = $array['address'];
-        $data['lat'] = $array['lat'];
-        $data['long'] = $array['lon'];
-        $data['site'] = $array['site'];
-        $data['price'] = $array['price'];
-        $data['workingHours'] = $array['workingHours'];
-
+        $data['intro'] = $place['intro'];
+        $data['address'] = $place['address'];
+        $data['lat'] = $place['lat'];
+        $data['long'] = $place['lon'];
+        $data['site'] = $place['site'];
         $data['coverImages'] = array();
         $covers = Place::find($id)->coverImages->toArray();
         foreach ($covers as $cover){
             array_push($data['coverImages'], $cover['name']);
         }
-//        $collection = collect(config('coverimages'));
-//        $random = $collection->random(3)->toArray();
-//        $data['coverImages'] = $random;
-
-        // $data['shareItems'] = $data['shares'];
 
         return response()->json($data);
     }
@@ -542,12 +490,12 @@ class PlaceController extends Controller
         //get comments author
         $comments = $array['comments'];
         foreach($comments as $key => $comment){
-            $comments[$key]['author'] = $comment['commentable_type'] :: find($comment['commentable_id']);
+            $comments[$key]['author'] = User :: find($comment['user_id']);
             $sub_comments = Comment::where('parent_id', $comment['id'])->orderBy('created_at', 'asc')->get()->toArray();
 
 
             foreach ($sub_comments as $k=>$sub_comment){
-                $sub_comments[$k]['author'] = $sub_comment['commentable_type'] :: find($sub_comment['commentable_id'])->toArray();
+                $sub_comments[$k]['author'] = User :: find($sub_comment['user_id'])->toArray();
             }
             $comments[$key]['sub_comments'] = $sub_comments;
         }
@@ -567,7 +515,7 @@ class PlaceController extends Controller
             $sub_coms = Comment::where('parent_id', $v['id'])->get()->toArray();
             if(count($sub_coms) > 0) {
                 foreach ($sub_coms as $index => $comment) {
-                    $author = $comment['commentable_type']:: find($comment['commentable_id'])->name;
+                    $author = User:: find($comment['user_id'])->name;
                     $comms[$k]['subComment'][$index]['name'] = $author;
                     $comms[$k]['subComment'][$index]['comment'] = $comment['text'];
                     $comms[$k]['subComment'][$index]['date'] = date_format(date_create($comment['created_at']), "m/d/y");

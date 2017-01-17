@@ -16,7 +16,7 @@ class Comment extends Model
         'commentable_type',
         'created_at'
     ];
-    public function commentable(){
-        return $this->morphTo();
+    public function author(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
