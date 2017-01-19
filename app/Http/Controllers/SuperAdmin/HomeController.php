@@ -27,14 +27,16 @@ class HomeController extends Controller
     }
     
     public function update(Request $request){
+        
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email'
+            'rest_name' => 'required',
         ]);
         
         $admin = Place::find($request->place_id)->admin;
 
-        Admin::find($admin->id)->update(['name' => $request->name, 'email' => $request->email]);
+        Admin::find($admin->id)->update(['name' => $request->admin_name, 'email' => $request->admin_email]);
+
+        Place::where('id', $request->place_id)->update(['name' => $request->rest_name, 'mobile' => $request->rest_phone]);
         
         return response()->json(['status'=>1]);
     }

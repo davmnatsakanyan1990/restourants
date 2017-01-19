@@ -17,7 +17,7 @@ class SearchController extends Controller
     
     public function search(){
         $id = request('search');
-        $place = Place::where('support_id', $id)->first()->toArray();
+        $place = Place::where('support_id', $id)->first();
         
         return view('super_admin/search_results', compact('place'));
     }
