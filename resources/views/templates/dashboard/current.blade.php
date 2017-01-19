@@ -238,7 +238,7 @@
                         <div class="commentContent" ng-repeat="com in currentRestaurant.comments">
                             <div class="clearElement commentTopPart">
                                 <div class="photo elementLeft marginR10" ng-bind="com.name.substring(0,1)">
-                                    <img src="images/users/<%com.img%>" ng-if="com.img"/>
+                                    <img ng-src="images/users/<%com.img%>" ng-if="com.img"/>
                                 </div>
                                 <div class="elementLeft">
                                     <div class="clearElement">
@@ -296,7 +296,7 @@
                                 <div class="commentContent" ng-repeat="sub in com.subComment">
                                     <div class="clearElement commentTopPart">
                                         <div class="photo elementLeft marginR10" ng-bind="sub.name.substring(0,1)">
-                                            <img src="images/users/<%sub.img%>" ng-if="sub.img"/>
+                                            <img ng-src="images/users/<%sub.img%>" ng-if="sub.img"/>
                                         </div>
                                         <div class="elementLeft">
                                             <div class="clearElement">
@@ -364,14 +364,14 @@
                                             <div class="item active">
                                                 <div class="row">
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in myNewArr[0] track by $index">
-                                                        <a class="thumbnail fancybox" rel="group" href= "<%image%>"><img src="<%image%>" style="max-width:100%;" alt="" ></a>
+                                                        <a class="thumbnail fancybox" rel="group" href= "<%image%>"><img ng-src="<%image%>" style="max-width:100%;" alt="" ></a>
                                                     </div>
                                                 </div><!--.row-->
                                             </div><!--.item-->
                                             <div class="item" ng-repeat="img in myNewArr track by $index">
                                                 <div class="row">
                                                     <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>" ng-repeat="image in img track by $index">
-                                                        <a  class="thumbnail fancybox" rel="group" href= "<%image%>"><img src="<%image%>" style="max-width:100%;" alt=""></a>
+                                                        <a  class="thumbnail fancybox" rel="group" href= "<%image%>"><img ng-src="<%image%>" style="max-width:100%;" alt=""></a>
                                                     </div>
                                                 </div><!--.row-->
                                             </div><!--.item-->
