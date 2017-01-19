@@ -1,5 +1,6 @@
 @mainColor:#3d3f52;
 @secondColor:white;
+@orangeColor: #ff7e00;
 
 .home-loader{
   display: block;
@@ -260,7 +261,7 @@ html{
         right: -16px;
         top: 50px;
         border: 1px solid;
-        color: #3d3f52;
+        color: @mainColor;
         text-align: center;
         padding: 5px;
         text-transform: capitalize;
@@ -282,7 +283,7 @@ html{
         }
         &:before {
           border-color: rgba(194, 225, 245, 0);
-          border-bottom-color: #3d3f52;
+          border-bottom-color: @mainColor;
           border-width: 12px;
           margin-left: -12px;
         }
@@ -1124,13 +1125,13 @@ html{
                 display: block;
               }
               &:hover{
-                border-left: 3px solid #00897b;
+                border-left: 3px solid @orangeColor;
                 padding-left: 4px;
-                color: #00897b;
+                color: @orangeColor;
                 cursor: pointer;
                 .textSection{
                   .title{
-                    color: #00897b;;
+                    color: @orangeColor;
                     transition: 0.1s;
                   }
                   /*.text{
@@ -1141,13 +1142,13 @@ html{
                 //transition: 0.3s;
               }
               &.active{
-                border-left: 3px solid #00897b;
+                border-left: 3px solid @orangeColor;
                 padding-left: 4px;
-                color: #00897b;
+                color: @orangeColor;
                 cursor: pointer;
                 .textSection{
                   .title{
-                    color: #00897b;
+                    color:@orangeColor;
                     transition: 0.1s;
                   }
                 }
@@ -1171,7 +1172,7 @@ html{
                   line-height: 25px;
                   position: relative;
                   margin: 0 0 10px;
-                  color: #23527c;
+                  color: @mainColor;
                   max-width: 300px;
                 }
                 .text{

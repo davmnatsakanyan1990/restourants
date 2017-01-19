@@ -1,12 +1,12 @@
 app.controller("currentController", function ($scope, $rootScope, $http, $document, $window, $timeout, $route, RestaurantService) {
     window.scrollTo(0, 0);
     var request = $route.current.params;
-    $scope.openPhoneInput = false;
-    $scope.CurrentMenu = '';
+    /*$scope.openPhoneInput = false;*/
+    /*$scope.CurrentMenu = '';*/
     $scope.writeComment = true;
     $scope.animateSecMenuVar = false;
-    $scope.haveData = false;
-    $scope.editedRating = false;
+    /*$scope.haveData = false;*/
+    /*$scope.editedRating = false;*/
 	// $rootScope.logedUser = false;
     $scope.$watch(function () {
         return $window.scrollY;
@@ -30,7 +30,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
     var restaurantId = request.id;
 
-    $scope.commentsCallData = {
+    var commentsCallData = {
         page: 1,
         place_id: restaurantId
     };
@@ -38,26 +38,15 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     RestaurantService.getRestaurantData(restaurantId)
         .then(function (response) {
             $scope.currentRestaurant = response.data;
-            $scope.moreCommentsToShow = $scope.currentRestaurant.more_comments;
-
-            //make map point
-            $scope.initMap({
-                zoom: 16,
-                center: new google.maps.LatLng($scope.currentRestaurant.lat, $scope.currentRestaurant.long),
-                scrollwheel: false,
-                mapTypeId: google.maps.MapTypeId.TERRAIN
-            });
-            createMarker(response.data.lat, response.data.long);
-
 
             //rating part
-            $scope.rating1 = $scope.currentRestaurant.rating != 0 ?$scope.currentRestaurant.rating : 1;
+            /*$scope.rating1 = $scope.currentRestaurant.rating != 0 ?$scope.currentRestaurant.rating : 1;
 
             $scope.isReadonly = true;
             $scope.rateFunction = function (rating) {
                 var rateData = rating;
                 $scope.editedRating = true;
-            };
+            };*/
             //
 
             $scope.hoursPart = $scope.currentRestaurant.workingHours;
@@ -66,13 +55,13 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                 var hoursArray = hoursString.split(',');
                 $scope.hoursPart[a] = hoursArray;
             }
-
+            $scope.moreCommentsToShow = $scope.currentRestaurant.more_comments;
             $scope.aboutPhoto = $scope.currentRestaurant.coverImages;
             $scope.coverImages =[];
             for(var k=1; k< $scope.aboutPhoto.length; k++){
                 $scope.coverImages.push($scope.aboutPhoto[k]);
             }
-            $scope.haveData = true;
+            /*$scope.haveData = true;*/
 
             //restaurants images part
             var arr = $scope.currentRestaurant.images;
@@ -142,14 +131,22 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                 }
             }
             $scope.$parent.docLoader = false;
+            //make map point
+            initMap({
+                zoom: 16,
+                center: new google.maps.LatLng($scope.currentRestaurant.lat, $scope.currentRestaurant.long),
+                scrollwheel: false,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            });
+            createMarker(response.data.lat, response.data.long);
 
         }.bind($scope));
 
 
     //
-    $scope.togglePhoneNumber = function () {
+    /*$scope.togglePhoneNumber = function () {
         $scope.openPhoneInput = $scope.openPhoneInput === false ? true : false;
-    };
+    };*/
     $scope.getSharesData = function (data) {
         $scope.SharesPopupData = data;
     };
@@ -170,9 +167,9 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
         //there will be call backend
 
 		RestaurantService.getMenu(data.id)
-			.then(function (response) {
+			/*.then(function (response) {
 				$scope.CurrentMenu = response.data
-         });
+         });*/
     };
     $scope.writeCommentNow = function (type) {
 
@@ -261,7 +258,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
 
         });
     };
-    $scope.initMap = function(mapOptions){
+    var initMap = function(mapOptions){
         var mapOptions = mapOptions || {
                 zoom: 16,
                 center: new google.maps.LatLng(40.0000, -98.0000),
@@ -273,8 +270,8 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     //end of map section
 
     $scope.moreComments = function(){
-        $scope.commentsCallData.page++;
-        RestaurantService.getMoreComments($scope.commentsCallData)
+        commentsCallData.page++;
+        RestaurantService.getMoreComments(commentsCallData)
             .then(function(response){
 
                 $scope.moreCommentsToShow = response.data.more_data;

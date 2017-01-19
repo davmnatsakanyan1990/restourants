@@ -284,7 +284,7 @@ app.controller('MapCtrl', function ($scope, $rootScope, $http, $document, $windo
         marker.content = '<div class="infoWindowContent">' + info.explane + '</div>';
 
         google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
+            infoWindow.setContent('<h4 style="color: #3d3f52">' + marker.title + '</h4>' + marker.content);
             infoWindow.open($scope.map, marker);
             $scope.clichedElementId = marker.id;
             /*var elementCollection = $('.info');
