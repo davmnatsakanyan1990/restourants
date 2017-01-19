@@ -14,20 +14,22 @@
             <div class="filterTitle">Filters</div>
             <form class="clearElement" method="get" action="{{ url('super_admin/places/all') }}">
                 <select class="floatLeft" name="city" style="margin-right: 10px;">
-                    <option {{ request('city') && request('city')== 'all' ? 'selected' : '' }} value="all">All</option>
+                    <option {{ request('city') && request('city')== 'all' ? 'selected' : '' }} value="all">All Cities</option>
                     @foreach($cities as $c)
                         <option {{ request('city') && request('city')==$c['id'] ? 'selected' : '' }} value="{{ $c['id'] }}">{{ $c['name'] }}</option>
                     @endforeach
                 </select>
                 <select class="floatLeft selectAdmin" name="admin">
                     <option value="">Select Admin</option>
-                    <option>oper1</option>
+                    @foreach($operators as $operator)
+                    <option {{ request('admin') && request('admin') == $operator['id'] ? 'selected' : '' }} value="{{ $operator['id'] }}">{{ $operator['name'] }}</option>
+                    @endforeach
                 </select>
-                <div class="radioGroup floatLeft">
-                    <input id="radio1" type="radio" name="status" value="all" {{ request('status') && request('status') == 'all' ? 'checked' : !request('status') ? 'checked' : '' }} class="floatLeft">
-                    <label for="radio1" class="floatLeft radioText">All</label>
-                    <div class="check"><div class="inside"></div></div>
-                </div>
+                {{--<div class="radioGroup floatLeft">--}}
+                    {{--<input id="radio1" type="radio" name="status" value="all" {{ request('status') && request('status') == 'all' ? 'checked' : !request('status') ? 'checked' : '' }} class="floatLeft">--}}
+                    {{--<label for="radio1" class="floatLeft radioText">All</label>--}}
+                    {{--<div class="check"><div class="inside"></div></div>--}}
+                {{--</div>--}}
                 <div class="radioGroup floatLeft">
                     <input id="radio2" type="radio" name="status" value="loggedIn" {{ request('status') && request('status') == 'loggedIn' ? 'checked' : '' }} class="floatLeft">
                     <label for="radio2" class="floatLeft radioText">Logged in</label>

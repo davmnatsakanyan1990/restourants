@@ -30,15 +30,24 @@ class PlaceController extends Controller
     public function index(Request $request){
         $city = $request->city;
         $status = $request->status;
+        $operators = GroupAdmin::all();
 
         $restaurants = Place::withTrashed()->with(['location'=>function($location){
             $location->with('city');
         }]);
-//        dd($restaurants->paginate(10));
+
+        if(!$request->status && !$request->city && !$request->admin){
+            $restaurants = $restaurants->whereNull('group_admin_id');
+        }
+
         if($request->city && $request->city != 'all') {
             $restaurants = $restaurants->whereHas('location', function ($query) use ($request) {
                 $query->where('city_id', $request->city);
             });
+        }
+
+        if($request->admin && $request->admin != ""){
+            $restaurants = $restaurants->where('group_admin_id', $request->admin);
         }
         if($request->status && $request->status == 'loggedIn'){
 
@@ -57,7 +66,7 @@ class PlaceController extends Controller
         $group_admins = GroupAdmin::all()->toArray();
         $cities = City::all()->toArray();
         
-        return view('super_admin.places', compact('restaurants', 'group_admins', 'cities', 'city', 'status'));
+        return view('super_admin.places', compact('restaurants', 'group_admins', 'cities', 'operators', 'city', 'status'));
         
     }
 
