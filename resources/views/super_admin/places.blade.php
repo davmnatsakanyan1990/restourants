@@ -13,11 +13,15 @@
         <div class="filters">
             <div class="filterTitle">Filters</div>
             <form class="clearElement" method="get" action="{{ url('super_admin/places/all') }}">
-                <select class="floatLeft" name="city">
+                <select class="floatLeft" name="city" style="margin-right: 10px;">
                     <option {{ request('city') && request('city')== 'all' ? 'selected' : '' }} value="all">All</option>
                     @foreach($cities as $c)
                         <option {{ request('city') && request('city')==$c['id'] ? 'selected' : '' }} value="{{ $c['id'] }}">{{ $c['name'] }}</option>
                     @endforeach
+                </select>
+                <select class="floatLeft selectAdmin" name="admin">
+                    <option value="">Select Admin</option>
+                    <option>oper1</option>
                 </select>
                 <div class="radioGroup floatLeft">
                     <input id="radio1" type="radio" name="status" value="all" {{ request('status') && request('status') == 'all' ? 'checked' : !request('status') ? 'checked' : '' }} class="floatLeft">
