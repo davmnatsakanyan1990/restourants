@@ -1048,9 +1048,9 @@ html body .content .pageSection .cont .infoContent .info a {
   display: block;
 }
 html body .content .pageSection .cont .infoContent .info:hover {
-  border-left: 3px solid #00897b;
+  border-left: 3px solid #ff7e00;
   padding-left: 4px;
-  color: #00897b;
+  color: #ff7e00;
   cursor: pointer;
 }
 html body .content .pageSection .cont .infoContent .info:hover .textSection {
@@ -1060,17 +1060,17 @@ html body .content .pageSection .cont .infoContent .info:hover .textSection {
                   }*/
 }
 html body .content .pageSection .cont .infoContent .info:hover .textSection .title {
-  color: #00897b;
+  color: #ff7e00;
   transition: 0.1s;
 }
 html body .content .pageSection .cont .infoContent .info.active {
-  border-left: 3px solid #00897b;
+  border-left: 3px solid #ff7e00;
   padding-left: 4px;
-  color: #00897b;
+  color: #ff7e00;
   cursor: pointer;
 }
 html body .content .pageSection .cont .infoContent .info.active .textSection .title {
-  color: #00897b;
+  color: #ff7e00;
   transition: 0.1s;
 }
 html body .content .pageSection .cont .infoContent .info .imageSection {
@@ -1093,7 +1093,7 @@ html body .content .pageSection .cont .infoContent .info .textSection .title {
   line-height: 25px;
   position: relative;
   margin: 0 0 10px;
-  color: #23527c;
+  color: #3d3f52;
   max-width: 300px;
 }
 html body .content .pageSection .cont .infoContent .info .textSection .text {
