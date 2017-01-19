@@ -2,9 +2,6 @@
 <meta charset="UTF-8">
 <title>Restadviser</title>
 <link rel="stylesheet" href="{{asset('fonts/fonts.css')}}" type="text/css" />
-<link href="{{asset('lib/owlcarousel-angularjs-master/owl-carousel/owl.carousel.css')}}" rel="stylesheet"/>
-<link href="{{asset('lib/owlcarousel-angularjs-master/owl-carousel/owl.theme.css')}}" rel="stylesheet"/>
-
 <link rel="stylesheet" href="{{asset('styles/ui.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{asset('styles/current.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{asset('styles/styleL.css')}}" type="text/css" />
