@@ -229,7 +229,7 @@ Route::post('contact_us', 'ContactUsController@sendMail');
  */
 Route::get('move/images', 'ApiController@movePlaceImages');
 Route::post('fill/places', 'ApiController@fillPlace');
-Route::get('fill/cuisines', 'ApiController@fillCuisines');
+Route::post('fill/cuisines', 'ApiController@fillCuisines');
 Route::post('fill/locations', 'ApiController@fillLocations');
 Route::get('assign/category', 'ApiController@assignCategory');
 Route::get('assign/type', 'ApiController@assignType');
