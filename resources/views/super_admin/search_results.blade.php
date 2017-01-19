@@ -6,10 +6,10 @@
             <div class="col-md-2"></div>
             <div class="col-md-6">
                 <h1 class="page-header">Result</h1>
-                <div class="result_section">
-                    <h3>Name: {{ $place['name'] }}</h3>
+                <div class="result_section" style="padding: 20px; background-color: white;">
+                    <h3 style="margin: 0; margin-bottom: 10px;">Name: {{ $place['name'] }}</h3>
                     <p>Phone: {{ $place['mobile'] }}</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button>
+                    <button type="button" class="btn btn-primary" style="border-radius: 0; border: 1px solid #ff7e00; background-color: #ff7e00; width: 100px;" data-toggle="modal" data-target="#myModal">Edit</button>
                 </div>
             </div>
             <div class="col-md-2"></div>
@@ -27,23 +27,23 @@
                 <div class="modal-body">
                    <form action="{{ url('super_admin/update') }}" method="post" id="modal_form">
                        <div class="form-group">
-                           <input name="rest_name" value="{{ $place->name }}" type="text" class="form-control" placeholder="Restaurant name">
+                           <input style="border-radius: 0; border: 1px solid #9e9e9e;" name="rest_name" value="{{ $place->name }}" type="text" class="form-control" placeholder="Restaurant name">
                        </div>
                        <div class="form-group">
-                           <input name="rest_phone" value="{{ $place->mobile }}" type="text" class="form-control" placeholder="(###)###-####">
+                           <input style="border-radius: 0; border: 1px solid #9e9e9e;" name="rest_phone" value="{{ $place->mobile }}" type="text" class="form-control" placeholder="(###)###-####">
                        </div>
                        <div class="form-group">
-                           <input name="admin_name" value="{{ $place->admin->name }}" type="text" class="form-control" placeholder="Name, surename">
+                           <input style="border-radius: 0; border: 1px solid #9e9e9e;" name="admin_name" value="{{ $place->admin->name }}" type="text" class="form-control" placeholder="Name, surename">
                        </div>
                        <div class="form-group">
-                           <input name="admin_email" value="{{ $place->admin->email }}" type="email" class="form-control" placeholder="Email">
+                           <input style="border-radius: 0; border: 1px solid #9e9e9e;" name="admin_email" value="{{ $place->admin->email }}" type="email" class="form-control" placeholder="Email">
                        </div>
                        <input type="hidden" name="place_id" value="{{ $place->id }}">
                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" name="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" style="background-color: #ff7e00; border: 1px solid #ff7e00; border-radius: 0;" name="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
