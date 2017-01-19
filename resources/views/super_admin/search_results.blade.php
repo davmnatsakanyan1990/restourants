@@ -8,7 +8,7 @@
             <div class="col-md-6 result_section">
                 <h3>Name: {{ $place['name'] }}</h3>
                 <p>Phone: {{ $place['mobile'] }}</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button>
             </div>
         </div>
     </div>
@@ -24,7 +24,13 @@
                 <div class="modal-body">
                    <form action="{{ url('super_admin/update') }}" method="post" id="modal_form">
                        <div class="form-group">
-                           <input name="name" type="text" class="form-control" placeholder="Name">
+                           <input name="name" type="text" class="form-control" placeholder="Restaurant name">
+                       </div>
+                       <div class="form-group">
+                           <input name="name" type="text" class="form-control" placeholder="Phone number">
+                       </div>
+                       <div class="form-group">
+                           <input name="name" type="text" class="form-control" placeholder="Name, surename">
                        </div>
                        <div class="form-group">
                            <input name="email" type="email" class="form-control" placeholder="Email">
