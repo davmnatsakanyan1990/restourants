@@ -1,15 +1,18 @@
 @extends('super_admin.layouts.index')
 
 @section('content')
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">Result</h1>
-
+    <div class="main">
         <div class="row">
-            <div class="col-md-6 result_section">
-                <h3>Name: {{ $place['name'] }}</h3>
-                <p>Phone: {{ $place['mobile'] }}</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button>
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h1 class="page-header">Result</h1>
+                <div class="result_section">
+                    <h3>Name: {{ $place['name'] }}</h3>
+                    <p>Phone: {{ $place['mobile'] }}</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button>
+                </div>
             </div>
+            <div class="col-md-2"></div>
         </div>
     </div>
 
