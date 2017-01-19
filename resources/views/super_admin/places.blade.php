@@ -31,7 +31,7 @@
                     {{--<div class="check"><div class="inside"></div></div>--}}
                 {{--</div>--}}
                 <div class="radioGroup floatLeft">
-                    <input id="radio2" type="radio" name="status" value="loggedIn" {{ request('status') && request('status') == 'loggedIn' ? 'checked' : '' }} class="floatLeft">
+                    <input id="radio2" type="checkbox" name="status" value="loggedIn" {{ request('status') && request('status') == 'loggedIn' ? 'checked' : '' }} class="floatLeft">
                     <label for="radio2" class="floatLeft radioText">Logged in</label>
                     <div class="check"><div class="inside"></div></div>
                 </div>

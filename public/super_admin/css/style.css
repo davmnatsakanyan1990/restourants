@@ -199,6 +199,12 @@ select:focus {
   position: absolute;
   visibility: hidden;
 }
+.restList .filters .radioGroup input[type=checkbox] {
+  margin-top: 10px;
+  cursor: pointer;
+  position: absolute;
+  visibility: hidden;
+}
 .restList .filters .radioGroup label {
   padding-left: 30px;
   display: block;
@@ -244,6 +250,15 @@ select:focus {
   background: #ff6600;
 }
 .restList .filters .radioGroup input[type=radio]:checked ~ label {
+  color: #ff6600;
+}
+.restList .filters .radioGroup input[type=checkbox]:checked ~ .check {
+  border: 3px solid #ff6600;
+}
+.restList .filters .radioGroup input[type=checkbox]:checked ~ .check::before {
+  background: #ff6600;
+}
+.restList .filters .radioGroup input[type=checkbox]:checked ~ label {
   color: #ff6600;
 }
 .restList .filters .filterTitle {

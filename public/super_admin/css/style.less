@@ -208,6 +208,12 @@ button, input, select{
         position: absolute;
         visibility: hidden;
       }
+      input[type=checkbox]{
+        margin-top: 10px;
+        cursor: pointer;
+        position: absolute;
+        visibility: hidden;
+      }
       label{
         padding-left: 30px;
         cursor: pointer;
@@ -259,6 +265,19 @@ button, input, select{
       }
 
       input[type=radio]:checked ~ label{
+        color: #ff6600;
+      }
+
+
+
+      input[type=checkbox]:checked ~ .check {
+        border: 3px solid #ff6600;
+      }
+      input[type=checkbox]:checked ~ .check::before{
+        background: #ff6600;
+      }
+
+      input[type=checkbox]:checked ~ label{
         color: #ff6600;
       }
 
