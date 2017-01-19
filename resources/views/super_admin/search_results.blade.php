@@ -27,18 +27,18 @@
                 <div class="modal-body">
                    <form action="{{ url('super_admin/update') }}" method="post" id="modal_form">
                        <div class="form-group">
-                           <input name="name" type="text" class="form-control" placeholder="Restaurant name">
+                           <input name="rest_name" value="{{ $place->name }}" type="text" class="form-control" placeholder="Restaurant name">
                        </div>
                        <div class="form-group">
-                           <input name="name" type="text" class="form-control" placeholder="Phone number">
+                           <input name="rest_phone" value="{{ $place->mobile }}" type="text" class="form-control" placeholder="(###)###-####">
                        </div>
                        <div class="form-group">
-                           <input name="name" type="text" class="form-control" placeholder="Name, surename">
+                           <input name="admin_name" value="{{ $place->admin->name }}" type="text" class="form-control" placeholder="Name, surename">
                        </div>
                        <div class="form-group">
-                           <input name="email" type="email" class="form-control" placeholder="Email">
+                           <input name="admin_email" value="{{ $place->admin->email }}" type="email" class="form-control" placeholder="Email">
                        </div>
-                       <input type="hidden" name="place_id" value="{{ $place['id'] }}">
+                       <input type="hidden" name="place_id" value="{{ $place->id }}">
                    </form>
                 </div>
                 <div class="modal-footer">
@@ -55,8 +55,10 @@
         $('button[name="submit"]').on('click', function(){
 
             var data = {};
-            data.name = $('#modal_form input[name="name"]').val();
-            data.email = $('#modal_form input[name="email"]').val();
+            data.rest_name = $('#modal_form input[name="rest_name"]').val();
+            data.rest_phone = $('#modal_form input[name="rest_phone"]').val();
+            data.admin_name = $('#modal_form input[name="admin_name"]').val();
+            data.admin_email = $('#modal_form input[name="admin_email"]').val();
             data.place_id = $('#modal_form input[name="place_id"]').val();
 
             $.ajax({
