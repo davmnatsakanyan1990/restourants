@@ -48,6 +48,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
                 $scope.editedRating = true;
             };*/
             //
+            console.log($scope.currentRestaurant.comments);
 
             $scope.hoursPart = $scope.currentRestaurant.workingHours;
             for(var a in $scope.hoursPart){
