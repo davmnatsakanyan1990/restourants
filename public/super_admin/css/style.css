@@ -274,6 +274,14 @@ select:focus {
   width: 70px;
   height: 30px;
 }
+.restList .filters .reset {
+  background-color: #e5e9ed;
+  border: none;
+  color: #ff6600;
+  margin-right: 10px;
+  width: 70px;
+  height: 30px;
+}
 .restList .filters select {
   height: 30px;
 }
