@@ -12,8 +12,7 @@ class Comment extends Model
         'text',
         'place_id',
         'parent_id',
-        'commentable_id',
-        'commentable_type',
+        'user_id',
         'created_at'
     ];
     public function author(){
