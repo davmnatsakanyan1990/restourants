@@ -38,12 +38,16 @@ class AdminComposer
 
     public function getRemainingTime(){
         $first_login = $this->admin->place->first_login;
-        $days = ((strtotime($first_login)+432000) - strtotime(date("Y-m-d H:i:s")))/86400;
+        $days = ((strtotime($first_login)+3600) - strtotime(date("Y-m-d H:i:s")))/86400;
+        
         if($days <= 0){
             return 0;
         }
         else{
-            return round($days);
+            if($days < 1)
+                return 1;
+            else
+                return round($days);
         }
     }
 }

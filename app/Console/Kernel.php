@@ -38,8 +38,8 @@ class Kernel extends ConsoleKernel
                     //get email sent time in Unix format
                     $activation_date = strtotime($place['first_login']);
 
-                    // deactivate place after 5 day
-                    if ($now > $activation_date + 432000) {
+                    // deactivate place after 1 day
+                    if ($now > $activation_date + 3600) {
                         Place::where('id', $place['id'])->delete();
                     }
                 }
