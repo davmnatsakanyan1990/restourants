@@ -36,6 +36,7 @@
                     <div class="check"><div class="inside"></div></div>
                 </div>
                 <button class="apply" type="submit">Apply</button>
+                <button class="floatRight reset" type="submit">Reset</button>
             </form>
         </div>
         @foreach($restaurants as $restaurant)
