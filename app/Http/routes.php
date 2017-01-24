@@ -59,6 +59,7 @@ Route::group([
     function(){
         Route::get('all', 'PlaceController@index');
         Route::post('update/{place_id}', 'PlaceController@update');
+        Route::get('export', 'PlaceController@exportPDF');
     });
 
 Route::group([
@@ -300,7 +301,7 @@ Route::get('assign_cover_image_random', function(){
 });
 
 Route::get('test', function(){
-    return view('group_admin.dashboard');
+    return view('super_admin.pdf_places');
 });
 
 
