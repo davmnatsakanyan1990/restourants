@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Phine\\Exception' => array($vendorDir . '/phine/exception/src/lib'),
     'Phine\\Country' => array($vendorDir . '/phine/country/src/lib'),
@@ -14,10 +15,10 @@ return array(
     'Maatwebsite\\Excel\\' => array($vendorDir . '/maatwebsite/excel/src'),
     'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
     'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
+    'FontLib\\' => array($vendorDir . '/phenx/php-font-lib/src'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
-    'Cron' => array($vendorDir . '/mtdowling/cron-expression/src'),
     'Camroncade\\Timezone\\' => array($vendorDir . '/camroncade/timezone/src'),
 );

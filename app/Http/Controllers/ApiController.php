@@ -274,7 +274,7 @@ class ApiController extends Controller
         $category_id = Category::where('name', $d['category'])->first()->id;
 
         foreach($d['restaurants'] as $restaurant){
-            $obj = Place::where('name', $restaurant['name'])->where('address', $restaurant['address'])->first();
+            $obj = Place::where('name', $restaurant['name'])->first();
 
             if($obj){
                 $place_id = $obj->id;

@@ -36,8 +36,9 @@
                     <div class="check"><div class="inside"></div></div>
                 </div>
                 <button class="apply" type="submit">Apply</button>
-                <button class="floatRight reset" type="submit">Reset</button>
+                <a href="{{ url()->current() }}"> <button class="floatRight reset" type="button">Reset</button></a>
             </form>
+            <button class="print">Print</button>
         </div>
         @foreach($restaurants as $restaurant)
             <div class="restaurant">
@@ -95,6 +96,20 @@
         @endforeach
         {{ $restaurants->appends(['city' => $city, 'status'=> $status])->links() }}
     </div>
+@endsection
+@section('scripts')
+    <script>
 
+        // PDF export
+        $('.print').on('click', function(){
+            var city = $('.filters form').find('select[name="city"]').val();
+            var admin = $('.filters form').find('select[name="admin"]').val();
+            var status = $('.filters form').find('input[name="status"]').is(':checked');
+            var data = location.search;
 
+            window.location.href = BASE_URL+'/super_admin/places/export'+data;
+
+        });
+
+    </script>
 @endsection

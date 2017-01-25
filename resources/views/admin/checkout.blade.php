@@ -254,24 +254,22 @@
                                     </div>
                                     <ul>
                                         <li>
-                                            <span>Plus</span>
+                                            <span> Plan ( Standard )</span>
                                             <span>$ {{ $plan->price }}</span>
                                         </li>
                                         <li>
-                                            <span>Taxes</span>
+                                            <span>Certificate of Excellence</span>
                                             <span>$ 0.00</span>
                                         </li>
                                         <li>
-                                            <span>Due taday</span>
+                                            <span>Totall</span>
                                             <span>$ {{ $plan->price }}</span>
                                         </li>
                                     </ul>
                                     <div class="order-block">
-                                        <p>Lorem Ipsum is simply dummy text of
-                                            the printing and typesetting industry.</p>
 
                                         <label>
-                                            <input name="terms" type="checkbox" class="checkbox" id="checkbox">
+                                            <input name="terms" type="checkbox" checked class="checkbox" id="checkbox">
                                             <label for="checkbox"></label>
                                             <span>I have read and agree to the <a href="{{ url('admin/terms_of_use') }}">Teams of Service</a></span>
                                         </label>

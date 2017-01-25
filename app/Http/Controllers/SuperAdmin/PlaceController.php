@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Dompdf\Dompdf;
 
 class PlaceController extends Controller
 {
@@ -36,7 +37,7 @@ class PlaceController extends Controller
             $location->with('city');
         }]);
 
-        if(!$request->status && !$request->city && !$request->admin){
+        if(!$request->status && !$request->city || $request->city == 'all' && !$request->admin){
             $restaurants = $restaurants->whereNull('group_admin_id');
         }
 
@@ -113,6 +114,50 @@ class PlaceController extends Controller
         // case 2: expired
         // case 3: purchased
         // case 4: remaining days
+
+    }
+
+    public function exportPDF(Request $request){
+        // reference the Dompdf namespace
+        $restaurants = Place::withTrashed()->with(['location'=>function($location){
+            $location->with('city');
+        }]);
+
+        if(!$request->status && !$request->city && !$request->admin){
+            $restaurants = $restaurants->whereNull('group_admin_id');
+        }
+
+        if($request->city && $request->city != 'all') {
+            $restaurants = $restaurants->whereHas('location', function ($query) use ($request) {
+                $query->where('city_id', $request->city);
+            });
+        }
+
+        if($request->admin && $request->admin != ""){
+            $restaurants = $restaurants->where('group_admin_id', $request->admin);
+        }
+        if($request->status && $request->status == 'loggedIn'){
+
+            $restaurants = $restaurants->whereNotNull('first_login');
+        }
+
+        $restaurants = $restaurants->paginate(20);
+        
+        $group_admins = GroupAdmin::all()->toArray();
+        
+ //instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+
+        $dompdf->loadHtml(view('super_admin.pdf_places', compact('restaurants', 'group_admins')));
+
+ //(Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+// Render the HTML as PDF
+        $dompdf->render();
+
+// Output the generated PDF to Browser
+        $dompdf->stream();
 
     }
 }
