@@ -12,12 +12,18 @@
 
 <script src="{{asset('lib/jquery-3.1.0.min.js')}}"></script>
 {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--}}
-<script src="{{asset('lib/fancybox/lib/jquery-1.10.1.min.js')}}"></script>
+{{--<script src="{{asset('lib/fancybox/lib/jquery-1.10.1.min.js')}}"></script>--}}
 <script src="{{asset('lib/chosen-js/chosen.jquery.js')}}"></script>
+<script src="{{asset('lib/OwlCarousel2-2.2.0/dist/owl.carousel.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+<script src="{{asset('lib/lightGallery-master/dist/js/lightgallery.min.js')}}"></script>
+<!-- lightgallery plugins -->
+
+
 
 <!-- Add mousewheel plugin (this is optional) -->
-<script type="text/javascript" src="{{asset('lib/fancybox/lib/jquery.mousewheel-3.0.6.pack.js')}}"></script>
-<script type="text/javascript" src="{{asset('lib/fancybox/source/jquery.fancybox.pack.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('lib/fancybox/lib/jquery.mousewheel-3.0.6.pack.js')}}"></script>
+<script type="text/javascript" src="{{asset('lib/fancybox/source/jquery.fancybox.pack.js')}}"></script>--}}
 
 
 
@@ -55,6 +61,7 @@
 <script src="{{asset('ng/directive/starRating.js')}}"></script>
 <script src="{{asset('ng/directive/loader.js')}}"></script>
 <script src="{{asset('ng/directive/validationDirective.js')}}"></script>
+<script src="{{asset('ng/directive/owl.js')}}"></script>
 
 {{--other js files--}}
 

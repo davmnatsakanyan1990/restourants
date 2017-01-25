@@ -1,6 +1,6 @@
 @mainColor:#3d3f52;
 @secondColor:white;
-
+@orangeColor: #ff7e00;
 .ban {
   width: 100%;
   height: 148px;
@@ -87,14 +87,35 @@ button{
 
 .navbar-default {
   .navbar-nav {
+    li{
+      margin-right: 25px;
+    }
     > .active {
       > a {
-        color: white !important;
-        background: rgba(52, 54, 74, 0.95) !important;
+        color: @orangeColor !important;
+        background-color: white !important;
       }
     }
     a{
-      color: white !important;
+      color: #919090 !important;
+      padding: 15px 0 !important;
+    }
+  }
+  &.fixedNav{
+    .navbar-nav {
+      li{
+        margin-right: 25px;
+      }
+      > .active {
+        > a {
+          color: @orangeColor !important;
+          background-color: transparent !important;
+        }
+      }
+      a{
+        color: white !important;
+        padding: 15px 0 !important;
+      }
     }
   }
 }
@@ -178,13 +199,58 @@ button{
 }
 .restPageContainer{
   width: 100%;
-  height: 150px;
-  position: relative;
+  .pageTop{
+    margin: 60px 30px 0 30px;
+    height: 350px;
+    .topLeft{
+      margin-right: 1%;
+      width: 34%;
+      overflow: hidden;
+      height: 100%;
+      .leftPart{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        .viewImage{
+          position: absolute;
+          top:40%;
+          left: 45%;
+          width: 40px;
+          height: 40px;
+          font-size: 23px;
+          background: rgba(52,54,74,.7);
+          color: white;
+          cursor: pointer;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          -webkit-box-align: center;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .rightPart{
+      width: 65%;
+    }
+    .mapPartMap{
+
+      .map{
+        border: 1px solid #efefef;
+        height: 350px;
+      }
+    }
+  }
   .pageContainer{
-    margin: 30px 30px 0 30px;
-    position: absolute;
-    top: -177px;
-    width: calc(100% - 60px);
+    margin: 15px 30px 0 30px;
+    width: 100%;
     .containerTop{
       padding: 30px;
       border-bottom: 1px solid #efefef;
@@ -193,13 +259,6 @@ button{
         content: '';
         display: table;
         clear: both;
-      }
-      .titlePart{
-        font-size: 30px;
-        /*margin-bottom: 20px;*/
-        font-weight: 500;
-        color: #ff7e00;
-        float: left;
       }
       .positioningCall{
         position: relative;
@@ -269,11 +328,11 @@ button{
           .infoTitle{
             font-size: 16px;
             font-weight: 700;
-            color: #00897B;
+            color: #777777;
             margin-bottom: 5px;
           }
           &.hourContent{
-            margin: 10px 10px 0 0;
+            margin: 10px 20px 0 20px;
             .infoHour{
               //font-weight: 500;
               margin-bottom: 5px;
@@ -285,7 +344,8 @@ button{
         }
         .hourBlock{
           background-color: #f3f3f3;
-          padding: 0 20px 20px 20px;
+          padding: 0 14px 20px 0;
+          margin-top: 20px;
         }
       }
 
@@ -323,14 +383,8 @@ button{
           border-bottom: 1px solid #efefef;
           font-size: 16px;
         }
-        .mapPartMap{
-          padding: 20px 20px 0 20px;
-          .map{
-            border: 1px solid #efefef;
-          }
-        }
         .mapPartContent{
-          padding: 20px;
+          padding-top: 20px;
           /*.moreInfoAddress{
             margin-bottom: 15px;
             .introTitle{
@@ -363,9 +417,26 @@ button{
             }
           }*/
         }
+        .working{
+          margin: 33px 20px 0 20px;
+          .introTitle{
+            font-weight: 700;
+            font-size: 20px;
+            border-bottom: 1px solid #bcbcbc;
+            .doubleBorder{
+              border-bottom: 2px solid #ff7e00;
+            }
+          }
+        }
+
       }
       .container1{
         background-color: white;
+        .titlePart{
+          font-weight: 500;
+          color: @orangeColor;
+          font-size: 20px;
+        }
       }
       .container3{
         .fillRestMenu{
@@ -690,3 +761,35 @@ footer{
   }
 }
 
+/*owl carusel*/
+.owl-cont{
+
+  .owl-carousel{
+    padding: 0 45px;
+    position: relative;
+    .owl-nav{
+      .owl-prev{
+        position: absolute;
+        left: 0;
+        top: 40%;
+        width: 30px;
+        height: 30px;
+        background-color: #C7C7CD;
+        text-align: center;
+        font-size: 20px;
+        color: @mainColor;
+      }
+      .owl-next{
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        right: 0;
+        top: 40%;
+        width: 30px;
+        height: 30px;
+        background-color: #C7C7CD;
+        color: @mainColor;
+      }
+    }
+  }
+}
