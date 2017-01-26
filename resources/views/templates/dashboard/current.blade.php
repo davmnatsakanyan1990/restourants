@@ -53,7 +53,7 @@
                             <li class="menuItem4 menuItem"><a class="pointer">Photos</a></li>
                         </ul>
                     </div>
-                    <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}" ng-if="!search">
+                    <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}" ng-if="!search && FixedRestMenu">
                         <span></span>
                         <span></span>
                         <span></span>
