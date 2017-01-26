@@ -1,53 +1,5 @@
 
     <div>
-
-        {{--<script src="{{asset('lib/star/star.js')}}"></script>--}}
-
-    {{--<nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
-        <div class="container-fluid animateSecond"  ng-if="search || animateSecMenuVar">
-            <ul class="nav navbar-nav">
-                <li ng-class="{'active': activePage=='page1'}" ng-click="activePage='page1'"><a class="pointer">Description</a></li>
-                --}}{{--<li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a class="pointer">Shares</a></li>--}}{{--
-                <li ng-class="{'active': activePage=='page3'}" ng-click="activePage='page3'"><a class="pointer">Menu</a></li>
-                --}}{{--<li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Specialists</a></li>--}}{{--
-                <li ng-class="{'active': activePage=='page2'}" ng-click="activePage='page2'"><a class="pointer">Reviews</a></li>
-                <!--<li ng-class="{'active': activePage=='page6'}" ng-click="activePage='page6'"><a href="#3dTour">3D-tour</a></li>-->
-                <li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Photos</a></li>
-            </ul>
-            <div class="elementRight mobileNumberPart"><span><i class="fa fa-phone" aria-hidden="true"></i></span><span ng-bind="currentRestaurant.mobileNumber"></span></div>
-        </div>
-        <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}" ng-if="!search">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>--}}
-    {{--<div id="carousel-id" class="carousel slide carus1" data-ride="carousel">
-
-        <div class="carousel-inner">
-
-            <div class="item" ng-repeat="img in coverImages">
-                <img alt="First slide" ng-src="../images/coverImages/<% img %>">
-            </div>
-            --}}{{--<div class="item">
-                <img alt="Second slide"  ng-src="../images/coverImages/<% coverImages[1] %>">
-            </div>--}}{{--
-            <div class="item active">
-                <img alt="Third slide" ng-src="../images/coverImages/<% aboutPhoto[0] %>">
-            </div>
-        </div>
-        <a class="left carousel-control" href=".carus1" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left">
-
-        </span>
-        </a>
-        <a class="right carousel-control" href=".carus1" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right">
-
-        </span>
-        </a>
-    </div>--}}
-
         <div class="restPageContainer">
             <div class="pageTop clearElement">
                 <div class="topLeft elementLeft" id="lightgallery">
@@ -81,24 +33,24 @@
                 <nav class="navbar navbar-default restNav" scroll ng-class="{'fixedNav': FixedRestMenu}">
                     <div class="container-fluid animateSecond" ng-if="!FixedRestMenu || search">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{'active': activePage=='page1'}" ng-click="activePage='page1'"><a class="pointer">Description</a></li>
+                            <li class="menuItem1 menuItem" ><a class="pointer">Description</a></li>
                             {{--<li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a class="pointer">Shares</a></li>--}}
-                            <li ng-class="{'active': activePage=='page3'}" ng-click="activePage='page3'"><a class="pointer">Menu</a></li>
+                            <li class="menuItem2 menuItem"><a class="pointer">Menu</a></li>
                             {{--<li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Specialists</a></li>--}}
-                            <li ng-class="{'active': activePage=='page2'}" ng-click="activePage='page2'"><a class="pointer">Reviews</a></li>
+                            <li class="menuItem3 menuItem"><a class="pointer">Reviews</a></li>
                             <!--<li ng-class="{'active': activePage=='page6'}" ng-click="activePage='page6'"><a href="#3dTour">3D-tour</a></li>-->
-                            <li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Photos</a></li>
+                            <li class="menuItem4 menuItem"><a class="pointer">Photos</a></li>
                         </ul>
                     </div>
                     <div class="container-fluid animateSecond"  ng-if="FixedRestMenu && animateSecMenuVar">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{'active': activePage=='page1'}" ng-click="activePage='page1'"><a class="pointer">Description</a></li>
+                            <li class="menuItem1 menuItem"><a class="pointer">Description</a></li>
                             {{--<li ng-class="{'active': activePage=='page5'}" ng-click="activePage='page5'"><a class="pointer">Shares</a></li>--}}
-                            <li ng-class="{'active': activePage=='page3'}" ng-click="activePage='page3'"><a class="pointer">Menu</a></li>
+                            <li class="menuItem2 menuItem"><a class="pointer">Menu</a></li>
                             {{--<li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Specialists</a></li>--}}
-                            <li ng-class="{'active': activePage=='page2'}" ng-click="activePage='page2'"><a class="pointer">Reviews</a></li>
+                            <li class="menuItem3 menuItem"><a class="pointer">Reviews</a></li>
                             <!--<li ng-class="{'active': activePage=='page6'}" ng-click="activePage='page6'"><a href="#3dTour">3D-tour</a></li>-->
-                            <li ng-class="{'active': activePage=='page4'}" ng-click="activePage='page4'"><a class="pointer">Photos</a></li>
+                            <li class="menuItem4 menuItem"><a class="pointer">Photos</a></li>
                         </ul>
                     </div>
                     <div class="mobile-menu-icon" ng-click="toggleSecondMenu()" ng-class="{'animate': animateSecMenuVar}" ng-if="!search">
