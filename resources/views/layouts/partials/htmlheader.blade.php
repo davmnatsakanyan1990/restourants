@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('lib/chosen-js/chosen.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('lib/angular-chosen-localytics/chosen-spinner.css')}}">
 
-<link type="text/css" rel="stylesheet" href="{{asset('lib/lightGallery-master/dist/css/lightGallery.css')}}" />
+<link type="text/css" rel="stylesheet" href="{{asset('lib/lightGallery-master/dist/css/lightgallery.css')}}" />
 
 <link rel="stylesheet" href="{{asset('lib/OwlCarousel2-2.2.0/dist/assets/owl.carousel.min.css')}}" />
 <link rel="stylesheet" href="{{asset('lib/OwlCarousel2-2.2.0/dist/assets/owl.theme.default.css')}}" />
