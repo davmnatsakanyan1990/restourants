@@ -731,21 +731,51 @@ footer{
 
 @media screen and (max-width: 800px){
   .restPageContainer{
+    .pageTop{
+      height: auto;
+      .topLeft{
+        float: none;
+        width: 100%;
+        height: 200px;
+        margin-right: 0;
+      }
+
+      .rightPart{
+        float: none;
+        width: 100%;
+      }
+      .mapPartMap{
+
+        .map{
+          border: 1px solid #efefef;
+          height: 200px;
+        }
+      }
+    }
     .pageContainer{
       top: -30px;
       .containerContent{
+        .containerPart{
+          .working{
+            margin: 20px 20px 0 0;
+            .introTitle {
+              width: 100% !important;
+            }
+          }
+        }
         .container1{
           .containerPart{
             padding: 15px;
             width: 100%;
             float: none;
-
+            .mapPartTitle{
+              padding-left:0;
+            }
             .mapPartMap {
               padding: 20px 10px 0;
             }
           }
         }
-
         .container5 {
           .commentContent {
             .subComment {
