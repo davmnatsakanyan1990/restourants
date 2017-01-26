@@ -37,8 +37,8 @@
                 </div>
                 <button class="apply" type="submit">Apply</button>
                 <a href="{{ url()->current() }}"> <button class="floatRight reset" type="button">Reset</button></a>
+                <button class="print floatRight">Print</button>
             </form>
-            <button class="print">Print</button>
         </div>
         @foreach($restaurants as $restaurant)
             <div class="restaurant">
