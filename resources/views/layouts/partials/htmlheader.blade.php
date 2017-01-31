@@ -42,3 +42,4 @@
 <script>
     var BASE_URL = '{{ url('/') }}';
 </script>
+<meta name="google-site-verification" content="vCAtGGKGB-o0mWtZsVJsJfjH6e34jJ3BqLMmh9cQ2KI" />

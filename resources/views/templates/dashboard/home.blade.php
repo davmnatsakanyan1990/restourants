@@ -1,4 +1,4 @@
-<div>
+<div id="home">
 
     <div class="content">
 

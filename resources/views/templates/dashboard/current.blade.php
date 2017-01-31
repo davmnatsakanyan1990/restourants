@@ -1,5 +1,5 @@
 
-    <div>
+    <div id="current" class="">
         <div class="restPageContainer">
             <div class="pageTop clearElement">
                 <div class="topLeft elementLeft" id="lightgallery">
@@ -364,72 +364,73 @@
 
                 </div>
             </div>
-            <footer>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="footerText" data-toggle="modal" data-target="#myModalLocation">Add location
-                            </div>
-                            <div class="footerText" data-toggle="modal" data-target="#myModalMaster">Register owner</div>
-                            <div class="footerText"><a href="forOrganization">For restaurant</a></div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="footerText"><a href="contacts">Contacts</a></div>
-                            <div class="footerText"><a href="aboutProject">About us</a></div>
-                            <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a mistake - let us know</div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 floating">
-                            <div class="footerText"><a href="privacyPolicy">Privacy policy</a></div>
-                            <div class="footerText"><a href="termsOfUse">Terms of use</a></div>
-                            <div class="footerSocial">
 
-                                <a socialshare
-                                   socialshare-type="share"
-                                   socialshare-provider="facebook"
-                                   socialshare-text="Restadviser"
-                                   socialshare-title="<% currentRestaurant.name %>"
-                                   socialshare-media="http://restadviser.com/images/coverImages/<% coverImages[0] %>"
-                                   socialshare-description = "<%currentRestaurant.address%>"
-                                   socialshare-url="<% lnk %>"
-                                   socialshare-via="129554920871527">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </a>
-                                <a
-                                   socialshare
-                                   socialshare-provider="twitter"
-                                   socialshare-text="<% currentRestaurant.name %>"
-                                   {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                   socialshare-url="<% lnk %>">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </a>
-                                <a
-                                        socialshare
-                                        socialshare-provider="linkedin"
-                                        socialshare-text="Restadviser"
-                                        socialshare-description="<% currentRestaurant.name %>"
-                                        {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                        socialshare-url="<%lnk%>">
-                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                </a>
-                                <a
-                                        socialshare
-                                        socialshare-provider="google"
-                                        socialshare-text="Restadviser"
-                                        {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                        socialshare-url="<%lnk%>">
-                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 floating">
-                            <div class="line"></div>
-                            <span class="copyRight">&copy; RestAdviser.com | All rights reserved.</span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="footerText" data-toggle="modal" data-target="#myModalLocation">Add location
+                        </div>
+                        <div class="footerText" data-toggle="modal" data-target="#myModalMaster">Register owner</div>
+                        <div class="footerText"><a href="forOrganization">For restaurant</a></div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="footerText"><a href="contacts">Contacts</a></div>
+                        <div class="footerText"><a href="aboutProject">About us</a></div>
+                        <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a mistake - let us know</div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 floating">
+                        <div class="footerText"><a href="privacyPolicy">Privacy policy</a></div>
+                        <div class="footerText"><a href="termsOfUse">Terms of use</a></div>
+                        <div class="footerSocial">
+
+                            <a socialshare
+                               socialshare-type="share"
+                               socialshare-provider="facebook"
+                               socialshare-text="Restadviser"
+                               socialshare-title="<% currentRestaurant.name %>"
+                               socialshare-media="http://restadviser.com/images/coverImages/<% coverImages[0] %>"
+                               socialshare-description = "<%currentRestaurant.address%>"
+                               socialshare-url="<% lnk %>"
+                               socialshare-via="129554920871527">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a
+                                    socialshare
+                                    socialshare-provider="twitter"
+                                    socialshare-text="<% currentRestaurant.name %>"
+                                    {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                    socialshare-url="<% lnk %>">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a
+                                    socialshare
+                                    socialshare-provider="linkedin"
+                                    socialshare-text="Restadviser"
+                                    socialshare-description="<% currentRestaurant.name %>"
+                                    {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                    socialshare-url="<%lnk%>">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a
+                                    socialshare
+                                    socialshare-provider="google"
+                                    socialshare-text="Restadviser"
+                                    {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
+                                    socialshare-url="<%lnk%>">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 floating">
+                        <div class="line"></div>
+                        <span class="copyRight">&copy; RestAdviser.com | All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     <!--show shares popup-->
     <div class="modal fade" id="myModalPop" role="dialog">

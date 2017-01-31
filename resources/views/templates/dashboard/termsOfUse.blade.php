@@ -1,9 +1,11 @@
 
 
 
-    <div class="organizationContent">
+    <div id="termsOfUse" class="organizationContent">
         <div class="organization">
-            <div class="organizationTitle">I. Acceptance of terms</div>
+            <div class="organizationTitle">
+                <h1>I. Acceptance of terms</h1>
+            </div>
             <div class="subContent">
                 Thank you for using RestAdviser. These Terms of Service (the "Terms") are intended to make you aware of
                 your legal rights and responsibilities with respect to your access to and use of the RestAdviser website

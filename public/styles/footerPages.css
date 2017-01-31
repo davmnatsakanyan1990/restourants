@@ -15,6 +15,10 @@
   font-family: 'Museo Slab 500';
   color: #3d3d3d;
 }
+.organizationContent .organization .organizationTitle h1 {
+  text-align: left;
+  font-size: 50px;
+}
 .organizationContent .organization .subTitle {
   margin-top: 10px;
   font-size: 30px;
@@ -201,6 +205,10 @@
   padding-top: 70px;
 }
 .contacts .topImage .contactText .contactTitle {
+  font-size: 65px;
+  font-family: 'Museo Slab 500';
+}
+.contacts .topImage .contactText .contactTitle h1 {
   font-size: 65px;
   font-family: 'Museo Slab 500';
 }

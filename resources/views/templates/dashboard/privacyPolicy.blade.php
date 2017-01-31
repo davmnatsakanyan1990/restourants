@@ -1,7 +1,7 @@
 
-    <div class="organizationContent">
+    <div id="privacyPolicy" class="organizationContent">
         <div class="organization">
-            <div class="organizationTitle">Privacy policy</div>
+            <div class="organizationTitle"><h1>Privacy policy</h1></div>
             <div class="subContent">RestAdviser Private Limited (<span class="special">"RestAdviser,"</span> the <span class="special">"Company,""we," "us,"</span> and <span class="special">"our," </span>)
                 respect your privacy and are committed to protecting it through our compliance with this privacy policy. This policy describes:
                 <ul>
