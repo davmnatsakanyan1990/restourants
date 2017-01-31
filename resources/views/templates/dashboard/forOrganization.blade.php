@@ -112,16 +112,16 @@
                     <div class="footerText" data-toggle="modal" data-target="#myModalLocation">Add location
                     </div>
                     <div class="footerText" data-toggle="modal" data-target="#myModalMaster">Register owner</div>
-                    <div class="footerText"><a href="#forOrganization">For restaurant</a></div>
+                    <div class="footerText"><a href="forOrganization">For restaurant</a></div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footerText"><a href="#contacts">Contacts</a></div>
-                    <div class="footerText"><a href="#aboutProject">About us</a></div>
+                    <div class="footerText"><a href="contacts">Contacts</a></div>
+                    <div class="footerText"><a href="aboutProject">About us</a></div>
                     <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a mistake - let us know</div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 floating">
-                    <div class="footerText"><a href="#privacyPolicy">Privacy policy</a></div>
-                    <div class="footerText"><a href="#termsOfUse">Terms of use</a></div>
+                    <div class="footerText"><a href="privacyPolicy">Privacy policy</a></div>
+                    <div class="footerText"><a href="termsOfUse">Terms of use</a></div>
                     <div class="footerSocial">
                         <a socialshare
                            socialshare-provider="facebook"
@@ -129,7 +129,7 @@
                            socialshare-text="Restadviser"
                            socialshare-title="Restadviser"
                            socialshare-media="http://restadviser.com/images/coverImages/cover1.png"
-                           socialshare-url="http://restadviser.com/#/forOrganization"
+                           socialshare-url="http://restadviser.com/forOrganization"
                            socialshare-via="129554920871527">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
@@ -138,7 +138,7 @@
                                 socialshare-provider="twitter"
                                 socialshare-text="Restadviser"
                                 {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="http://restadviser.com/#/forOrganization">
+                                socialshare-url="http://restadviser.com/forOrganization">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
                         <a
@@ -146,7 +146,7 @@
                                 socialshare-provider="linkedin"
                                 socialshare-text="Restadviser"
                                 {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="http://restadviser.com/#/forOrganization">
+                                socialshare-url="http://restadviser.com/forOrganization">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                         <a
@@ -154,7 +154,7 @@
                                 socialshare-provider="google"
                                 socialshare-text="Restadviser"
                                 {{--socialshare-hashtags="angularjs, angular-socialshare"--}}
-                                socialshare-url="http://restadviser.com/#/forOrganization">
+                                socialshare-url="http://restadviser.com/forOrganization">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                         </a>
                     </div>

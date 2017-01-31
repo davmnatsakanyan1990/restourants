@@ -371,16 +371,16 @@
                             <div class="footerText" data-toggle="modal" data-target="#myModalLocation">Add location
                             </div>
                             <div class="footerText" data-toggle="modal" data-target="#myModalMaster">Register owner</div>
-                            <div class="footerText"><a href="#forOrganization">For restaurant</a></div>
+                            <div class="footerText"><a href="forOrganization">For restaurant</a></div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="footerText"><a href="#contacts">Contacts</a></div>
-                            <div class="footerText"><a href="#aboutProject">About us</a></div>
+                            <div class="footerText"><a href="contacts">Contacts</a></div>
+                            <div class="footerText"><a href="aboutProject">About us</a></div>
                             <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a mistake - let us know</div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-12 floating">
-                            <div class="footerText"><a href="#privacyPolicy">Privacy policy</a></div>
-                            <div class="footerText"><a href="#termsOfUse">Terms of use</a></div>
+                            <div class="footerText"><a href="privacyPolicy">Privacy policy</a></div>
+                            <div class="footerText"><a href="termsOfUse">Terms of use</a></div>
                             <div class="footerSocial">
 
                                 <a socialshare

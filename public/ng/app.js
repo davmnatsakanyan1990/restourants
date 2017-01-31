@@ -50,5 +50,6 @@ app.config(['$interpolateProvider', '$routeProvider','$locationProvider',
                 templateUrl : "templates/dashboard/current",
                 controller : "currentController"
             });
+        $locationProvider.html5Mode(true);
 
     }]);

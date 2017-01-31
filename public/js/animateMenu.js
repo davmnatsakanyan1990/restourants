@@ -25,18 +25,19 @@ $( document ).ready(function() {
                 $(menuItem[i]).removeClass('active')
             }
         }
-        if(scroll>=0 && scroll<$(items[1]).offset().top-$('html body .restNav').height()){
-            $(items1).addClass('active')
-        }else if(scroll>=$(items[1]).offset().top-$('html body .restNav').height() && scroll<$(items[2]).offset().top-$('html body .restNav').height()){
-            $(items2).addClass('active')
-        }else if(scroll>=$(items[2]).offset().top-$('html body .restNav').height() && scroll<$(items[3]).offset().top-$('html body .restNav').height()){
-            $(items3).addClass('active')
-        }
-        else if(scroll>=$(items[3]).offset().top-$('html body .restNav').height()){
-            $(items4).addClass('active')
-        }
 
-
+        if(items[1]){
+            if(scroll>=0 && scroll<$(items[1]).offset().top-$('html body .restNav').height()){
+                $(items1).addClass('active')
+            }else if(scroll>=$(items[1]).offset().top-$('html body .restNav').height() && scroll<$(items[2]).offset().top-$('html body .restNav').height()){
+                $(items2).addClass('active')
+            }else if(scroll>=$(items[2]).offset().top-$('html body .restNav').height() && scroll<$(items[3]).offset().top-$('html body .restNav').height()){
+                $(items3).addClass('active')
+            }
+            else if(scroll>=$(items[3]).offset().top-$('html body .restNav').height()){
+                $(items4).addClass('active')
+            }
+        }
     });
 });
 

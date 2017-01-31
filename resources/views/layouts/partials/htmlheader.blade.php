@@ -30,8 +30,7 @@
 <meta property="og:title" content="Restadviser">
 <meta property="og:image" content="http://restadviser.com/images/coverImages/cover18.png">
 <meta property="og:description" content="We are Restadviser team">
-
-
+<base href="/">
 <!-- Add fancyBox -->
 {{--<link rel="stylesheet" href="{{asset('lib/fancybox/source/jquery.fancybox.css')}}" type="text/css" media="screen" />--}}
 

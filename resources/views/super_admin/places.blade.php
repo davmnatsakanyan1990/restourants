@@ -101,7 +101,8 @@
     <script>
 
         // PDF export
-        $('.print').on('click', function(){
+        $('.print').on('click', function(event){
+            event.preventDefault();
             var city = $('.filters form').find('select[name="city"]').val();
             var admin = $('.filters form').find('select[name="admin"]').val();
             var status = $('.filters form').find('input[name="status"]').is(':checked');

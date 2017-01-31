@@ -8,8 +8,11 @@ app.factory('RestaurantService', function($http) {
         },
         getRestaurantsList: function(data) {
            return $http({
-                method : "GET",
-                url : data.city+"/restaurants?page="+ data.page
+                method : "POST",
+                url : data.city+"/restaurants",
+               data: {
+                    page: data.page,
+               }
             })
         },
 		getLogedUser: function(data) {

@@ -15,11 +15,10 @@
                 <div class=""><!--slider-->
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-
                             <div class="item">
                                 <div class="row">
                                     <div class="col-md-3 col-xs-3 col-sm-3" ng-repeat="cat in category track by $index">
-                                        <a class="thumbnail categoryBlock" href="#/<% city %>/category/<% cat.name %>/<% cat.id %>"
+                                        <a class="thumbnail categoryBlock" href="<% city %>/category/<% cat.name %>/<% cat.id %>"
                                            style="width: 60px; height: 70px; margin: 0 auto;  border: none; cursor: pointer" >
                                             <img ng-src="<%cat.image%>" style="max-width:100%;" class="categoryImage">
                                             <img ng-src="<%cat.image2%>" style="max-width:100%;" class="categoryHoverImage">
@@ -28,51 +27,8 @@
                                             </div>
                                         </a>
                                     </div>
-
                                 </div>
                             </div>
-
-                           {{-- <div id="Carousel" class="carus2 carousel slide carouselTop">
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-
-                                    <div class="item active">
-                                        <div class="row">
-                                            <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>"
-                                                 ng-repeat="cat in myNewArr[0] track by $index">
-                                                <a  class="thumbnail"
-                                                   style="width: 60px; height: 70px; margin: 0 auto; border: none;">
-                                                    <img src="<%cat.image%>" style="max-width:100%;">
-                                                    <div class="text"
-                                                         style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
-                                                        <% cat.name %>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item" ng-repeat="cat in myNewArr track by $index">
-                                        <div class="row">
-                                            <div class="col-md-<%cal%> col-xs-<%cal%> col-sm-<%cal%>"
-                                                 ng-repeat="category in cat track by $index">
-                                                <a class="thumbnail"
-                                                   style="width: 60px; height: 70px; margin: 0 auto;  border: none;">
-                                                    <img src="<%category.image%>" style="max-width:100%;">
-                                                    <div class="text"
-                                                         style="font-size: 11px; color: #3c3e51; margin-top: 5px;">
-                                                        <% category.name %>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div><!--.carousel-inner-->
-                                <a data-slide="prev" href=".carus2" class="carousel-control left cont"
-                                   style="left: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">‹</a>
-                                <a data-slide="next" href=".carus2" class="carousel-control right cont"
-                                   style="right: -42px; top: -41px; height: inherit;  width: inherit; background: none; font-size: 90px; color: #3c3e51; font-weight: 100;">›</a>
-                            </div><!--.Carousel-->--}}
                         </div>
                     </div>
                 </div><!--.container-->
@@ -268,7 +224,7 @@
                 <div class="infoContent style-3" ng-if="markers.length>0">
                     <div class="info <% info.id %>" ng-repeat="info in markers track by $index" ng-class="{'active': clichedElementId == info.id}"
                           ng-mouseenter="openInfoWindow($event, info)">
-                        <a href="#/<% city %>/<% info.title %>/<% info.id %>" class="clearElement">
+                        <a href="<% city %>/<% info.title %>/<% info.id %>" class="clearElement">
                             <div ng-if="info.image" class="imageSection" style="background-image: url('../images/restaurantImages/<%info.image %>')">
                             </div>
                             <div class="textSection">
@@ -323,14 +279,14 @@
                         <div class="footerSec">
                             <div class="footerText" data-toggle="modal" data-target="#myModalLocation">Add location</div>
                             <div class="footerText" data-toggle="modal" data-target="#myModalMaster">Register owner</div>
-                            <div class="footerText"><a href="#forOrganization">For restaurant</a></div>
-                            <div class="footerText"><a href="#contacts">Contacts</a></div>
+                            <div class="footerText"><a href="forOrganization">For restaurant</a></div>
+                            <div class="footerText"><a href="contacts">Contacts</a></div>
                         </div>
                         <div class="footerSec">
-                            <div class="footerText"><a href="#aboutProject">About us</a></div>
+                            <div class="footerText"><a href="aboutProject">About us</a></div>
                             <div class="footerText" data-toggle="modal" data-target="#myModalLet">Noticed a mistake - let us know</div>
-                            <div class="footerText"><a href="#privacyPolicy">Privacy policy</a></div>
-                            <div class="footerText"><a href="#termsOfUse">Terms of use</a></div>
+                            <div class="footerText"><a href="privacyPolicy">Privacy policy</a></div>
+                            <div class="footerText"><a href="termsOfUse">Terms of use</a></div>
                         </div>
                     </div>
                     <div class="footerSocial">
