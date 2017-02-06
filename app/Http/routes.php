@@ -302,8 +302,8 @@ Route::get('assign_cover_image_random', function(){
     }
 });
 
-Route::get('test', function(){
-    return view('super_admin.pdf_places');
+Route::get('analytics', function(){
+    return view('Analytics');
 });
 
 Route::any('{catchcall}',function() {
