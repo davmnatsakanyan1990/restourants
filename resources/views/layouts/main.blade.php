@@ -324,12 +324,12 @@
     </div>
 </div>
 <!---->
-    <script type="text/javascript">
+   {{-- <script type="text/javascript">
         $(document).ready(function() {
 
             $(".fancybox").fancybox();
         });
-    </script>
+    </script>--}}
     <!---->
 </body>
 </html>

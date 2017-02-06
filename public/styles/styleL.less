@@ -2,6 +2,9 @@
 @secondColor:white;
 @orangeColor: #ff7e00;
 
+h1{
+  text-align: left;
+}
 .home-loader{
   display: block;
   position: fixed;
@@ -829,18 +832,26 @@ html{
       }
     }
     .restNav{
-      font-size: 16px;
-      position: absolute;
+      float: left;
+      position: static;
+      background-color: white;
       top: 45px;
       left: 0;
       z-index: 11;
-      width: 100%;
       border: none;
       border-radius: 0;
-      background: rgba(52, 54, 74, 0.7);
+      font-size: 20px;
+      font-weight: 600;
+      .container-fluid{
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+      }
       &.fixedNav{
         position: fixed;
         top: 0;
+        background-color: rgba(60, 62, 81, 0.8);
+        width: 100%;
+        padding-left: 57px;
       }
     }
     .maps{
@@ -1382,9 +1393,9 @@ html{
 @media screen and (max-width: 767px) {
   html{
     body{
-     .restNav {
+     /*.restNav {
        display: none;
-     }
+     }*/
       .searchMenuPart{
         width: 100% !important;
         input{

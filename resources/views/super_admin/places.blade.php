@@ -37,8 +37,8 @@
                 </div>
                 <button class="apply" type="submit">Apply</button>
                 <a href="{{ url()->current() }}"> <button class="floatRight reset" type="button">Reset</button></a>
+                <button class="print floatRight">Print</button>
             </form>
-            <button class="print">Print</button>
         </div>
         @foreach($restaurants as $restaurant)
             <div class="restaurant">
@@ -101,7 +101,8 @@
     <script>
 
         // PDF export
-        $('.print').on('click', function(){
+        $('.print').on('click', function(event){
+            event.preventDefault();
             var city = $('.filters form').find('select[name="city"]').val();
             var admin = $('.filters form').find('select[name="admin"]').val();
             var status = $('.filters form').find('input[name="status"]').is(':checked');

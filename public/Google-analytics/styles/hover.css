@@ -1,0 +1,7 @@
+.site-header .header-menu-block .header-menu-block-cont nav div ul > li > ul li a:hover {
+  font-family: GEInspiraBold;
+}
+
+.site-header .header-menu-block .header-menu-block-cont nav div ul > li:hover > ul {
+  display: block;
+}

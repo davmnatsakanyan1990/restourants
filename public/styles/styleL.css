@@ -1,3 +1,6 @@
+h1 {
+  text-align: left;
+}
 .home-loader {
   display: block;
   position: fixed;
@@ -764,19 +767,27 @@ html body .navigation .dropdownMenu .dropdownInner .fa-times {
   cursor: pointer;
 }
 html body .restNav {
-  font-size: 16px;
-  position: absolute;
+  float: left;
+  position: static;
+  background-color: white;
   top: 45px;
   left: 0;
   z-index: 11;
-  width: 100%;
   border: none;
   border-radius: 0;
-  background: rgba(52, 54, 74, 0.7);
+  font-size: 20px;
+  font-weight: 600;
+}
+html body .restNav .container-fluid {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 html body .restNav.fixedNav {
   position: fixed;
   top: 0;
+  background-color: rgba(60, 62, 81, 0.8);
+  width: 100%;
+  padding-left: 57px;
 }
 html body .maps {
   position: fixed !important;
@@ -1273,8 +1284,10 @@ html body .uppercase {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 @media screen and (max-width: 767px) {
-  html body .restNav {
-    display: none;
+  html body {
+    /*.restNav {
+       display: none;
+     }*/
   }
   html body .searchMenuPart {
     width: 100% !important;

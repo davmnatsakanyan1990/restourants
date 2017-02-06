@@ -1,0 +1,36 @@
+ @font-face {
+    font-family: GEInspira; 
+    src: url(../fonts/GEInspira/GEInspira.ttf); 
+   }
+
+@font-face {
+font-family: GEInspiraItalic; 
+src: url(../fonts/GEInspiraItalic/GEInspiraItalic.ttf); 
+}
+
+@font-face {
+font-family: GEInspiraBold; 
+src: url(../fonts/GEInspiraBold/GEInspiraBold.ttf); 
+}
+
+
+body {
+	margin: 0;
+}
+
+.header-top-block {
+	margin: 15px 0 0 0;
+} 
+
+.site-header .header-top-block .left-block .logo-block {}
+
+.site-header .header-top-block .right-block .logo-block {}
+
+.site-header .header-top-block .left-block .logo-block > a {
+	display: block;
+    text-decoration: none;
+    width: 87px;
+    height: 49px;
+    background: url("../images/KOOB-Logo.png") no-repeat 0 0/100% auto;
+    text-indent: -99999px;
+} 

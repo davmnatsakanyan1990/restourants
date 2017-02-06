@@ -18,6 +18,7 @@ use App\Models\Place;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
+
 Route::get('/', function () {
     return view('layouts.main');
 });
@@ -207,7 +208,8 @@ Route::group([
 /**
  * Angular Calls
  */
-Route::get('{city}/restaurants', 'PlaceController@index');
+Route::post('{city}/restaurants', 'PlaceController@index');
+
 Route::get('root/data', 'HomeController@getRootData');
 Route::get('{city}/restaurants/more', 'PlaceController@loadMore');
 Route::get('{city}/restaurants/filter', 'PlaceController@filter');
@@ -300,8 +302,10 @@ Route::get('assign_cover_image_random', function(){
     }
 });
 
-Route::get('test', function(){
-    return view('super_admin.pdf_places');
+Route::get('analytics', function(){
+    return view('Analytics');
 });
 
-
+Route::any('{catchcall}',function() {
+    return Redirect::to('/#/' . Request::path());
+})->where('catchcall','(.*)');
