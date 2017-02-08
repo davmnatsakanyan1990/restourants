@@ -29,7 +29,7 @@ class ApiController extends Controller
      * Move downloaded images to the project
      */
     public function movePlaceImages(){
-        $images = Image::where('imageable_type', 'App\Models\Place')->where('imageable_id','>',4804)->get()->toArray();
+        $images = Image::where('imageable_type', 'App\Models\Place')->where('imageable_id','>',6309)->get()->toArray();
 
         foreach ($images as $image){
             $exist = File::exists('C:\Users\Designer\Downloads\\'.$image['name']);

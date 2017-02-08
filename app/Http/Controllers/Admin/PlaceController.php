@@ -49,7 +49,7 @@ class PlaceController extends Controller
 
         $all_categories = Category::all()->toArray();
 
-        $cover_images = Place::with('coverImages')->find($this->place->id)->coverImages->toArray();
+        $cover_images = Place::withTrashed()->find($this->place->id)->coverImages->toArray();
 
         $hours = array();
 
