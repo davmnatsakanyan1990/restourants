@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     @include("layouts.partials.htmlheader")
-    @include("layouts.partials.scripts")
 </head>
 <body ng-app="myApp" ng-controller="rootController">
 <script>
@@ -323,13 +322,6 @@
 
     </div>
 </div>
-<!---->
-   {{-- <script type="text/javascript">
-        $(document).ready(function() {
-
-            $(".fancybox").fancybox();
-        });
-    </script>--}}
-    <!---->
+@include("layouts.partials.scripts")
 </body>
 </html>

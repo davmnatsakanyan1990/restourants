@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=$("#biggestElement").outerHeight();$(".blockRect").css("height",e)});

@@ -1,0 +1,1 @@
+.star-rating{margin:0;padding:0;display:inline-block}.star-rating .star{padding:1px;color:#ddd;font-size:20px;list-style-type:none;display:inline-block;cursor:pointer}.star-rating .star.filled{color:#ff7e00}.star-rating.readonly .star.filled{color:#666}

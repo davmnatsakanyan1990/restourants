@@ -2,7 +2,7 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
     window.scrollTo(0, 0);
     var request = $route.current.params;
     /*$scope.openPhoneInput = false;*/
-    /*$scope.CurrentMenu = '';*/
+    $scope.CurrentMenu = '';
     $scope.writeComment = true;
     $scope.animateSecMenuVar = false;
     /*$scope.haveData = false;*/
@@ -111,9 +111,9 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
         //there will be call backend
 
 		RestaurantService.getMenu(data.id)
-			/*.then(function (response) {
+			.then(function (response) {
 				$scope.CurrentMenu = response.data
-         });*/
+         });
     };
     $scope.writeCommentNow = function (type) {
 

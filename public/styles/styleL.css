@@ -1643,3 +1643,14 @@ html body .uppercase {
     width: 450px;
   }
 }
+@media screen and (max-width: 600px) {
+  html body .maps {
+    display: none;
+  }
+  html body .content .pageSection {
+    width: 100%;
+  }
+  html body .content .pageSection .cont .infoContent {
+    max-height: none;
+  }
+}
