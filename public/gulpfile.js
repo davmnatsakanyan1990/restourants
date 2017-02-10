@@ -3,6 +3,8 @@ var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var minify = require('gulp-minify');
 var ngmin = require('gulp-ngmin');
+var less = require('gulp-less');
+var path = require('path');
 
 gulp.task('compress', function() {
     gulp.src('js/*.js')
@@ -23,5 +25,13 @@ gulp.task('ng', function () {
         .pipe(gulp.dest('ngmini'));
 });
 
+gulp.task('less', function () {
+    gulp.src('./styles/all.less')
+        .pipe(less())
+        .pipe(gulp.dest('./styles/'))
+        .pipe(cssmin())
+        .pipe(gulp.dest('./css'))
 
-gulp.task('default', [ 'ng' ]);
+});
+
+gulp.task('default', [ 'less' ]);

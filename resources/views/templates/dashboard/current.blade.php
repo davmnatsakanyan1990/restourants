@@ -3,7 +3,7 @@
         <div class="restPageContainer">
             <div class="pageTop clearElement">
                 <div class="topLeft elementLeft" id="lightgallery">
-                    <a ng-repeat="img in coverImages" href="../images/coverImages/<%img%>">
+                    <a ng-repeat="img in aboutPhoto" href="../images/coverImages/<%img%>">
                         <img src="../images/coverImages/<%img%>" style="display: none"/>
                         <div class="leftPart" style="background-image: url('../images/coverImages/<%img%>')" id="lightgallery">
                             <div class="viewImage">

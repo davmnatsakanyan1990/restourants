@@ -281,8 +281,10 @@ button:focus {
   font-weight: 700;
   margin-right: 20px;
   font-size: 18px;
+  color: #808080;
 }
 .restPageContainer .pageContainer .containerContent .moreInfoAddress .introContent {
+  color: #939393;
   font-size: 16px;
   display: inline-table;
 }
@@ -325,20 +327,24 @@ button:focus {
   margin-top: 20px;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .moreInfo .introTitle {
+  color: #808080;
   font-weight: 700;
   font-size: 20px;
   border-bottom: 1px solid #bcbcbc;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .moreInfo .introTitle .doubleBorder {
+  display: inline-block;
   border-bottom: 2px solid #ff7e00;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .moreInfo .introContent {
   font-size: 16px;
+  color: #939393;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartTitle {
   padding: 0 0 20px 20px;
   border-bottom: 1px solid #efefef;
   font-size: 16px;
+  color: #939393;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .mapPartContent {
   padding-top: 20px;
@@ -381,8 +387,10 @@ button:focus {
   font-weight: 700;
   font-size: 20px;
   border-bottom: 1px solid #bcbcbc;
+  color: #808080;
 }
 .restPageContainer .pageContainer .containerContent .containerPart .working .introTitle .doubleBorder {
+  display: inline-block;
   border-bottom: 2px solid #ff7e00;
 }
 .restPageContainer .pageContainer .containerContent .container1 {
@@ -509,6 +517,10 @@ button:focus {
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .name {
   font-size: 16px;
   font-weight: 700;
+  color: #808080;
+}
+.restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .time {
+  color: #808080;
 }
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .commentTopPart .photo {
   width: 40px;
@@ -526,6 +538,7 @@ button:focus {
   height: auto;
 }
 .restPageContainer .pageContainer .containerContent .container5 .commentContent .comment {
+  color: grey;
   max-width: 800px;
   display: inline-block;
 }
@@ -589,6 +602,7 @@ button:focus {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: #808080;
 }
 .restPageContainer .pageContainer .containerContent .pages .containerContent {
   display: block;

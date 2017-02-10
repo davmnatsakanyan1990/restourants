@@ -59,10 +59,6 @@ app.controller("currentController", function ($scope, $rootScope, $http, $docume
             }
             $scope.moreCommentsToShow = $scope.currentRestaurant.more_comments;
             $scope.aboutPhoto = $scope.currentRestaurant.coverImages;
-            $scope.coverImages =[];
-            for(var k=1; k< $scope.aboutPhoto.length; k++){
-                $scope.coverImages.push($scope.aboutPhoto[k]);
-            }
             /*$scope.haveData = true;*/
 
             //restaurants images part
