@@ -34,4 +34,12 @@ gulp.task('less', function () {
 
 });
 
-gulp.task('default', [ 'less' ]);
+gulp.task('css', function () {
+    gulp.src('lib/chosen-js/*.css')
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('lib/chosen-js'));
+});
+
+
+gulp.task('default', [ 'css' ]);

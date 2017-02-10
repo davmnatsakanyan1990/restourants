@@ -6,17 +6,12 @@
 <link rel="stylesheet" href="{{asset('styles/customChackbox.css')}}" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{{asset('lib/bootstrap/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('lib/icons/font-awesome-4.6.3/css/font-awesome.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('lib/star/star.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('lib/chosen-js/chosen.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('lib/angular-chosen-localytics/chosen-spinner.css')}}">
-
+<link rel="stylesheet" type="text/css" href="{{asset('lib/star/star.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('lib/chosen-js/chosen.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('lib/angular-chosen-localytics/chosen-spinner.min.css')}}">
 <link type="text/css" rel="stylesheet" href="{{asset('lib/lightGallery-master/dist/css/lightgallery.min.css')}}" />
-
 <link rel="stylesheet" href="{{asset('lib/OwlCarousel2-2.2.0/dist/assets/owl.carousel.min.css')}}" />
 <link rel="stylesheet" href="{{asset('lib/OwlCarousel2-2.2.0/dist/assets/owl.theme.default.css')}}" />
-
-
-
 <link rel="icon" type="image/png" href="{{asset('images/favicon.ico')}}" sizes="32x32">
 
 <meta property="og:url" content="http://restadviser.com">
@@ -25,14 +20,7 @@
 <meta property="og:image" content="http://restadviser.com/images/coverImages/cover18.png">
 <meta property="og:description" content="We are Restadviser team">
 <base href="/">
-<!-- Add fancyBox -->
-{{--<link rel="stylesheet" href="{{asset('lib/fancybox/source/jquery.fancybox.css')}}" type="text/css" media="screen" />--}}
 
-
-<!-- Optionally add helpers - button, thumbnail and/or media -->
-{{--<link rel="stylesheet" href="{{asset('lib/fancybox/source/helpers/jquery.fancybox-buttons.css')}}" type="text/css" media="screen" />
-
-<link rel="stylesheet" href="{{asset('lib/fancybox/source/helpers/jquery.fancybox-thumbs.css')}}" type="text/css" media="screen" />--}}
 <script>
     var BASE_URL = '{{ url('/') }}';
 </script>
